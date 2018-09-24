@@ -1,12 +1,15 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "Annual Reports"
+author: "Glen C. Falk"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+output: bookdown::gitbook: default
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
+linestretch: 1.15
 link-citations: yes
+links-as-notes: true
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
