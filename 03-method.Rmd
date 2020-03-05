@@ -1,3 +1,38 @@
 # Methods
 
 We describe our methods in this chapter.
+
+Here is the current OSFA Organization chart.
+
+
+```{r global, echo=FALSE, include=FALSE, message = FALSE}
+library(formattable)
+library(here)
+library(knitr)
+library(pander)
+```
+
+```{r rdsInput, echo=FALSE}
+# buyHold_results           <- readRDS(here::here("dashboard/rds", "buyHold_results.rds"))
+pdf2                 <- readRDS(here::here("/rds", "pdf2.rds"))
+pdf.tbl              <- readRDS(here::here("/rds", "pdf_tbl.rds"))
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+<h2><center><b>Undergraduate Cost of Attendance</b></center></h2>
+```{r}
+pdf2
+```
+
+```{r 2.o-UG-COA}
+knitr::kable(
+  pdf.tbl, booktabs = TRUE,
+  caption = 'Undergraduate Cost of Attendance Table'
+)
+```

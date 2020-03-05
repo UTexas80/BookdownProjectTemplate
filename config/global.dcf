@@ -1,16 +1,19 @@
-version: 0.8.2
+as_factors: FALSE
+attach_internal_libraries: FALSE
+cache_loading: FALSE
+cache_loaded_data: FALSE
 data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
-cache_loading: TRUE
-recursive_loading: FALSE
-munging: TRUE
-logging: FALSE
+load_libraries: TRUE
+libraries:  bookdown, checkpoint, data.table, data.table, dataMeta, datamodelr, devtools, DiagrammeR, dplyr, DT, 
+            flexdashboard, flextable, formatR, formattable, futile.logger, janitor,knitr, lubridate, 
+            orca, plotly, plyr, ProjectTemplate, readxl, reprex, reshape2, rmarkdown, rscorecard, 
+            stringr, tabulizer, tabulizerjars, tidyverse, treemap, tryCatchLog, xlsx, xtable, zoo
+logging: TRUE
 logging_level: INFO
-load_libraries: FALSE
-libraries: reshape2, plyr, tidyverse, stringr, lubridate
-as_factors: TRUE
-data_tables: FALSE
-attach_internal_libraries: FALSE
-cache_loaded_data:  TRUE
+munging: TRUE
+recursive_loading: TRUE
 sticky_variables: NONE
+version: 0.9.0
+tables_type: data_table

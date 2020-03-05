@@ -1,0 +1,10 @@
+# Undergraduate COA
+
+```{r 2.1-grad-res-table, out.width = "100%", fig.align='center', fig.cap = "Grad Resident COA", echo=FALSE}
+
+pdf2                 <- readRDS(here::here("/rds", "pdf2.rds"))
+pdf.tbl              <- readRDS(here::here("/rds", "pdf_tbl.rds"))
+
+pdf2
+```
+```
