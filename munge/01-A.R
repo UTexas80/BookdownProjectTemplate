@@ -10,14 +10,21 @@ pdf.dat <- extract_tables(pdf.file)                                             
 # ------------------------------------------------------------------------------
 pdf.tbl <- data.table(pdf.dat[[1]][-1, ])                                       # Coerce output matrix to data.table
 names(pdf.tbl)     <- pdf.dat[[1]][1, ]                                         # rename columns        
-names(pdf.tbl)[1]  <- "Description"                                             # rename columns    
+names(pdf.tbl)[1]  <- "Description"                                             # rename columns  
+# ------------------------------------------------------------------------------
+dtCOA  <- as.data.table(pdf.dat)  
+names(dtCOA)[1]<-"costs"
+names(dtCOA)[2:11]<-paste0('ay', dtCOA[1,-1])                                   # rename multiple columns by index
+dtCOA <- dtCOA[-1]
+dtCOA[is.na(dtCOA)] <- ""                                                       # replace NA's with spaces
 # ------------------------------------------------------------------------------
 pdf.tbl[, c(2:11)] <- lapply(pdf.tbl[, c(2:11)], 
     function(y) as.numeric(gsub('[^a-zA-Z0-9.]', '', y)))                       # https://tinyurl.com/ya4ok9tb
 pdf.tbl[is.na(pdf.tbl)] <- ""
 pdf.tbl<-dplyr::mutate_if(pdf.tbl, is.numeric, format_dol_fun)
-pdf.tbl1<-pdf.tbl[, c(2:11)] <-lapply(pdf.tbl[, c(2:11)], 
-    function(y) as.numeric(gsub('[^a-zA-Z0-9.]', '', y)))  
+pdf.tbl<-pdf.tbl[, c(2:11)] <-lapply(pdf.tbl[, c(2:11)], 
+    function(y) as.numeric(gsub('[^a-zA-Z0-9.]', '', y)))
+pdf.tbl[is.na(pdf.tbl)] <- ""                                                   # replace NA's with spaces
 # ------------------------------------------------------------------------------
 names(pdf.tbl)<- gsub("20","",names(pdf.tbl))                                   # rename columns
 # ------------------------------------------------------------------------------

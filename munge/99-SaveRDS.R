@@ -1,11 +1,16 @@
 ################################################################################
 ## Step 99.00 Save .rds files                                                ###
 ################################################################################
-# saveRDS(coa_ug_res, file        = "./rds/coa_ug_res.rds")
-# saveRDS(coa_ug_non, file        = "./rds/coa_ug_non.rds")
+saveRDS(currentAY,      file    = "./rds/currentAY.rds")
 # ------------------------------------------------------------------------------
-saveRDS(c_pie_grad_non, file    = here::here("rds/", "c_pie_grad_non"))
-saveRDS(c_pie_grad_res, file    = here::here("rds/", "c_pie_grad_res"))
+saveRDS(dtCOA,          file    = "./rds/dtCOA.rds")
+saveRDS(dtCOAprior,     file    = "./rds/dtCOAprior.rds")
+# ------------------------------------------------------------------------------
+saveRDS(grad_res,       file    = "./rds/grad_res.rds")
+saveRDS(grad_non_res,   file    = "./rds/grad_non.rds")
+# -----------------------------------------------------------------------.rds---
+saveRDS(c_pie_grad_non, file    = here::here("rds/", "c_pie_grad_non.rds"))
+saveRDS(c_pie_grad_res, file    = here::here("rds/", "c_pie_grad_res.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(pdf.tbl,        file    = here::here("rds/", "pdf_tbl.rds"))
 saveRDS(pdf2,           file    = here::here("rds/", "pdf2.rds"))

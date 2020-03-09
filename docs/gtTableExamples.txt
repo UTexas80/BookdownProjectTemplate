@@ -1,0 +1,79 @@
+Examples
+# Use `exibble` to create a gt table with
+# all the main parts added; we can use this
+# going forward to demo some `tab_options()`
+tab_1 <-
+  exibble %>%
+  dplyr::select(
+    -c(fctr, date, time, datetime)
+  ) %>%
+  gt(
+    rowname_col = "row",
+    groupname_col = "group"
+  ) %>%
+  tab_header(
+    title = md("Data listing from **exibble**"),
+    subtitle = md("`exibble` is an R dataset")
+  ) %>%
+  fmt_number(columns = vars(num)) %>%
+  fmt_currency(columns = vars(currency)) %>%
+  tab_footnote(
+    footnote = "Using commas for separators.",
+    locations = cells_data(
+      columns = vars(num),
+      rows = num > 1000)
+  ) %>%
+  tab_footnote(
+    footnote = "Using commas for separators.",
+    locations = cells_data(
+      columns = vars(currency),
+      rows = currency > 1000)
+  ) %>%
+  tab_footnote(
+    footnote = "Alphabetical fruit.",
+    locations = cells_column_labels(
+      columns = vars(char))
+  )
+
+# Modify the table width to 100% (which
+# spans the entire content width area)
+tab_2 <-
+  tab_1 %>%
+  tab_options(
+    table.width = pct(100)
+  )
+
+# Modify the table's background color
+# to be "lightcyan"
+tab_3 <-
+  tab_1 %>%
+  tab_options(
+    table.background.color = "lightcyan"
+  )
+
+# Use letters as the marks for footnote
+# references; also, separate footnotes in
+# the footer by spaces instead of newlines
+tab_4 <-
+  tab_1 %>%
+  tab_options(
+    footnote.sep = " ",
+    footnote.marks = letters
+  )
+
+# Change the padding of data rows to 5px
+tab_5 <-
+  tab_1 %>%
+  tab_options(
+    row.padding = px(5)
+  )
+
+# Reduce the size of the title and the
+# subtitle text
+tab_6 <-
+  tab_1 %>%
+  tab_options(
+    heading.title.font.size = "small",
+    heading.subtitle.font.size = "small"
+  )
+

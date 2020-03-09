@@ -111,6 +111,22 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{caption}
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
@@ -123,7 +139,7 @@
 \makeatother
 \subtitle{Annual Reports}
 \author{Glen C. Falk}
-\date{2020-03-05}
+\date{2020-03-09}
 
 \begin{document}
 \maketitle
@@ -148,27 +164,8 @@ Here is the current OSFA Organization chart.
 \caption{OSFA Org Chart}\label{fig:label}
 \end{figure}
 
-\hypertarget{prerequisites}{%
-\chapter{Prerequisites}\label{prerequisites}}
-
-This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
-
-The \textbf{bookdown} package can be installed from CRAN or Github:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# install.packages("bookdown")}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.name/tinytex/}.
-
 \hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
+\chapter{01. Student Financial Aid Summary}\label{intro}}
 
 You can label chapter and section titles using \texttt{\{\#label\}} after them, e.g., we can reference Chapter \ref{intro}. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \ref{methods}.
 
@@ -183,7 +180,7 @@ Figures and tables with captions will be placed in \texttt{figure} and \texttt{t
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{01-intro_files/figure-latex/nice-fig-1} 
+{\centering \includegraphics[width=0.8\linewidth]{01-Student-Financial-Aid-Summary_files/figure-latex/nice-fig-1} 
 
 }
 
@@ -238,52 +235,382 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 
 You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
 
-\hypertarget{undergraduate-coa}{%
-\chapter{Undergraduate COA}\label{undergraduate-coa}}
+\hypertarget{coa}{%
+\chapter{COA}\label{coa}}
 
-```
+\hypertarget{coa-tables}{%
+\section{COA Tables}\label{coa-tables}}
 
-\hypertarget{methods}{%
-\chapter{Methods}\label{methods}}
+\hypertarget{example-one---flextable}{%
+\subsection{Example one - flextable}\label{example-one---flextable}}
 
-We describe our methods in this chapter.
+\includegraphics[width=7.67in,height=2.07in,keepaspectratio]{02-COA_files/figure-latex/2.1.1-coa-flextable-1.png}
 
-Here is the current OSFA Organization chart.
+\hypertarget{example-two---gt}{%
+\subsection{Example two - gt}\label{example-two---gt}}
+
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lllllllllll}
+\caption*{
+\large COA\\ 
+\small Undergrad\\ 
+} \\ 
+\toprule
+costs & ay2009-10 & ay2010-11 & ay2011-12 & ay2012-13 & ay2013-14 & ay2014-15 & ay2015-16 & ay2016-17 & ay2017-18 & ay2018-19 \\ 
+\midrule
+Resident Costs*: &  &  &  &  &  &  &  &  &  &  \\ 
+Tuition \& Fees & \$7,530 & \$8,736 & \$9,472 & \$9,842 & \$10,262 & \$10,836 & \$11,622 & \$11,634 & \$11,818 & \$11,830 \\ 
+Books \& Supplies & 960 & 1,030 & 1,078 & 848 & 916 & 800 & 840 & 1,006 & 986 & 986 \\ 
+Room \& Board & 8,046 & 8,460 & 8,708 & 8,970 & 9,246 & 9,246 & 9,450 & 9,616 & 10,060 & 10,038 \\ 
+Misc. \& Travel & 1,464 & 1,510 & 1,562 & 1,590 & 1,640 & 1,798 & 3,222 & 3,952 & 3,540 & 3,834 \\ 
+Resident Total Costs & \$18,000 & \$19,736 & \$20,820 & \$21,250 & \$22,064 & \$22,680 & \$25,134 & \$26,208 & \$26,404 & \$26,688 \\ 
+Nonresident Costs*: &  &  &  &  &  &  &  &  &  &  \\ 
+Tuition \& Fees & \$25,740 & \$26,946 & \$27,682 & \$28,052 & \$28,472 & \$29,046 & \$29,832 & \$29,844 & \$30,392 & \$30,404 \\ 
+Books \& Supplies & 960 & 1,030 & 1,078 & 848 & 916 & 800 & 840 & 1,006 & 986 & 986 \\ 
+Room \& Board & 8,046 & 8,460 & 8,708 & 8,970 & 9,246 & 9,246 & 9,450 & 9,616 & 10,060 & 10,038 \\ 
+Misc. \& Travel & 1,464 & 1,510 & 1,562 & 1,590 & 1,640 & 1,798 & 3,746 & 4,662 & 4,250 & 4,334 \\ 
+Nonresident Total Costs & \$36,210 & \$37,946 & \$39,030 & \$39,460 & \$40,274 & \$40,890 & \$43,868 & \$45,128 & \$45,688 & \$45,762 \\ 
+\bottomrule
+\end{longtable}
+
+\hypertarget{example-three---kable}{%
+\subsection{Example three - kable}\label{example-three---kable}}
+
+\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l}
+\hline
+costs & ay2009-10 & ay2010-11 & ay2011-12 & ay2012-13 & ay2013-14 & ay2014-15 & ay2015-16 & ay2016-17 & ay2017-18 & ay2018-19\\
+\hline
+Resident Costs*: &  &  &  &  &  &  &  &  &  & \\
+\hline
+Tuition \& Fees & \$7,530 & \$8,736 & \$9,472 & \$9,842 & \$10,262 & \$10,836 & \$11,622 & \$11,634 & \$11,818 & \$11,830\\
+\hline
+Books \& Supplies & 960 & 1,030 & 1,078 & 848 & 916 & 800 & 840 & 1,006 & 986 & 986\\
+\hline
+Room \& Board & 8,046 & 8,460 & 8,708 & 8,970 & 9,246 & 9,246 & 9,450 & 9,616 & 10,060 & 10,038\\
+\hline
+Misc. \& Travel & 1,464 & 1,510 & 1,562 & 1,590 & 1,640 & 1,798 & 3,222 & 3,952 & 3,540 & 3,834\\
+\hline
+Resident Total Costs & \$18,000 & \$19,736 & \$20,820 & \$21,250 & \$22,064 & \$22,680 & \$25,134 & \$26,208 & \$26,404 & \$26,688\\
+\hline
+Nonresident Costs*: &  &  &  &  &  &  &  &  &  & \\
+\hline
+Tuition \& Fees & \$25,740 & \$26,946 & \$27,682 & \$28,052 & \$28,472 & \$29,046 & \$29,832 & \$29,844 & \$30,392 & \$30,404\\
+\hline
+Books \& Supplies & 960 & 1,030 & 1,078 & 848 & 916 & 800 & 840 & 1,006 & 986 & 986\\
+\hline
+Room \& Board & 8,046 & 8,460 & 8,708 & 8,970 & 9,246 & 9,246 & 9,450 & 9,616 & 10,060 & 10,038\\
+\hline
+Misc. \& Travel & 1,464 & 1,510 & 1,562 & 1,590 & 1,640 & 1,798 & 3,746 & 4,662 & 4,250 & 4,334\\
+\hline
+Nonresident Total Costs & \$36,210 & \$37,946 & \$39,030 & \$39,460 & \$40,274 & \$40,890 & \$43,868 & \$45,128 & \$45,688 & \$45,762\\
+\hline
+\end{tabular}
+
+\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l}
+\hline
+costs & ay2009-10 & ay2010-11 & ay2011-12 & ay2012-13 & ay2013-14 & ay2014-15 & ay2015-16 & ay2016-17 & ay2017-18 & ay2018-19\\
+\hline
+Resident Costs*: &  &  &  &  &  &  &  &  &  & \\
+\hline
+Tuition \& Fees & \$7,530 & \$8,736 & \$9,472 & \$9,842 & \$10,262 & \$10,836 & \$11,622 & \$11,634 & \$11,818 & \$11,830\\
+\hline
+Books \& Supplies & 960 & 1,030 & 1,078 & 848 & 916 & 800 & 840 & 1,006 & 986 & 986\\
+\hline
+Room \& Board & 8,046 & 8,460 & 8,708 & 8,970 & 9,246 & 9,246 & 9,450 & 9,616 & 10,060 & 10,038\\
+\hline
+Misc. \& Travel & 1,464 & 1,510 & 1,562 & 1,590 & 1,640 & 1,798 & 3,222 & 3,952 & 3,540 & 3,834\\
+\hline
+Resident Total Costs & \$18,000 & \$19,736 & \$20,820 & \$21,250 & \$22,064 & \$22,680 & \$25,134 & \$26,208 & \$26,404 & \$26,688\\
+\hline
+Nonresident Costs*: &  &  &  &  &  &  &  &  &  & \\
+\hline
+Tuition \& Fees & \$25,740 & \$26,946 & \$27,682 & \$28,052 & \$28,472 & \$29,046 & \$29,832 & \$29,844 & \$30,392 & \$30,404\\
+\hline
+Books \& Supplies & 960 & 1,030 & 1,078 & 848 & 916 & 800 & 840 & 1,006 & 986 & 986\\
+\hline
+Room \& Board & 8,046 & 8,460 & 8,708 & 8,970 & 9,246 & 9,246 & 9,450 & 9,616 & 10,060 & 10,038\\
+\hline
+Misc. \& Travel & 1,464 & 1,510 & 1,562 & 1,590 & 1,640 & 1,798 & 3,746 & 4,662 & 4,250 & 4,334\\
+\hline
+Nonresident Total Costs & \$36,210 & \$37,946 & \$39,030 & \$39,460 & \$40,274 & \$40,890 & \$43,868 & \$45,128 & \$45,688 & \$45,762\\
+\hline
+\end{tabular}
+
+\hypertarget{example-four---xtable}{%
+\subsection{Example four - xtable}\label{example-four---xtable}}
+
+\begin{verbatim}
+## % latex table generated in R 3.6.3 by xtable 1.8-4 package
+## % Mon Mar 09 15:56:26 2020
+## \begin{table}[ht]
+## \centering
+## \begin{tabular}{}
+##   \toprule
+##  & costs & ay2009-10 & ay2010-11 & ay2011-12 & ay2012-13 & ay2013-14 & ay2014-15 & ay2015-16 & ay2016-17 & ay2017-18 & ay2018-19 \\ 
+##   \midrule
+## 1 & Resident Costs*: &  &  &  &  &  &  &  &  &  &  \\ 
+##   2 & Tuition \& Fees & \$7,530 & \$8,736 & \$9,472 & \$9,842 & \$10,262 & \$10,836 & \$11,622 & \$11,634 & \$11,818 & \$11,830 \\ 
+##   3 & Books \& Supplies & 960 & 1,030 & 1,078 & 848 & 916 & 800 & 840 & 1,006 & 986 & 986 \\ 
+##   4 & Room \& Board & 8,046 & 8,460 & 8,708 & 8,970 & 9,246 & 9,246 & 9,450 & 9,616 & 10,060 & 10,038 \\ 
+##   5 & Misc. \& Travel & 1,464 & 1,510 & 1,562 & 1,590 & 1,640 & 1,798 & 3,222 & 3,952 & 3,540 & 3,834 \\ 
+##   6 & Resident Total Costs & \$18,000 & \$19,736 & \$20,820 & \$21,250 & \$22,064 & \$22,680 & \$25,134 & \$26,208 & \$26,404 & \$26,688 \\ 
+##   7 & Nonresident Costs*: &  &  &  &  &  &  &  &  &  &  \\ 
+##   8 & Tuition \& Fees & \$25,740 & \$26,946 & \$27,682 & \$28,052 & \$28,472 & \$29,046 & \$29,832 & \$29,844 & \$30,392 & \$30,404 \\ 
+##   9 & Books \& Supplies & 960 & 1,030 & 1,078 & 848 & 916 & 800 & 840 & 1,006 & 986 & 986 \\ 
+##   10 & Room \& Board & 8,046 & 8,460 & 8,708 & 8,970 & 9,246 & 9,246 & 9,450 & 9,616 & 10,060 & 10,038 \\ 
+##   11 & Misc. \& Travel & 1,464 & 1,510 & 1,562 & 1,590 & 1,640 & 1,798 & 3,746 & 4,662 & 4,250 & 4,334 \\ 
+##   12 & Nonresident Total Costs & \$36,210 & \$37,946 & \$39,030 & \$39,460 & \$40,274 & \$40,890 & \$43,868 & \$45,128 & \$45,688 & \$45,762 \\ 
+##    \bottomrule
+## \end{tabular}
+## \end{table}
+\end{verbatim}
+
+\hypertarget{coa-charts}{%
+\section{COA Charts}\label{coa-charts}}
+
+\includegraphics{02-COA_files/figure-latex/2.2.1-coa-non-1.pdf}
+
+\begin{figure}
+\centering
+\includegraphics{02-COA_files/figure-latex/2.2.2-coa-res-1.pdf}
+\caption{(\#fig:2.2.2-coa-res)coa-res}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{02-COA_files/figure-latex/2.2.3-coa-non-1.pdf}
+\caption{(\#fig:2.2.3-coa-non)coa-grad-non-pie}
+\end{figure}
+
+\includegraphics{02-COA_files/figure-latex/2.2.4-coa-non-1.pdf}
+\includegraphics{02-COA_files/figure-latex/2.2.5-coa-res-1.pdf}
+
+\hypertarget{financial-aid-awarded}{%
+\chapter{Financial Aid Awarded}\label{financial-aid-awarded}}
 
 \includegraphics[width=1\linewidth]{C:/Users/gfalk/Documents/BookdownPT/images/GEORGIA-XH-FC}
 
 Undergraduate Cost of Attendance
 
-\includegraphics{03-method_files/figure-latex/unnamed-chunk-1-1.pdf}
+\includegraphics{03-Financial-Aid-Awarded_files/figure-latex/unnamed-chunk-1-1.pdf}
 
 \begin{table}
-
 \caption{(\#tab:2.o-UG-COA)Undergraduate Cost of Attendance Table}
+
 \centering
-\begin{tabular}[t]{lrrrrrrrrrr}
+\begin{tabular}[t]{r}
 \toprule
-Description & 09-10 & 10-11 & 11-12 & 12-13 & 13-14 & 14-15 & 15-16 & 16-17 & 17-18 & 18-19\\
+x\\
 \midrule
-Resident Costs*: & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA\\
-Tuition \& Fees & 7530 & 8736 & 9472 & 9842 & 10262 & 10836 & 11622 & 11634 & 11818 & 11830\\
-Books \& Supplies & 960 & 1030 & 1078 & 848 & 916 & 800 & 840 & 1006 & 986 & 986\\
-Room \& Board & 8046 & 8460 & 8708 & 8970 & 9246 & 9246 & 9450 & 9616 & 10060 & 10038\\
-Misc. \& Travel & 1464 & 1510 & 1562 & 1590 & 1640 & 1798 & 3222 & 3952 & 3540 & 3834\\
+NA\\
+7530\\
+960\\
+8046\\
+1464\\
 \addlinespace
-Resident Total Costs & 18000 & 19736 & 20820 & 21250 & 22064 & 22680 & 25134 & 26208 & 26404 & 26688\\
-Nonresident Costs*: & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA\\
-Tuition \& Fees & 25740 & 26946 & 27682 & 28052 & 28472 & 29046 & 29832 & 29844 & 30392 & 30404\\
-Books \& Supplies & 960 & 1030 & 1078 & 848 & 916 & 800 & 840 & 1006 & 986 & 986\\
-Room \& Board & 8046 & 8460 & 8708 & 8970 & 9246 & 9246 & 9450 & 9616 & 10060 & 10038\\
+18000\\
+NA\\
+25740\\
+960\\
+8046\\
 \addlinespace
-Misc. \& Travel & 1464 & 1510 & 1562 & 1590 & 1640 & 1798 & 3746 & 4662 & 4250 & 4334\\
-Nonresident Total Costs & 36210 & 37946 & 39030 & 39460 & 40274 & 40890 & 43868 & 45128 & 45688 & 45762\\
+1464\\
+36210\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\toprule
+x\\
+\midrule
+NA\\
+8736\\
+1030\\
+8460\\
+1510\\
+\addlinespace
+19736\\
+NA\\
+26946\\
+1030\\
+8460\\
+\addlinespace
+1510\\
+37946\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\toprule
+x\\
+\midrule
+NA\\
+9472\\
+1078\\
+8708\\
+1562\\
+\addlinespace
+20820\\
+NA\\
+27682\\
+1078\\
+8708\\
+\addlinespace
+1562\\
+39030\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\toprule
+x\\
+\midrule
+NA\\
+9842\\
+848\\
+8970\\
+1590\\
+\addlinespace
+21250\\
+NA\\
+28052\\
+848\\
+8970\\
+\addlinespace
+1590\\
+39460\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\toprule
+x\\
+\midrule
+NA\\
+10262\\
+916\\
+9246\\
+1640\\
+\addlinespace
+22064\\
+NA\\
+28472\\
+916\\
+9246\\
+\addlinespace
+1640\\
+40274\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\toprule
+x\\
+\midrule
+NA\\
+10836\\
+800\\
+9246\\
+1798\\
+\addlinespace
+22680\\
+NA\\
+29046\\
+800\\
+9246\\
+\addlinespace
+1798\\
+40890\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\toprule
+x\\
+\midrule
+NA\\
+11622\\
+840\\
+9450\\
+3222\\
+\addlinespace
+25134\\
+NA\\
+29832\\
+840\\
+9450\\
+\addlinespace
+3746\\
+43868\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\toprule
+x\\
+\midrule
+NA\\
+11634\\
+1006\\
+9616\\
+3952\\
+\addlinespace
+26208\\
+NA\\
+29844\\
+1006\\
+9616\\
+\addlinespace
+4662\\
+45128\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\toprule
+x\\
+\midrule
+NA\\
+11818\\
+986\\
+10060\\
+3540\\
+\addlinespace
+26404\\
+NA\\
+30392\\
+986\\
+10060\\
+\addlinespace
+4250\\
+45688\\
+\bottomrule
+\end{tabular}
+\centering
+\begin{tabular}[t]{r}
+\toprule
+x\\
+\midrule
+NA\\
+11830\\
+986\\
+10038\\
+3834\\
+\addlinespace
+26688\\
+NA\\
+30404\\
+986\\
+10038\\
+\addlinespace
+4334\\
+45762\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\hypertarget{applications}{%
-\chapter{Applications}\label{applications}}
+\hypertarget{types-and-sources-of-aid.xls}{%
+\chapter{Types and Sources of Aid.xls}\label{types-and-sources-of-aid.xls}}
 
 Some \emph{significant} applications are demonstrated in this chapter.
 
@@ -293,8 +620,8 @@ Some \emph{significant} applications are demonstrated in this chapter.
 \hypertarget{example-two}{%
 \section{Example two}\label{example-two}}
 
-\hypertarget{financial-aid-summary}{%
-\chapter{Financial Aid Summary}\label{financial-aid-summary}}
+\hypertarget{academic-year-student-financial-aid-awards-by-type}{%
+\chapter{Academic Year Student Financial Aid Awards by Type}\label{academic-year-student-financial-aid-awards-by-type}}
 
 We have finished a nice book.
 

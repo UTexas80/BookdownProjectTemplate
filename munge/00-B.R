@@ -1,6 +1,11 @@
 ################################################################################
 ## Step 00.01 process munge & wrangle                                        ###
 ################################################################################
+# ------------------------------------------------------------------------------
+coa.res$ay_yr1 <- as.Date(as.character(coa.res$ay_yr1), format = "%Y")
+coa.res$ay_yr2 <- as.Date(as.character(coa.res$ay_yr2), format = "%Y")
+# coa.res$ay_yr2 <- year(coa.res$ay_yr2)
+# ------------------------------------------------------------------------------
 m_grad_res              <- t(coa.current[level =='grad'& 
                         residency == 'instate' & 
                         campus == 'on' & 

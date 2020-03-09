@@ -1,0 +1,4 @@
+embed_data_html         Embed R data in HTML file
+embed_rmd_html          Embed Rmarkdown source code in the output HTML
+                        file.
+rmdTemplates            A collection of Rmarkdown templates

@@ -1,0 +1,47 @@
+rmdTemplates 0.4.1
+==================
+
+* Modified substantially ms_pdf_Hollister template (now called simply ms_pdf) to include equations, landscape figures, etc.
+
+
+rmdTemplates 0.4
+==================
+
+* Added new template (ms_Ecosistemas) to write manuscripts for Revista Ecosistemas. 
+
+
+rmdTemplates 0.3
+==================
+
+* Added new template (ms_review) for writing reviews of scientific articles as a referee. Largely inspired on https://github.com/jtleek/reviews. 
+
+
+rmdTemplates 0.2
+==================
+
+* Added two new functions to embed data (embed_data_html) or the Rmarkdown source code (embed_rmd_html) in an HTML file.
+
+
+
+rmdTemplates 0.1-4
+==================
+
+* Added new data_Rmd_within_HTML template that embeds data and/or the Rmd source within the HTML report.
+
+
+rmdTemplates 0.1-3
+==================
+
+* Added new ms_Hollister template by Jeff Hollister to produce pdf with manuscript format. 
+* Changed names of other templates.
+
+
+rmdTemplates 0.1-1
+==================
+
+* Added new Rmd_template_manuscript to produce pdf with manuscript format. Partly based on Carl Boettiger's template
+
+rmdTemplates 0.1
+================
+
+* Created package with generic Rmarkdown template including default knitr options and citations support (through `knitcitations` package).
