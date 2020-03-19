@@ -1,30 +1,68 @@
 # Financial Aid Awarded
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
 library(formattable)
 library(here)
+library(kableExtra)
 library(knitr)
 library(pander)
-```
-
-```{r rdsInput, echo=FALSE}
-pdf2                 <- readRDS(here::here("/rds", "pdf2.rds"))
-pdf.tbl              <- readRDS(here::here("/rds", "pdf_tbl.rds"))
 ```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 3.0-rdsInput, echo=FALSE}
+fin.aid.long         <- readRDS(here::here("/rds", "fin_aid_long.rds"))
+fin.aid.wide         <- readRDS(here::here("/rds", "fin_aid_wide.rds"))
+pdf2                 <- readRDS(here::here("/rds", "pdf2.rds"))
+pdf.tbl              <- readRDS(here::here("/rds", "pdf_tbl.rds"))
+```
+
+
 ```{r uga_logo, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ```
-<h2><center><b>Undergraduate Cost of Attendance</b></center></h2>
+<h2><center><b>Financial Aid Awarded</b></center></h2>
+
+```{r 3.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
+ ft <- flextable(fin.aid.wide)
+       colkeys = c(
+             "ay2009-10",
+             "ay2010-11",
+             "ay2011-12",
+             "ay2012-13",
+             "ay2013-14",
+             "ay2014-15",
+             "ay2015-16",
+             "ay2016-17",
+             "ay2017-18",
+             "ay2018-19"
+             )
+# ft <- colformat_num(
+#   x = ft,
+#   col_keys = colkeys,
+#   big.mark = ",",
+#   digits = 2,
+#   na_str = "N/A")
+# ft <- autofit(ft)
+ft <- fit_to_width(ft, max_width = 8)
+ft
+```
+
 ```{r}
 pdf2
 ```
 
-```{r 2.o-UG-COA}
+```{r 3.o-UG-COA}
 knitr::kable(
   pdf.tbl, booktabs = TRUE,
   caption = 'Undergraduate Cost of Attendance Table'
