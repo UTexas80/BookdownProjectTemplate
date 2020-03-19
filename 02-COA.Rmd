@@ -116,24 +116,24 @@ ft
 
 ```{r 2.1.2-coa-gt, fig.cap='gt', fig.align='left', out.width = '70%'}
 # names(dtCOA)[2:11]<-letters[1:10]
-gt_tab_1 <-
-  dtCOA %>%
-    gt() %>%
-    tab_header(
-      title = "COA",
-      subtitle = glue::glue("Undergrad")
-    )
-  gt_tab_2 <-
-    gt_tab_1 %>%
-    tab_options(
-      heading.title.font.size = "small",
-      heading.subtitle.font.size = "small",
-      table.width = pct(20),
-      table.background.color = "lightcyan",
-      row.padding = px(2)
-  )
-
-  gt_tab_2
+# gt_tab_1 <-
+#   dtCOA %>%
+#     gt() %>%
+#     tab_header(
+#       title = "COA",
+#       subtitle = glue::glue("Undergrad")
+#     )
+#   gt_tab_2 <-
+#     gt_tab_1 %>%
+#     tab_options(
+#       heading.title.font.size = "small",
+#       heading.subtitle.font.size = "small",
+#       table.width = pct(20),
+#       table.background.color = "lightcyan",
+#       row.padding = px(2)
+#   )
+# 
+#   gt_tab_2
 # ) %>%
 #  fmt_currency(
 #    columns = vars("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
@@ -152,17 +152,17 @@ gt_tab_1 <-
 ```
 ### Example three - kable
 ```{r 2.1.3.a-coa-kable, fig.cap='kable'}
-kable(dtCOA)
+# kable(dtCOA)
 ```
 
 ```{r 2.1.3.b-coa-kable, fig.cap='kableExtra'}
-kableExtra::kable(dtCOA)
+# kableExtra::kable(dtCOA)
 ```
 
 ### Example four - xtable
 
 ```{r 2.7-coa-xtable, fig.cap='xtable'}
-print.xtable(dtCOA, booktabs = TRUE)
+# print.xtable(dtCOA, booktabs = TRUE)
 ```
 
 ## COA Charts

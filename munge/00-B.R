@@ -3,6 +3,7 @@
 ################################################################################
 # ------------------------------------------------------------------------------
 ay$desc        <- sapply(ay[, 1], function(x) paste0("20", left(x,2), "-", right(x,2)))
+currentAY_row  <- as.integer(ay[, which(ay==currentAY)])
 coa.res$ay_yr1 <- as.Date(as.character(coa.res$ay_yr1), format = "%Y")
 coa.res$ay_yr2 <- as.Date(as.character(coa.res$ay_yr2), format = "%Y")
 # coa.res$ay_yr2 <- year(coa.res$ay_yr2)

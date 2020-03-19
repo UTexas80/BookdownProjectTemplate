@@ -7,8 +7,10 @@ library(DT)
 library(flextable)
 library(formattable)
 library(here)
+library(janitor)
 library(kableExtra)
 library(knitr)
+library(officer)
 library(pander)
 ```
 
@@ -21,32 +23,108 @@ options(tinytex.verbose = TRUE)
 ```
 
 ```{r 3.0-rdsInput, echo=FALSE}
+ay                   <- readRDS(here::here("/rds", "ay.rds"))
+currentAY            <- readRDS(here::here("/rds", "currentAY.rds"))
+currentAY_row        <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
 fin.aid.long         <- readRDS(here::here("/rds", "fin_aid_long.rds"))
 fin.aid.wide         <- readRDS(here::here("/rds", "fin_aid_wide.rds"))
 pdf2                 <- readRDS(here::here("/rds", "pdf2.rds"))
 pdf.tbl              <- readRDS(here::here("/rds", "pdf_tbl.rds"))
 ```
 
-
 ```{r uga_logo, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ```
+
 <h2><center><b>Financial Aid Awarded</b></center></h2>
 
+```{r 3.1.0-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
+startAY <- ay[currentAY_row - 5, 2]
+setDT(fin.aid.wide)
+
+# data_co2 <- dcast(CO2, Treatment + conc ~ Type,
+#   value.var = "uptake", fun.aggregate = mean
+# )
+fin.aid.wide <- cbind(fin.aid.wide[, c(1:2)], fin.aid.wide[, c(ncol(fin.aid.wide) - 4):ncol(fin.aid.wide)])
+fin.aid.wide <- as_grouped_data(fin.aid.wide, groups = c("level"))
+
+ft <- flextable(fin.aid.wide,
+  col_keys = c(
+    "level",
+    "description",
+    # "x2010_11"
+    #   "X2011_12",
+    #   "X2012_13",
+    #   "X2013_14",
+    "x2014_15",
+    "x2015_16",
+    "x2016_17",
+    "x2017_18",
+    "x2018_19"
+  )
+)
+ft <- set_header_labels(ft,
+  description = "desc",
+  # x2010_11 = "2010_11",
+  # X2011_12 = "2011_12",
+  # X2012_13 = "2012_13",
+  # X2013_14 = "2013_14",
+  X2014_15 = "2014_15",
+  X2015_16 = "2015_16",
+  X2016_17 = "2016_17",
+  X2017_18 = "2017_18",
+  X2018_19 = "2018_19"
+)
+zz <- as_flextable(fin.aid.wide) %>%
+  bold(j = 1, i = ~ !is.na(level), bold = TRUE, part = "body") %>%
+  bold(part = "header", bold = TRUE) %>%
+
+  set_header_labels(
+    description = "desc",
+    # x2010_11 = "2010_11",
+    # X2011_12 = "2011_12",
+    # X2012_13 = "2012_13",
+    # X2013_14 = "2013_14",
+    x2014_15 = "2014_15",
+    x2015_16 = "2015_16",
+    x2016_17 = "2016_17",
+    x2017_18 = "2017_18",
+    x2018_19 = "2018_19"
+  ) %>%
+  # add_footer_lines(values = c(
+  #   "Source: Office of Student Financial Aid. Financial aid data sourced from UGA Factbook OSFA 
+  #   reported information. Enrollment data reflect total student enrollment as reported in UGA
+  #   Factbook.",
+  #   "* Enrollment count reflects fall semester enrollment, but aid recipient counts reflect aid
+  #   recipients regardless of semester of enrollment.",
+  #   " ** Beginning 2014-15, Graduate/Professional aid includes all tuition waivers accompanying
+  #   graduate assistantships.")) %>%
+  theme_vader(fontsize = 8) %>%
+  
+  #autofit()
+  fit_to_width(ft, max_width = 8)
+# autofit() %>%
+# width(width = c(1, 1, 1))
+zz
+```
+
 ```{r 3.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
- ft <- flextable(fin.aid.wide)
-       colkeys = c(
-             "ay2009-10",
-             "ay2010-11",
-             "ay2011-12",
-             "ay2012-13",
-             "ay2013-14",
-             "ay2014-15",
-             "ay2015-16",
-             "ay2016-17",
-             "ay2017-18",
-             "ay2018-19"
-             )
+# setDT(fin.aid.wide)
+# ft <- flextable(fin.aid.wide,
+#  col_keys = c(
+#   "level",
+#   "description",
+#   # "x2010_11"
+#   #   "X2011_12",
+#   #   "X2012_13",
+#   #   "X2013_14",
+#     "x2014_15",
+#     "x2015_16",
+#     "x2016_17",
+#     "x2017_18",
+#     "x2018_19"
+#  )
+#  )
 # ft <- colformat_num(
 #   x = ft,
 #   col_keys = colkeys,
@@ -54,17 +132,40 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 #   digits = 2,
 #   na_str = "N/A")
 # ft <- autofit(ft)
-ft <- fit_to_width(ft, max_width = 8)
-ft
+# ft <- add_header_lines(ft,
+#   values = c(
+#     "Financial Aid Awarded to Students:  Five-Year Comparison",
+#     "University of Georgia"
+#   )
+# )
+# ft <- set_header_labels(ft,
+#   description = "desc",
+#   # x2010_11 = "2010_11",
+#   # X2011_12 = "2011_12",
+#   # X2012_13 = "2012_13",
+#   # X2013_14 = "2013_14",
+#   X2014_15 = "2014_15",
+#   X2015_16 = "2015_16",
+#   X2016_17 = "2016_17",
+#   X2017_18 = "2017_18",
+#   X2018_19 = "2018_19"
+# )
+# ft <- theme_vader(ft)
+# ft <- fit_to_width(ft, max_width = 8)
+
+
+# dim_pretty(ft)
+# merge_v(ft, j = ~ level )
+# ft
 ```
 
 ```{r}
-pdf2
+# pdf2
 ```
 
 ```{r 3.o-UG-COA}
-knitr::kable(
-  pdf.tbl, booktabs = TRUE,
-  caption = 'Undergraduate Cost of Attendance Table'
-)
+# knitr::kable(
+#   pdf.tbl, booktabs = TRUE,
+#   caption = 'Undergraduate Cost of Attendance Table'
+# )
 ```

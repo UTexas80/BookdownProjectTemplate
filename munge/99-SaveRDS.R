@@ -1,7 +1,9 @@
 ################################################################################
 ## Step 99.00 Save .rds files                                                ###
 ################################################################################
+saveRDS(ay,             file    = "./rds/ay.rds")
 saveRDS(currentAY,      file    = "./rds/currentAY.rds")
+saveRDS(currentAY_row,  file    = "./rds/currentAY_row.rds")
 # ------------------------------------------------------------------------------
 saveRDS(dtCOA,          file    = "./rds/dtCOA.rds")
 saveRDS(dtCOAprior,     file    = "./rds/dtCOAprior.rds")
