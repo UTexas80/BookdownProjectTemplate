@@ -6,10 +6,11 @@ data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
-libraries:  bookdown, checkpoint, data.table, data.table, dataMeta, datamodelr, devtools, DiagrammeR, dplyr, DT, 
-            flexdashboard, flextable, formatR, formattable, futile.logger, ggplot2, glue, gt, htmltools, janitor,knitr, 
-            lubridate, orca, plotly, plyr, ProjectTemplate, qdap, readxl, reprex, reshape2, rmarkdown, rscorecard, 
-            stargazer, stringr, tabulizer, tabulizerjars, tidyverse, tinytex, treemap, tryCatchLog, xlsx, xtable, zoo
+libraries:  bookdown, checkpoint, data.table, data.table, dataMeta, datamodelr, devtools, DBI, DiagrammeR, dplyr, DT,
+            flexdashboard, flextable, formatR, formattable, futile.logger, ggplot2, glue, gt, htmltools, janitor,knitr,
+            lubridate, orca, plotly, plyr, ProjectTemplate, qdap, readxl, reprex, reshape2, RMariaDB, rmarkdown, RMySQL,
+            RODBC, rscorecard, stargazer, stringr, tabulizer, tabulizerjars, tidyverse, tinytex, treemap, tryCatchLog, xlsx, xtable,
+            zoo
 logging: TRUE
 logging_level: INFO
 munging: TRUE

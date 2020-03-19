@@ -9,7 +9,7 @@ Supported File Extensions
 .csv2.bz2: CSV files that use a semicolon separator and are compressed using bzip2.
 .csv2.zip: CSV files that use a semicolon separator and are compressed using zip.
 .csv2.gz: CSV files that use a semicolon separator and are compressed using gzip.
-.tsv: CSV files that use a tab separator.
+.tsv: CSV files that udfse a tab separator.
 .tsv.bz2: CSV files that use a tab separator and are compressed using bzip2.
 .tsv.zip: CSV files that use a tab separator and are compressed using zip.
 .tsv.gz: CSV files that use a tab separator and are compressed using gzip.

@@ -1,0 +1,69 @@
+03. Financial Aid Awarded to Students - Five-Year Comparison input
+  http://oir.uga.edu/uploads/CDS_2015-2016.pdf
+  http://oir.uga.edu/uploads/CDS_2015-2016.pdf
+  ../../../../../Compliance/Factbook/1516/Fact%20Book%202016.pdf
+  ../../../../../Compliance/Factbook/1516/Fact%20Book%202016.pdf
+  ..\..\..\..\..\Compliance\Factbook\1516\Fact%20Book%202016.pdf
+  ../../../../../Compliance/Factbook/1516/Fact%20Book%202016.pdf
+  ../../../../../Compliance/Factbook/1516/Fact%20Book%202016.pdf
+
+created new dataframes:
+  enrollment
+  fin_aid
+  database key table
+
+
+Add academic year description, i.e., '(yyyy)-(yy-1)'
+Created function to replicate Excel Left, mid and right formulas
+  left = function(text, num_char) {
+    substr(text, 1, num_char)
+  }
+  mid = function(text, start_num, num_char) {
+    substr(text, start_num, start_num + num_char - 1)
+  }
+
+  right = function(text, num_char) {
+    substr(text, nchar(text) - (num_char-1), nchar(text))
+  }
+
+ay$desc <- sapply(ay[, 1], function(x) paste0("20", left(x,2), "-", right(x,2)))
+
+
+
+update datamodelr
+  add 99-dataModel.r
+    ################################################################################
+    ## Step 99.00 create object table                                            ###
+    ################################################################################
+    dtObj           <- setDT(lsos(), keep.rownames = T)[]
+    names(dtObj)[1] <- "Name" ### rename data.table column
+    # ------------------------------------------------------------------------------
+    dtTables        <- data.table::tables()
+    # ------------------------------------------------------------------------------
+    lsObj           <- list(dtObj[Type == "data.table" & Length_Rows == 0][, 1])
+    lTables         <- lsos()
+    ################################################################################
+    ## Step 99.01 compile list of dataframes                                     ###
+    ################################################################################
+    lf              <- lapply(dtTables[,1], function(x) x)
+    z               <- left(paste0(unlist(lf), sep =",", collapse = ' ')
+    z               <- left(z, nchar(z)-1)
+    # ------------------------------------------------------------------------------
+    df              <- sapply(dtTables[,1], function(x) x)
+    # ------------------------------------------------------------------------------
+    dm_f            <- dm_from_data_frames(ay, 
+                                           enroll.by.class.l, 
+                                           enroll.by.class.w, 
+                                           tbl.class, tbl.level)
+    graph           <- dm_create_graph(dm_f, 
+                                       rankdir = "BT", 
+                                       col_attr = c("column", "type"))
+    dm_render_graph(graph)
+    ################################################################################
+    ## Step 00.99: VERSION HISTORY                                               ###
+    ################################################################################
+    a99.version     <- "1.0.0"
+    a98.ModDate     <- as.Date("2019-01-01")
+    # ------------------------------------------------------------------------------
+    # 2019.06.09 - v.1.0.0
+    # 1st release

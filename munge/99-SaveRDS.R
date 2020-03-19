@@ -6,6 +6,9 @@ saveRDS(currentAY,      file    = "./rds/currentAY.rds")
 saveRDS(dtCOA,          file    = "./rds/dtCOA.rds")
 saveRDS(dtCOAprior,     file    = "./rds/dtCOAprior.rds")
 # ------------------------------------------------------------------------------
+saveRDS(fin.aid.long,   file    = "./rds/fin_aid_long.rds")
+saveRDS(fin.aid.wide,   file    = "./rds/fin_aid_wide.rds")
+# ------------------------------------------------------------------------------
 saveRDS(grad_res,       file    = "./rds/grad_res.rds")
 saveRDS(grad_non_res,   file    = "./rds/grad_non.rds")
 # -----------------------------------------------------------------------.rds---

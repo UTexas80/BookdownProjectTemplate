@@ -2,10 +2,24 @@ helper.function <- function()
 {
   return(1)
 }
+################################################################################
+# Replicate left, mid, right formulas               https://tinyurl.com/yyq62obr
+################################################################################
+left = function(text, num_char) {
+  substr(text, 1, num_char)
+}
 
+mid = function(text, start_num, num_char) {
+  substr(text, start_num, start_num + num_char - 1)
+}
+
+right = function(text, num_char) {
+  substr(text, nchar(text) - (num_char-1), nchar(text))
+}
+# ------------------------------------------------------------------------------
 format_dol_fun <- function(x){
-  ifelse(x < 0, 
-         paste0('(', scales::dollar(-x), ')'), 
+  ifelse(x < 0,
+         paste0('(', scales::dollar(-x), ')'),
          scales::dollar(x))
 }
 ################################################################################
@@ -57,7 +71,7 @@ dupsBetweenGroups <- function (df, idcol) {
     # Find duplicates within each id group (first copy not marked)
     dupWithin <- duplicated(df)
 
-    # With duplicates within each group filtered out, find duplicates between groups. 
+    # With duplicates within each group filtered out, find duplicates between groups.
     # Need to scan up and down with duplicated() because first copy is not marked.
     dupBetween = rep(NA, nrow(df))
     dupBetween[!dupWithin] <- duplicated(df[!dupWithin,datacols])

@@ -60,12 +60,12 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#vtdychpqld .gt_table {
+#vbtxarutsr .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
-  color: #333333;
+  color: #000000;
   font-size: 16px;
   background-color: lightcyan;
   /* table.background.color */
@@ -85,53 +85,53 @@
   /* table.border.bottom.color */
 }
 
-#vtdychpqld .gt_heading {
+#vbtxarutsr .gt_heading {
   background-color: lightcyan;
   /* heading.background.color */
   border-bottom-color: lightcyan;
 }
 
-#vtdychpqld .gt_title {
-  color: #333333;
+#vbtxarutsr .gt_title {
+  color: #000000;
   font-size: small;
   /* heading.title.font.size */
   padding-top: 4px;
-  /* heading.top.padding - not yet used */
+  /* heading.top.padding */
   padding-bottom: 4px;
   border-bottom-color: lightcyan;
   border-bottom-width: 0;
 }
 
-#vtdychpqld .gt_subtitle {
-  color: #333333;
+#vbtxarutsr .gt_subtitle {
+  color: #000000;
   font-size: small;
   /* heading.subtitle.font.size */
-  padding-top: 0;
-  padding-bottom: 4px;
-  /* heading.bottom.padding - not yet used */
+  padding-top: 2px;
+  padding-bottom: 2px;
+  /* heading.bottom.padding */
   border-top-color: lightcyan;
   border-top-width: 0;
 }
 
-#vtdychpqld .gt_bottom_border {
+#vbtxarutsr .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
   /* heading.border.bottom.width */
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #A8A8A8;
   /* heading.border.bottom.color */
 }
 
-#vtdychpqld .gt_column_spanner {
+#vbtxarutsr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #A8A8A8;
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vtdychpqld .gt_col_heading {
-  color: #333333;
+#vbtxarutsr .gt_col_heading {
+  color: #000000;
   background-color: lightcyan;
   /* column_labels.background.color */
   font-size: 16px;
@@ -139,31 +139,29 @@
   font-weight: initial;
   /* column_labels.font.weight */
   vertical-align: middle;
-  padding: 5px;
+  padding: 10px;
   margin: 10px;
-  overflow-x: hidden;
 }
 
-#vtdychpqld .gt_columns_top_border {
+#vbtxarutsr .gt_columns_top_border {
   border-top-style: solid;
   border-top-width: 2px;
-  border-top-color: #D3D3D3;
+  border-top-color: #A8A8A8;
 }
 
-#vtdychpqld .gt_columns_bottom_border {
+#vbtxarutsr .gt_columns_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #A8A8A8;
 }
 
-#vtdychpqld .gt_sep_right {
+#vbtxarutsr .gt_sep_right {
   border-right: 5px solid lightcyan;
 }
 
-#vtdychpqld .gt_group_heading {
+#vbtxarutsr .gt_group_heading {
   padding: 8px;
-  /* row_group.padding */
-  color: #333333;
+  color: #000000;
   background-color: lightcyan;
   /* row_group.background.color */
   font-size: 16px;
@@ -174,20 +172,20 @@
   /* row_group.border.top.style */
   border-top-width: 2px;
   /* row_group.border.top.width */
-  border-top-color: #D3D3D3;
+  border-top-color: #A8A8A8;
   /* row_group.border.top.color */
   border-bottom-style: solid;
   /* row_group.border.bottom.style */
   border-bottom-width: 2px;
   /* row_group.border.bottom.width */
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #A8A8A8;
   /* row_group.border.bottom.color */
   vertical-align: middle;
 }
 
-#vtdychpqld .gt_empty_group_heading {
+#vbtxarutsr .gt_empty_group_heading {
   padding: 0.5px;
-  color: #333333;
+  color: #000000;
   background-color: lightcyan;
   /* row_group.background.color */
   font-size: 16px;
@@ -198,49 +196,45 @@
   /* row_group.border.top.style */
   border-top-width: 2px;
   /* row_group.border.top.width */
-  border-top-color: #D3D3D3;
+  border-top-color: #A8A8A8;
   /* row_group.border.top.color */
   border-bottom-style: solid;
   /* row_group.border.bottom.style */
   border-bottom-width: 2px;
   /* row_group.border.bottom.width */
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #A8A8A8;
   /* row_group.border.bottom.color */
   vertical-align: middle;
 }
 
-#vtdychpqld .gt_striped {
-  background-color: #8080800D;
+#vbtxarutsr .gt_striped {
+  background-color: #c7ffff;
 }
 
-#vtdychpqld .gt_from_md > :first-child {
+#vbtxarutsr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vtdychpqld .gt_from_md > :last-child {
+#vbtxarutsr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vtdychpqld .gt_row {
+#vbtxarutsr .gt_row {
   padding: 2px;
   /* row.padding */
   margin: 10px;
-  border-bottom-style: solid;
-  border-bottom-width: thin;
-  border-bottom-color: #D3D3D3;
   vertical-align: middle;
-  overflow-x: hidden;
 }
 
-#vtdychpqld .gt_stub {
+#vbtxarutsr .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
-  border-right-color: #D3D3D3;
+  border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#vtdychpqld .gt_summary_row {
-  color: #333333;
+#vbtxarutsr .gt_summary_row {
+  color: #000000;
   background-color: lightcyan;
   /* summary_row.background.color */
   padding: 8px;
@@ -249,8 +243,8 @@
   /* summary_row.text_transform */
 }
 
-#vtdychpqld .gt_grand_summary_row {
-  color: #333333;
+#vbtxarutsr .gt_grand_summary_row {
+  color: #000000;
   background-color: lightcyan;
   /* grand_summary_row.background.color */
   padding: 8px;
@@ -259,43 +253,43 @@
   /* grand_summary_row.text_transform */
 }
 
-#vtdychpqld .gt_first_summary_row {
+#vbtxarutsr .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
-  border-top-color: #D3D3D3;
+  border-top-color: #A8A8A8;
 }
 
-#vtdychpqld .gt_first_grand_summary_row {
+#vbtxarutsr .gt_first_grand_summary_row {
   border-top-style: double;
   border-top-width: 6px;
-  border-top-color: #D3D3D3;
+  border-top-color: #A8A8A8;
 }
 
-#vtdychpqld .gt_table_body {
+#vbtxarutsr .gt_table_body {
   border-top-style: solid;
   /* table_body.border.top.style */
   border-top-width: 2px;
   /* table_body.border.top.width */
-  border-top-color: #D3D3D3;
+  border-top-color: #A8A8A8;
   /* table_body.border.top.color */
   border-bottom-style: solid;
   /* table_body.border.bottom.style */
   border-bottom-width: 2px;
   /* table_body.border.bottom.width */
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #A8A8A8;
   /* table_body.border.bottom.color */
 }
 
-#vtdychpqld .gt_footnotes {
+#vbtxarutsr .gt_footnotes {
   border-top-style: solid;
   /* footnotes.border.top.style */
   border-top-width: 2px;
   /* footnotes.border.top.width */
-  border-top-color: #D3D3D3;
+  border-top-color: #A8A8A8;
   /* footnotes.border.top.color */
 }
 
-#vtdychpqld .gt_footnote {
+#vbtxarutsr .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   margin: 0px;
@@ -303,57 +297,57 @@
   /* footnote.padding */
 }
 
-#vtdychpqld .gt_sourcenotes {
+#vbtxarutsr .gt_sourcenotes {
   border-top-style: solid;
   /* sourcenotes.border.top.style */
   border-top-width: 2px;
   /* sourcenotes.border.top.width */
-  border-top-color: #D3D3D3;
+  border-top-color: #A8A8A8;
   /* sourcenotes.border.top.color */
 }
 
-#vtdychpqld .gt_sourcenote {
+#vbtxarutsr .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#vtdychpqld .gt_center {
+#vbtxarutsr .gt_center {
   text-align: center;
 }
 
-#vtdychpqld .gt_left {
+#vbtxarutsr .gt_left {
   text-align: left;
 }
 
-#vtdychpqld .gt_right {
+#vbtxarutsr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vtdychpqld .gt_font_normal {
+#vbtxarutsr .gt_font_normal {
   font-weight: normal;
 }
 
-#vtdychpqld .gt_font_bold {
+#vbtxarutsr .gt_font_bold {
   font-weight: bold;
 }
 
-#vtdychpqld .gt_font_italic {
+#vbtxarutsr .gt_font_italic {
   font-style: italic;
 }
 
-#vtdychpqld .gt_super {
+#vbtxarutsr .gt_super {
   font-size: 65%;
 }
 
-#vtdychpqld .gt_footnote_marks {
+#vbtxarutsr .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="vtdychpqld" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="vbtxarutsr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   <thead>
     <tr>
       <th colspan="11" class="gt_heading gt_title gt_font_normal gt_center" style>COA</th>
@@ -894,7 +888,7 @@
 
 ```
 ## % latex table generated in R 3.6.3 by xtable 1.8-4 package
-## % Tue Mar 10 07:21:22 2020
+## % Wed Mar 18 15:56:40 2020
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{}
