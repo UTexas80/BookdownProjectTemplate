@@ -1,0 +1,36 @@
+---
+title: "Test Report"
+author: "Glen C. Falk"
+date: "3/20/2020"
+output: 
+  word_document:
+    reference_docx: word-styles-reference-01.docx
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Heading 1
+My report starts here.
+
+## Heading 2
+And I have this next subsection. 
+
+# Make a table
+Create a subset of the mtcars data.
+
+
+# extract a subset of the mtcars data
+
+library(dplyr)
+df <- mtcars %>%
+    mutate(make_model = row.names(mtcars)) %>%
+    filter(cyl == 4) %>%    
+    select(make_model, mpg, wt) %>%
+    mutate(wt = wt*1000) %>%
+    arrange(make_model) 
+
+library(knitr)
+kable(df) 
+    

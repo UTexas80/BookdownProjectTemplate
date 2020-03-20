@@ -1,6 +1,6 @@
 # Financial Aid Awarded
 
-```{r global, echo=FALSE, include=FALSE, message = FALSE}
+```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
 library(dplyr)
 library(data.table)
 library(DT)
@@ -38,7 +38,7 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 
 <h2><center><b>Financial Aid Awarded</b></center></h2>
 
-```{r 3.1.0-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
+```{r 3.1.0-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE, warning=FALSE}
 startAY <- ay[currentAY_row - 5, 2]
 setDT(fin.aid.wide)
 
@@ -48,7 +48,10 @@ setDT(fin.aid.wide)
 fin.aid.wide <- cbind(fin.aid.wide[, c(1:2)], fin.aid.wide[, c(ncol(fin.aid.wide) - 4):ncol(fin.aid.wide)])
 fin.aid.wide <- as_grouped_data(fin.aid.wide, groups = c("level"))
 
+num_keys <- c("x2014_15", "x2015_16", "x2016_17", "x2017_18", "x2018_19")
+  
 ft <- flextable(fin.aid.wide,
+
   col_keys = c(
     "level",
     "description",
@@ -63,6 +66,8 @@ ft <- flextable(fin.aid.wide,
     "x2018_19"
   )
 )
+
+
 ft <- set_header_labels(ft,
   description = "desc",
   # x2010_11 = "2010_11",
@@ -99,10 +104,18 @@ zz <- as_flextable(fin.aid.wide) %>%
   #   recipients regardless of semester of enrollment.",
   #   " ** Beginning 2014-15, Graduate/Professional aid includes all tuition waivers accompanying
   #   graduate assistantships.")) %>%
-  theme_vader(fontsize = 8) %>%
+  colformat_num(
+  ft, num_keys,  i = ~ description != "Total Aid",
+  big.mark=",", digits = 0, na_str = "")  %>%
   
-  #autofit()
-  fit_to_width(ft, max_width = 8)
+  colformat_num(
+    ft, num_keys,
+    i = ~ description == "Total Aid",
+    big.mark = ",", digits = 0, na_str = "", prefix = "$"
+  ) %>%
+  autofit()
+  theme_vader(fontsize = 8) %>%
+  # fit_to_width(ft, max_width = 8)
 # autofit() %>%
 # width(width = c(1, 1, 1))
 zz
