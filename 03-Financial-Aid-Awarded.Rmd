@@ -6,12 +6,16 @@ library(data.table)
 library(DT)
 library(flextable)
 library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
 library(here)
 library(janitor)
 library(kableExtra)
 library(knitr)
 library(officer)
 library(pander)
+library(plotly)
 ```
 
 ```{r setup, include=FALSE}
@@ -49,9 +53,8 @@ fin.aid.wide <- cbind(fin.aid.wide[, c(1:2)], fin.aid.wide[, c(ncol(fin.aid.wide
 fin.aid.wide <- as_grouped_data(fin.aid.wide, groups = c("level"))
 
 num_keys <- c("x2014_15", "x2015_16", "x2016_17", "x2017_18", "x2018_19")
-  
-ft <- flextable(fin.aid.wide,
 
+ft <- flextable(fin.aid.wide,
   col_keys = c(
     "level",
     "description",
@@ -83,7 +86,6 @@ ft <- set_header_labels(ft,
 zz <- as_flextable(fin.aid.wide) %>%
   bold(j = 1, i = ~ !is.na(level), bold = TRUE, part = "body") %>%
   bold(part = "header", bold = TRUE) %>%
-
   set_header_labels(
     description = "desc",
     # x2010_11 = "2010_11",
@@ -97,7 +99,7 @@ zz <- as_flextable(fin.aid.wide) %>%
     x2018_19 = "2018_19"
   ) %>%
   # add_footer_lines(values = c(
-  #   "Source: Office of Student Financial Aid. Financial aid data sourced from UGA Factbook OSFA 
+  #   "Source: Office of Student Financial Aid. Financial aid data sourced from UGA Factbook OSFA
   #   reported information. Enrollment data reflect total student enrollment as reported in UGA
   #   Factbook.",
   #   "* Enrollment count reflects fall semester enrollment, but aid recipient counts reflect aid
@@ -105,23 +107,48 @@ zz <- as_flextable(fin.aid.wide) %>%
   #   " ** Beginning 2014-15, Graduate/Professional aid includes all tuition waivers accompanying
   #   graduate assistantships.")) %>%
   colformat_num(
-  ft, num_keys,  i = ~ description != "Total Aid",
-  big.mark=",", digits = 0, na_str = "")  %>%
-  
+    ft, num_keys,
+    i = ~ description != "Total Aid",
+    big.mark = ",", digits = 0, na_str = ""
+  ) %>%
   colformat_num(
     ft, num_keys,
     i = ~ description == "Total Aid",
     big.mark = ",", digits = 0, na_str = "", prefix = "$"
   ) %>%
-  autofit()
-  theme_vader(fontsize = 8) %>%
-  # fit_to_width(ft, max_width = 8)
+  autofit() %>%
+  theme_vader(fontsize = 8)
+# fit_to_width(ft, max_width = 8)
 # autofit() %>%
 # width(width = c(1, 1, 1))
-zz
+suppressWarnings(zz)
 ```
 
+### Average Award Per Recipient
 ```{r 3.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
+fin.aid.long[level == "undergrad"] %>%
+  filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
+  ggplot() +
+  aes(x = ay_abbv, weight = avg_awd) +
+  geom_bar(fill = "#0c4c8a") +
+  labs(title = "", subtitle = "Undergraduate Student") +
+  theme(plot.title = element_text(hjust = 0.5)) + # Center ggplot title
+  theme_minimal() -> p1 # Center ggplot title / https://tinyurl.com/s9zcx3o
+
+fin.aid.long[level == "graduate"] %>%
+  filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
+  ggplot() +
+  aes(x = ay_abbv, weight = avg_awd) +
+  geom_bar(fill = "#0c4c8a") +
+  labs(title = "", subtitle = "Graduate Student") +
+  theme(plot.title = element_text(hjust = 0.5)) + # Center ggplot title
+  theme_minimal() -> p2 # Center ggplot title / https://tinyurl.com/s9zcx3o
+# grid.arrange(arrangeGrob(p1, p2, ncol = 2), widths = c(8, 8))
+grid.arrange(grobs = list(p1,p2), ncol = 2)
+#grid.arrange(p1, p2, ncol = 2)
+```
+
+```{r}
 # setDT(fin.aid.wide)
 # ft <- flextable(fin.aid.wide,
 #  col_keys = c(
@@ -172,13 +199,48 @@ zz
 # ft
 ```
 
-```{r}
-# pdf2
+### Average Award Per Recipient
+```{r 3.2.1.a-viz-bar}
+fin.aid.long %>%
+    filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
+    ggplot() +
+    aes(x = ay_abbv, weight = avg_awd) +
+    geom_bar(fill = "#0c4c8a") +
+    facet_wrap(~level) +
+    xlab("value / reference (mm)") + 
+    ylab("") + 
+    theme_bw() + theme(aspect.ratio = 0.6666666, panel.spacing = unit(1, "lines"))
 ```
 
-```{r 3.o-UG-COA}
-# knitr::kable(
-#   pdf.tbl, booktabs = TRUE,
-#   caption = 'Undergraduate Cost of Attendance Table'
-# )
+
+```{r 3.2.1.c-viz-bar}
+
+p1 <- plot_ly(fin.aid.long[level == "undergrad"], x = ~ay, y = ~avg_awd, type = 'bar') %>% 
+      layout(title = "Returns by Moving Average Type - Undergrad")
+p2 <- plot_ly(fin.aid.long[level == "graduate"], x = ~ay, y = ~avg_awd, type = 'bar') %>% 
+      layout(title = "Returns by Moving Average Type - Grad")
+subplot(p1, p2)
 ```
+
+### Returns by MA Type2
+```{r 3.2.1.b-viz-bar}
+my_plot <- . %>% 
+  plot_ly(x = ~ay, y = ~avg_awd) %>%
+  add_annotations(
+    text = ~unique(level),
+    x = 0.5,
+    y = 1,
+    yref = "paper",
+    xref = "paper",
+    xanchor = "middle",
+    yanchor = "top",
+    showarrow = FALSE,
+    font = list(size = 15)
+  )
+
+fin.aid.long %>%
+  group_by(level) %>%
+  do(p = my_plot(.)) %>%
+  subplot(nrows = 1, margin = 0.04,  shareX = TRUE)
+```
+

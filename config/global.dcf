@@ -7,7 +7,7 @@ data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
 libraries:  bookdown, checkpoint, data.table, data.table, dataMeta, datamodelr, devtools, DBI, DiagrammeR, dplyr, DT,
-            flexdashboard, flextable, formatR, formattable, futile.logger, ggplot2, glue, gt, htmltools, janitor,knitr,
+            flexdashboard, flextable, formatR, formattable, futile.logger, ggplot2, glue, grid, gridExtra, gt, htmltools, janitor,knitr,
             lubridate, orca, plotly, plyr, ProjectTemplate, qdap, readxl, reprex, reshape2, RMariaDB, rmarkdown, RMySQL,
             RODBC, rscorecard, stargazer, stringr, tabulizer, tabulizerjars, tidyverse, tinytex, treemap, tryCatchLog, xlsx, xtable,
             zoo

@@ -5,6 +5,9 @@
 ## Step 00.00 Processing Start Time - start the timer                        ###
 ################################################################################
 fin.aid.long <- janitor::clean_names(fin.aid.long)
+fin.aid.long[ , avg_awd := total_aid/recipients]
+fin.aid.long[ , ay_abbv := substr(fin.aid.long$ay, 3,9)]
+# ------------------------------------------------------------------------------
 fin.aid.wide <- janitor::clean_names(fin.aid.wide)
 ################################################################################
 ## Step 00.A: VERSION HISTORY                                                ###
