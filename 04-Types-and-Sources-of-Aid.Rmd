@@ -1,7 +1,92 @@
-# Types and Sources of Aid.xls
+# Types and Sources of Aid
 
-Some _significant_ applications are demonstrated in this chapter.
+```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
+library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(here)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(officer)
+library(pander)
+library(plotly)
+library(png)
+library(stringr)
+```
 
-## Example one
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
-## Example two
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 4.0-pngInput, echo=FALSE}
+p4a0                 <- readRDS(here::here("/rds", "p4a0.rds"))
+```
+
+```{r 4.0-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+ay                   <- readRDS(here::here("/rds", "ay.rds"))
+currentAY            <- readRDS(here::here("/rds", "currentAY.rds"))
+currentAY_row        <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+# ------------------------------------------------------------------------------
+aid_sources_long    <- readRDS(here::here("/rds", "aid_sources_long.rds"))
+aid_types_long      <- readRDS(here::here("/rds", "aid_types_long.rds"))
+# ------------------------------------------------------------------------------
+p4a0                 <- readRDS(here::here("/rds", "p4a0.rds"))
+p4a1                 <- readRDS(here::here("/rds", "p4a1.rds"))
+p4a2                 <- readRDS(here::here("/rds", "p4a2.rds"))
+# ------------------------------------------------------------------------------
+p4b1                 <- readRDS(here::here("/rds", "p4a1.rds"))
+p4b2                 <- readRDS(here::here("/rds", "p4a2.rds"))
+# ------------------------------------------------------------------------------
+
+```
+
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+
+<h2><center><b>Financial Aid Awarded</b></center></h2>
+
+```{r 4.1.0-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE, warning=FALSE}
+ft_aid <- flextable(aid_sources_long)
+ft_aid <- fit_to_width(ft_aid, max_width = 8)
+ft_aid
+```
+
+## ReadRDS
+```{r 4.2.1-viz-pie, echo=FALSE, out.width = '50%'}
+knitr::include_graphics(here::here('png/p4a0.png'))
+```
+
+## Plot_ly 
+```{r 4.2.2-viz-pie}
+plot_ly(head(aid_sources_long,-1), 
+            labels = ~source, 
+            values = ~undergraduate, 
+            type = 'pie',
+            hole = 0.00,
+            domain = list(x = c(0, 0.45)),
+            title = 'UNDERGRADUATE',
+            showlegend = TRUE)  %>%
+
+  add_trace(head(aid_sources_long,-1), 
+            labels = ~source, 
+            values = ~all_students, 
+            type = 'pie', 
+            hole = 0.00,
+            title = 'ALL STUDENTS',
+            domain = list(x = c(0.55, 1))) %>%
+        layout(title = str_c(currentAY, ' - Types of Financial Aid'),
+            xaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+            yaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+```

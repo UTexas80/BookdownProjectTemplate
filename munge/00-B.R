@@ -3,12 +3,14 @@
 ################################################################################
 # ------------------------------------------------------------------------------
 ay$desc        <- sapply(ay[, 1], function(x) paste0("20", left(x,2), "-", right(x,2)))
+ay[ , ay_abbv  := substr(desc, 3,7)]
+# ------------------------------------------------------------------------------
 currentAY_row  <- as.integer(ay[, which(ay==currentAY)])
 coa.res$ay_yr1 <- as.Date(as.character(coa.res$ay_yr1), format = "%Y")
 coa.res$ay_yr2 <- as.Date(as.character(coa.res$ay_yr2), format = "%Y")
 # coa.res$ay_yr2 <- year(coa.res$ay_yr2)
 # ------------------------------------------------------------------------------
-m_grad_res              <- t(coa.current[level =='grad'&
+m_grad_res              <- t(setDT(coa.current)[level =='grad'&
                         residency == 'instate' &
                         campus == 'on' &
                         program == 'Regular'][,c(6:14)])
@@ -16,7 +18,7 @@ df_grad_res             <- data.frame(m_grad_res)
 grad_res                <-setDT(df_grad_res, keep.rownames = 'Description')[]
 names(grad_res)[2]      <- paste0("ay", currentAY)
 # ------------------------------------------------------------------------------
-m_grad_non_res          <- t(coa.current[level =='grad'&
+m_grad_non_res          <- t(setDT(coa.current)[level =='grad'&
                         residency == 'outstate' &
                         campus == 'on' &
                         program == 'Regular'][,c(6:14)])

@@ -1,5 +1,4 @@
-# Example preprocessing script.
-# change column names
+# 02 Cost of Attendance
 # ------------------------------------------------------------------------------
 c_pie_grad_res <- plot_ly(grad_res, labels = ~Description, values = ~ay1920, type = 'pie',
         textposition = 'inside',
