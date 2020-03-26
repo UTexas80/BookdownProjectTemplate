@@ -1,6 +1,69 @@
-# 02 Cost of Attendance
 # ------------------------------------------------------------------------------
-c_pie_grad_res <- plot_ly(grad_res, labels = ~Description, values = ~ay1920, type = 'pie',
+# 02. Cost of Attendance
+# ------------------------------------------------------------------------------
+################################################################################
+## Step 02.01 Admin: munge COA files                                         ###
+################################################################################
+m_grad_res              <- t(setDT(coa.current)[level =='grad'&
+                        residency == 'instate' &
+                        campus == 'on' &
+                        program == 'Regular'][,c(6:14)])
+df_grad_res             <- data.frame(m_grad_res)
+grad_res                <-setDT(df_grad_res, keep.rownames = 'Description')[]
+names(grad_res)[2]      <- paste0("ay", currentAY)
+# ------------------------------------------------------------------------------
+m_grad_non_res          <- t(setDT(coa.current)[level =='grad'&
+                        residency == 'outstate' &
+                        campus == 'on' &
+                        program == 'Regular'][,c(6:14)])
+df_grad_non             <- data.frame(m_grad_non_res)
+grad_non_res            <-setDT(df_grad_non, keep.rownames = 'Description')[]
+names(grad_non_res)[2]  <- paste0("ay", currentAY)
+# ------------------------------------------------------------------------------
+coa.res$ay_yr1 <- as.Date(as.character(coa.res$ay_yr1), format = "%Y")
+coa.res$ay_yr2 <- as.Date(as.character(coa.res$ay_yr2), format = "%Y")
+# coa.res$ay_yr2 <- year(coa.res$ay_yr2)
+# ------------------------------------------------------------------------------
+################################################################################
+## Step 02.02 COA tales                                                      ###
+################################################################################
+dtCOA  <- as.data.table(pdf.dat)  
+names(dtCOA)[1]<-"costs"
+names(dtCOA)[2:11]<-paste0('ay', dtCOA[1,-1]) # rename multiple columns by index
+dtCOA <- dtCOA[-1]
+dtCOA[is.na(dtCOA)] <- ""                     # replace NA's with spaces
+################################################################################
+## Step 02.03 COA Percentage of Total Cost viz                               ###
+################################################################################
+p2a1 <- plot_ly(grad_res,
+            labels = ~Description, 
+            values = ~ay1920, 
+            type = 'pie',
+            hole = 0.00,
+            domain = list(x = c(0, 0.45)),
+            title = 'RESIDENTS',
+            showlegend = TRUE)  %>%
+
+  add_trace(grad_non_res,
+            labels = ~Description,
+            values = ~ay1920,
+            type = 'pie', 
+            hole = 0.00,
+            title = 'NON-RESIDENTS',
+            domain = list(x = c(0.55, 1))) %>%
+        layout(title = str_c(currentAY, ' - Percentage of Total Cost for:'),
+            xaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+            yaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+
+
+
+
+
+# ------------------------------------------------------------------------------
+c_pie_grad_res <- plot_ly(grad_res, 
+        labels = ~Description, 
+        values = ~ay1920, 
+        type = 'pie',
         textposition = 'inside',
         textinfo = 'label+percent',
         insidetextfont = list(color = '#FFFFFF'),
@@ -8,13 +71,15 @@ c_pie_grad_res <- plot_ly(grad_res, labels = ~Description, values = ~ay1920, typ
         text = ~paste('$', ay1920, ' dollars'),
         marker = list(colors = colors,
                       line = list(color = '#FFFFFF', width = 1)),
-                      #The 'pull' attribute can also be used to create space between the sectors
         showlegend = FALSE) %>%
   layout(title = str_c(currentAY, '-Resident Graduate COA'),
          xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
          yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-c_pie_grad_non<- plot_ly(grad_non_res, labels = ~Description, values = ~ay1920, type = 'pie',
+c_pie_grad_non<- plot_ly(grad_non_res, 
+        labels = ~Description, 
+        values = ~ay1920, 
+        type = 'pie',
         textposition = 'inside',
         textinfo = 'label+percent',
         insidetextfont = list(color = '#FFFFFF'),
@@ -22,7 +87,7 @@ c_pie_grad_non<- plot_ly(grad_non_res, labels = ~Description, values = ~ay1920, 
         text = ~paste('$', ay1920, ' dollars'),
         marker = list(colors = colors,
                       line = list(color = '#FFFFFF', width = 1)),
-                      #The 'pull' attribute can also be used to create space between the sectors
+
         showlegend = FALSE) %>%
   layout(title = str_c(currentAY, '-Non-Resident Graduate COA'),
          xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
@@ -58,5 +123,7 @@ c01.version         <- "1.0.0"
 c01.ModDate         <- as.Date("2020-03-01")
 # ------------------------------------------------------------------------------
 # 2020.03.01 - v.1.0.0                               http://tinyurl.com/y54k8gsw            
-# 1st release                                        http://tinyurl.com/yx9w8vje   
+# 1st release                                        http://tinyurl.com/yx9w8vje
+# ------------------------------------------------------------------------------
+
 

@@ -12,7 +12,8 @@ rm(list = ls()[grepl("(SQL|metadata)", ls())])
 ################################################################################
 # bookdown::render_book("01-intro.Rmd", output_format = "bookdown::gitbook")
 # bookdown::render_book("01-intro.Rmd", output_format = "bookdown::pdf_book")
-# bookdown::render_book("01-intro.Rmd", output_format = "bookdown::powerpoint_presentation2")
+# bookdown::render_book("01-intro.Rmd", 
+#    output_format = "bookdown::powerpoint_presentation2")
 bookdown::render_book("01-intro.Rmd", output_format = "bookdown::word_document2")
 ################################################################################
 ## Step 99.98: PROCESSING TIME                                               ###
@@ -28,4 +29,6 @@ z99.ModDate             <- as.Date("2020-03-01")
 # ------------------------------------------------------------------------------
 # 2020.03.01 - v.1.0.0                               http://tinyurl.com/y54k8gsw
 # 1st release                                        http://tinyurl.com/yx9w8vje
+# ------------------------------------------------------------------------------
+
 

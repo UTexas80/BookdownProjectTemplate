@@ -12,12 +12,6 @@ pdf.tbl <- data.table(pdf.dat[[1]][-1, ])                                       
 names(pdf.tbl)     <- pdf.dat[[1]][1, ]                                         # rename columns        
 names(pdf.tbl)[1]  <- "Description"                                             # rename columns  
 # ------------------------------------------------------------------------------
-dtCOA  <- as.data.table(pdf.dat)  
-names(dtCOA)[1]<-"costs"
-names(dtCOA)[2:11]<-paste0('ay', dtCOA[1,-1])                                   # rename multiple columns by index
-dtCOA <- dtCOA[-1]
-dtCOA[is.na(dtCOA)] <- ""                                                       # replace NA's with spaces
-# ------------------------------------------------------------------------------
 pdf.tbl[, c(2:11)] <- lapply(pdf.tbl[, c(2:11)], 
     function(y) as.numeric(gsub('[^a-zA-Z0-9.]', '', y)))                       # https://tinyurl.com/ya4ok9tb
 pdf.tbl[is.na(pdf.tbl)] <- ""
@@ -60,3 +54,4 @@ a01.ModDate         <- as.Date("2020-03-01")
 # ------------------------------------------------------------------------------
 # 2020.03.01 - v.1.0.0
 # 1st release
+# ------------------------------------------------------------------------------
