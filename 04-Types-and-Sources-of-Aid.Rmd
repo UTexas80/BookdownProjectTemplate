@@ -1,4 +1,4 @@
-# Types and Sources of Aid
+# 04. Types and Sources of Aid
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
 library(dplyr)
@@ -17,6 +17,7 @@ library(officer)
 library(pander)
 library(plotly)
 library(png)
+library(reactable)
 library(stringr)
 ```
 
@@ -28,10 +29,6 @@ knitr::opts_chunk$set(echo = FALSE)
 options(tinytex.verbose = TRUE)
 ```
 
-```{r 4.0-pngInput, echo=FALSE}
-p4a0                 <- readRDS(here::here("/rds", "p4a0.rds"))
-```
-
 ```{r 4.0-rdsInput, echo=FALSE}
 # ------------------------------------------------------------------------------
 ay                   <- readRDS(here::here("/rds", "ay.rds"))
@@ -41,7 +38,6 @@ currentAY_row        <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds
 aid_sources_long    <- readRDS(here::here("/rds", "aid_sources_long.rds"))
 aid_types_long      <- readRDS(here::here("/rds", "aid_types_long.rds"))
 # ------------------------------------------------------------------------------
-p4a0                 <- readRDS(here::here("/rds", "p4a0.rds"))
 p4a1                 <- readRDS(here::here("/rds", "p4a1.rds"))
 p4a2                 <- readRDS(here::here("/rds", "p4a2.rds"))
 # ------------------------------------------------------------------------------
@@ -57,36 +53,31 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 
 <h2><center><b>Financial Aid Awarded</b></center></h2>
 
-```{r 4.1.0-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE, warning=FALSE}
+## 04. Financial Aid Awarded
+```{r 4.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message=FALSE, warning=FALSE}
 ft_aid <- flextable(aid_sources_long)
-ft_aid <- fit_to_width(ft_aid, max_width = 8)
-ft_aid
+
+int_keys <- c("undergraduate", "all_students")
+pct_keys <- c("pct_ug", "pct_student")
+
+ft_aid <- colformat_int(ft_aid, j = int_keys, big.mark = ",")
+ft_aid <- colformat_num(ft_aid, j = pct_keys, digits = 2, na_str = "", prefix = "%")
+ft_aid <- bold(ft_aid, part = "header") # bold header
+
+# ft_aid <- fit_to_width(ft_aid, max_width = 12)
+flextable::autofit(ft_aid, add_w = 0.5)
 ```
 
-## ReadRDS
-```{r 4.2.1-viz-pie, echo=FALSE, out.width = '50%'}
+## 04. Sources of Financial Aid
+```{r 4.2.1-viz-pie, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('png/p4a0.png'))
 ```
 
-## Plot_ly 
-```{r 4.2.2-viz-pie}
-plot_ly(head(aid_sources_long,-1), 
-            labels = ~source, 
-            values = ~undergraduate, 
-            type = 'pie',
-            hole = 0.00,
-            domain = list(x = c(0, 0.45)),
-            title = 'UNDERGRADUATE',
-            showlegend = TRUE)  %>%
+## 04. Sources of Financial Aid - table .png
+```{r 4.2.2-viz-pie, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/dt.png'))
+```
 
-  add_trace(head(aid_sources_long,-1), 
-            labels = ~source, 
-            values = ~all_students, 
-            type = 'pie', 
-            hole = 0.00,
-            title = 'ALL STUDENTS',
-            domain = list(x = c(0.55, 1))) %>%
-        layout(title = str_c(currentAY, ' - Types of Financial Aid'),
-            xaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-            yaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```

@@ -4,6 +4,10 @@
 ################################################################################
 ## Step 02.01 Admin: munge COA files                                         ###
 ################################################################################
+dtTables        <- data.table::tables()
+sapply(dtTables[NAME %like% "coa" ,], 
+    function(x) janitor::clean_names(data.table(x)))
+# ------------------------------------------------------------------------------    
 m_grad_res              <- t(setDT(coa.current)[level =='grad'&
                         residency == 'instate' &
                         campus == 'on' &
@@ -54,11 +58,6 @@ p2a1 <- plot_ly(grad_res,
         layout(title = str_c(currentAY, ' - Percentage of Total Cost for:'),
             xaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
             yaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
-
-
-
-
-
 # ------------------------------------------------------------------------------
 c_pie_grad_res <- plot_ly(grad_res, 
         labels = ~Description, 

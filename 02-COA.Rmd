@@ -1,4 +1,4 @@
-# COA
+# 02. Undergraduate Cost of Attendance.xlsx
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE}
 library(dplyr)
@@ -45,10 +45,6 @@ grad_res_pie          <- readRDS(here::here("/rds", "c_pie_grad_res.rds"))
 pdf2                  <- readRDS(here::here("/rds", "pdf2.rds"))
 pdf_tbl               <- readRDS(here::here("/rds", "pdf_tbl.rds"))
 ```
-
-## COA Tables
-
-### Example one - flextable
 
 ```{r 2.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
  ft <- flextable(dtCOA)
@@ -112,60 +108,66 @@ ft
 <!--     )) -->
 <!-- ``` -->
 
-### Example two - gt
+<!-- ### Example two - gt -->
 
-```{r 2.1.2-coa-gt, fig.cap='gt', fig.align='left', out.width = '70%'}
-# names(dtCOA)[2:11]<-letters[1:10]
-# gt_tab_1 <-
-#   dtCOA %>%
-#     gt() %>%
-#     tab_header(
-#       title = "COA",
-#       subtitle = glue::glue("Undergrad")
-#     )
-#   gt_tab_2 <-
-#     gt_tab_1 %>%
-#     tab_options(
-#       heading.title.font.size = "small",
-#       heading.subtitle.font.size = "small",
-#       table.width = pct(20),
-#       table.background.color = "lightcyan",
-#       row.padding = px(2)
-#   )
-# 
-#   gt_tab_2
-# ) %>%
-#  fmt_currency(
-#    columns = vars("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
-#            "ay2009-10",
-#            "ay2010-11",
-#            "ay2011-12",
-#            "ay2012-13",
-#            "ay2013-14",
-#            "ay2014-15",
-#            "ay2015-16",
-#            "ay2016-17",
-#            "ay2017-18",
-#            "ay2018-19"),
-#    currency = "USD"
-#  )
-```
-### Example three - kable
-```{r 2.1.3.a-coa-kable, fig.cap='kable'}
-# kable(dtCOA)
-```
+<!-- ```{r 2.1.2-coa-gt, fig.cap='gt', fig.align='left', out.width = '70%'} -->
+<!-- # names(dtCOA)[2:11]<-letters[1:10] -->
+<!-- # gt_tab_1 <- -->
+<!-- #   dtCOA %>% -->
+<!-- #     gt() %>% -->
+<!-- #     tab_header( -->
+<!-- #       title = "COA", -->
+<!-- #       subtitle = glue::glue("Undergrad") -->
+<!-- #     ) -->
+<!-- #   gt_tab_2 <- -->
+<!-- #     gt_tab_1 %>% -->
+<!-- #     tab_options( -->
+<!-- #       heading.title.font.size = "small", -->
+<!-- #       heading.subtitle.font.size = "small", -->
+<!-- #       table.width = pct(20), -->
+<!-- #       table.background.color = "lightcyan", -->
+<!-- #       row.padding = px(2) -->
+<!-- #   ) -->
+<!-- #  -->
+<!-- #   gt_tab_2 -->
+<!-- # ) %>% -->
+<!-- #  fmt_currency( -->
+<!-- #    columns = vars("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"), -->
+<!-- #            "ay2009-10", -->
+<!-- #            "ay2010-11", -->
+<!-- #            "ay2011-12", -->
+<!-- #            "ay2012-13", -->
+<!-- #            "ay2013-14", -->
+<!-- #            "ay2014-15", -->
+<!-- #            "ay2015-16", -->
+<!-- #            "ay2016-17", -->
+<!-- #            "ay2017-18", -->
+<!-- #            "ay2018-19"), -->
+<!-- #    currency = "USD" -->
+<!-- #  ) -->
+<!-- ``` -->
 
-```{r 2.1.3.b-coa-kable, fig.cap='kableExtra'}
-# kableExtra::kable(dtCOA)
+## 02. Undergrad COA: Percentage of Total Cost
+```{r 4.2.1-viz-pie, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p2a1.png'))
 ```
 
-### Example four - xtable
+<!-- # ### Example three - kable -->
+<!-- ```{r 2.1.3.a-coa-kable, fig.cap='kable'} -->
+<!-- # kable(dtCOA) -->
+<!-- ``` -->
 
-```{r 2.7-coa-xtable, fig.cap='xtable'}
-# print.xtable(dtCOA, booktabs = TRUE)
-```
+<!-- ```{r 2.1.3.b-coa-kable, fig.cap='kableExtra'} -->
+<!-- # kableExtra::kable(dtCOA) -->
+<!-- ``` -->
 
-## COA Charts
+<!-- # ### Example four - xtable -->
+
+<!-- ```{r 2.7-coa-xtable, fig.cap='xtable'} -->
+<!-- # print.xtable(dtCOA, booktabs = TRUE) -->
+<!-- ``` -->
+
+# 02. Cost of Attendance: Expenses
 ```{r 2.2.1-coa-non}
 ggplot(grad_non) +
  aes(x = Description, weight = ay1920) +
@@ -182,22 +184,6 @@ ggplot(grad_res) +
  theme_gray()
 ```
 
-```{r 2.2.3-coa-non, fig.cap='coa-grad-non-pie'}
-bp<- ggplot(grad_non, aes(x="", y=ay1920, fill=Description))+
-    geom_bar(width = 1, stat = "identity")
-pie <- bp + coord_polar("y", start=0)
-pie
-```
-
-```{r 2.2.4-coa-non, fig.cap='coa-grad-non-treemap'}
-ggplot(grad_non, aes(area = ay1920, fill = ay1920, label = Description)) +
-    geom_treemap() +
-    geom_treemap_text(fontface = "italic", colour = "white", place = "centre",
-                      grow = TRUE)
-```
-```{r 2.2.5-coa-res, fig.cap='coa-grad-res-treemap'}
-ggplot(grad_res, aes(area = ay1920, fill = ay1920, label = Description)) +
-    geom_treemap() +
-    geom_treemap_text(fontface = "italic", colour = "white", place = "centre",
-                      grow = TRUE)
-```
+<!-- ```{=openxml} -->
+<!-- <w:p><w:r><w:br w:type="page"/></w:r></w:p> -->
+<!-- ``` -->

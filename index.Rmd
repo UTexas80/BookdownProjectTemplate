@@ -25,6 +25,21 @@ cover-image: "images/cover.pdf"
 
 <!-- The **bookdown** package can be installed from CRAN or Github: -->
 
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+source(here::here("/lib", "render_toc.R"))
+
+```
+
+## Table of Contents {#crazy-slug-here}
+
+```{r toc, echo=FALSE}
+
+render_toc("02-COA.Rmd")
+
+```
+
 # OSFA Org Chart {-}
 
 Here is the current OSFA Organization chart.

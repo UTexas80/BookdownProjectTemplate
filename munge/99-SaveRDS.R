@@ -17,7 +17,6 @@ saveRDS(grad_non_res,        file = "./rds/grad_non.rds")
 saveRDS(c_pie_grad_non,      file = here::here("rds/", "c_pie_grad_non.rds"))
 saveRDS(c_pie_grad_res,      file = here::here("rds/", "c_pie_grad_res.rds"))
 # ------------------------------------------------------------------------------
-saveRDS(p4a0,                file = here::here("rds/", "p4a0.rds"))
 saveRDS(p4a1,                file = here::here("rds/", "p4a1.rds"))
 saveRDS(p4a2,                file = here::here("rds/", "p4a2.rds"))
 # ------------------------------------------------------------------------------

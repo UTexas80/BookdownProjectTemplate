@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "Annual Reports"
 author: "Glen C. Falk"
-date: "2020-03-25"
+date: "2020-03-26"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -24,6 +24,14 @@ cover-image: "images/cover.pdf"
 <!-- This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$. -->
 
 <!-- The **bookdown** package can be installed from CRAN or Github: -->
+
+
+
+## Table of Contents {#crazy-slug-here}
+
+- [Undergraduate Cost of Attendance.xlsx](#undergraduate-cost-of-attendance.xlsx)
+    - [Undergrad COA: Percentage of Total Cost](#undergrad-coa:-percentage-of-total-cost)
+- [Cost of Attendance: Expenses](#cost-of-attendance:-expenses)
 
 # OSFA Org Chart {-}
 

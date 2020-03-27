@@ -1,4 +1,4 @@
-# Financial Aid Awarded
+# 03. Financial Aid Awarded to Students - Five-Year Comparison
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
 library(dplyr)
@@ -70,7 +70,6 @@ ft <- flextable(fin.aid.wide,
   )
 )
 
-
 ft <- set_header_labels(ft,
   description = "desc",
   # x2010_11 = "2010_11",
@@ -124,7 +123,7 @@ zz <- as_flextable(fin.aid.wide) %>%
 suppressWarnings(zz)
 ```
 
-### Average Award Per Recipient
+### 03. Average Award Per Recipient A
 ```{r 3.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
 fin.aid.long[level == "undergrad"] %>%
   filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
@@ -148,58 +147,7 @@ grid.arrange(grobs = list(p1,p2), ncol = 2)
 #grid.arrange(p1, p2, ncol = 2)
 ```
 
-```{r}
-# setDT(fin.aid.wide)
-# ft <- flextable(fin.aid.wide,
-#  col_keys = c(
-#   "level",
-#   "description",
-#   # "x2010_11"
-#   #   "X2011_12",
-#   #   "X2012_13",
-#   #   "X2013_14",
-#     "x2014_15",
-#     "x2015_16",
-#     "x2016_17",
-#     "x2017_18",
-#     "x2018_19"
-#  )
-#  )
-# ft <- colformat_num(
-#   x = ft,
-#   col_keys = colkeys,
-#   big.mark = ",",
-#   digits = 2,
-#   na_str = "N/A")
-# ft <- autofit(ft)
-# ft <- add_header_lines(ft,
-#   values = c(
-#     "Financial Aid Awarded to Students:  Five-Year Comparison",
-#     "University of Georgia"
-#   )
-# )
-# ft <- set_header_labels(ft,
-#   description = "desc",
-#   # x2010_11 = "2010_11",
-#   # X2011_12 = "2011_12",
-#   # X2012_13 = "2012_13",
-#   # X2013_14 = "2013_14",
-#   X2014_15 = "2014_15",
-#   X2015_16 = "2015_16",
-#   X2016_17 = "2016_17",
-#   X2017_18 = "2017_18",
-#   X2018_19 = "2018_19"
-# )
-# ft <- theme_vader(ft)
-# ft <- fit_to_width(ft, max_width = 8)
-
-
-# dim_pretty(ft)
-# merge_v(ft, j = ~ level )
-# ft
-```
-
-### Average Award Per Recipient
+### 03. Average Award Per Recipient
 ```{r 3.2.1.a-viz-bar}
 fin.aid.long %>%
     filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
@@ -212,35 +160,6 @@ fin.aid.long %>%
     theme_bw() + theme(aspect.ratio = 0.6666666, panel.spacing = unit(1, "lines"))
 ```
 
-
-```{r 3.2.1.c-viz-bar}
-
-p1 <- plot_ly(fin.aid.long[level == "undergrad"], x = ~ay, y = ~avg_awd, type = 'bar') %>% 
-      layout(title = "Returns by Moving Average Type - Undergrad")
-p2 <- plot_ly(fin.aid.long[level == "graduate"], x = ~ay, y = ~avg_awd, type = 'bar') %>% 
-      layout(title = "Returns by Moving Average Type - Grad")
-subplot(p1, p2)
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```
-
-### Returns by MA Type2
-```{r 3.2.1.b-viz-bar}
-my_plot <- . %>% 
-  plot_ly(x = ~ay, y = ~avg_awd) %>%
-  add_annotations(
-    text = ~unique(level),
-    x = 0.5,
-    y = 1,
-    yref = "paper",
-    xref = "paper",
-    xanchor = "middle",
-    yanchor = "top",
-    showarrow = FALSE,
-    font = list(size = 15)
-  )
-
-fin.aid.long %>%
-  group_by(level) %>%
-  do(p = my_plot(.)) %>%
-  subplot(nrows = 1, margin = 0.04,  shareX = TRUE)
-```
-

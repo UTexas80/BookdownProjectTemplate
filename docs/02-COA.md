@@ -1,4 +1,4 @@
-# COA
+# 02. Undergraduate Cost of Attendance.xlsx
 
 
 
@@ -7,10 +7,6 @@
 
 
 
-
-## COA Tables
-
-### Example one - flextable
 
 
 ```{=openxml}
@@ -54,24 +50,68 @@
 <!--     )) -->
 <!-- ``` -->
 
-### Example two - gt
+<!-- ### Example two - gt -->
 
+<!-- ```{r 2.1.2-coa-gt, fig.cap='gt', fig.align='left', out.width = '70%'} -->
+<!-- # names(dtCOA)[2:11]<-letters[1:10] -->
+<!-- # gt_tab_1 <- -->
+<!-- #   dtCOA %>% -->
+<!-- #     gt() %>% -->
+<!-- #     tab_header( -->
+<!-- #       title = "COA", -->
+<!-- #       subtitle = glue::glue("Undergrad") -->
+<!-- #     ) -->
+<!-- #   gt_tab_2 <- -->
+<!-- #     gt_tab_1 %>% -->
+<!-- #     tab_options( -->
+<!-- #       heading.title.font.size = "small", -->
+<!-- #       heading.subtitle.font.size = "small", -->
+<!-- #       table.width = pct(20), -->
+<!-- #       table.background.color = "lightcyan", -->
+<!-- #       row.padding = px(2) -->
+<!-- #   ) -->
+<!-- #  -->
+<!-- #   gt_tab_2 -->
+<!-- # ) %>% -->
+<!-- #  fmt_currency( -->
+<!-- #    columns = vars("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"), -->
+<!-- #            "ay2009-10", -->
+<!-- #            "ay2010-11", -->
+<!-- #            "ay2011-12", -->
+<!-- #            "ay2012-13", -->
+<!-- #            "ay2013-14", -->
+<!-- #            "ay2014-15", -->
+<!-- #            "ay2015-16", -->
+<!-- #            "ay2016-17", -->
+<!-- #            "ay2017-18", -->
+<!-- #            "ay2018-19"), -->
+<!-- #    currency = "USD" -->
+<!-- #  ) -->
+<!-- ``` -->
 
-### Example three - kable
+## 02. Undergrad COA: Percentage of Total Cost
+![](C:/Users/gfalk/Documents/BookdownPT/png/p2a1.png){width=100%}
 
+<!-- # ### Example three - kable -->
+<!-- ```{r 2.1.3.a-coa-kable, fig.cap='kable'} -->
+<!-- # kable(dtCOA) -->
+<!-- ``` -->
 
+<!-- ```{r 2.1.3.b-coa-kable, fig.cap='kableExtra'} -->
+<!-- # kableExtra::kable(dtCOA) -->
+<!-- ``` -->
 
+<!-- # ### Example four - xtable -->
 
-### Example four - xtable
+<!-- ```{r 2.7-coa-xtable, fig.cap='xtable'} -->
+<!-- # print.xtable(dtCOA, booktabs = TRUE) -->
+<!-- ``` -->
 
-
-
-## COA Charts
+# 02. Cost of Attendance: Expenses
 ![](02-COA_files/figure-docx/2.2.1-coa-non-1.png)<!-- -->
 
 ![(\#fig:2.2.2-coa-res)coa-res](02-COA_files/figure-docx/2.2.2-coa-res-1.png)
 
-![(\#fig:2.2.3-coa-non)coa-grad-non-pie](02-COA_files/figure-docx/2.2.3-coa-non-1.png)
-
-![(\#fig:2.2.4-coa-non)coa-grad-non-treemap](02-COA_files/figure-docx/2.2.4-coa-non-1.png)
-![(\#fig:2.2.5-coa-res)coa-grad-res-treemap](02-COA_files/figure-docx/2.2.5-coa-res-1.png)
+<!-- ```{=openxml} -->
+<!-- <w:p><w:r><w:br w:type="page"/></w:r></w:p> -->
+<!-- ``` -->
