@@ -1,19 +1,18 @@
 # ------------------------------------------------------------------------------
-# 03. Financial Aid Awarded to Students - Five-Year Compariso
+# 05. Academic Year Student Financial Aid Awards by Type
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 03.00 Processing Start Time - start the timer                        ###
+## Step 05.01 Processing Start Time - start the timer                        ###
 ################################################################################
-fin.aid.long <- janitor::clean_names(setDT(fin.aid.long))
-fin.aid.long[ , avg_awd := total_aid/recipients]
-fin.aid.long[ , ay_abbv := substr(fin.aid.long$ay, 3,9)]
+sapply(dtTables[NAME %like% "X04" ,], 
+    function(x) janitor::clean_names(data.table(x)))
 # ------------------------------------------------------------------------------
-fin.aid.wide <- janitor::clean_names(fin.aid.wide)
+
 ################################################################################
 ## Step 00.A: VERSION HISTORY                                                ###
 ################################################################################
-a03.version <- "1.0.0"
-a03.ModDate <- as.Date("2020-03-19")
+a05.version <- "1.0.0"
+a05.ModDate <- as.Date("2020-03-27")
 # ------------------------------------------------------------------------------
 # 2020.03.01 - v.1.0.0
 # 1st release

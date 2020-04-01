@@ -123,7 +123,7 @@ zz <- as_flextable(fin.aid.wide) %>%
 suppressWarnings(zz)
 ```
 
-### 03. Average Award Per Recipient A
+## 03. Average Award Per Recipient A
 ```{r 3.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
 fin.aid.long[level == "undergrad"] %>%
   filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
@@ -147,7 +147,7 @@ grid.arrange(grobs = list(p1,p2), ncol = 2)
 #grid.arrange(p1, p2, ncol = 2)
 ```
 
-### 03. Average Award Per Recipient
+## 03. Average Award Per Recipient
 ```{r 3.2.1.a-viz-bar}
 fin.aid.long %>%
     filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%

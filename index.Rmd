@@ -34,10 +34,12 @@ source(here::here("/lib", "render_toc.R"))
 
 ## Table of Contents {#crazy-slug-here}
 
-```{r toc, echo=FALSE}
-
+```{r toc-02, echo=FALSE}
 render_toc("02-COA.Rmd")
+```
 
+```{r toc-03, echo=FALSE}
+render_toc("03-Financial-Aid-Awarded.Rmd")
 ```
 
 # OSFA Org Chart {-}

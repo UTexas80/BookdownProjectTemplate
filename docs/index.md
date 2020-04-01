@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "Annual Reports"
 author: "Glen C. Falk"
-date: "2020-03-26"
+date: "2020-04-01"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -29,9 +29,13 @@ cover-image: "images/cover.pdf"
 
 ## Table of Contents {#crazy-slug-here}
 
-- [Undergraduate Cost of Attendance.xlsx](#undergraduate-cost-of-attendance.xlsx)
-    - [Undergrad COA: Percentage of Total Cost](#undergrad-coa:-percentage-of-total-cost)
-- [Cost of Attendance: Expenses](#cost-of-attendance:-expenses)
+- [Undergraduate Cost of Attendance](#undergraduate-cost-of-attendance)
+    - [Undergrad COA-Percentage-of-Total-Cost](#undergrad-coa-percentage-of-total-cost)
+    - [Cost of Attendance Expenses](#cost-of-attendance-expenses)
+
+- [Financial Aid Awarded to Students - Five-Year Comparison](#financial-aid-awarded-to-students---five-year-comparison)
+    - [Average Award Per Recipient A](#average-award-per-recipient-a)
+    - [Average Award Per Recipient](#average-award-per-recipient)
 
 # OSFA Org Chart {-}
 

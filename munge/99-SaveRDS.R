@@ -28,13 +28,6 @@ saveRDS(pdf2,                file = here::here("rds/", "pdf2.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(X04aid.sources.long, file = here::here("rds/", "aid_sources_long.rds"))
 saveRDS(X04aid.types.long,   file = here::here("rds/", "aid_types_long.rds"))
-# ------------------------------------------------------------------------------
-# plotly::plotly_IMAGE(p4a1, width =400, height = 400, format = "png", scale = 2,
-#                     out_file = here::here("/png", "p4a1.png"))
-plotly::plotly_IMAGE(p4a0, 
-                    format = "png", 
-                    scale =1,  
-                    out_file = here::here("/png", "p4a0.png"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

@@ -44,7 +44,6 @@ p4a2                 <- readRDS(here::here("/rds", "p4a2.rds"))
 p4b1                 <- readRDS(here::here("/rds", "p4a1.rds"))
 p4b2                 <- readRDS(here::here("/rds", "p4a2.rds"))
 # ------------------------------------------------------------------------------
-
 ```
 
 ```{r uga_logo, echo=FALSE, out.width = '100%'}
@@ -53,29 +52,86 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 
 <h2><center><b>Financial Aid Awarded</b></center></h2>
 
-## 04. Financial Aid Awarded
-```{r 4.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message=FALSE, warning=FALSE}
-ft_aid <- flextable(aid_sources_long)
+## 04. Financial Aid Awarded: Sources of Financial Aid
+```{r 4.1.0-aid-source, echo=FALSE, fig.cap='Sources of Financial Aid', message=FALSE, warning=FALSE}
+ft_aid_source <- flextable(aid_sources_long)
+
+ft_aid_source <- set_header_labels(
+  ft_aid_source, 
+    source = "Source", 
+    all_students = "All Students",
+    undergraduate = "Amount", 
+    pct_ug = "Undergraduate Pct.",
+    pct_student = "Student Pct." )
 
 int_keys <- c("undergraduate", "all_students")
 pct_keys <- c("pct_ug", "pct_student")
 
-ft_aid <- colformat_int(ft_aid, j = int_keys, big.mark = ",")
-ft_aid <- colformat_num(ft_aid, j = pct_keys, digits = 2, na_str = "", prefix = "%")
-ft_aid <- bold(ft_aid, part = "header") # bold header
+ft_aid_source <- colformat_int(ft_aid_source, j = int_keys, big.mark = ",", prefix = "$")
+ft_aid_source <- colformat_num(ft_aid_source, j = pct_keys, digits = 2, na_str = "", suffix = "%")
+ft_aid_source <- bold(ft_aid_source, part = "header") # bold header
 
-# ft_aid <- fit_to_width(ft_aid, max_width = 12)
-flextable::autofit(ft_aid, add_w = 0.5)
+# ft_aid_source <- fit_to_width(ft_aid_source, max_width = 12)
+flextable::autofit(ft_aid_source, add_w = 0.2)
 ```
 
-## 04. Sources of Financial Aid
+## 04. Financial Aid Awarded: Sources of Financial Aid
+```{r 4.1.1-viz-pie, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p4a1.png'))
+```
+
+## 04. Financial Aid Awarded: Types of Financial Aid
+```{r 4.2.0-aid-type, echo=FALSE, fig.cap='Types of Financial Aid', message=FALSE, warning=FALSE}
+
+aid_types_long[, type := Type]
+ft_aid_type <- flextable(aid_types_long[,c(1:2,6,3)])
+
+ft_aid_type <- flextable(aid_types_long, col_keys = c("Type", "undergraduate", "type", "all_students" ))
+
+typology <- data.frame(
+  col_keys = c("Type", "undergraduate", "type", "all_students" ),
+  type = c("Types of Financial Aid"),
+  what = c(
+    "Undergraduate",
+    "Undergraduate",
+    "All Students",
+    "All Students"),
+  measure = c("Type", "Amount", "Type", "Amount"),
+  stringsAsFactors = FALSE )
+
+# ft_aid_type <- set_header_labels(
+#   ft_aid_type, 
+#     Type = "Type", 
+#     undergraduate = "Amount",
+#     type = "Type",
+#     all_students = "Amount" )
+
+int_keys <- c("undergraduate", "all_students")
+# pct_keys <- c("pct_ug", "pct_student")
+
+ft_aid_type <- colformat_int(ft_aid_type, j = int_keys, big.mark = ",", prefix = "$")
+# ft_aid_type <- colformat_num(ft_aid_type, j = pct_keys, digits = 2, na_str = "", suffix = "%")
+ft_aid_type <- bold(ft_aid_type, part = "header") # bold header
+
+ft_aid_type <- set_header_df(ft_aid_type, mapping = typology, key = "col_keys" )
+
+ft_aid_type <- merge_h(ft_aid_type, part = "header")
+# ft_aid_type <- merge_v(ft_aid_type, part = "header")
+# ft_aid_type  <- align_text_col(ft_aid_type, j=4, align = "right", header = FALSE, footer = TRUE)
+# flextable::align(ft_aid_type, j = c(2,4), align = "right")
+# flextable::align(ft_aid_type, j = c(1,3), align = "left")
+ft_aid_type  <- theme_box(ft_aid_type)
+# flextable::align_nottext_col(ft_aid_type, align = "right", header = FALSE, footer = TRUE)
+# flextable::width(ft_aid_type, j = 1, 7)
+# ft_aid_type <- fit_to_width(ft_aid_type, max_width = 40)
+flextable::autofit(ft_aid_type)
+# ft_aid_type <- fix_border_issues(ft_aid_type)
+# ft_aid_type
+```
+
+## 04. Financial Aid Awarded: Types of Financial Aid
 ```{r 4.2.1-viz-pie, echo=FALSE, out.width = '100%'}
-knitr::include_graphics(here::here('png/p4a0.png'))
-```
-
-## 04. Sources of Financial Aid - table .png
-```{r 4.2.2-viz-pie, echo=FALSE, out.width = '100%'}
-knitr::include_graphics(here::here('png/dt.png'))
+knitr::include_graphics(here::here('png/p4a2.png'))
 ```
 
 ```{=openxml}

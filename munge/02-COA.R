@@ -5,9 +5,9 @@
 ## Step 02.01 Admin: munge COA files                                         ###
 ################################################################################
 dtTables        <- data.table::tables()
-sapply(dtTables[NAME %like% "coa" ,], 
+sapply(dtTables[NAME %like% "coa" ,],
     function(x) janitor::clean_names(data.table(x)))
-# ------------------------------------------------------------------------------    
+# ------------------------------------------------------------------------------
 m_grad_res              <- t(setDT(coa.current)[level =='grad'&
                         residency == 'instate' &
                         campus == 'on' &
@@ -31,7 +31,7 @@ coa.res$ay_yr2 <- as.Date(as.character(coa.res$ay_yr2), format = "%Y")
 ################################################################################
 ## Step 02.02 COA tales                                                      ###
 ################################################################################
-dtCOA  <- as.data.table(pdf.dat)  
+dtCOA  <- as.data.table(pdf.dat)
 names(dtCOA)[1]<-"costs"
 names(dtCOA)[2:11]<-paste0('ay', dtCOA[1,-1]) # rename multiple columns by index
 dtCOA <- dtCOA[-1]
@@ -40,8 +40,8 @@ dtCOA[is.na(dtCOA)] <- ""                     # replace NA's with spaces
 ## Step 02.03 COA Percentage of Total Cost viz                               ###
 ################################################################################
 p2a1 <- plot_ly(grad_res,
-            labels = ~Description, 
-            values = ~ay1920, 
+            labels = ~Description,
+            values = ~ay1920,
             type = 'pie',
             hole = 0.00,
             domain = list(x = c(0, 0.45)),

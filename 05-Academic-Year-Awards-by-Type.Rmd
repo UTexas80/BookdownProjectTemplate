@@ -1,3 +1,39 @@
-# Academic Year Student Financial Aid Awards by Type
+# 05. Academic Year Student Financial Aid Awards by Type
 
-We have finished a nice book.
+```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
+library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(here)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(officer)
+library(pander)
+library(plotly)
+library(png)
+library(reactable)
+library(stringr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+## (For Academic Years 2018-19 and 2017-18
+```{r 5.1-aid-type, echo=FALSE, fig.cap='Aid by Type', message=FALSE, warning=FALSE}
+
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```

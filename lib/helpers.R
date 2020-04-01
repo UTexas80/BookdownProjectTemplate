@@ -100,3 +100,7 @@ dupsBetweenGroups <- function (df, idcol) {
     # Return the vector of which entries are duplicated across groups
     return(dupBetween)
 }
+
+# How to run multiple functions one after another?
+`%@%` <- function(x, f) eval.parent(as.call(append(as.list(substitute(f)), list(x), 1))) # https://tinyurl.com/qo443mb
+# f(trend_ind); f(dT.metrics); f(dT.rules) # https://tinyurl.com/rkmef5n

@@ -2,15 +2,20 @@
 ## Step 99.00 Save .png files                                                ###
 ################################################################################
 # ------------------------------------------------------------------------------
-plotly::plotly_IMAGE(p2a1, 
-                    format = "png", 
-                    scale =1,  
+plotly::plotly_IMAGE(p2a1,
+                    format = "png",
+                    scale =1,
                     out_file = here::here("/png", "p2a1.png"))
 # ------------------------------------------------------------------------------
-plotly::plotly_IMAGE(p4a0, 
-                    format = "png", 
-                    scale =1,  
-                    out_file = here::here("/png", "p4a0.png"))
+plotly::plotly_IMAGE(p4a1,
+                    format = "png",
+                    scale =1,
+                    out_file = here::here("/png", "p4a1.png"))
+# -----------------------------------------------------------------------------
+plotly::plotly_IMAGE(p4a2,
+                    format = "png",
+                    scale =1,
+                    out_file = here::here("/png", "p4a2.png"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

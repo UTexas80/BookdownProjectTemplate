@@ -1,4 +1,4 @@
-# 02. Undergraduate Cost of Attendance.xlsx
+# 02. Undergraduate Cost of Attendance
 
 
 
@@ -89,7 +89,7 @@
 <!-- #  ) -->
 <!-- ``` -->
 
-## 02. Undergrad COA: Percentage of Total Cost
+## 02-Undergrad COA-Percentage-of-Total-Cost
 ![](C:/Users/gfalk/Documents/BookdownPT/png/p2a1.png){width=100%}
 
 <!-- # ### Example three - kable -->
@@ -107,7 +107,7 @@
 <!-- # print.xtable(dtCOA, booktabs = TRUE) -->
 <!-- ``` -->
 
-# 02. Cost of Attendance: Expenses
+## 02 Cost of Attendance Expenses
 ![](02-COA_files/figure-docx/2.2.1-coa-non-1.png)<!-- -->
 
 ![(\#fig:2.2.2-coa-res)coa-res](02-COA_files/figure-docx/2.2.2-coa-res-1.png)

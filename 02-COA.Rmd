@@ -1,4 +1,4 @@
-# 02. Undergraduate Cost of Attendance.xlsx
+# 02. Undergraduate Cost of Attendance
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE}
 library(dplyr)
@@ -147,8 +147,8 @@ ft
 <!-- #  ) -->
 <!-- ``` -->
 
-## 02. Undergrad COA: Percentage of Total Cost
-```{r 4.2.1-viz-pie, echo=FALSE, out.width = '100%'}
+## 02-Undergrad COA-Percentage-of-Total-Cost
+```{r 2.2.0-viz-pie, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('png/p2a1.png'))
 ```
 
@@ -167,7 +167,7 @@ knitr::include_graphics(here::here('png/p2a1.png'))
 <!-- # print.xtable(dtCOA, booktabs = TRUE) -->
 <!-- ``` -->
 
-# 02. Cost of Attendance: Expenses
+## 02 Cost of Attendance Expenses
 ```{r 2.2.1-coa-non}
 ggplot(grad_non) +
  aes(x = Description, weight = ay1920) +
