@@ -29,9 +29,78 @@ knitr::opts_chunk$set(echo = FALSE)
 options(tinytex.verbose = TRUE)
 ```
 
-## (For Academic Years 2018-19 and 2017-18
-```{r 5.1-aid-type, echo=FALSE, fig.cap='Aid by Type', message=FALSE, warning=FALSE}
+```{r 4.0-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+ay                   <- readRDS(here::here("/rds", "ay.rds"))
+ay_0                 <- readRDS(here::here("/rds", "currentAY.rds"))
+ay_0_row             <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+ay_1                 <- readRDS(here::here("/rds", "ay_1.rds"))
+# ------------------------------------------------------------------------------
+dt_awd               <- setDT(readRDS(here::here("/rds", "dt_awd.rds")))
+# ------------------------------------------------------------------------------
+# p4a1                 <- readRDS(here::here("/rds", "p4a1.rds"))
+# p4a2                 <- readRDS(here::here("/rds", "p4a2.rds"))
+# ------------------------------------------------------------------------------
+```
 
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+
+<h2><center><b>Academic Year Student Financial Aid Awards by Type</b></center></h2>
+
+## (For Academic Years 2018-19 and 2017-18
+```{r 5.1-tbl-awd-current, echo=FALSE, fig.cap='Awd by Type', eval = dt_awd, message=FALSE, warning=FALSE}
+ft_awd <- flextable(dt_awd)
+
+ft_awd <- set_header_labels(
+  ft_awd,
+    student_aid_programs    = "a",
+    ug_awd_num              = "b",
+    ug_awd_amt              = "c",
+    grad_awd_num            = "d",
+    grad_awd_amt            = "e",
+    awd_tot_num             = "f",
+    awd_tot_amt             = "g",
+    i.ug_awd_num            = "h",
+    i.ug_awd_amt            = "i",
+    i.grad_awd_num          = "j",
+    i.grad_awd_amt          = "k",
+    i.awd_tot_num           = "l",
+    i.awd_tot_amt           = "m"  
+  
+    # student_aid_programs    = "Student Aid Program",
+    # ug_awd_num              = "# Awards",
+    # ug_awd_amt              = "Amt Undergrad",
+    # grad_awd_num            = "# Awards",
+    # grad_awd_amt            = "Amt Undergrad",
+    # awd_tot_num             = "Total # Awards",
+    # awd_tot_amt             = "Total Amount",
+    # i.ug_awd_num            = "# Awards",
+    # i.ug_awd_amt            = "Amt Undergrad",
+    # i.grad_awd_num          = "# Awards",
+    # i.grad_awd_amt          = "Amt Undergrad",
+    # i.awd_tot_num           = "Total # Awards",
+    # i.awd_tot_amt           = "Total Amount"
+  )
+
+cur_keys       <- c("ug_awd_amt", "grad_awd_amt","i.ug_awd_amt", "i.grad_awd_amt")
+int_keys       <- c("ug_awd_num", "grad_awd_num", "awd_tot_num", "i.ug_awd_amt", "i.grad_awd_num", "i.awd_tot_num")
+
+ft_awd <- colformat_int(ft_awd, j = cur_keys, big.mark = ",", prefix = "$")
+ft_awd <- colformat_int(ft_awd, j = int_keys, big.mark = ",", prefix = "")
+
+# ft_awd_current <- vline(ft_awd_current, j = c(3:4),  part = "all")
+# ft_awd_current <- border(ft_awd_current, j = 3, bor
+# vline(ft_awd_current, j = 3, border = std_border)
+
+# ft_awd_current <- vline(ft_awd_current )
+
+# ft_awd_current <- vline(ft_awd_current , j = 3, border = std_border)
+ft_awd <- fontsize(ft_awd, size = 6, part = "body") 
+# flextable::autofit(ft_awd)
+ft_awd <- fit_to_width(ft_awd, max_width = 12)
+ft_awd
 ```
 
 ```{=openxml}

@@ -53,7 +53,7 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 <h2><center><b>Financial Aid Awarded</b></center></h2>
 
 ## 04. Financial Aid Awarded: Sources of Financial Aid
-```{r 4.1.0-aid-source, echo=FALSE, fig.cap='Sources of Financial Aid', message=FALSE, warning=FALSE}
+```{r 4.1.0-tbl-aid-source, echo=FALSE, fig.cap='Sources of Financial Aid', message=FALSE, warning=FALSE}
 ft_aid_source <- flextable(aid_sources_long)
 
 ft_aid_source <- set_header_labels(
@@ -81,7 +81,7 @@ knitr::include_graphics(here::here('png/p4a1.png'))
 ```
 
 ## 04. Financial Aid Awarded: Types of Financial Aid
-```{r 4.2.0-aid-type, echo=FALSE, fig.cap='Types of Financial Aid', message=FALSE, warning=FALSE}
+```{r 4.2.0-tbl-aid-type, echo=FALSE, fig.cap='Types of Financial Aid', message=FALSE, warning=FALSE}
 
 aid_types_long[, type := Type]
 ft_aid_type <- flextable(aid_types_long[,c(1:2,6,3)])
@@ -98,13 +98,6 @@ typology <- data.frame(
     "All Students"),
   measure = c("Type", "Amount", "Type", "Amount"),
   stringsAsFactors = FALSE )
-
-# ft_aid_type <- set_header_labels(
-#   ft_aid_type, 
-#     Type = "Type", 
-#     undergraduate = "Amount",
-#     type = "Type",
-#     all_students = "Amount" )
 
 int_keys <- c("undergraduate", "all_students")
 # pct_keys <- c("pct_ug", "pct_student")
