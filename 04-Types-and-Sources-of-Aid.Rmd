@@ -52,7 +52,7 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 
 <h2><center><b>Financial Aid Awarded</b></center></h2>
 
-## 04. Financial Aid Awarded: Sources of Financial Aid
+## 04. Financial Aid Awarded: Sources of Financial Aid Table
 ```{r 4.1.0-tbl-aid-source, echo=FALSE, fig.cap='Sources of Financial Aid', message=FALSE, warning=FALSE}
 ft_aid_source <- flextable(aid_sources_long)
 
@@ -75,12 +75,12 @@ ft_aid_source <- bold(ft_aid_source, part = "header") # bold header
 flextable::autofit(ft_aid_source, add_w = 0.2)
 ```
 
-## 04. Financial Aid Awarded: Sources of Financial Aid
+## 04. Financial Aid Awarded: Sources of Financial Aid Chart
 ```{r 4.1.1-viz-pie, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('png/p4a1.png'))
 ```
 
-## 04. Financial Aid Awarded: Types of Financial Aid
+## 04. Financial Aid Awarded: Types of Financial Aid Table
 ```{r 4.2.0-tbl-aid-type, echo=FALSE, fig.cap='Types of Financial Aid', message=FALSE, warning=FALSE}
 
 aid_types_long[, type := Type]
@@ -122,7 +122,7 @@ flextable::autofit(ft_aid_type)
 # ft_aid_type
 ```
 
-## 04. Financial Aid Awarded: Types of Financial Aid
+## 04. Financial Aid Awarded: Types of Financial Aid Chart
 ```{r 4.2.1-viz-pie, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('png/p4a2.png'))
 ```

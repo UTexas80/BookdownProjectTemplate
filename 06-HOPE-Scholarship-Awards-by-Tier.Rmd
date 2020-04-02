@@ -1,0 +1,107 @@
+# 06. HOPE Scholarship Awards by Tier
+
+```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
+library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(here)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(officer)
+library(pander)
+library(plotly)
+library(png)
+library(reactable)
+library(stringr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 4.0-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+ay                   <- readRDS(here::here("/rds", "ay.rds"))
+ay_0                 <- readRDS(here::here("/rds", "currentAY.rds"))
+ay_0_row             <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+ay_1                 <- readRDS(here::here("/rds", "ay_1.rds"))
+# ------------------------------------------------------------------------------
+# dt_hope               <- setDT(readRDS(here::here("/rds", "dt_hope.rds")))
+# ------------------------------------------------------------------------------
+# p4a1                 <- readRDS(here::here("/rds", "p4a1.rds"))
+# p4a2                 <- readRDS(here::here("/rds", "p4a2.rds"))
+# ------------------------------------------------------------------------------
+```
+
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+<h2><center><b>HOPE Scholarship Awards by Tier:</b></center></h2>
+<h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
+<br>
+
+
+## 06. Financial Aid Awarded: Sources of Financial Aid Table
+```{r _6.1, echo=FALSE, fig.cap='Awd by Tier'}
+# ft_hope     <- flextable(head(dt_hope,-2))
+# 
+# typology   <- data.frame(
+#   col_keys = c("student_aid_programs", "ug_hope_num", "ug_hope_amt", "grad_hope_num", "grad_hope_amt", "awd_tot_num", 
+#                "awd_tot_amt", "i.ug_hope_num", "i.ug_hope_amt", "i.grad_hope_num", "i.grad_hope_amt", "i.awd_tot_num",
+#                "i.awd_tot_amt"),
+#   what     = c("", as.character(rep(ay[ay_0_row,2], 6)), as.character(rep(ay[ay_0_row - 1,2], 6))),
+#   measure  = c("Student Aid Program", "# Awards", "Amt Undergrad", "# Awards", "Amt Undergrad", "Total # Awards",
+#                "Total Amount", "# Awards", "Amt Undergrad", "# Awards", "Amt Undergrad", "Total # Awards", "Total Amount"
+#                ),
+#   stringsAsFactors = FALSE )
+# 
+# ft_hope     <- set_header_df(ft_hope, mapping = typology, key = "col_keys" )
+# ft_hope     <- merge_h(ft_hope, part = "header")
+# ft_hope     <- merge_v(ft_hope, part = "header")
+# 
+# cur_keys   <- c("ug_hope_amt", "grad_hope_amt","awd_tot_amt",  "i.ug_hope_amt", "i.grad_hope_amt", "i.awd_tot_amt")
+# int_keys   <- c("ug_hope_num", "grad_hope_num", "awd_tot_num", "i.ug_hope_num", "i.grad_hope_num", "i.awd_tot_num")
+# 
+# ft_hope     <- colformat_int(ft_hope, j = cur_keys, big.mark = ",", prefix = "$")
+# ft_hope     <- colformat_int(ft_hope, j = int_keys, big.mark = ",", prefix = "")
+# 
+# ft_hope     <- fontsize(ft_hope, size = 9, part = "body")
+# # flextable::autofit(ft_hope)
+# 
+# ft_hope     <- theme_booktabs(ft_hope) %>%
+#               bold(part = "header", bold = TRUE )
+# #  vline(ft_hope, j = 2, part = "header")
+# ft_hope     <- vline(ft_hope, j = 7, part = "body")
+# 
+# ft_hope     <- fit_to_width(ft_hope, max_width = 8)
+# ft_hope     <- fix_border_issues(ft_hope)
+# ft_hope
+```
+\elandscape
+
+## 06. HOPE Scholarship Awards by Tier Chart
+```{r _6.2, fig.cap='Awd by Tier'}
+```
+
+## 06. HOPE Scholarship Awards by Tier Chart
+```{r _6.3, fig.cap='Awd by Tier'}
+```
+
+## 06. Percent Change in HOPE Scholarship Awards by Tier Chart
+```{r _6.4, fig.cap='Pct. Change by Tier'}
+```
+
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```

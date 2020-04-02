@@ -9,6 +9,9 @@ output:
   highlight: tango
   html_document:
     df_print: kable
+  pdf_document:
+      includes:
+          in_header: header.tex     
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -19,17 +22,9 @@ description: "This is a minimal example of using the bookdown package to write a
 cover-image: "images/cover.pdf"
 ---
 
-<!-- # Prerequisites -->
-
-<!-- This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$. -->
-
-<!-- The **bookdown** package can be installed from CRAN or Github: -->
-
 ```{r setup, include=FALSE}
-
 knitr::opts_chunk$set(echo = TRUE)
 source(here::here("/lib", "render_toc.R"))
-
 ```
 
 ## Table of Contents {#crazy-slug-here}
@@ -40,6 +35,22 @@ render_toc("02-COA.Rmd")
 
 ```{r toc-03, echo=FALSE}
 render_toc("03-Financial-Aid-Awarded.Rmd")
+```
+
+```{r toc-04, echo=FALSE}
+render_toc("04-Types-and-Sources-of-Aid.Rmd")
+```
+
+```{r toc-05, echo=FALSE}
+render_toc("05-Academic-Year-Awards-by-Type.Rmd")
+```
+
+```{r toc-06, echo=FALSE}
+render_toc("06-HOPE-Scholarship-Awards-by-Tier.Rmd")
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```
 
 # OSFA Org Chart {-}
@@ -53,6 +64,11 @@ knitr::include_graphics("images/OSFAOrgChart.png")
 <!-- Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`. -->
 
 <!-- To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>. -->
+
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

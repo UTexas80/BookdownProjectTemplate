@@ -123,8 +123,8 @@ zz <- as_flextable(fin.aid.wide) %>%
 suppressWarnings(zz)
 ```
 
-## 03. Average Award Per Recipient A
-```{r 3.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
+## 03. Average Award Per Recipient chart
+```{r 3.1.1-viz-bar, echo=FALSE, message = FALSE}
 fin.aid.long[level == "undergrad"] %>%
   filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
   ggplot() +
@@ -147,7 +147,7 @@ grid.arrange(grobs = list(p1,p2), ncol = 2)
 #grid.arrange(p1, p2, ncol = 2)
 ```
 
-## 03. Average Award Per Recipient
+## 03. Average Award Per Recipient Chart
 ```{r 3.2.1.a-viz-bar}
 fin.aid.long %>%
     filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
@@ -155,8 +155,8 @@ fin.aid.long %>%
     aes(x = ay_abbv, weight = avg_awd) +
     geom_bar(fill = "#0c4c8a") +
     facet_wrap(~level) +
-    xlab("value / reference (mm)") + 
-    ylab("") + 
+    xlab("Academic Year") + 
+    ylab("Award") + 
     theme_bw() + theme(aspect.ratio = 0.6666666, panel.spacing = unit(1, "lines"))
 ```
 

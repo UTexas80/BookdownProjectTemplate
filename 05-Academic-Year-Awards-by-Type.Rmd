@@ -47,61 +47,52 @@ dt_awd               <- setDT(readRDS(here::here("/rds", "dt_awd.rds")))
 knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ```
 
-<h2><center><b>Academic Year Student Financial Aid Awards by Type</b></center></h2>
+<h2><center><b>Academic Year Student Financial Aid Awards by Type:</b></center></h2>
+<h3><center><b>For Academic Years 2018-19 and 2019-20</b></center></h3>
+<br>
+<!-- ## For Academic Years 2018-19 and 2017-18 -->
 
-## (For Academic Years 2018-19 and 2017-18
-```{r 5.1-tbl-awd-current, echo=FALSE, fig.cap='Awd by Type', eval = dt_awd, message=FALSE, warning=FALSE}
-ft_awd <- flextable(dt_awd)
+\newpage
+\blandscape
 
-ft_awd <- set_header_labels(
-  ft_awd,
-    student_aid_programs    = "a",
-    ug_awd_num              = "b",
-    ug_awd_amt              = "c",
-    grad_awd_num            = "d",
-    grad_awd_amt            = "e",
-    awd_tot_num             = "f",
-    awd_tot_amt             = "g",
-    i.ug_awd_num            = "h",
-    i.ug_awd_amt            = "i",
-    i.grad_awd_num          = "j",
-    i.grad_awd_amt          = "k",
-    i.awd_tot_num           = "l",
-    i.awd_tot_amt           = "m"  
-  
-    # student_aid_programs    = "Student Aid Program",
-    # ug_awd_num              = "# Awards",
-    # ug_awd_amt              = "Amt Undergrad",
-    # grad_awd_num            = "# Awards",
-    # grad_awd_amt            = "Amt Undergrad",
-    # awd_tot_num             = "Total # Awards",
-    # awd_tot_amt             = "Total Amount",
-    # i.ug_awd_num            = "# Awards",
-    # i.ug_awd_amt            = "Amt Undergrad",
-    # i.grad_awd_num          = "# Awards",
-    # i.grad_awd_amt          = "Amt Undergrad",
-    # i.awd_tot_num           = "Total # Awards",
-    # i.awd_tot_amt           = "Total Amount"
-  )
+## 05. Academic Year Student Financial Aid Awards by Type Table
+```{r _5.1, echo=FALSE, fig.cap='Awd by Type', eval = dt_awd, message=FALSE, warning=FALSE}
+ft_awd     <- flextable(head(dt_awd,-2))
 
-cur_keys       <- c("ug_awd_amt", "grad_awd_amt","i.ug_awd_amt", "i.grad_awd_amt")
-int_keys       <- c("ug_awd_num", "grad_awd_num", "awd_tot_num", "i.ug_awd_amt", "i.grad_awd_num", "i.awd_tot_num")
+typology   <- data.frame(
+  col_keys = c("student_aid_programs", "ug_awd_num", "ug_awd_amt", "grad_awd_num", "grad_awd_amt", "awd_tot_num", 
+               "awd_tot_amt", "i.ug_awd_num", "i.ug_awd_amt", "i.grad_awd_num", "i.grad_awd_amt", "i.awd_tot_num",
+               "i.awd_tot_amt"),
+# type     = c("factor", as.character(rep(c("int", "double"),6))),
+  what     = c("", as.character(rep(ay[ay_0_row,2], 6)), as.character(rep(ay[ay_0_row - 1,2], 6))),
+  measure  = c("Student Aid Program", "# Awards", "Amt Undergrad", "# Awards", "Amt Undergrad", "Total # Awards",
+               "Total Amount", "# Awards", "Amt Undergrad", "# Awards", "Amt Undergrad", "Total # Awards", "Total Amount"
+               ),
+  stringsAsFactors = FALSE )
 
-ft_awd <- colformat_int(ft_awd, j = cur_keys, big.mark = ",", prefix = "$")
-ft_awd <- colformat_int(ft_awd, j = int_keys, big.mark = ",", prefix = "")
+ft_awd     <- set_header_df(ft_awd, mapping = typology, key = "col_keys" )
+ft_awd     <- merge_h(ft_awd, part = "header")
+ft_awd     <- merge_v(ft_awd, part = "header")
 
-# ft_awd_current <- vline(ft_awd_current, j = c(3:4),  part = "all")
-# ft_awd_current <- border(ft_awd_current, j = 3, bor
-# vline(ft_awd_current, j = 3, border = std_border)
+cur_keys   <- c("ug_awd_amt", "grad_awd_amt","awd_tot_amt",  "i.ug_awd_amt", "i.grad_awd_amt", "i.awd_tot_amt")
+int_keys   <- c("ug_awd_num", "grad_awd_num", "awd_tot_num", "i.ug_awd_num", "i.grad_awd_num", "i.awd_tot_num")
 
-# ft_awd_current <- vline(ft_awd_current )
+ft_awd     <- colformat_int(ft_awd, j = cur_keys, big.mark = ",", prefix = "$")
+ft_awd     <- colformat_int(ft_awd, j = int_keys, big.mark = ",", prefix = "")
 
-# ft_awd_current <- vline(ft_awd_current , j = 3, border = std_border)
-ft_awd <- fontsize(ft_awd, size = 6, part = "body") 
+ft_awd     <- fontsize(ft_awd, size = 9, part = "body")
 # flextable::autofit(ft_awd)
-ft_awd <- fit_to_width(ft_awd, max_width = 12)
+
+ft_awd     <- theme_booktabs(ft_awd) %>%
+              bold(part = "header", bold = TRUE )
+#  vline(ft_awd, j = 2, part = "header")
+ft_awd     <- vline(ft_awd, j = 7, part = "body")
+
+ft_awd     <- fit_to_width(ft_awd, max_width = 8)
+ft_awd     <- fix_border_issues(ft_awd)
 ft_awd
 ```
+\elandscape
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

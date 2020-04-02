@@ -35,12 +35,11 @@ saveRDS(X04aid.types.long,   file = here::here("rds/", "aid_types_long.rds"))
 saveRDS(X05awards.fb.0,      file = here::here("rds/", "X05awards.fb.0"))
 saveRDS(X05awards.fb.1,      file = here::here("rds/", "X05awards.fb.1"))
 saveRDS(X05awards.fb.2,      file = here::here("rds/", "X05awards.fb.2"))
-saveRDS(X05awards.fb.long,   file = here::here("rds/", "X05awards.fb.long"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
 a99.version <- "1.0.0"
-a98.ModDate <- as.Date("2019-01-01")
+a98.ModDate <- as.Date("2020-01-01")
 # ------------------------------------------------------------------------------
 # 2019.06.09 - v.1.0.0
 # 1st release

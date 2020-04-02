@@ -46,6 +46,10 @@ pdf2                  <- readRDS(here::here("/rds", "pdf2.rds"))
 pdf_tbl               <- readRDS(here::here("/rds", "pdf_tbl.rds"))
 ```
 
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+
 ```{r 2.1.1-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE}
  ft <- flextable(dtCOA)
 #       colkeys = c(
@@ -147,7 +151,7 @@ ft
 <!-- #  ) -->
 <!-- ``` -->
 
-## 02-Undergrad COA-Percentage-of-Total-Cost
+## 02 Undergrad COA Percentage of Total Cost
 ```{r 2.2.0-viz-pie, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('png/p2a1.png'))
 ```
@@ -176,7 +180,7 @@ ggplot(grad_non) +
  theme_minimal()
 ```
 
-```{r 2.2.2-coa-res, fig.cap='coa-res'}
+```{r 2.2.2-coa-res}
 ggplot(grad_res) +
  aes(x = Description, weight = ay1920) +
  geom_bar(fill = "#0c4c8a") +
