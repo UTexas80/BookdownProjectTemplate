@@ -9,7 +9,7 @@ load_libraries: TRUE
 libraries:  bookdown, checkpoint, data.table, data.table, dataMeta, datamodelr, devtools, DBI, DiagrammeR, dplyr, DT, flexdashboard, 
     flextable, formatR, formattable, futile.logger, ggplot2, glue, grid, gridExtra, gt, htmltools, janitor, knitr, lubridate, orca, plotly, 
     plyr, png, ProjectTemplate, qdap, readxl, reactable, reprex, reshape2, RMariaDB, rmarkdown, rmiscutils, RMySQL, RODBC, rscorecard, 
-    stargazer, stringr, tabulizer, tabulizerjars, tidyverse, tinytex, treemap, tryCatchLog, webshot, xlsx, xtable, zoo
+    scales, stargazer, stringr, tabulizer, tabulizerjars, tidyverse, tinytex, treemap, tryCatchLog, webshot, xlsx, xtable, zoo
 logging: TRUE
 logging_level: INFO
 munging: TRUE

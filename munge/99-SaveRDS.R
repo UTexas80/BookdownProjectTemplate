@@ -35,6 +35,9 @@ saveRDS(X04aid.types.long,   file = here::here("rds/", "aid_types_long.rds"))
 saveRDS(X05awards.fb.0,      file = here::here("rds/", "X05awards.fb.0"))
 saveRDS(X05awards.fb.1,      file = here::here("rds/", "X05awards.fb.1"))
 saveRDS(X05awards.fb.2,      file = here::here("rds/", "X05awards.fb.2"))
+# ------------------------------------------------------------------------------
+saveRDS(X06hope.wide,        file = here::here("rds/", "dt_hope.rds"))
+saveRDS(dt_hope_bar_amt,     file = here::here("rds/", "dt_hope_bar_amt.rds"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
