@@ -49,7 +49,7 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 <h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
 
 # 06. Financial Aid Awarded: Sources of Financial Aid Table
-```{r _6.1, echo=FALSE, fig.cap='Awd by Tier'}
+```{r 6.0, echo=FALSE, fig.cap='Awd by Tier'}
 ft_hope      <- flextable(head(dt_hope))
   typology   <- data.frame(
     col_keys = c("tier", 
@@ -127,21 +127,28 @@ ft_hope      <- flextable(head(dt_hope))
 ```
 \elandscape
 
-## 06. HOPE Scholarship Awards by Tier Chart
-```{r _6.2, fig.cap='Awd by Tier'}
-ggplot(dt_hope_bar_amt, 
-        aes(fill = tier, y = amt, x = ay)) + 
-        geom_bar(position = "dodge", stat = "identity") +
-        theme(axis.text.x = element_text(angle = -90, hjust = 0)) +
-        scale_y_continuous(labels = dollar_format(prefix="$"))
+<!-- ## 06. HOPE Scholarship Awards by Tier Chart -->
+<!-- ```{r _6.2-viz-bar, fig.cap='Awd by Tier'} -->
+<!-- ggplot(dt_hope_bar_amt,  -->
+<!--         aes(fill = tier, y = amt, x = ay)) +  -->
+<!--         geom_bar(position = "dodge", stat = "identity") + -->
+<!--         theme(axis.text.x = element_text(angle = -90, hjust = 0)) + -->
+<!--         scale_y_continuous(labels = dollar_format(prefix = "$")) -->
+<!-- ``` -->
+
+## 06. HOPE Scholarship Awards by Tier
+```{r 6.1-viz-bar, out.width = '100%'}
+knitr::include_graphics(here::here('png/p6a1.png'))
 ```
 
-## 06. HOPE Scholarship Awards by Tier Chart
-```{r _6.3, fig.cap='Awd by Tier'}
+## 06. HOPE Scholarship Awards by Tier
+```{r 6.2, fig.cap='Awd by Tier'}
+knitr::include_graphics(here::here('png/p6a2.png'))
 ```
 
-## 06. Percent Change in HOPE Scholarship Awards by Tier Chart
-```{r _6.4, fig.cap='Pct. Change by Tier'}
+## 06. Percent Change in HOPE Scholarship Awards by Tier
+```{r 6.3, fig.cap='Pct. Change by Tier'}
+knitr::include_graphics(here::here('png/p6a3.png'))
 ```
 
 

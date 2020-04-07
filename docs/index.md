@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "Annual Reports"
 author: "Glen C. Falk"
-date: "2020-04-06"
+date: "2020-04-07"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -45,9 +45,9 @@ cover-image: "images/cover.pdf"
 
 - [HOPE Scholarship Awards by Tier](#hope-scholarship-awards-by-tier)
 - [Financial Aid Awarded: Sources of Financial Aid Table\elandscape](#financial-aid-awarded:-sources-of-financial-aid-table\elandscape)
-    - [HOPE Scholarship Awards by Tier Chart](#hope-scholarship-awards-by-tier-chart)
-    - [HOPE Scholarship Awards by Tier Chart](#hope-scholarship-awards-by-tier-chart)
-    - [Percent Change in HOPE Scholarship Awards by Tier Chart](#percent-change-in-hope-scholarship-awards-by-tier-chart)
+    - [HOPE Scholarship Awards by Tier](#hope-scholarship-awards-by-tier)
+    - [HOPE Scholarship Awards by Tier](#hope-scholarship-awards-by-tier)
+    - [Percent Change in HOPE Scholarship Awards by Tier](#percent-change-in-hope-scholarship-awards-by-tier)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

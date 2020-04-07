@@ -19,14 +19,23 @@
 ```
 \elandscape
 
-## 06. HOPE Scholarship Awards by Tier Chart
-![(\#fig:_6.2)Awd by Tier](06-HOPE-Scholarship-Awards-by-Tier_files/figure-docx/_6.2-1.png)
+<!-- ## 06. HOPE Scholarship Awards by Tier Chart -->
+<!-- ```{r _6.2-viz-bar, fig.cap='Awd by Tier'} -->
+<!-- ggplot(dt_hope_bar_amt,  -->
+<!--         aes(fill = tier, y = amt, x = ay)) +  -->
+<!--         geom_bar(position = "dodge", stat = "identity") + -->
+<!--         theme(axis.text.x = element_text(angle = -90, hjust = 0)) + -->
+<!--         scale_y_continuous(labels = dollar_format(prefix = "$")) -->
+<!-- ``` -->
 
-## 06. HOPE Scholarship Awards by Tier Chart
+## 06. HOPE Scholarship Awards by Tier
+![](C:/Users/gfalk/Documents/BookdownPT/png/p6a1.png){width=100%}
 
+## 06. HOPE Scholarship Awards by Tier
+![(\#fig:6.2)Awd by Tier](C:/Users/gfalk/Documents/BookdownPT/png/p6a2.png)
 
-## 06. Percent Change in HOPE Scholarship Awards by Tier Chart
-
+## 06. Percent Change in HOPE Scholarship Awards by Tier
+![(\#fig:6.3)Pct. Change by Tier](C:/Users/gfalk/Documents/BookdownPT/png/p6a3.png)
 
 
 ```{=openxml}

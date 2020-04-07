@@ -1,0 +1,117 @@
+# 06. ZELL Scholarship Awards by Tier
+
+
+
+
+
+
+
+
+
+![](C:/Users/gfalk/Documents/BookdownPT/images/GEORGIA-XH-FC.png){width=100%}
+<h2><center><b>zell Scholarship Awards by Tier:</b></center></h2>
+<h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
+
+<!-- # 06. Financial Aid Awarded: Sources of Financial Aid Table -->
+<!-- ```{r 6.0, echo=FALSE, fig.cap='Awd by Tier'} -->
+<!-- ft_zell      <- flextable(head(dt_zell)) -->
+<!--   typology   <- data.frame( -->
+<!--     col_keys = c("tier",  -->
+<!--                 "awd2011.12",  -->
+<!--                 "amt2011.12",  -->
+<!--                 "awd2012.13",  -->
+<!--                 "amt2012.13",  -->
+<!--                 "awd2013.14",  -->
+<!--                 "amt2013.14",  -->
+<!--                 "awd2014.15",  -->
+<!--                 "amt2014.15",  -->
+<!--                 "awd2015.16",  -->
+<!--                 "amt2015.16",  -->
+<!--                 "awd2016.17",  -->
+<!--                 "amt2016.17",  -->
+<!--                 "awd2017.18",  -->
+<!--                 "amt2017.18",  -->
+<!--                 "awd2018.19",  -->
+<!--                 "amt2018.19"), -->
+<!--     what     = c("", -->
+<!--                 as.character(rep(ay[ay_0_row - 7, 2], 2)),                 -->
+<!--                 as.character(rep(ay[ay_0_row - 6, 2], 2)), -->
+<!--                 as.character(rep(ay[ay_0_row - 5, 2], 2)), -->
+<!--                 as.character(rep(ay[ay_0_row - 4, 2], 2)), -->
+<!--                 as.character(rep(ay[ay_0_row - 3, 2], 2)), -->
+<!--                 as.character(rep(ay[ay_0_row - 2, 2], 2)), -->
+<!--                 as.character(rep(ay[ay_0_row - 1, 2], 2)), -->
+<!--                 as.character(rep(ay[ay_0_row - 0, 2], 2))), -->
+<!--     measure  = c("", -->
+<!--                 "# Awards", "Amount", -->
+<!--                 "# Awards", "Amount", -->
+<!--                 "# Awards", "Amount", -->
+<!--                 "# Awards", "Amount", -->
+<!--                 "# Awards", "Amount", -->
+<!--                 "# Awards", "Amount",                 -->
+<!--                 "# Awards", "Amount", -->
+<!--                 "# Awards", "Amount"), -->
+<!--     stringsAsFactors = FALSE ) -->
+
+<!--   ft_zell    <- set_header_df(ft_zell, mapping = typology, key = "col_keys" ) -->
+<!--   ft_zell    <- merge_h(ft_zell, part = "header") -->
+<!--   ft_zell    <- merge_v(ft_zell, part = "header") -->
+
+<!--   cur_keys   <- c("amt2011.12",  -->
+<!--                   "amt2012.13",  -->
+<!--                   "amt2013.14",  -->
+<!--                   "amt2014.15",  -->
+<!--                   "amt2015.16",  -->
+<!--                   "amt2016.17",  -->
+<!--                   "amt2017.18",  -->
+<!--                   "amt2018.19") -->
+<!--   int_keys   <- c("awd2011.12",  -->
+<!--                   "awd2012.13",  -->
+<!--                   "awd2013.14",  -->
+<!--                   "awd2014.15",  -->
+<!--                   "awd2015.16",  -->
+<!--                   "awd2016.17",  -->
+<!--                   "awd2017.18",  -->
+<!--                   "awd2018.19") -->
+
+<!--   ft_zell    <- colformat_int(ft_zell, j = cur_keys, big.mark = ",", prefix = "$") -->
+<!--   ft_zell    <- colformat_int(ft_zell, j = int_keys, big.mark = ",", prefix = "") -->
+
+<!--   ft_zell    <- fontsize(ft_zell, size = 11, part = "body") -->
+<!-- # # flextable::autofit(ft_zell) -->
+
+<!--   ft_zell    <- theme_booktabs(ft_zell) %>% -->
+<!--                  bold(part = "header", bold = TRUE ) -->
+
+<!-- # ft_zell     <- vline(ft_zell, j = 7, part = "body") -->
+
+<!--   ft_zell    <- fit_to_width(ft_zell, max_width = 9.0) -->
+<!-- # ft_zell  <- fix_border_issues(ft_zell) -->
+<!--   ft_zell -->
+<!-- ``` -->
+\elandscape
+
+<!-- ## 06. zell Scholarship Awards by Tier Chart -->
+<!-- ```{r _6.2-viz-bar, fig.cap='Awd by Tier'} -->
+<!-- ggplot(dt_zell_bar_amt,  -->
+<!--         aes(fill = tier, y = amt, x = ay)) +  -->
+<!--         geom_bar(position = "dodge", stat = "identity") + -->
+<!--         theme(axis.text.x = element_text(angle = -90, hjust = 0)) + -->
+<!--         scale_y_continuous(labels = dollar_format(prefix = "$")) -->
+<!-- ``` -->
+
+## 06. ZELL Scholarship Awards by Tier
+![](C:/Users/gfalk/Documents/BookdownPT/png/p6z1.png){width=100%}
+
+## 06. ZELL Scholarship Awards by Tier
+![(\#fig:6.2)Awd by Tier](C:/Users/gfalk/Documents/BookdownPT/png/p6z2.png)
+
+<!-- ## 06. Percent Change in ZELL Scholarship Awards by Tier -->
+<!-- ```{r 6.3, fig.cap='Pct. Change by Tier'} -->
+<!-- knitr::include_graphics(here::here('png/p6z3.png')) -->
+<!-- ``` -->
+
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
