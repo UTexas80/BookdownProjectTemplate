@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "Annual Reports"
 author: "Glen C. Falk"
-date: "2020-04-07"
+date: "2020-04-09"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -44,10 +44,23 @@ cover-image: "images/cover.pdf"
     - [Academic Year Student Financial Aid Awards by Type Table\elandscape](#academic-year-student-financial-aid-awards-by-type-table\elandscape)
 
 - [HOPE Scholarship Awards by Tier](#hope-scholarship-awards-by-tier)
-- [Financial Aid Awarded: Sources of Financial Aid Table\elandscape](#financial-aid-awarded:-sources-of-financial-aid-table\elandscape)
-    - [HOPE Scholarship Awards by Tier](#hope-scholarship-awards-by-tier)
+    - [Financial Aid Awarded: Sources of Financial Aid Table\elandscape](#financial-aid-awarded:-sources-of-financial-aid-table\elandscape)
+    - [HOPE Scholarship Awards by Tier Table](#hope-scholarship-awards-by-tier-table)
     - [HOPE Scholarship Awards by Tier](#hope-scholarship-awards-by-tier)
     - [Percent Change in HOPE Scholarship Awards by Tier](#percent-change-in-hope-scholarship-awards-by-tier)
+
+- [ZELL Scholarship Awards by Tier](#zell-scholarship-awards-by-tier)
+    - [Financial Aid Awarded: Sources of Financial Aid Table\elandscape](#financial-aid-awarded:-sources-of-financial-aid-table\elandscape)
+    - [ZELL Scholarship Awards by Tier](#zell-scholarship-awards-by-tier)
+    - [ZELL Scholarship Awards by Tier](#zell-scholarship-awards-by-tier)
+    - [Percent Change in ZELL Scholarship Awards by Tier](#percent-change-in-zell-scholarship-awards-by-tier)
+
+- [HOPE-ZELL Scholarship Awards by Tier](#hope-zell-scholarship-awards-by-tier)
+    - [Percent of Undergraduates with HOPE/Zell Scholarship Awards](#percent-of-undergraduates-with-hope/zell-scholarship-awards)
+    - [Pct Undergraduates with HOPE or Zell](#pct-undergraduates-with-hope-or-zell)
+- [HOPE-ZELL Scholarship Award Totals](#hope-zell-scholarship-award-totals)
+    - [HOPE-ZELL Scholarship Award Totals](#hope-zell-scholarship-award-totals)
+    - [Total Number of HOPE/Zell Miller Awards08.  2018-19 Total Amount of HOPE/Zell Miller Awards](#total-number-of-hope/zell-miller-awards08.--2018-19-total-amount-of-hope/zell-miller-awards)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

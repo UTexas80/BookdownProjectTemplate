@@ -45,8 +45,19 @@ render_toc("04-Types-and-Sources-of-Aid.Rmd")
 render_toc("05-Academic-Year-Awards-by-Type.Rmd")
 ```
 
-```{r toc-06, echo=FALSE}
+```{r toc-06-hope, echo=FALSE}
 render_toc("06-HOPE-Scholarship-Awards-by-Tier.Rmd")
+```
+
+```{r toc-06-zell, echo=FALSE}
+render_toc("06-ZELL-Scholarship-Awards-by-Tier.Rmd")
+```
+
+```{r toc-07-hope-zell, echo=FALSE}
+render_toc("07-HOPE-ZELL-Scholarship-Awards-by-Tier.Rmd")
+```
+```{r toc-08-hope-zell-awd-tot, echo=FALSE}
+render_toc("08-HOPE-ZELL-Scholarship-Award-Totals.Rmd")
 ```
 
 ```{=openxml}

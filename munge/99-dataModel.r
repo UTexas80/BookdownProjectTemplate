@@ -19,7 +19,7 @@ z               <- left(z, nchar(z)-1)
 df              <- sapply(dtTables[,1], function(x) x)
 # ------------------------------------------------------------------------------
 dm_f            <- dm_from_data_frames(ay, 
-                                       enroll.by.class.L, 
+                                       enroll.by.class.l, 
                                        enroll.by.class.w, 
                                        tbl.class, tbl.level)
 graph           <- dm_create_graph(dm_f, 

@@ -1,0 +1,82 @@
+# 07. HOPE-ZELL Scholarship Awards by Tier
+
+```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
+library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(here)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(officer)
+library(pander)
+library(plotly)
+library(png)
+library(reactable)
+library(scales)
+library(stringr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 7.0-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+ay              <- readRDS(here::here("/rds", "ay.rds"))
+ay_0            <- readRDS(here::here("/rds", "currentAY.rds"))
+ay_0_row        <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+ay_1            <- readRDS(here::here("/rds", "ay_1.rds"))
+# ------------------------------------------------------------------------------
+dt_hz_awd       <- setDT(readRDS(here::here("/rds", "dt_hz_awd.rds")))
+dt_hz_awd_tbl   <- setDT(readRDS(here::here("/rds", "dt_hz_awd_tbl.rds")))
+# ------------------------------------------------------------------------------
+```
+
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+<h2><center><b>Hope/Zell Scholarship Awards by Tier:</b></center></h2>
+<h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
+
+## 07. Percent of Undergraduates with HOPE/Zell Scholarship Awards
+```{r 7.0, echo=FALSE, fig.cap='Hope/Zell Awd Pct'}
+ft_hz <- flextable(head(dt_hz_awd_tbl)) %>%
+  colformat_num(
+    i = ~ !(Description %like% 'Pct'),
+    big.mark = ",", digits = 0, na_str = "", prefix = ""
+  ) %>%
+  colformat_num( 
+    i = ~ Description %like% 'Pct',
+    digits = 2, na_str = "", suffix = "%"
+  ) %>%
+  fit_to_width(max_width = 7.05) %>%
+  autofit() %>%
+  theme_vader(fontsize = 8)
+ft_hz
+# ft_hz <- flextable::align(ft_hz, i = c(2,4), j = 1, 
+#             align = "left", 
+#             part = "body")
+# ft_hz <- fontsize(ft_hz, size = 9.0, part = "body")
+# ft_hz <- fit_to_width(ft_hz, max_width = 8.5)
+# ft_hz <- theme_vader(ft_hz)
+# flextable::autofit(ft_hz)
+```
+
+## 07.  Pct Undergraduates with HOPE or Zell
+```{r 7.1-viz-bar, out.width = '100%'}
+knitr::include_graphics(here::here('png/p7a1.png'))
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```

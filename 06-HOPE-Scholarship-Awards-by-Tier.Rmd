@@ -37,8 +37,8 @@ ay_0            <- readRDS(here::here("/rds", "currentAY.rds"))
 ay_0_row        <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
 ay_1            <- readRDS(here::here("/rds", "ay_1.rds"))
 # ------------------------------------------------------------------------------
-dt_hope         <- setDT(readRDS(here::here("/rds", "dt_hope.rds")))
-dt_hope_bar_amt <- setDT(readRDS(here::here("/rds", "dt_hope_bar_amt.rds")))
+dt_hope         <- data.table::setDT(readRDS(here::here("/rds", "dt_hope.rds")))
+dt_hope_bar_amt <- data.table::setDT(readRDS(here::here("/rds", "dt_hope_bar_amt.rds")))
 # ------------------------------------------------------------------------------
 ```
 
@@ -48,7 +48,7 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 <h2><center><b>HOPE Scholarship Awards by Tier:</b></center></h2>
 <h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
 
-# 06. Financial Aid Awarded: Sources of Financial Aid Table
+## 06. Financial Aid Awarded: Sources of Financial Aid Table
 ```{r 6.0, echo=FALSE, fig.cap='Awd by Tier'}
 ft_hope      <- flextable(head(dt_hope))
   typology   <- data.frame(
@@ -136,7 +136,7 @@ ft_hope      <- flextable(head(dt_hope))
 <!--         scale_y_continuous(labels = dollar_format(prefix = "$")) -->
 <!-- ``` -->
 
-## 06. HOPE Scholarship Awards by Tier
+## 06. HOPE Scholarship Awards by Tier Table
 ```{r 6.1-viz-bar, out.width = '100%'}
 knitr::include_graphics(here::here('png/p6a1.png'))
 ```

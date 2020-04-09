@@ -4,6 +4,7 @@
 ################################################################################
 ## Step 06.01 Janitorr - clean the tables                                    ###s
 ################################################################################
+dtTables  <- data.table::tables()
 sapply(dtTables[NAME %like% "X06" ,],
     function(x) janitor::clean_names(data.table(x)))
 ################################################################################
@@ -24,18 +25,18 @@ p6a1a <- ggplot(dt_hope_bar_amt,
         geom_bar(position = "dodge", stat = "identity")
 print(p6a1a)
 # ------------------------------------------------------------------------------ Award by Tier Bar chart
-p6a1 <- plot_ly(X06hope.long, x          = ~ay, y = ~TIER01, type = 'bar', name = 'Tier 1')
-p6a1 <- p6a1 %>% add_trace(y             = ~TIER02, name = 'Tier 2')
-p6a1 <- p6a1 %>% add_trace(y             = ~TIER03, name = 'Tier 3')
-p6a1 <- p6a1 %>% add_trace(y             = ~TIER04, name = 'Tier 4')
-p6a1 <- p6a1 %>% layout(title            = "UGA: Hope Scholarship Awards By Tier", 
-                        xaxis            = list(
-                          title          = "Academic Year", 
-                          tickangle      = -45),
-                        yaxis            = list(
-                          title          = "Awd Amt"), 
-                          barmode        = 'group', 
-                          tickformat     = '$')
+p6a1 <- plot_ly(X06hope.long, x        = ~ay, y = ~TIER01, type = 'bar', name = 'Tier 1')
+p6a1 <- p6a1 %>% add_trace(y           = ~TIER02, name = 'Tier 2')
+p6a1 <- p6a1 %>% add_trace(y           = ~TIER03, name = 'Tier 3')
+p6a1 <- p6a1 %>% add_trace(y           = ~TIER04, name = 'Tier 4')
+p6a1 <- p6a1 %>% layout(title          = "UGA: Hope Scholarship Awards By Tier",
+                        xaxis          = list(
+                          title        = "Academic Year",
+                          tickangle    = -45),
+                        yaxis          = list(
+                          title        = "Awd Amt"),
+                          barmode      = 'group',
+                          tickformat   = '$')
 # ------------------------------------------------------------------------------Award by Tier Line chart
 p6a2 <- plot_ly(tail(X06hope.long, 6),
                            x           = ~ay,     type = 'scatter', mode = 'lines+markers',  yaxis = 'y2',
@@ -46,11 +47,11 @@ p6a2 <- p6a2 %>% add_trace(y           = ~TIER04, name = 'Tier 4',  line = list(
 p6a2 <- p6a2 %>% layout(title          = "UGA: Hope Scholarship Awards By Tier",
 #                       titlefont      = list(
 #                         color        = '#ffffff'),
-#                       paper_bgcolor  = '#4666d1',  
+#                       paper_bgcolor  = '#4666d1',
 #                       plot_bgcolor   = '#4666d1',
                         xaxis          = list(
 #                         color        = '#ffffff',
-                          title        = "Academic Year", 
+                          title        = "Academic Year",
                           tickangle    = -45),
                         yaxis          = list(
 #                         color        = '#ffffff',
@@ -59,17 +60,17 @@ p6a2 <- p6a2 %>% layout(title          = "UGA: Hope Scholarship Awards By Tier",
 last_col            <- as.integer(dtTables[NAME == 'X06hope.amt.wide', 3])
 dt_hope_awd         <- cbind(X06hope.amt.wide[,1],X06hope.amt.wide[,..last_col - 5], X06hope.amt.wide[,..last_col])
 # percentage-change-between-two-columns-same-row    https://tinyurl.com/vv6wvah
-dt_hope_awd$pct_chg <- apply(dt_hope_awd[,c(2:3)], 1, 
+dt_hope_awd$pct_chg <- apply(dt_hope_awd[,c(2:3)], 1,
                              function(x) { (x[2] - x[1])/x[1]})
 # ------------------------------------------------------------------------------
 p6a3 <- plot_ly(setorder(dt_hope_awd, tier),
                          x             = ~pct_chg,
                          y             = ~tier,
                          type          = 'bar',
-                         orientation   = 'h') 
+                         orientation   = 'h')
 p6a3 <- p6a3 %>%  layout(title         = "Pct Change in HOPE Awards by Tier",
                          xaxis         = list(
-                           title       = "Academic Year", 
+                           title       = "Academic Year",
                            tickangle   = -45,
                            tickformat  = '%'),
                          yaxis         = list(title = "Tier",

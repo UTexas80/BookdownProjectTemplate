@@ -4,12 +4,14 @@
 ################################################################################
 ## Step 06.01 Janitorr - clean the tables                                    ###s
 ################################################################################
+dtTables  <- data.table::tables()
 sapply(dtTables[NAME %like% "X06" ,],
     function(x) janitor::clean_names(data.table(x)))
 ################################################################################
 ## Step 06.02 set the tables                                                 ###
 ################################################################################
 setkey(X06zell.amt, ay)
+setkey(X06zell.wide, tier)
 ################################################################################
 ## Step 06.03 vizualize the tables                                           ###
 ################################################################################
@@ -50,25 +52,25 @@ p6z2 <- p6z2 %>% layout(title          = "UGA: zell Scholarship Awards By Tier",
 #                         color        = '#ffffff',
                           title        = "Award Amount"))
 # # ------------------------------------------------------------------------------Percent Change Bar chart
-# last_col            <- as.integer(dtTables[NAME == 'X06zell.amt.wide', 3])
-# dt_zell_awd         <- cbind(X06zell.amt.wide[,1],X06zell.amt.wide[,..last_col - 5], X06zell.amt.wide[,..last_col])
-# # percentage-change-between-two-columns-same-row    https://tinyurl.com/vv6wvah
-# dt_zell_awd$pct_chg <- apply(dt_zell_awd[,c(2:3)], 1, 
-#                              function(x) { (x[2] - x[1])/x[1]})
+last_col            <- as.integer(dtTables[NAME == 'X06zell.wide', 3])
+dt_zell_awd         <- cbind(X06zell.wide[,1],X06zell.wide[,..last_col - 12], X06zell.wide[,..last_col])
+# percentage-change-between-two-columns-same-row    https://tinyurl.com/vv6wvah
+dt_zell_awd$pct_chg <- apply(dt_zell_awd[,c(2:3)], 1, 
+                             function(x) { (x[2] - x[1])/x[1]})
 # # ------------------------------------------------------------------------------
-# p6z3 <- plot_ly(setorder(dt_zell_awd, tier),
-#                          x             = ~pct_chg,
-#                          y             = ~tier,
-#                          type          = 'bar',
-#                          orientation   = 'h') 
-# p6z3 <- p6z3 %>%  layout(title         = "Pct Change in zell Awards by Tier",
-#                          xaxis         = list(
-#                            title       = "Academic Year", 
-#                            tickangle   = -45,
-#                            tickformat  = '%'),
-#                          yaxis         = list(title = "Tier",
-#                          categoryorder = "category descending",
-#                          categoryarray = ~tier))
+ p6z3 <- plot_ly(setorder(dt_zell_awd, tier),
+                          x             = ~pct_chg,
+                          y             = ~tier,
+                          type          = 'bar',
+                          orientation   = 'h') 
+ p6z3 <- p6z3 %>%  layout(title         = "Pct Change in zell Awards by Tier",
+                          xaxis         = list(
+                            title       = "Academic Year", 
+                            tickangle   = -45,
+                            tickformat  = '%'),
+                          yaxis         = list(title = "Tier",
+                          categoryorder = "category descending",
+                          categoryarray = ~tier))
 ################################################################################
 ## Step 00.A: VERSION HISTORY                                                ###
 ################################################################################

@@ -16,7 +16,7 @@ saveRDS(fin.aid.wide,        file = "./rds/fin_aid_wide.rds")
 # ------------------------------------------------------------------------------
 saveRDS(grad_res,            file = "./rds/grad_res.rds")
 saveRDS(grad_non_res,        file = "./rds/grad_non.rds")
-# -----------------------------------------------------------------------.rds---
+# ------------------------------------------------------------------------------
 saveRDS(c_pie_grad_non,      file = here::here("rds/", "c_pie_grad_non.rds"))
 saveRDS(c_pie_grad_res,      file = here::here("rds/", "c_pie_grad_res.rds"))
 # ------------------------------------------------------------------------------
@@ -38,6 +38,12 @@ saveRDS(X05awards.fb.2,      file = here::here("rds/", "X05awards.fb.2"))
 # ------------------------------------------------------------------------------
 saveRDS(X06hope.wide,        file = here::here("rds/", "dt_hope.rds"))
 saveRDS(dt_hope_bar_amt,     file = here::here("rds/", "dt_hope_bar_amt.rds"))
+# ------------------------------------------------------------------------------
+saveRDS(X06zell.wide,        file = here::here("rds/", "dt_zell.rds"))
+saveRDS(dt_zell_bar_amt,     file = here::here("rds/", "dt_zell_bar_amt.rds"))
+# ------------------------------------------------------------------------------
+saveRDS(dt_hz_awd,           file = here::here("rds/", "dt_hz_awd.rds"))
+saveRDS(dt_hz_awd_tbl,       file = here::here("rds/", "dt_hz_awd_tbl.rds"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
