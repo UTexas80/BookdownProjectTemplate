@@ -44,6 +44,8 @@ saveRDS(dt_zell_bar_amt,     file = here::here("rds/", "dt_zell_bar_amt.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(dt_hz_awd,           file = here::here("rds/", "dt_hz_awd.rds"))
 saveRDS(dt_hz_awd_tbl,       file = here::here("rds/", "dt_hz_awd_tbl.rds"))
+# ------------------------------------------------------------------------------
+saveRDS(dt_hz_tot,           file = here::here("rds/", "dt_hz_tot.rds"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "Annual Reports"
 author: "Glen C. Falk"
-date: "2020-04-09"
+date: "2020-04-10"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -60,7 +60,7 @@ cover-image: "images/cover.pdf"
     - [Pct Undergraduates with HOPE or Zell](#pct-undergraduates-with-hope-or-zell)
 - [HOPE-ZELL Scholarship Award Totals](#hope-zell-scholarship-award-totals)
     - [HOPE-ZELL Scholarship Award Totals](#hope-zell-scholarship-award-totals)
-    - [Total Number of HOPE/Zell Miller Awards08.  2018-19 Total Amount of HOPE/Zell Miller Awards](#total-number-of-hope/zell-miller-awards08.--2018-19-total-amount-of-hope/zell-miller-awards)
+    - [HOPE-ZELL Scholarship Award Totals Comparison](#hope-zell-scholarship-award-totals-comparison)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

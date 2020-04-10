@@ -83,14 +83,14 @@ p7a1 <- p7a1 %>% add_trace(              y = ~zell,
                                     marker = list(
                                      color = '#000000'),
                                       name = 'ZELL')
-p7a1 <- p7a1 %>% layout(title              = "% of Undergrads with HOPE/ZELL Awards",
-                         xaxis             = list(
-                           title           = "Academic Year",
-                           tickangle       = -45),
-                         yaxis             = list(
-                           title           = "Awd Pct"),
-                        barmode            = 'stack',
-                        tickformat         = '$')
+p7a1 <- p7a1 %>% layout(             title = "% of Undergrads with HOPE/ZELL Awards",
+                                     xaxis = list(
+                                     title = "Academic Year",
+                                tickangle  = -45),
+                                     yaxis = list(
+                                     title = "Awd Pct"),
+                                   barmode = 'stack',
+                                tickformat = '$')
 ################################################################################
 ## Step 07.A: VERSION HISTORY                                                ###
 ################################################################################

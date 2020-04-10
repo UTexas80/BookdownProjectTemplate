@@ -37,8 +37,7 @@ ay_0            <- readRDS(here::here("/rds", "currentAY.rds"))
 ay_0_row        <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
 ay_1            <- readRDS(here::here("/rds", "ay_1.rds"))
 # ------------------------------------------------------------------------------
-dt_hz_awd       <- setDT(readRDS(here::here("/rds", "dt_hz_awd.rds")))
-dt_hz_awd_tbl   <- setDT(readRDS(here::here("/rds", "dt_hz_awd_tbl.rds")))
+dt_hz_tot       <- setDT(readRDS(here::here("/rds", "dt_hz_tot.rds")))
 # ------------------------------------------------------------------------------
 ```
 
@@ -49,17 +48,41 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 <h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
 
 ## 08. HOPE-ZELL Scholarship Award Totals
-```{r 8.0, echo=FALSE, fig.cap='Hope/Zell Awd Pct'}
+```{r 8.1, echo=FALSE, fig.cap='Hope/Zell Awd Pct'}
 
+pct_keys <- c("awd_pct", "amt_pct")
+
+ft_hz_tot <- flextable(dt_hz_tot) %>%
+
+set_header_labels(
+    name = "", 
+    awd = "Total Awards",
+    amt = "Total Amount", 
+    awd_pct = "Total Award Pct.",
+    amt_pct = "Total Award  Pct." 
+) %>%
+  colformat_num(
+    j = ~ awd,
+    big.mark = ",", digits = 0, na_str = "", prefix = ""
+  ) %>%
+  colformat_num(
+    j = ~ amt,
+    big.mark = ",", digits = 0, na_str = "", prefix = "$"
+  ) %>%  
+  colformat_num( 
+    j = pct_keys,
+    digits = 2, na_str = "", suffix = "%"
+  ) %>%
+  fit_to_width(max_width = 9, inc = 1L) %>%
+  autofit(add_w = -0.015) %>%
+  theme_booktabs()
+
+ft_hz_tot
 ```
 
-## 08.  2018-19 Total Number of HOPE/Zell Miller Awards
-```{r 8.1-viz-bar, out.width = '100%'}
-# knitr::include_graphics(here::here('png/p8a1.png'))
-```
-## 08.  2018-19 Total Amount of HOPE/Zell Miller Awards
-```{r 8.2-viz-bar}
-# knitr::include_graphics(here::here('png/p8a2.png'))
+## 08.   HOPE-ZELL Scholarship Award Totals Comparison
+```{r 8.2-viz-bar, out.width = '100%'}
+knitr::include_graphics(here::here('png/p8a1.png'))
 ```
 
 ```{=openxml}
