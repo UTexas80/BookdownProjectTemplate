@@ -19,8 +19,18 @@ right = function(text, num_char) {
 # ------------------------------------------------------------------------------
 format_dol_fun <- function(x){
   ifelse(x < 0,
-         paste0('(', scales::dollar(-x), ')'),
+         paste0('(', scales::dollar(-x, digits = 0), ')'),
          scales::dollar(x))
+}
+
+#S3 print method for the class    
+print.money <- function(x, ...) {
+  print.default(paste0("$", formatC(as.numeric(x), format="f", digits=0, big.mark=",")))
+}
+
+#format method, which is necessary for formating in a data.frame
+format.money  <- function(x, ...) {
+  paste0("$", formatC(as.numeric(x), format="f", digits=0, big.mark=","))
 }
 ################################################################################
 # Tricks to manage available memory in an R session https://tinyurl.com/yxcttpsa

@@ -86,7 +86,9 @@ ft_awd     <- fontsize(ft_awd, size = 9, part = "body")
 ft_awd     <- theme_booktabs(ft_awd) %>%
               bold(part = "header", bold = TRUE )
 #  vline(ft_awd, j = 2, part = "header")
-ft_awd     <- vline(ft_awd, j = 7, part = "body")
+border     <- officer::fp_border()
+# ft_awd     <- vline(ft_awd, j = 1, border = border, part = "body")
+ft_awd     <- vline(ft_awd, j = c(1,7), border = border, part = "all")
 
 ft_awd     <- fit_to_width(ft_awd, max_width = 8)
 ft_awd     <- fix_border_issues(ft_awd)

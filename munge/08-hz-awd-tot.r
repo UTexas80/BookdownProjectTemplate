@@ -33,6 +33,13 @@ dt_hz_tot               <- adorn_totals(dt_hz_tot, where = 'row')
 dt_hz_tot[, 1]          <- c('HOPE Scholarship Totals: ',
                              'Zell Miller Scholarship Totals: ',
                              'Combined HOPE and Zell Miller Scholarship Totals: ')
+# ------------------------------------------------------------------------------
+# format(dt_hz_tot[,1], justify = "left")
+# format(dt_hz_tot, justify = "left")
+# dt_hz_tot[,2    := lapply(.SD, function(x) format(x, big.mark= ",", scientific = F)), .SDcols = 2]
+# dt_hz_tot[,3    := lapply(.SD, function(x) format_dol_fun(dt_hz_tot$amt)), .SDcols = 3]
+# dt_hz_tot[,4:5  := lapply(.SD, function(x) paste0(round(x,2), '%')), .SDcols = 4:5]
+# format(dt_hz_tot[,2:5], justify = "right")
 ################################################################################
 ## Step 08.04 Total Number of Award Comparision viz                          ###
 ################################################################################

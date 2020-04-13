@@ -55,7 +55,7 @@ pct_keys <- c("awd_pct", "amt_pct")
 ft_hz_tot <- flextable(dt_hz_tot) %>%
 
 set_header_labels(
-    name = "", 
+    name = "Award", 
     awd = "Total Awards",
     amt = "Total Amount", 
     awd_pct = "Total Award Pct.",
@@ -68,16 +68,29 @@ set_header_labels(
   colformat_num(
     j = ~ amt,
     big.mark = ",", digits = 0, na_str = "", prefix = "$"
-  ) %>%  
-  colformat_num( 
+  ) %>%
+  colformat_num(
     j = pct_keys,
     digits = 2, na_str = "", suffix = "%"
   ) %>%
-  fit_to_width(max_width = 9, inc = 1L) %>%
-  autofit(add_w = -0.015) %>%
-  theme_booktabs()
-
+#  fit_to_width(max_width = 8, inc = 1L) %>%
+  fit_to_width(max_width = 7.05)
+#  ft_hz_tot <- autofit(ft_hz_tot)
+  ft_hz_tot <- theme_vader(ft_hz_tot,    fontsize = 8)
+  ft_hz_tot <- width(ft_hz_tot, j = 1,   width = 2.75)
+  ft_hz_tot <- width(ft_hz_tot, j = 2:5, width = 1.0)
 ft_hz_tot
+# flextable_dim(ft_hz_tot)
+# flextable::dim_pretty(ft_hz_tot)
+
+```
+
+```{r 8.1.1, echo=FALSE, fig.cap='Hope/Zell Awd Pct'}
+
+```
+
+```{r 8.1.2, echo=FALSE, fig.cap='Hope/Zell Awd Pct'}
+
 ```
 
 ## 08.   HOPE-ZELL Scholarship Award Totals Comparison
