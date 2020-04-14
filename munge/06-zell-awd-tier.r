@@ -20,7 +20,7 @@ dt_zell_bar_amt <- melt.data.table(X06zell.amt,
                         measure =  c('TIER01','TIER02','TIER03','TIER04'))
 names(dt_zell_bar_amt)[2:3]  <- c('tier', 'amt')
 # ------------------------------------------------------------------------------ Award by Tier Bar chart
-p6z1 <- plot_ly(X06zell.amt, x          = ~ay, y = ~TIER01, type = 'bar', name = 'Tier 1')
+p6z1 <- plot_ly(X06zell.amt,x          = ~ay, y = ~TIER01, type = 'bar', name = 'Tier 1')
 p6z1 <- p6z1 %>% add_trace(y             = ~TIER02, name = 'Tier 2')
 p6z1 <- p6z1 %>% add_trace(y             = ~TIER03, name = 'Tier 3')
 p6z1 <- p6z1 %>% add_trace(y             = ~TIER04, name = 'Tier 4')

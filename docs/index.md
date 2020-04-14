@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "Annual Reports"
 author: "Glen C. Falk"
-date: "2020-04-10"
+date: "2020-04-14"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -61,6 +61,9 @@ cover-image: "images/cover.pdf"
 - [HOPE-ZELL Scholarship Award Totals](#hope-zell-scholarship-award-totals)
     - [HOPE-ZELL Scholarship Award Totals](#hope-zell-scholarship-award-totals)
     - [HOPE-ZELL Scholarship Award Totals Comparison](#hope-zell-scholarship-award-totals-comparison)
+
+- [HOPE-ZELL Max Awards Compared to Tuition](#hope-zell-max-awards-compared-to-tuition)
+    - [HOPE-ZELL Scholarship Award Totals](#hope-zell-scholarship-award-totals)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

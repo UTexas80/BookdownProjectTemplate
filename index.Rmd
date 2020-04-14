@@ -60,6 +60,10 @@ render_toc("07-HOPE-ZELL-Scholarship-Awards-by-Tier.Rmd")
 render_toc("08-HOPE-ZELL-Scholarship-Award-Totals.Rmd")
 ```
 
+```{r toc-09-hope-zell-max-awd, echo=FALSE}
+render_toc("09-HOPE-ZELL-Max-Awards.Rmd")
+```
+
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```

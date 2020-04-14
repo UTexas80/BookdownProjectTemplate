@@ -1,0 +1,100 @@
+# 09. HOPE-ZELL Max Awards Compared to Tuition
+
+```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
+library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(here)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(officer)
+library(pander)
+library(plotly)
+library(png)
+library(reactable)
+library(scales)
+library(stringr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 9.0-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+ay              <- readRDS(here::here("/rds", "ay.rds"))
+ay_0            <- readRDS(here::here("/rds", "currentAY.rds"))
+ay_0_row        <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+ay_1            <- readRDS(here::here("/rds", "ay_1.rds"))
+# ------------------------------------------------------------------------------
+dt_hz_amt       <- setDT(readRDS(here::here("/rds", "dt_hz_amt.rds")))
+dt_hz_pct       <- setDT(readRDS(here::here("/rds", "dt_hz_pct.rds")))
+dt_hz_tbl       <- setDT(readRDS(here::here("/rds", "dt_hz_tbl.rds")))
+# ------------------------------------------------------------------------------
+```
+
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+<h2><center><b>Hope/Zell Scholarship Awards by Tier:</b></center></h2>
+<h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
+
+## 09. HOPE-ZELL Scholarship Award Totals
+```{r 9.1.0}
+
+# pct_keys <- c("awd_pct", "amt_pct")
+
+ft_hz_max <- flextable(dt_hz_max) %>%
+
+# set_header_labels(
+#     name = "Award", 
+#     awd = "Total Awards",
+#     amt = "Total Amount", 
+#     awd_pct = "Total Award Pct.",
+#     amt_pct = "Total Award  Pct." 
+# ) %>%
+#   colformat_num(
+#     j = ~ awd,
+#     big.mark = ",", digits = 0, na_str = "", prefix = ""
+#   ) %>%
+    colformat_num(
+     j = 2:9,
+     big.mark = ",", digits = 0, na_str = "", prefix = "$"
+   ) %>%
+#   colformat_num(
+#     j = pct_keys,
+#     digits = 2, na_str = "", suffix = "%"
+#   ) %>%
+#  fit_to_width(max_width = 8, inc = 1L) %>%
+  fit_to_width(max_width = 7.05)
+#  ft_hz_max <- autofit(ft_hz_max)
+  ft_hz_max <- theme_vader(ft_hz_max,    fontsize = 8)
+  ft_hz_max <- width(ft_hz_max, j = 1,   width = 0.75)
+  ft_hz_max <- width(ft_hz_max, j = 2:9, width = 1.00)
+  ft_hz_max
+# flextable_dim(ft_hz_max)
+# flextable::dim_pretty(ft_hz_max)
+
+```
+
+```{r 9.1.1}
+# knitr::include_graphics(here::here('png/p9a1.png'))
+```
+
+```{r 9.1.2}
+# knitr::include_graphics(here::here('png/p9a2.png'))
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
