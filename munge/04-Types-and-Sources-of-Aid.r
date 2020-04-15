@@ -52,7 +52,7 @@ p4a2 <- plot_ly(head(X04aid.types.long,-1),
             hole = 0.00,
             domain = list(x = c(0, 0.45)),
             title = 'UNDERGRADUATE',
-            showlegend = FALSE)  %>%
+            showlegend = TRUE)  %>%
     add_trace(head(X04aid.types.long,-1),
             labels = ~Type,
             values = ~all_students,
@@ -61,6 +61,9 @@ p4a2 <- plot_ly(head(X04aid.types.long,-1),
             title = 'ALL STUDENTS',
             domain = list(x = c(0.55, 1))) %>%
         layout(title = str_c(currentAY, ' - Types of Financial Aid'),
+               legend = list(orientation = "h",   # show entries horizontally
+                  xanchor = "center",                 # use center of legend as anchor
+                        x = 0.5),                    # put legend in center of x-axis
             xaxis = list(title = "",
                         showgrid = FALSE,
                         zeroline = FALSE,

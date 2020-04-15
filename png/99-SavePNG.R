@@ -55,7 +55,7 @@ plotly::plotly_IMAGE(p7a1,
 plotly::plotly_IMAGE(p8a1,
                     format = "png",
                     scale =1,
-                    out_file = here::here("/png", "p8a1.png"))
+                   out_file = here::here("/png", "p8a1.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p9a1,
                     format = "png",
@@ -66,6 +66,11 @@ plotly::plotly_IMAGE(p9a2,
                     format = "png",
                     scale =1,
                     out_file = here::here("/png", "p9a2.png"))
+# ------------------------------------------------------------------------------
+plotly::plotly_IMAGE(p10a1,
+                    format = "png",
+                    scale =1,
+                    out_file = here::here("/png", "p10a1.png"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

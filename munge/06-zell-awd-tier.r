@@ -2,7 +2,7 @@
 # 06. ZELL Scholarship Awards by Tier
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 06.01 Janitorr - clean the tables                                    ###s
+## Step 06.01 Janitorr - clean the tables                                    ###
 ################################################################################
 dtTables  <- data.table::tables()
 sapply(dtTables[NAME %like% "X06" ,],
@@ -39,7 +39,7 @@ p6z2 <- plot_ly(tail(X06zell.amt, 6),
 p6z2 <- p6z2 %>% add_trace(y           = ~TIER02, name = 'Tier 2',  line = list(color = '#000000'))
 p6z2 <- p6z2 %>% add_trace(y           = ~TIER03, name = 'Tier 3',  line = list(color = '#7f827c'))
 p6z2 <- p6z2 %>% add_trace(y           = ~TIER04, name = 'Tier 4',  line = list(color = '#19488a'))
-p6z2 <- p6z2 %>% layout(title          = "UGA: zell Scholarship Awards By Tier",
+p6z2 <- p6z2 %>% layout(title          = "UGA: Zell Scholarship Awards By Tier",
 #                       titlefont      = list(
 #                         color        = '#ffffff'),
 #                       paper_bgcolor  = '#4666d1',  

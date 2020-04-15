@@ -53,10 +53,12 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ft_hz <- flextable(head(dt_hz_awd_tbl)) %>%
   colformat_num(
     i = ~ !(Description %like% 'Pct'),
+    j = 2:11, 
     big.mark = ",", digits = 0, na_str = "", prefix = ""
   ) %>%
   colformat_num( 
     i = ~ Description %like% 'Pct',
+    j = 2:11,    
     digits = 2, na_str = "", suffix = "%"
   ) %>%
   fit_to_width(max_width = 7.05) %>%

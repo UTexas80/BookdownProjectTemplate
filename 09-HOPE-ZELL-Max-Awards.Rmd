@@ -46,15 +46,15 @@ dt_hz_tbl       <- setDT(readRDS(here::here("/rds", "dt_hz_tbl.rds")))
 ```{r uga_logo, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ```
-<h2><center><b>Hope/Zell Scholarship Awards by Tier:</b></center></h2>
-<h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
+<h2><center><b>Hope/Zell Scholarship Awards Totals :</b></center></h2>
+<h3><center><b>(For Academic Years 2011-12 and 2018-19)</b></center></h3>
 
 ## 09. HOPE-ZELL Scholarship Award Totals
 ```{r 9.1.0}
 
 # pct_keys <- c("awd_pct", "amt_pct")
 
-ft_hz_max <- flextable(dt_hz_max) %>%
+ft_hz_tbl <- flextable(dt_hz_tbl[c(2,1,4,3,5)]) %>%
 
 # set_header_labels(
 #     name = "Award", 
@@ -68,31 +68,33 @@ ft_hz_max <- flextable(dt_hz_max) %>%
 #     big.mark = ",", digits = 0, na_str = "", prefix = ""
 #   ) %>%
     colformat_num(
+     i = c(1:2,4),
      j = 2:9,
      big.mark = ",", digits = 0, na_str = "", prefix = "$"
    ) %>%
-#   colformat_num(
-#     j = pct_keys,
-#     digits = 2, na_str = "", suffix = "%"
-#   ) %>%
+   colformat_num(
+     i = c(3,5),
+     j = 2:9,
+     digits = 2, na_str = "", suffix = "%"
+   ) %>%
 #  fit_to_width(max_width = 8, inc = 1L) %>%
   fit_to_width(max_width = 7.05)
-#  ft_hz_max <- autofit(ft_hz_max)
-  ft_hz_max <- theme_vader(ft_hz_max,    fontsize = 8)
-  ft_hz_max <- width(ft_hz_max, j = 1,   width = 0.75)
-  ft_hz_max <- width(ft_hz_max, j = 2:9, width = 1.00)
-  ft_hz_max
-# flextable_dim(ft_hz_max)
-# flextable::dim_pretty(ft_hz_max)
+#  ft_hz_tbl <- autofit(ft_hz_tbl)
+  ft_hz_tbl <- theme_vader(ft_hz_tbl,    fontsize = 8)
+  ft_hz_tbl <- width(ft_hz_tbl, j = 1,   width = 0.50)
+  ft_hz_tbl <- width(ft_hz_tbl, j = 2:9, width = 0.75)
+  ft_hz_tbl
+# flextable_dim(ft_hz_tbl)
+# flextable::dim_pretty(ft_hz_tbl)
 
 ```
 
 ```{r 9.1.1}
-# knitr::include_graphics(here::here('png/p9a1.png'))
+knitr::include_graphics(here::here('png/p9a1.png'))
 ```
 
 ```{r 9.1.2}
-# knitr::include_graphics(here::here('png/p9a2.png'))
+knitr::include_graphics(here::here('png/p9a2.png'))
 ```
 
 ```{=openxml}

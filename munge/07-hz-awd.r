@@ -2,7 +2,7 @@
 # 07. HOPE/ZELL Scholarship Awards by Academic Year
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 07.01 Janitorr - clean the tables                                    ###s
+## Step 07.01 Janitorr - clean the tables                                    ###
 ################################################################################
 dtTables <- data.table::tables()
 sapply(dtTables[NAME %like% "X07" ,],
@@ -73,24 +73,21 @@ dt_hz_awd_pct      <- cbind(hope_pct, zell_pct)
 ################################################################################
 ## Step 07.06 create Award by Percent Bar viz                                ###
 ################################################################################
-p7a1 <- plot_ly(dt_hz_awd_pct,           x = ~ay, 
-                                         y = ~hope,
-                                    marker = list(
-                                     color = '#BA0C2F'),
-                                      type = 'bar',
-                                      name = 'HOPE')
-p7a1 <- p7a1 %>% add_trace(              y = ~zell,
-                                    marker = list(
-                                     color = '#000000'),
-                                      name = 'ZELL')
-p7a1 <- p7a1 %>% layout(             title = "% of Undergrads with HOPE/ZELL Awards",
-                                     xaxis = list(
-                                     title = "Academic Year",
-                                tickangle  = -45),
-                                     yaxis = list(
-                                     title = "Awd Pct"),
-                                   barmode = 'stack',
-                                tickformat = '$')
+p7a1 <- plot_ly(dt_hz_awd_pct,  x = ~ay, 
+                                y = ~hope, 
+                           marker = list(
+                            color = '#BA0C2F'), 
+                             name = 'HOPE', 
+                             type = 'bar') %>% 
+                      add_trace(y = ~zell, 
+                           marker = list(
+                            color = '#000000'), 
+                             name = 'ZELL')  %>% 
+                     layout(title = "% of Undergrads with HOPE/ZELL Awards",
+               xaxis = list(title = "Academic Year",
+                        tickangle = -45),
+               yaxis = list(title = "Awd Pctt", 
+                       tickformat = "%"))
 ################################################################################
 ## Step 07.A: VERSION HISTORY                                                ###
 ################################################################################

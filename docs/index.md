@@ -1,8 +1,8 @@
 ---
 title: "Office of Student Financial Aid"
 subtitle: "Annual Reports"
-author: "Glen C. Falk"
-date: "2020-04-14"
+# author: "Glen C. Falk"
+# date: "2020-04-15"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -64,6 +64,9 @@ cover-image: "images/cover.pdf"
 
 - [HOPE-ZELL Max Awards Compared to Tuition](#hope-zell-max-awards-compared-to-tuition)
     - [HOPE-ZELL Scholarship Award Totals](#hope-zell-scholarship-award-totals)
+
+- [History of Average Federal Pell Grant Awards](#history-of-average-federal-pell-grant-awards)
+    - [History of Average Federal Pell Grant Awards](#history-of-average-federal-pell-grant-awards)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
