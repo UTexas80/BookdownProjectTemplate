@@ -45,33 +45,43 @@ p4a1 <- plot_ly(head(X04aid.sources.long,-1),
                         zeroline = FALSE, 
                         showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-p4a2 <- plot_ly(head(X04aid.types.long,-1),
-            labels = ~Type,
-            values = ~undergraduate,
-            type = 'pie',
-            hole = 0.00,
-            domain = list(x = c(0, 0.45)),
-            title = 'UNDERGRADUATE',
-            showlegend = TRUE)  %>%
-    add_trace(head(X04aid.types.long,-1),
-            labels = ~Type,
-            values = ~all_students,
-            type = 'pie',
-            hole = 0.00,
-            title = 'ALL STUDENTS',
-            domain = list(x = c(0.55, 1))) %>%
-        layout(title = str_c(currentAY, ' - Types of Financial Aid'),
-               legend = list(orientation = "h",   # show entries horizontally
-                  xanchor = "center",                 # use center of legend as anchor
-                        x = 0.5),                    # put legend in center of x-axis
-            xaxis = list(title = "",
-                        showgrid = FALSE,
-                        zeroline = FALSE,
-                        showticklabels = FALSE),
-            yaxis = list(title = "",
-                        showgrid = FALSE,
-                        zeroline = FALSE, 
-                        showticklabels = FALSE))
+p4a2 <- plot_ly(head(X04aid.types.long, -1),
+  labels = ~Type,
+  values = ~undergraduate,
+  type = "pie",
+  hole = 0.00,
+  domain = list(x = c(0, 0.45)),
+  title = "UNDERGRADUATE",
+  showlegend = TRUE
+) %>%
+  add_trace(head(X04aid.types.long, -1),
+    labels = ~Type,
+    values = ~all_students,
+    type = "pie",
+    hole = 0.00,
+    title = "ALL STUDENTS",
+    domain = list(x = c(0.55, 1))
+  ) %>%
+  layout(
+    title = str_c(currentAY, " - Types of Financial Aid"),
+    legend = list(
+      orientation = "h",  # show entries horizontally
+      xanchor = "center", # use center of legend as anchor
+      x = 0.5
+    ),                    # put legend in center of x-axis
+    xaxis = list(
+      title = "",
+      showgrid = FALSE,
+      zeroline = FALSE,
+      showticklabels = FALSE
+    ),
+    yaxis = list(
+      title = "",
+      showgrid = FALSE,
+      zeroline = FALSE,
+      showticklabels = FALSE
+    )
+  )
 ################################################################################
 ## Step 04.03 Create Plot_ly Vizualization Pie Charts                        ###
 ################################################################################

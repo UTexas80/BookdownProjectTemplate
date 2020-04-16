@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-04-15"
+# date: "2020-04-16"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -24,7 +24,7 @@ cover-image: "images/cover.pdf"
 
 
 
-## Table of Contents {#crazy-slug-here}
+## Table of Contents {#crazy-slug-here, echo=FALSE }
 
 - [Undergraduate Cost of Attendance](#undergraduate-cost-of-attendance)
     - [Undergrad COA Percentage of Total Cost](#undergrad-coa-percentage-of-total-cost)
@@ -67,6 +67,10 @@ cover-image: "images/cover.pdf"
 
 - [History of Average Federal Pell Grant Awards](#history-of-average-federal-pell-grant-awards)
     - [History of Average Federal Pell Grant Awards](#history-of-average-federal-pell-grant-awards)
+
+- [Pell-Max-Awards](#pell-max-awards)
+    - [PELL GRANT MAXIMUM AWARD AND IN-STATE COA](#pell-grant-maximum-award-and-in-state-coa)
+    - [PELL GRANT MAX AWARD AND OUT-OF-STATE COA](#pell-grant-max-award-and-out-of-state-coa)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

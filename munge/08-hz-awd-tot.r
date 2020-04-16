@@ -51,8 +51,8 @@ p8a1 <- plot_ly(head(dt_hz_tot,-1),
             hole       = 0.00,
             domain     = list(x = c(0, 0.45)),
             title      = 'Number of Awards',
-            showlegend = FALSE)  %>%
-    add_trace(head(dt_hz_tot,-1),
+            showlegend = TRUE)  %>%
+        add_trace(head(dt_hz_tot,-1),
             labels    = ~name,
             values    = ~amt,
             type      = 'pie',
@@ -60,6 +60,11 @@ p8a1 <- plot_ly(head(dt_hz_tot,-1),
             title     = 'Award Amount',
             domain    = list(x = c(0.55, 1))) %>%
         layout(title  = str_c(currentAY, ' - Total Hope and Zell Awards'),
+            legend = list(
+                        orientation    = "h",  # show entries horizontally
+                        xanchor        = "center", # use center of legend as anchor
+                        x              = 0.5
+                        ),  
             xaxis                      = list(title = "",
                         showgrid       = FALSE,
                         zeroline       = FALSE,

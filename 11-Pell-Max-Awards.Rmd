@@ -1,0 +1,100 @@
+# 11-Pell-Max-Awards
+
+```{r global, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
+library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(here)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(officer)
+library(pander)
+library(plotly)
+library(png)
+library(reactable)
+library(scales)
+library(stringr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 11.0-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+ay          <- readRDS(here::here("/rds", "ay.rds"))
+ay_0        <- readRDS(here::here("/rds", "currentAY.rds"))
+ay_0_row    <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+ay_1        <- readRDS(here::here("/rds", "ay_1.rds"))
+# ------------------------------------------------------------------------------
+dt_pell_awd      <- setkey(setDT(readRDS(here::here("/rds", "dt_pell_awd.rds"))), ay)
+dt11_pell_in_st  <- setkey(setDT(readRDS(here::here("/rds", "dt11_pell_in_st.rds"))), ay)
+dt11_pell_out_st <- setkey(setDT(readRDS(here::here("/rds", "dt11_pell_out_st.rds"))), ay)
+dt11_pell_ug     <- setkey(setDT(readRDS(here::here("/rds", "dt11_pell_ug.rds"))), ay)
+# ------------------------------------------------------------------------------
+```
+
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+<h2><center><b>PELL GRANT MAXIMUM AWARDS:</b></center></h2>
+<h3><center><b>(For Academic Years 1993-94 and 2018-19)</b></center></h3>
+
+## 11.PELL GRANT MAXIMUM AWARD AND IN-STATE COA
+```{r 11.1.0}
+ft_pell_in_state <- flextable(dt11_pell_in_st[c(3,5,2,4,1),c(1, 4:12)]) %>%
+  set_header_labels(
+  ay = "Description",
+  # x2006.07 = "2008_09",
+  # x2009.10 = "2009_10",
+) %>%
+  colformat_num(
+    i = c(1,2:4), j = 2:10, big.mark = ",", digits = 0, na_str = "", prefix = "$") %>%
+  colformat_num(
+     i      = c(3,5),
+     j      = 2:10,
+     digits = 2, 
+     na_str = "", 
+     suffix = "%"
+   ) %>%
+  # width(j = 1:3,   width = 1.500) %>%
+ft_pell_in_state
+```
+
+## 11.PELL GRANT MAX AWARD AND OUT-OF-STATE COA
+```{r 11.2.0}
+  set_header_labels(
+  ay = "Description",
+  # x2006.07 = "2008_09",
+  # x2009.10 = "2009_10",
+) %>%
+  colformat_num(
+    i = c(1,2:4), j = 2:10, big.mark = ",", digits = 0, na_str = "", prefix = "$") %>%
+  colformat_num(
+     i      = c(3,5),
+     j      = 2:10,
+     digits = 2, 
+     na_str = "", 
+     suffix = "%"
+   ) %>%
+  # width(j = 1:3,   width = 1.500) %>%
+ft_pell_out_state
+```
+
+```{r 11.1.2}
+# knitr::include_graphics(here::here('png/p10a1.png'))
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```

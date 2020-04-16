@@ -16,6 +16,15 @@ mid = function(text, start_num, num_char) {
 right = function(text, num_char) {
   substr(text, nchar(text) - (num_char-1), nchar(text))
 }
+################################################################################
+# Remove 'x' from ay column names                  https://tinyurl.com/y9grewde
+################################################################################
+remove_x <- function(x,column1, column2 ) {
+
+setnames(x, column1:column2, paste0(mid(colnames(x),2,4)[column1:column2], '-', right(colnames(x),2))[column1:column2])
+
+}
+
 # ------------------------------------------------------------------------------
 format_dol_fun <- function(x){
   ifelse(x < 0,

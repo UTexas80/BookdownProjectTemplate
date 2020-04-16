@@ -22,12 +22,12 @@ description: "This is a minimal example of using the bookdown package to write a
 cover-image: "images/cover.pdf"
 ---
 
-```{r setup, include=FALSE}
+```{r setup, echo=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 source(here::here("/lib", "render_toc.R"))
 ```
 
-## Table of Contents {#crazy-slug-here}
+## Table of Contents {#crazy-slug-here, echo=FALSE }
 
 ```{r toc-02, echo=FALSE}
 render_toc("02-COA.Rmd")
@@ -66,6 +66,10 @@ render_toc("09-HOPE-ZELL-Max-Awards.Rmd")
 
 ```{r toc-10-pell-history, echo=FALSE}
 render_toc("10-History-of-Average-Federal-Pell-Grant-Awards.Rmd")
+```
+
+```{r toc-11-pell-max-awd, echo=FALSE}
+render_toc("11-Pell-Max-Awards.Rmd")
 ```
 
 ```{=openxml}

@@ -40,24 +40,36 @@ dtCOA[is.na(dtCOA)] <- ""                     # replace NA's with spaces
 ## Step 02.03 COA Percentage of Total Cost viz                               ###
 ################################################################################
 p2a1 <- plot_ly(grad_res,
-            labels = ~Description,
-            values = ~ay1920,
-            type = 'pie',
-            hole = 0.00,
-            domain = list(x = c(0, 0.45)),
-            title = 'RESIDENTS',
-            showlegend = TRUE)  %>%
-
-  add_trace(grad_non_res,
-            labels = ~Description,
-            values = ~ay1920,
-            type = 'pie', 
-            hole = 0.00,
-            title = 'NON-RESIDENTS',
-            domain = list(x = c(0.55, 1))) %>%
-        layout(title = str_c(currentAY, ' - Percentage of Total Cost for:'),
-            xaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-            yaxis = list(title = "TEST", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+            labels           = ~Description,
+            values           = ~ay1920,
+            type             = 'pie',
+            hole             = 0.00,
+            domain           = list(x = c(0, 0.45)),
+            title            = 'RESIDENTS',
+            showlegend       = TRUE)  %>%
+        add_trace(grad_non_res,
+            labels           = ~Description,
+            values           = ~ay1920,
+            type             = 'pie', 
+            hole             = 0.00,
+            title            = 'NON-RESIDENTS',
+            domain           = list(x = c(0.55, 1))) %>%
+        layout(title         = str_c(currentAY, ' - Percentage of Total Cost for:'),
+            legend           = list(
+              orientation    = "h",      # show entries horizontally
+              xanchor        = "center", # use center of legend as anchor
+              x              = 0.5
+              ),         
+            xaxis            = list(
+              title          = "TEST", 
+              showgrid       = FALSE, 
+              zeroline       = FALSE, 
+              showticklabels = FALSE),
+            yaxis            = list(
+              title          = "TEST", 
+              showgrid       = FALSE, 
+              zeroline       = FALSE, 
+              showticklabels = FALSE))
 # ------------------------------------------------------------------------------
 c_pie_grad_res <- plot_ly(grad_res, 
         labels = ~Description, 

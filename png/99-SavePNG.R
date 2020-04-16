@@ -4,72 +4,72 @@
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p2a1,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p2a1.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p4a1,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p4a1.png"))
 # -----------------------------------------------------------------------------
 plotly::plotly_IMAGE(p4a2,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p4a2.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p6a1,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p6a1.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p6a2,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p6a2.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p6a3,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p6a3.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p6z1,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p6z1.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p6z2,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p6z2.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p6z3,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p6z3.png"))
-# ------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p7a1,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p7a1.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p8a1,
                     format = "png",
-                    scale =1,
-                   out_file = here::here("/png", "p8a1.png"))
+                    scale = 1,
+                    out_file = here::here("/png", "p8a1.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p9a1,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p9a1.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p9a2,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p9a2.png"))
 # ------------------------------------------------------------------------------
 plotly::plotly_IMAGE(p10a1,
                     format = "png",
-                    scale =1,
+                    scale = 1,
                     out_file = here::here("/png", "p10a1.png"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
