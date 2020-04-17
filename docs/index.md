@@ -1,8 +1,8 @@
 ---
 title: "Office of Student Financial Aid"
-subtitle: "Annual Reports"
+subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-04-16"
+# date: "2020-04-17"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -11,7 +11,7 @@ output:
     df_print: kable
   pdf_document:
       includes:
-          in_header: header.tex     
+          in_header: header.tex
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -24,7 +24,7 @@ cover-image: "images/cover.pdf"
 
 
 
-## Table of Contents {#crazy-slug-here, echo=FALSE }
+## Table of Contents
 
 - [Undergraduate Cost of Attendance](#undergraduate-cost-of-attendance)
     - [Undergrad COA Percentage of Total Cost](#undergrad-coa-percentage-of-total-cost)
@@ -71,6 +71,8 @@ cover-image: "images/cover.pdf"
 - [Pell-Max-Awards](#pell-max-awards)
     - [PELL GRANT MAXIMUM AWARD AND IN-STATE COA](#pell-grant-maximum-award-and-in-state-coa)
     - [PELL GRANT MAX AWARD AND OUT-OF-STATE COA](#pell-grant-max-award-and-out-of-state-coa)
+        - [FEDERAL PELL GRANT AS A % OF TOTAL UNDERGRADUATE ENROLLMENT](#federal-pell-grant-as-a-%-of-total-undergraduate-enrollment)
+        - [FEDERAL PELL GRANT AS A % OF TOTAL UNDERGRADUATE ENROLLMENT](#federal-pell-grant-as-a-%-of-total-undergraduate-enrollment)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

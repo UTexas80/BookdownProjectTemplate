@@ -40,7 +40,7 @@ p9a2 <- p9a2 %>% add_trace(y  = ~zell,    name = 'ZELL',    line = list(color = 
 p9a2 <- p9a2 %>% add_trace(y  = ~tuition, name = 'Tuition', line = list(color = '#7f827c'))
 p9a2 <- p9a2 %>% layout(title = "Max HOPE & ZELL Awards Compared to Tuition", 
                         xaxis = list(title = "Academic Year", tickangle = -45),
-                        yaxis = list(title = "Max Award Amount"))
+                        yaxis = list(title = "Max Award Amount", tickformat = '$'))
 ################################################################################
 ## Step 99.A: VERSION HISTORY                                                ###
 ################################################################################

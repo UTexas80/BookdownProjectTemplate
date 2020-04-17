@@ -43,7 +43,7 @@ setkey(enroll.by.class.l, ay)
 dt_hz_awd <- dt_hz_awd[enroll.by.class.l][
               ,c(1:3,11)][
               ,awd     := lapply(.SD, as.numeric), .SDcols = 'awd'][
-              ,awd_pct := awd/tot_ug]
+              ,awd_pct := (awd/tot_ug)*100]
 ################################################################################
 ## Step 07.04 create report tables                                           ###
 ################################################################################
@@ -86,7 +86,7 @@ p7a1 <- plot_ly(dt_hz_awd_pct,  x = ~ay,
                      layout(title = "% of Undergrads with HOPE/ZELL Awards",
                xaxis = list(title = "Academic Year",
                         tickangle = -45),
-               yaxis = list(title = "Awd Pctt", 
+               yaxis = list(title = "Awd Pct", 
                        tickformat = "%"))
 ################################################################################
 ## Step 07.A: VERSION HISTORY                                                ###

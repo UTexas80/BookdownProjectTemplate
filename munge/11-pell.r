@@ -12,28 +12,30 @@ sapply(dtTables[NAME %like% "X11" ,],
 dt11_pell_in_st  <- X11pell.in.state
 dt11_pell_out_st <- X11pell.out.state
 dt11_pell_ug     <- X11pell.ug
-
-# setnames(X11pell.in.state, 2:12, paste0(mid(colnames(X11pell.in.state),2,4)[2:12], '-', right(colnames(X11pell.in.state),2))[2:12])
-# setnames(X11pell.out.state, 2:12, paste0(mid(colnames(X11pell.out.state),2,4)[2:12], '-', right(colnames(X11pell.out.state),2))[2:12])
+# ------------------------------------------------------------------------------
+dt11_pell_line <- cbind(melt.data.table(X11pell.in.state[3,], id = 1)[,2:3],
+                        melt.data.table(X11pell.out.state[3,], id = 1)[,3])
+setnames(dt11_pell_line,1:3,c("ay","in_state","out_state")) 
 ################################################################################
 ## Step 11.03 vizualize the tables                                           ###
 ################################################################################
 # p11a1 <- plot_ly(tail(dt_pell11_awd,11),
-#                               x = ~ay, 
-#                               y = ~awd_uga, 
-#                          marker = list(
-#                           color = '#BA0C2F'), 
-#                            name = 'UGA', 
-#                            type = 'bar') %>% 
-#                     add_trace(y = ~awd_usa, 
-#                          marker = list(
-#                           color = 'dodgerblue'), 
-#                            name = 'USA')  %>% 
-#                    layout(title = "AVERAGE FEDERAL PELL GRANT AWARD",
-#                           xaxis = list(title = "Academic Year",
-#                       tickangle = -45),
-#                           yaxis = list(title = "Pell Award Amount", 
-#                      tickformat = "$"))
+# ------------------------------------------------------------------------------Award by Tier Line chart
+p11a1 <- plot_ly(tail(dt11_pell_line, 10),
+  x = ~ay, type = "scatter", mode = "lines+markers", yaxis = "y2",
+  y = ~in_state, name = "In-State", line = list(color = "#BA0C2F")
+) %>%
+  add_trace(y = ~out_state, name = "Out-of-State", line = list(color = "#000000")) %>%
+  layout(
+    title = "Maximum Federal Pell Grant Award - as a % of UGA Tuition/Fees",
+    xaxis = list(
+      title = "Academic Year",
+      tickangle = -45
+    ),
+    yaxis = list(
+      title = "Pell Pct",
+      tickformat = "%")
+    )
 ################################################################################
 ## Step 11.99: VERSION HISTORY                                                ###
 ################################################################################

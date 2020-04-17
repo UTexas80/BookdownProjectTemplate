@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = FALSE)
 options(tinytex.verbose = TRUE)
 ```
 
-```{r 11.0-rdsInput, echo=FALSE}
+```{r 11.0.0-rdsInput, echo=FALSE}
 # ------------------------------------------------------------------------------
 ay          <- readRDS(here::here("/rds", "ay.rds"))
 ay_0        <- readRDS(here::here("/rds", "currentAY.rds"))
@@ -51,12 +51,22 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 <h3><center><b>(For Academic Years 1993-94 and 2018-19)</b></center></h3>
 
 ## 11.PELL GRANT MAXIMUM AWARD AND IN-STATE COA
-```{r 11.1.0}
+***
+```{r 11.1.1}
 ft_pell_in_state <- flextable(dt11_pell_in_st[c(3,5,2,4,1),c(1, 4:12)]) %>%
   set_header_labels(
   ay = "Description",
   # x2006.07 = "2008_09",
   # x2009.10 = "2009_10",
+  X2010.11 = "2010-11",
+  X2011.12 = "2011-12",
+  X2012.13 = "2012-13",
+  X2013.14 = "2013-14",
+  X2014.15 = "2014-15",
+  X2015.16 = "2015-16",
+  X2016.17 = "2016-17",
+  X2017.18 = "2017-18",
+  X2018.19 = "2018-19"
 ) %>%
   colformat_num(
     i = c(1,2:4), j = 2:10, big.mark = ",", digits = 0, na_str = "", prefix = "$") %>%
@@ -67,16 +77,30 @@ ft_pell_in_state <- flextable(dt11_pell_in_st[c(3,5,2,4,1),c(1, 4:12)]) %>%
      na_str = "", 
      suffix = "%"
    ) %>%
+  fit_to_width(max_width = 7.25) %>%
+  width( j = 1, width = 2.5) %>%
   # width(j = 1:3,   width = 1.500) %>%
+  theme_vader(fontsize = 7.5)
 ft_pell_in_state
 ```
 
 ## 11.PELL GRANT MAX AWARD AND OUT-OF-STATE COA
-```{r 11.2.0}
+***
+```{r 11.1.2}
+ft_pell_out_state <- flextable(dt11_pell_out_st[c(3,5,2,4,1),c(1,4:12)]) %>%
   set_header_labels(
   ay = "Description",
   # x2006.07 = "2008_09",
   # x2009.10 = "2009_10",
+  X2010.11 = "2010-11",
+  X2011.12 = "2011-12",
+  X2012.13 = "2012-13",
+  X2013.14 = "2013-14",
+  X2014.15 = "2014-15",
+  X2015.16 = "2015-16",
+  X2016.17 = "2016-17",
+  X2017.18 = "2017-18",
+  X2018.19 = "2018-19"
 ) %>%
   colformat_num(
     i = c(1,2:4), j = 2:10, big.mark = ",", digits = 0, na_str = "", prefix = "$") %>%
@@ -87,12 +111,97 @@ ft_pell_in_state
      na_str = "", 
      suffix = "%"
    ) %>%
+  fit_to_width(max_width = 7.25) %>%
+  width( j = 1, width = 2.5) %>%
   # width(j = 1:3,   width = 1.500) %>%
+  theme_vader(fontsize = 7.5)
 ft_pell_out_state
 ```
 
-```{r 11.1.2}
-# knitr::include_graphics(here::here('png/p10a1.png'))
+```{r 11.1.3}
+knitr::include_graphics(here::here('png/p11a1.png'))
+```
+
+### 11.FEDERAL PELL GRANT AS A % OF TOTAL UNDERGRADUATE ENROLLMENT
+***
+```{r 11.2.1}
+ft_pell_ug <- flextable(dt11_pell_ug[,c(1,4:12)]) %>%
+  set_header_labels(
+  ay = "Description",
+  # x2006.07 = "2008_09",
+  # x2009.10 = "2009_10",
+  X2010.11 = "2010-11",
+  X2011.12 = "2011-12",
+  X2012.13 = "2012-13",
+  X2013.14 = "2013-14",
+  X2014.15 = "2014-15",
+  X2015.16 = "2015-16",
+  X2016.17 = "2016-17",
+  X2017.18 = "2017-18",
+  X2018.19 = "2018-19"
+) %>%
+  colformat_num(
+    i = 1:4,
+    j = 2:10,
+    big.mark = ",", 
+    digits = 0, 
+    na_str = "", 
+    prefix = "$"
+    ) %>%
+  colformat_num(
+    i      = 5,
+    j      = 2:10,
+    digits = 2,
+    na_str = "",
+    suffix = "%"
+    ) %>%
+  width( j = 1, width = 2.1) %>%
+  theme_vader(fontsize = 7.0) %>%
+  fit_to_width(max_width = 7.5)
+ft_pell_ug
+# width(j = 1:3,   width = 1.500) %>%
+```
+
+### 11.FEDERAL PELL GRANT AS A % OF TOTAL UNDERGRADUATE ENROLLMENT
+***
+```{r 11.2.2}
+ft_pell_ug <- flextable(dt11_pell_ug[,c(1,4:12)]) %>%
+  set_header_labels(
+  ay = "Description",
+  # x2006.07 = "2008_09",
+  # x2009.10 = "2009_10",
+  X2010.11 = "2010-11",
+  X2011.12 = "2011-12",
+  X2012.13 = "2012-13",
+  X2013.14 = "2013-14",
+  X2014.15 = "2014-15",
+  X2015.16 = "2015-16",
+  X2016.17 = "2016-17",
+  X2017.18 = "2017-18",
+  X2018.19 = "2018-19"
+) %>%
+  colformat_num(
+    i = 1:4,
+    j = 2:10,
+    big.mark = ",", 
+    digits = 0, 
+    na_str = "", 
+    prefix = "$"
+    ) %>%
+  colformat_num(
+    i      = 5,
+    j      = 2:10,
+    digits = 2,
+    na_str = "",
+    suffix = "%"
+    ) %>%
+#  fit_to_width(max_width = 7.5) %>%
+  width( j = 1, width = 2.1) %>%
+  # width(j = 1:3,   width = 1.500) %>%
+  # theme_vader(fontsize = 7.0)
+  theme_booktabs(fontsize = 7.0)  %>%
+  fit_to_width(max_width = 8.5)
+ft_pell_ug
 ```
 
 ```{=openxml}
