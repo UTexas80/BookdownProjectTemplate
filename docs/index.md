@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-04-17"
+# date: "2020-04-20"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -69,10 +69,13 @@ cover-image: "images/cover.pdf"
     - [History of Average Federal Pell Grant Awards](#history-of-average-federal-pell-grant-awards)
 
 - [Pell-Max-Awards](#pell-max-awards)
-    - [PELL GRANT MAXIMUM AWARD AND IN-STATE COA](#pell-grant-maximum-award-and-in-state-coa)
-    - [PELL GRANT MAX AWARD AND OUT-OF-STATE COA](#pell-grant-max-award-and-out-of-state-coa)
-        - [FEDERAL PELL GRANT AS A % OF TOTAL UNDERGRADUATE ENROLLMENT](#federal-pell-grant-as-a-%-of-total-undergraduate-enrollment)
-        - [FEDERAL PELL GRANT AS A % OF TOTAL UNDERGRADUATE ENROLLMENT](#federal-pell-grant-as-a-%-of-total-undergraduate-enrollment)
+    - [Pell Grant Maximum Award and In-State COA](#pell-grant-maximum-award-and-in-state-coa)
+    - [Pell Grant Max Award and Out-of-State COA](#pell-grant-max-award-and-out-of-state-coa)
+
+- [Pell-Comparison](#pell-comparison)
+    - [UGA Pell Grant Recipients to SEC Institutions ](#uga-pell-grant-recipients-to-sec-institutions)
+    - [UGA Pell Grant Recipients to Comparator Peer Institutions ](#uga-pell-grant-recipients-to-comparator-peer-institutions)
+    - [UGA Pell Grant Recipients to Aspirational Peer Institutions ](#uga-pell-grant-recipients-to-aspirational-peer-institutions)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

@@ -35,6 +35,10 @@ dtCOA  <- as.data.table(pdf.dat)
 names(dtCOA)[1]<-"costs"
 names(dtCOA)[2:11]<-paste0('ay', dtCOA[1,-1]) # rename multiple columns by index
 dtCOA <- dtCOA[-1]
+
+names(dtCOA)[2:ncol(dtCOA)] <-
+  gsub(x = names(dtCOA[1, -1]), pattern = "ay*", replacement = "")
+
 dtCOA[is.na(dtCOA)] <- ""                     # replace NA's with spaces
 ################################################################################
 ## Step 02.03 COA Percentage of Total Cost viz                               ###

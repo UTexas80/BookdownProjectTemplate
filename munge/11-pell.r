@@ -13,6 +13,13 @@ dt11_pell_in_st  <- X11pell.in.state
 dt11_pell_out_st <- X11pell.out.state
 dt11_pell_ug     <- X11pell.ug
 # ------------------------------------------------------------------------------
+names(dt11_pell_in_st)[2:ncol(dt11_pell_in_st)] <-
+  gsub(x = names(dt11_pell_in_st[1, -1]), pattern = "X*", replacement = "")
+names(dt11_pell_out_st)[2:ncol(dt11_pell_out_st)] <-
+  gsub(x = names(dt11_pell_out_st[1, -1]), pattern = "X*", replacement = "")
+names(dt11_pell_ug)[2:ncol(dt11_pell_ug)] <-
+  gsub(x = names(dt11_pell_ug[1, -1]), pattern = "X*", replacement = "")
+# ------------------------------------------------------------------------------
 dt11_pell_line <- cbind(melt.data.table(X11pell.in.state[3,], id = 1)[,2:3],
                         melt.data.table(X11pell.out.state[3,], id = 1)[,3])
 setnames(dt11_pell_line,1:3,c("ay","in_state","out_state")) 

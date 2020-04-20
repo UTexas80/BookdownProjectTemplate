@@ -72,6 +72,10 @@ render_toc("10-History-of-Average-Federal-Pell-Grant-Awards.Rmd")
 render_toc("11-Pell-Max-Awards.Rmd")
 ```
 
+```{r toc-12-Pell-Comparison, echo=FALSE}
+render_toc("12-Pell-Comparison.Rmd")
+```
+
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```

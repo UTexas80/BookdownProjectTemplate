@@ -21,7 +21,10 @@ right = function(text, num_char) {
 ################################################################################
 remove_x <- function(x) {
   names(x) <- gsub(x = names(x), pattern = "\\.", replacement = "_")
-  names(x) <- gsub(x = names(x), pattern = "X", replacement = "")
+  names(x) <- gsub(x = names(x), pattern = "X*", replacement = "")
+  names(x) <- gsub(x = names(x), pattern = "ay*", replacement = "")
+  names(x)[2:ncol(x)] <- gsub(x = names(x[1,-1]), pattern = "ay*", replacement = "")
+  names(x)[2:ncol(x)] <- gsub(x = names(x[1,-1]), pattern = "X*", replacement = "")
 }
 # ------------------------------------------------------------------------------
 format_dol_fun <- function(x){
