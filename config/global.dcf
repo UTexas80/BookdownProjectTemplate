@@ -6,14 +6,15 @@ data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
 load_libraries: TRUE
-libraries:  bookdown, checkpoint, data.table, data.table, dataMeta, datamodelr, devtools, DBI, DiagrammeR, dplyr, DT, flexdashboard, 
-    flextable, formatR, formattable, futile.logger, ggplot2, glue, grid, gridExtra, gt, htmltools, janitor, knitr, lubridate, orca, plotly, 
-    plyr, png, ProjectTemplate, qdap, readxl, reactable, reprex, reshape2, RMariaDB, rmarkdown, rmiscutils, RMySQL, RODBC, rscorecard, 
-    scales, stargazer, stringr, tabulizer, tabulizerjars, tidyverse, tinytex, treemap, tryCatchLog, webshot, xlsx, xtable, zoo
+libraries: bookdown, checkpoint, data.table, data.table, dataMeta, datamodelr, devtools, DBI, DiagrammeR, dplyr, DT,
+             flexdashboard, flextable, formatR, formattable, futile.logger, ggplot2, glue, grid, gridExtra, gt, htmltools,
+             janitor, keyring, knitr, lubridate, orca, plotly, plyr, png, ProjectTemplate, qdap, readxl, reactable, reprex,
+             reshape2, RMariaDB, rmarkdown, rmiscutils, RMySQL, RODBC, rscorecard, scales, stargazer, stringr, tabulizer,
+             tabulizerjars, tidyverse, tinytex, treemap, tryCatchLog, webshot, xlsx, xtable, zoo
 logging: TRUE
 logging_level: INFO
 munging: TRUE
 recursive_loading: TRUE
 sticky_variables: NONE
-version: 0.9.0
+version: 0.9.1
 tables_type: data_table

@@ -5,8 +5,13 @@
 ## Step 04.01 Admin: munge Aid files                                         ###
 ################################################################################
 dtTables  <- data.table::tables()
-sapply(dtTables[NAME %like% "X04" ,],
-    function(x) janitor::clean_names(data.table(x)))
+# sapply(dtTables[NAME %like% "X04" ,],
+#     function(x) janitor::clean_names(data.table(x)))
+x <- as.data.table( as.table(sapply(dtTables[NAME %like% "X04*" ,][,1], function(x) x)))[,3]
+for(i in 1:nrow(x)) {
+  x[i,] %>% clean_names()
+}  
+
 # ------------------------------------------------------------------------------
 vars <- names(X04aid.sources.long) %>% .[grepl("pct_", .)]
 X04aid.sources.long[, (vars) := .SD * 100, .SDcols = vars]

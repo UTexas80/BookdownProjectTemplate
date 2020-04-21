@@ -16,6 +16,13 @@ mid = function(text, start_num, num_char) {
 right = function(text, num_char) {
   substr(text, nchar(text) - (num_char-1), nchar(text))
 }
+
+clean_col_names <- function(dt_name) {
+  dt <- as.data.table( as.table(sapply(dtTables[NAME %like% paste0(dt_name,"*") ,][,1], function(x) x)))[,3]
+  for(i in 1:nrow(dt)) {
+    dt[i,] <<- clean_names( dt[i,])
+  }  
+}
 ################################################################################
 # Remove 'x' from ay column names                  https://tinyurl.com/y9grewde
 ################################################################################
