@@ -63,16 +63,16 @@ p2a1 <- plot_ly(grad_res,
               orientation    = "h",      # show entries horizontally
               xanchor        = "center", # use center of legend as anchor
               x              = 0.5
-              ),         
+              ),
             xaxis            = list(
-              title          = "TEST", 
-              showgrid       = FALSE, 
-              zeroline       = FALSE, 
+              title          = "TEST",
+              showgrid       = FALSE,
+              zeroline       = FALSE,
               showticklabels = FALSE),
             yaxis            = list(
-              title          = "TEST", 
-              showgrid       = FALSE, 
-              zeroline       = FALSE, 
+              title          = "TEST",
+              showgrid       = FALSE,
+              zeroline       = FALSE,
               showticklabels = FALSE))
 # ------------------------------------------------------------------------------
 c_pie_grad_res <- plot_ly(grad_res, 

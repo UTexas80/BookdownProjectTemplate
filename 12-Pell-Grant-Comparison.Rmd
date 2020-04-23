@@ -1,0 +1,192 @@
+# 12-Pell-Grant-Comparison
+
+```{r global, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
+library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(here)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(officer)
+library(pander)
+library(plotly)
+library(png)
+library(reactable)
+library(scales)
+library(stringr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 12.0.0-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+ay             <- readRDS(here::here("/rds", "ay.rds"))
+ay_0           <- readRDS(here::here("/rds", "currentAY.rds"))
+ay_0_row       <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+ay_1           <- readRDS(here::here("/rds", "ay_1.rds"))
+# ------------------------------------------------------------------------------
+dt12_pell_tbl  <- setkey(
+                    data.table(
+                      readRDS(here::here("/rds", "dt12_pell_tbl.rds"))
+                    ), 
+                  ID)
+# ------------------------------------------------------------------------------
+```
+
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+
+## 12. UGA Pell Grant Recipients to SEC Institutions 
+***
+
+```{r 12.1.1}
+ft_pell_sec <- flextable(dt12_pell_tbl[ID == 's', -c(1)]
+  ) %>%
+  set_header_labels(
+    instnm             = "Institution",
+    ugds               = "Fall Undergrad Enrollment",
+    pell_recipients    = "# of Pell Recipients",
+    pell_pct           = "% With Pell Grant",
+    pell_disbursements = "Tot Dollars Received",
+    pell_avg           = "Average Award"
+  ) %>%
+  colformat_num(
+    j                  = 2:3,
+    big.mark           = ",", 
+    digits             = 0, 
+    na_str             = "", 
+    prefix             = ""
+  ) %>%   
+  colformat_num(
+    j                  = 4,
+    digits             = 2, 
+    na_str             = "", 
+    suffix             = "%"
+  ) %>%    
+  colformat_num(
+    j                  = 5:6, 
+    big.mark           = ",", 
+    digits             = 0, 
+    na_str             = "", 
+    prefix             = "$"
+  ) %>%
+  width(j = 1, width = 3.0
+  ) %>%
+  theme_booktabs(fontsize = 7.0
+  )  %>%
+  fit_to_width(max_width = 8.5)
+ft_pell_sec
+```
+
+```{r 12.1.2}
+knitr::include_graphics(here::here('png/p12s_bar.png'))
+```
+
+## 12. UGA Pell Grant Recipients to Comparator Peer Institutions 
+***
+
+```{r 12.2.1}
+ft_pell_compare <- flextable(dt12_pell_tbl[ID == 'c', -c(1)]
+  ) %>%
+  set_header_labels(
+    instnm             = "Institution",
+    ugds               = "Fall Undergrad Enrollment",
+    pell_recipients    = "# of Pell Recipients",
+    pell_pct           = "% With Pell Grant",
+    pell_disbursements = "Tot Dollars Received",
+    pell_avg           = "Average Award"
+  ) %>%
+  colformat_num(
+    j                  = 2:3,
+    big.mark           = ",", 
+    digits             = 0, 
+    na_str             = "", 
+    prefix             = ""
+  ) %>%   
+  colformat_num(
+    j                  = 4,
+    digits             = 2, 
+    na_str             = "", 
+    suffix             = "%"
+  ) %>%    
+  colformat_num(
+    j                  = 5:6, 
+    big.mark           = ",", 
+    digits             = 0, 
+    na_str             = "", 
+    prefix             = "$"
+  ) %>%
+  width(j = 1, width = 3.5
+  ) %>%
+  theme_booktabs(fontsize = 7.0
+  )  %>%
+  fit_to_width(max_width = 8.5)
+ft_pell_compare
+```
+
+```{r 12.2.2}
+knitr::include_graphics(here::here('png/p12c_bar.png'))
+```
+
+## 12. UGA Pell Grant Recipients to Aspirational Peer Institutions 
+***
+
+```{r 12.3.1}
+ft_pell_aspire <- flextable(dt12_pell_tbl[ID == 'a', -c(1)]
+  ) %>%
+  set_header_labels(
+    instnm             = "Institution",
+    ugds               = "Fall Undergrad Enrollment",
+    pell_recipients    = "# of Pell Recipients",
+    pell_pct           = "% With Pell Grant",
+    pell_disbursements = "Tot Dollars Received",
+    pell_avg           = "Average Award"
+  ) %>%
+  colformat_num(
+    j                  = 2:3,
+    big.mark           = ",", 
+    digits             = 0, 
+    na_str             = "", 
+    prefix             = ""
+  ) %>%   
+  colformat_num(
+    j                  = 4,
+    digits             = 2, 
+    na_str             = "", 
+    suffix             = "%"
+  ) %>%    
+  colformat_num(
+    j                  = 5:6, 
+    big.mark           = ",", 
+    digits             = 0, 
+    na_str             = "", 
+    prefix             = "$"
+  ) %>%
+  width(j = 1, width = 3.5
+  ) %>%
+  theme_booktabs(fontsize = 7.0
+  )  %>%
+  fit_to_width(max_width = 8.5)
+ft_pell_aspire
+```
+
+```{r 12.3.2}
+knitr::include_graphics(here::here('png/p12a_bar.png'))
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```

@@ -41,7 +41,7 @@ dt_hz_tot[, 1]          <- c('HOPE Scholarship Totals: ',
 # dt_hz_tot[,4:5  := lapply(.SD, function(x) paste0(round(x,2), '%')), .SDcols = 4:5]
 # format(dt_hz_tot[,2:5], justify = "right")
 ################################################################################
-## Step 08.04 Total Number of Award Comparision viz                          ###
+## Step 08.04 Total Number of Award Comparison viz                          ###
 ################################################################################
 p8a1 <- plot_ly(head(dt_hz_tot,-1),
             labels     = ~name,

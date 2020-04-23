@@ -3,7 +3,7 @@ add.config(
   apply.override = FALSE
 )
 # ------------------------------------------------------------------------------
-Sys.setenv('sc_key' = '2z7hOeXJ7YNjkzAf4rwJwtxhcUNG1tw33nYoJdbz')
+key_sc <- key_get("sc_key")
 # ------------------------------------------------------------------------------
 currentYr        <- as.numeric(format(Sys.Date(), format = "%y"))
 currentYr4       <- as.numeric(format(Sys.Date(), format = "%Y"))

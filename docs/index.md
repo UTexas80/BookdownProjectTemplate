@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-04-21"
+# date: "2020-04-23"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -72,7 +72,7 @@ cover-image: "images/cover.pdf"
     - [Pell Grant Maximum Award and In-State COA](#pell-grant-maximum-award-and-in-state-coa)
     - [Pell Grant Max Award and Out-of-State COA](#pell-grant-max-award-and-out-of-state-coa)
 
-- [Pell-Comparison](#pell-comparison)
+- [Pell-Grant-Comparison](#pell-grant-comparison)
     - [UGA Pell Grant Recipients to SEC Institutions ](#uga-pell-grant-recipients-to-sec-institutions)
     - [UGA Pell Grant Recipients to Comparator Peer Institutions ](#uga-pell-grant-recipients-to-comparator-peer-institutions)
     - [UGA Pell Grant Recipients to Aspirational Peer Institutions ](#uga-pell-grant-recipients-to-aspirational-peer-institutions)

@@ -2,16 +2,24 @@
 # 00. College Scorecard
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 00.01 Janitorr - clean the tables                                    ###
+## Step 00.00 load the dictionary                                            ###
+################################################################################
+dict_sc <-  setkey(
+              data.table(
+                sc_dict('.', print_off = TRUE, return_df = TRUE)
+              ),
+              varname)
+################################################################################
+## Step 00.01 Janitor - clean the tables                                     ###
 ################################################################################
 # lapply(dtTables[NAME %like% "peer*" ,], function(x) janitor::clean_names(x))
 # clean_col_names("peer") 
 # ------------------------------------------------------------------------------
-dfLs <-  grep("MERGED(19|20)", ls(), value = TRUE)
+dfLs  <-  grep("MERGED(19|20)", ls(), value = TRUE)
 peers <- grep("^U.*Peers$", ls(), value = TRUE)
 # ------------------------------------------------------------------------------
 lapply(dfLs, function(nm) {
-  df <- get(nm)
+  df  <- get(nm)
   #   setDT(df)[, OPEID := as.character(UNITID)]
   #    colnames(df)[1] <- "UNITID"
   setnames(df, 1, "UNITID")
@@ -20,34 +28,40 @@ lapply(dfLs, function(nm) {
 })
 # ------------------------------------------------------------------------------
 lapply(peers, function(nm) {
-  df <- get(nm)    
-  #    setDT(df)[, OPEID := as.character(UNITID)]
+  df  <- get(nm)
+  #    setDT(df)[, OPEID := as.integer(OPE.ID)]
   setkeyv(df, "UNITID")
 })
 # ------------------------------------------------------------------------------
-dt_peers <- setorder(
-              setkeyv(
+dt_sc_peers  <- setorder(
                 data.table(
                   distinct(
                     bind_rows(
                       UGaAspirationalPeers, UGaComparatorPeers, UGaSEC.Peers
                       )
                     )
-                  ), 
-                "UNITID"),
+                  ),
               ID, UNITID)
-# ------------------------------------------------------------------------------              
-sc_key = ('2z7hOeXJ7YNjkzAf4rwJwtxhcUNG1tw33nYoJdbz')
-dt_sc   <-  sc_init() %>% 
-            sc_filter(region == 2, ccbasic == c(21,22,23), locale == 41:43) %>% 
-            sc_select(unitid, instnm, stabbr) %>% 
-            sc_year("latest") %>% 
-            sc_get('2z7hOeXJ7YNjkzAf4rwJwtxhcUNG1tw33nYoJdbz')
+dt_sc_peers  <-  setkey(dt_sc_peers[, ope_id := paste0("00", as.character(OPEID))][
+              , c(1,6,2:5)], OPEID)
+# ------------------------------------------------------------------------------
+dt_sc_uga <-  sc_init() %>%
+              sc_filter(unitid == dt_sc_peers[,3]) %>%
+              sc_select(unitid, instnm, stabbr, ugds, grad_debt_mdn) %>%
+              sc_year('latest') %>%
+              sc_get(key_get("sc_key"))
 ################################################################################
 ## Step 00.02 set the tables                                                 ###
 ################################################################################
-setkey(X05awards.fb.0, key)
-setkey(X05awards.fb.1, key)
+dt_sc_uga <- setorder(
+              setkeyv(
+                setDT(
+                  distinct(
+                    dt_sc_uga
+                  )
+                ),
+              "unitid"),
+            unitid)
 ################################################################################
 ## Step 00.C: VERSION HISTORY                                                ###
 ################################################################################

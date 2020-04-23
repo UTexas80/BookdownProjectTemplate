@@ -13,7 +13,7 @@ sapply(dtTables[NAME %like% "X06" ,],
 setkey(X06hope.long, ay)
 setkey(X06hope.wide, tier)
 ################################################################################
-## Step 06.03 vizualize the tables                                           ###
+## Step 06.03 visualize the tables                                           ###
 ################################################################################
 dt_hope_bar_amt <- melt.data.table(X06hope.long,
                         id = 1,

@@ -56,6 +56,9 @@ saveRDS(dt_pell_awd,         file = here::here("rds/", "dt_pell_awd.rds"))
 saveRDS(dt11_pell_in_st,     file = here::here("rds/", "dt11_pell_in_st.rds"))
 saveRDS(dt11_pell_out_st,    file = here::here("rds/", "dt11_pell_out_st.rds"))
 saveRDS(dt11_pell_ug,        file = here::here("rds/", "dt11_pell_ug.rds"))
+# ------------------------------------------------------------------------------
+saveRDS(dt12_pell_tbl[,c(1,4,6,8,10,9,11)],
+                             file = here::here("rds/", "dt12_pell_tbl.rds"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
