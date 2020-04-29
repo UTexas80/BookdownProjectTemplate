@@ -9,8 +9,8 @@
 
 
 ![](C:/Users/gfalk/Documents/BookdownPT/images/GEORGIA-XH-FC.png){width=100%}
-<h2><center><b>zell Scholarship Awards by Tier:</b></center></h2>
-<h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
+<h2><center><b>Zell Scholarship Awards by Tier: (For Academic Years 2012-13 and 2018-19)</b></center></h2>
+
 
 ## 06. Financial Aid Awarded: Sources of Financial Aid Table
 

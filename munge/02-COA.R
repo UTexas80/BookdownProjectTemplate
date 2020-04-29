@@ -131,6 +131,30 @@ dtCOAprior <- DT::datatable(coa.prior,
       "X2016.17",
       "X2017.18"
     ))
+# ------------------------------------------------------------------------------
+p02a_bar <- setorder(grad_res, -ay1920) %>%
+  plot_ly(x = ~Description, y = ~ay1920, type = 'bar') %>%
+  layout(
+    title = "Graduate Resident Expenses",
+    xaxis          = list(
+      title        = "Description",
+      tickangle    = -45),
+    yaxis          = list(
+      title        = "Amount"),
+    barmode      = 'group',
+    tickformat   = '$')
+# ------------------------------------------------------------------------------
+p02b_bar <- setorder(grad_non_res, -ay1920) %>%
+  plot_ly(x = ~Description, y = ~ay1920, type = 'bar') %>%
+  layout(
+    title = "Graduate Non-Resident Expenses",
+    xaxis          = list(
+      title        = "Description",
+      tickangle    = -45),
+    yaxis          = list(
+      title        = "Amount"),
+    barmode      = 'group',
+    tickformat   = '$')
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

@@ -83,11 +83,23 @@ ft_pell_sec <- flextable(dt12_pell_tbl[ID == 's', -c(1)]
     na_str             = "", 
     prefix             = "$"
   ) %>%
-  width(j = 1, width = 3.0
+  width(j = 1, width = 3.20
   ) %>%
-  theme_booktabs(fontsize = 7.0
-  )  %>%
-  fit_to_width(max_width = 8.5)
+  width(j = 2, width = 1.25
+  ) %>%
+  width(j = 4, width = 0.70
+  ) %>%
+  bg(   j = 4, bg = "#19488a"
+  ) %>%
+  color(j = 4, color = "white"
+  ) %>%  
+  bg(   i = ~ instnm %in% "University of Georgia", bg = "#BA0C2F"
+  ) %>%
+  color(i = ~ instnm %in% "University of Georgia", color = "white"
+  ) %>%
+  fontsize(size = 7.50, part = "all"
+  ) %>%           
+  fit_to_width(max_width = 8.50)
 ft_pell_sec
 ```
 
@@ -129,11 +141,23 @@ ft_pell_compare <- flextable(dt12_pell_tbl[ID == 'c', -c(1)]
     na_str             = "", 
     prefix             = "$"
   ) %>%
-  width(j = 1, width = 3.5
+  width(j = 1, width = 3.20
   ) %>%
-  theme_booktabs(fontsize = 7.0
-  )  %>%
-  fit_to_width(max_width = 8.5)
+  width(j = 2, width = 1.25
+  ) %>%
+  width(j = 4, width = 0.70
+  ) %>%
+  bg(   j = 4, bg = "#19488a"
+  ) %>%
+  color(j = 4, color = "white"
+  ) %>%  
+  bg(   i = ~ instnm %in% "University of Georgia", bg = "#BA0C2F"
+  ) %>%
+  color(i = ~ instnm %in% "University of Georgia", color = "white"
+  ) %>%
+  fontsize(size = 7.50, part = "all"
+  ) %>%           
+  fit_to_width(max_width = 8.50)
 ft_pell_compare
 ```
 
@@ -175,11 +199,23 @@ ft_pell_aspire <- flextable(dt12_pell_tbl[ID == 'a', -c(1)]
     na_str             = "", 
     prefix             = "$"
   ) %>%
-  width(j = 1, width = 3.5
+  width(j = 1, width = 3.20
   ) %>%
-  theme_booktabs(fontsize = 7.0
-  )  %>%
-  fit_to_width(max_width = 8.5)
+  width(j = 2, width = 1.25
+  ) %>%
+  width(j = 4, width = 0.70
+  ) %>%
+  bg(   j = 4, bg = "#19488a"
+  ) %>%
+  color(j = 4, color = "white"
+  ) %>%  
+  bg(   i = ~ instnm %in% "University of Georgia", bg = "#BA0C2F"
+  ) %>%
+  color(i = ~ instnm %in% "University of Georgia", color = "white"
+  ) %>%
+  fontsize(size = 7.50, part = "all"
+  ) %>%           
+  fit_to_width(max_width = 8.50)
 ft_pell_aspire
 ```
 

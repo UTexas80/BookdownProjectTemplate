@@ -75,117 +75,19 @@ ft <- fit_to_width(ft, max_width = 8)
 ft
 ```
 
-<!-- ## Example three - formattable -->
-
-<!-- ```{r 2.3-coa-formattable, fig.cap='formattable', out.width = '50%'} -->
-<!-- formattable(dtCOA) -->
-<!-- ``` -->
-
-<!-- ## Example four - stargazer -->
-
-<!-- ```{r 2.4-coa-stargazer, echo=FALSE, fig.cap='stargazer',  message = FALSE, out.width = '60%'} -->
-<!-- stargazer(dtCOA) -->
-<!-- ``` -->
-
-<!-- ## Example five - plain ole dtCOA -->
-
-<!-- ```{r 2.5-coa-DT-redeux, , fig.cap='plain dtCOA', out.width = '50%'} -->
-<!-- dtCOA -->
-<!-- ``` -->
-
-<!-- ## Example six - DT -->
-
-<!-- ```{r 2.6-coa-DT, fig.cap='DT', out.width = '150%'} -->
-<!-- names(dtCOA)[2:11]<-letters[1:10] -->
-<!-- DT::datatable(dtCOA, -->
-<!--     rownames = FALSE, -->
-<!--     extensions = c("Scroller"), -->
-<!--     options = list( -->
-<!--       pageLength = 20 -->
-<!--       ,order = list(list(0, "desc")) -->
-<!--       ,scrollX = TRUE -->
-<!--       ,scrollY = 280 -->
-<!--       ,scroller = TRUE) -->
-<!--     )%>% -->
-<!--     formatCurrency(c( -->
-<!--       "a", "b", "c", "d", "e", "f", "g", "h", "i", "j" -->
-<!--     )) -->
-<!-- ``` -->
-
-<!-- ### Example two - gt -->
-
-<!-- ```{r 2.1.2-coa-gt, fig.cap='gt', fig.align='left', out.width = '70%'} -->
-<!-- # names(dtCOA)[2:11]<-letters[1:10] -->
-<!-- # gt_tab_1 <- -->
-<!-- #   dtCOA %>% -->
-<!-- #     gt() %>% -->
-<!-- #     tab_header( -->
-<!-- #       title = "COA", -->
-<!-- #       subtitle = glue::glue("Undergrad") -->
-<!-- #     ) -->
-<!-- #   gt_tab_2 <- -->
-<!-- #     gt_tab_1 %>% -->
-<!-- #     tab_options( -->
-<!-- #       heading.title.font.size = "small", -->
-<!-- #       heading.subtitle.font.size = "small", -->
-<!-- #       table.width = pct(20), -->
-<!-- #       table.background.color = "lightcyan", -->
-<!-- #       row.padding = px(2) -->
-<!-- #   ) -->
-<!-- #  -->
-<!-- #   gt_tab_2 -->
-<!-- # ) %>% -->
-<!-- #  fmt_currency( -->
-<!-- #    columns = vars("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"), -->
-<!-- #            "ay2009-10", -->
-<!-- #            "ay2010-11", -->
-<!-- #            "ay2011-12", -->
-<!-- #            "ay2012-13", -->
-<!-- #            "ay2013-14", -->
-<!-- #            "ay2014-15", -->
-<!-- #            "ay2015-16", -->
-<!-- #            "ay2016-17", -->
-<!-- #            "ay2017-18", -->
-<!-- #            "ay2018-19"), -->
-<!-- #    currency = "USD" -->
-<!-- #  ) -->
-<!-- ``` -->
-
 ## 02 Undergrad COA Percentage of Total Cost
 ```{r 2.2.0-viz-pie, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('png/p2a1.png'))
 ```
 
-<!-- # ### Example three - kable -->
-<!-- ```{r 2.1.3.a-coa-kable, fig.cap='kable'} -->
-<!-- # kable(dtCOA) -->
-<!-- ``` -->
-
-<!-- ```{r 2.1.3.b-coa-kable, fig.cap='kableExtra'} -->
-<!-- # kableExtra::kable(dtCOA) -->
-<!-- ``` -->
-
-<!-- # ### Example four - xtable -->
-
-<!-- ```{r 2.7-coa-xtable, fig.cap='xtable'} -->
-<!-- # print.xtable(dtCOA, booktabs = TRUE) -->
-<!-- ``` -->
-
-## 02 Cost of Attendance Expenses
-```{r 2.2.1-coa-non}
-ggplot(grad_non) +
- aes(x = Description, weight = ay1920) +
- geom_bar(fill = "#0c4c8a") +
- labs(x = "Description", y = "Amount", title = "Grad Non-Resident Expenses", subtitle = "AY 1920", caption = "Graduate Non-Resident") +
- theme_minimal()
+## 02 Grad Resident COA
+```{r 2.2.0-viz-bar, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p02a_bar.png'))
 ```
 
-```{r 2.2.2-coa-res}
-ggplot(grad_res) +
- aes(x = Description, weight = ay1920) +
- geom_bar(fill = "#0c4c8a") +
- labs(x = "Description", y = "Amount", title = "Grad Resident Expenses", subtitle = "AY 1920") +
- theme_gray()
+## 02 Grad Non-Resident COA
+```{r 2.2.1-viz-bar, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('png/p02b_bar.png'))
 ```
 
 <!-- ```{=openxml} -->

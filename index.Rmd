@@ -76,6 +76,10 @@ render_toc("11-Pell-Max-Awards.Rmd")
 render_toc("12-Pell-Grant-Comparison.Rmd")
 ```
 
+```{r toc-13-Student-Parent-Loan, echo=FALSE}
+render_toc("13-Loan.Rmd")
+```
+
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```

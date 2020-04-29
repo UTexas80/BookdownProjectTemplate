@@ -5,8 +5,17 @@
 ## Step 06.01 Janitorr - clean the tables                                    ###
 ################################################################################
 dtTables  <- data.table::tables()
+x06       <- grep("^X06", ls(), value = TRUE)
 sapply(dtTables[NAME %like% "X06" ,],
     function(x) janitor::clean_names(data.table(x)))
+# ------------------------------------------------------------------------------
+lapply(x06, function(nm) {
+  # df  <- get(nm)
+  # setDT(df)[, OPEID := as.integer(OPE.ID)][
+  #           , c(8,1:5)]
+  # setkey(df, "OPEID")
+  # setorder(df, OPEID)
+})
 ################################################################################
 ## Step 06.02 set the tables                                                 ###
 ################################################################################

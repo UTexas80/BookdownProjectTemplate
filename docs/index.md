@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-04-23"
+# date: "2020-04-28"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -28,7 +28,8 @@ cover-image: "images/cover.pdf"
 
 - [Undergraduate Cost of Attendance](#undergraduate-cost-of-attendance)
     - [Undergrad COA Percentage of Total Cost](#undergrad-coa-percentage-of-total-cost)
-    - [Cost of Attendance Expenses](#cost-of-attendance-expenses)
+    - [Grad Resident COA](#grad-resident-coa)
+    - [Grad Non-Resident COA](#grad-non-resident-coa)
 
 - [Financial Aid Awarded to Students - Five-Year Comparison](#financial-aid-awarded-to-students---five-year-comparison)
     - [Average Award Per Recipient chart](#average-award-per-recipient-chart)
@@ -76,6 +77,13 @@ cover-image: "images/cover.pdf"
     - [UGA Pell Grant Recipients to SEC Institutions ](#uga-pell-grant-recipients-to-sec-institutions)
     - [UGA Pell Grant Recipients to Comparator Peer Institutions ](#uga-pell-grant-recipients-to-comparator-peer-institutions)
     - [UGA Pell Grant Recipients to Aspirational Peer Institutions ](#uga-pell-grant-recipients-to-aspirational-peer-institutions)
+
+- [Student-Parent-Loan](#student-parent-loan)
+    - [Student and Parent Loans](#student-and-parent-loans)
+    - [Student and Parent Loans- Vader](#student-and-parent-loans--vader)
+    - [Student and Parent Loans- Zebra](#student-and-parent-loans--zebra)
+    - [Student and Parent Loans Bar Chart](#student-and-parent-loans-bar-chart)
+    - [Student and Parent Loans Line Chart](#student-and-parent-loans-line-chart)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

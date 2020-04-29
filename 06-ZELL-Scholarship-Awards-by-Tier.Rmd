@@ -45,8 +45,8 @@ dt_zell_bar_amt <- setDT(readRDS(here::here("/rds", "dt_zell_bar_amt.rds")))
 ```{r uga_logo, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ```
-<h2><center><b>zell Scholarship Awards by Tier:</b></center></h2>
-<h3><center><b>(For Academic Years 2012-13 and 2018-19)</b></center></h3>
+<h2><center><b>Zell Scholarship Awards by Tier: (For Academic Years 2012-13 and 2018-19)</b></center></h2>
+
 
 ## 06. Financial Aid Awarded: Sources of Financial Aid Table
 ```{r 6.0, echo=FALSE, fig.cap='Awd by Tier'}
