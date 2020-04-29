@@ -73,17 +73,21 @@ dt13_loan_tbl_bar_h <- dt13_loan_tbl_w[,c(1,3,15)]
 dt13_loan_tbl_bar_h$pct_chg <- apply( dt13_loan_tbl_bar_h[,c(2:3)], 1, 
                              function(x) { (x[2] - x[1])/x[1]})
 # ------------------------------------------------------------------------------
-p13c_bar <- plot_ly(dt13_loan_tbl_bar_h,
-                    x = ~pct_chg,
-                    y             = ~name,
-                    type          = 'bar',
-                    orientation   = 'h',
-                    layout(title  = "UGA: Student and Parent Loans, ",
-                           xaxis       = list(
-                             title      = "Academic Year", 
-                             tickangle  = -45,
-                             tickformat = '%'),
-                           yaxis       = list(title = "Tier"))
+p13c_bar <- plot_ly(dt13_loan_tbl_bar_h, 
+                                        x = ~pct_chg, 
+                                        y = ~name, 
+                                     type = 'bar', 
+                              orientation = 'h')
+p13c_bar <- p13c_bar %>% layout(    title = paste0("UGA: Student and Parent Loans, ",
+                                                  ay[currentAY_row - (ncol(dt13_loan_tbl_bar)),2],
+                                                  " through ",
+                                                  ay[currentAY_row - 1,2]),                          
+                          xaxis           = list(
+                            title         = "Academic Year", 
+                            tickangle     = -45,
+                            tickformat    = '%'),
+                          yaxis           = list(
+                            title         = "Tier"))
 ################################################################################
 ## Step 13.A: VERSION HISTORY                                                ###
 ################################################################################

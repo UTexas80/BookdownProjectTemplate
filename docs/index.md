@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-04-28"
+# date: "2020-04-29"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -84,6 +84,9 @@ cover-image: "images/cover.pdf"
     - [Student and Parent Loans- Zebra](#student-and-parent-loans--zebra)
     - [Student and Parent Loans Bar Chart](#student-and-parent-loans-bar-chart)
     - [Student and Parent Loans Line Chart](#student-and-parent-loans-line-chart)
+
+- [Cohort-Default-Rates](#cohort-default-rates)
+    - [Student and Parent Loans](#student-and-parent-loans)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

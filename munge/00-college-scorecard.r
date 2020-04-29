@@ -63,6 +63,41 @@ dt_sc_uga <- setorder(
               "unitid"),
             unitid)
 ################################################################################
+## Step 00.03 Amass College Scorecard debt data https://tinyurl.com/y9zutvnk ###
+################################################################################
+df18 <- sc_init() %>%
+    sc_filter(unitid  == dt_sc_uga[,1]) %>%
+    sc_select(unitid, instnm, stabbr, cdr3) %>%
+    sc_year("latest") %>%
+    sc_get()
+df18[,5] <- '2016'
+# ------------------------------------------------------------------------------
+df17 <- sc_init() %>%
+    sc_filter(unitid  == dt_sc_uga[,1]) %>%
+    sc_select(unitid, instnm, stabbr, cdr3) %>%
+    sc_year(2017) %>%
+    sc_get()
+df17[,5] <- '2015'
+# ------------------------------------------------------------------------------
+df16 <- sc_init() %>%
+    sc_filter(unitid  == dt_sc_uga[,1]) %>%
+    sc_select(unitid, instnm, stabbr, cdr3) %>%
+#   sc_select(unitid, instnm, stabbr, cdr3, debt_mdn, dep_debt_mdn, female_debt_mdn, firstgen_debt_mdn,
+#    grad_debt_mdn,hi_inc_debt_mdn, ind_debt_mdn,  lo_inc_debt_mdn, male_debt_mdn, md_inc_debt_mdn,nopell_debt_mdn,notfirstgen_debt_mdn,
+#    pell_debt_mdn) %>%
+    sc_year(2016) %>%
+    sc_get()
+df16[,5] <- '2014'
+# ------------------------------------------------------------------------------
+dt_sc_debt    <- setkey(
+                setDT(
+                  rbind(df18,df17,df16),keep.rownames = T
+                  ),
+                unitid)
+dt_sc_peers   <- setkey(dt_sc_peers, UNITID)
+dt00_sc_debt  <- setorder(dt_sc_peers[dt_sc_debt][,c(7,1,11, 6,10)],ID, rn)
+dt00_sc_default <- dcast(dt00_sc_debt, year ~ INSTNM, value.var = "cdr3")
+################################################################################
 ## Step 00.C: VERSION HISTORY                                                ###
 ################################################################################
 c00.version <- "1.0.0"

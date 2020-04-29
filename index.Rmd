@@ -80,6 +80,10 @@ render_toc("12-Pell-Grant-Comparison.Rmd")
 render_toc("13-Loan.Rmd")
 ```
 
+```{r toc-14-Cohort-Default-Rates, echo=FALSE}
+render_toc("14-Cohort-Default-Rates.Rmd")
+```
+
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```

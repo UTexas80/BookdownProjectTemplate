@@ -1,6 +1,9 @@
 ################################################################################
 ## Step 99.00 Save .rds files                                                ###
 ################################################################################
+saveRDS(dt00_sc_debt,      file = "./rds/dt00_sc_debt.rds")
+saveRDS(dt00_sc_default,      file = "./rds/dt00_sc_default.rds")
+# ------------------------------------------------------------------------------
 saveRDS(ay,                  file = "./rds/ay.rds")
 saveRDS(ay_1,                file = "./rds/ay_1.rds")
 saveRDS(currentAY,           file = "./rds/currentAY.rds")
