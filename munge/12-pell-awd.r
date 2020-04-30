@@ -12,34 +12,36 @@ lapply(x12, function(nm) {
   setorder(df, OPEID)
 })
 # ------------------------------------------------------------------------------
-dt12_pell_awd <-inner_join(dt_sc_peers,X12pell.awd)[,c(1,3:4,6, 12:13)]
+# dt12_pell_awd <-inner_join(dt_sc_peers,X12pell.awd)[,c(1,3:4,6, 12:13)]
+dt12_pell_awd <- inner_join(dt_sc_peers,X12pell.awd, by = c('ope_id' ="OPE.ID"))[,c(1,3:4,6, 12:13)]
 # ------------------------------------------------------------------------------
 dt12_pell_tbl <- 
   setorder(
     setDT(
       inner_join(
-        dt_sc_uga, dt12_pell_awd, by = c('unitid' = 'UNITID'))[,c(7,1,8,2:5,10:11)]
+        dt_sc_uga, dt12_pell_awd, by = c('unitid' = 'unitid'))[,c(7,1,8,2:5,10:11)]
     ),
-  ID, unitid)
+  id, unitid)
 # ------------------------------------------------------------------------------
 names(dt12_pell_tbl)[2:ncol(dt12_pell_tbl)] <-
   tolower(
-    gsub(x = names(dt12_pell_tbl[1, -1]), 
+    gsub(x = names(dt12_pell_tbl[1, -1]),
     pattern = "PELL.YTD.", replacement = "pell_")
   )
 # ------------------------------------------------------------------------------
 dt12_pell_tbl[, c(6:9)] <- lapply(dt12_pell_tbl[, c(6:9)], as.integer)
 # ------------------------------------------------------------------------------
-dt12_pell_tbl = mutate(dt12_pell_tbl, 
+dt12_pell_tbl = mutate(dt12_pell_tbl,
                 pell_pct = (pell_recipients/ugds) * 100,
                 pell_avg = as.integer(pell_disbursements/pell_recipients))
 # ------------------------------------------------------------------------------
-setorder(dt12_pell_tbl, ID, -pell_pct)
+names(dt12_pell_tbl)[4] <- "instnm"
+setorder(dt12_pell_tbl, id, -pell_pct)
 ################################################################################
 ## Step 12.03 visualize the tables                                           ###
 ################################################################################
 # ------------------------------------------------------------------------------ Aspire
-p12a_bar <- setorder(dt12_pell_tbl[ID == "a"], ID, -pell_pct) %>%
+p12a_bar <- setorder(dt12_pell_tbl[id == "a"], id, -pell_pct) %>%
   plot_ly(x = ~instnm, y = ~pell_pct, type = 'bar') %>%
           layout(
             title = "Comparison of Pell Grant Recipients to Aspirational Institutions",
@@ -51,7 +53,7 @@ p12a_bar <- setorder(dt12_pell_tbl[ID == "a"], ID, -pell_pct) %>%
             barmode      = 'group',
             tickformat   = '%')
 # ------------------------------------------------------------------------------ Comparator
-p12c_bar <- setorder(dt12_pell_tbl[ID == "c"], ID, -pell_pct) %>%
+p12c_bar <- setorder(dt12_pell_tbl[id == "c"], id, -pell_pct) %>%
   plot_ly(x = ~instnm, y = ~pell_pct, type = 'bar') %>%
           layout(
             title = "Comparison of Pell Grant Recipients to Comparator Institutions",
@@ -63,7 +65,7 @@ p12c_bar <- setorder(dt12_pell_tbl[ID == "c"], ID, -pell_pct) %>%
             barmode      = 'group',
             tickformat   = '%')
 # ------------------------------------------------------------------------------ SEC
-p12s_bar <- setorder(dt12_pell_tbl[ID == "c"], ID, -pell_pct) %>%
+p12s_bar <- setorder(dt12_pell_tbl[id == "c"], id, -pell_pct) %>%
   plot_ly(x = ~instnm, y = ~pell_pct, type = 'bar') %>%
           layout(
             title = "Comparison of Pell Grant Recipients to SEC Institutions",

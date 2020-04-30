@@ -1,9 +1,6 @@
 ################################################################################
 ## Step 99.00 Save .rds files                                                ###
 ################################################################################
-saveRDS(dt00_sc_debt,      file = "./rds/dt00_sc_debt.rds")
-saveRDS(dt00_sc_default,      file = "./rds/dt00_sc_default.rds")
-# ------------------------------------------------------------------------------
 saveRDS(ay,                  file = "./rds/ay.rds")
 saveRDS(ay_1,                file = "./rds/ay_1.rds")
 saveRDS(currentAY,           file = "./rds/currentAY.rds")
@@ -64,7 +61,12 @@ saveRDS(dt12_pell_tbl[,c(1,4,6,8,10,9,11)],
                              file = here::here("rds/", "dt12_pell_tbl.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(dt13_loan_tbl,       file = here::here("rds/", "dt13_loan_tbl.rds"))
-saveRDS(dt13_loan_tbl_w,     file = here::here("rds/", "dt13_loan_tbl_w.rds"))                             
+saveRDS(dt13_loan_tbl_w,     file = here::here("rds/", "dt13_loan_tbl_w.rds"))
+# ------------------------------------------------------------------------------
+saveRDS(dt14_default,        file = here::here("rds/", "dt14_default.rds"))
+saveRDS(dt14_default_aspire, file = here::here("rds/", "dt14_default_aspire.rds"))
+saveRDS(dt14_default_compare,file = here::here("rds/", "dt14_default_compare.rds"))
+saveRDS(dt14_default_sec,    file = here::here("rds/", "dt14_default_sec.rds"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

@@ -41,7 +41,7 @@ dt12_pell_tbl  <- setkey(
                     data.table(
                       readRDS(here::here("/rds", "dt12_pell_tbl.rds"))
                     ), 
-                  ID)
+                  id)
 # ------------------------------------------------------------------------------
 ```
 
@@ -53,7 +53,7 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ***
 
 ```{r 12.1.1}
-ft_pell_sec <- flextable(dt12_pell_tbl[ID == 's', -c(1)]
+ft_pell_sec <- flextable(dt12_pell_tbl[id == 's', -c(1)]
   ) %>%
   set_header_labels(
     instnm             = "Institution",
@@ -111,7 +111,7 @@ knitr::include_graphics(here::here('png/p12s_bar.png'))
 ***
 
 ```{r 12.2.1}
-ft_pell_compare <- flextable(dt12_pell_tbl[ID == 'c', -c(1)]
+ft_pell_compare <- flextable(dt12_pell_tbl[id == 'c', -c(1)]
   ) %>%
   set_header_labels(
     instnm             = "Institution",
@@ -169,7 +169,7 @@ knitr::include_graphics(here::here('png/p12c_bar.png'))
 ***
 
 ```{r 12.3.1}
-ft_pell_aspire <- flextable(dt12_pell_tbl[ID == 'a', -c(1)]
+ft_pell_aspire <- flextable(dt12_pell_tbl[id == 'a', -c(1)]
   ) %>%
   set_header_labels(
     instnm             = "Institution",
