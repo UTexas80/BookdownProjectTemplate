@@ -32,6 +32,7 @@ remove_x <- function(x) {
   names(x) <- gsub(x = names(x), pattern = "ay*", replacement = "")
   names(x)[2:ncol(x)] <- gsub(x = names(x[1,-1]), pattern = "ay*", replacement = "")
   names(x)[2:ncol(x)] <- gsub(x = names(x[1,-1]), pattern = "X*", replacement = "")
+  names(x)[2:ncol(x)] <- gsub(x = names(x[1,-1]), pattern = "201*", replacement = "yr201")
 }
 # ------------------------------------------------------------------------------
 format_dol_fun <- function(x){

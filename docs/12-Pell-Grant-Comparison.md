@@ -20,7 +20,7 @@
 
 ![](C:/Users/gfalk/Documents/BookdownPT/png/p12s_bar.png)<!-- -->
 
-## 12. UGA Pell Grant Recipients to Comparator Peer Institutions 
+## 12. UGA Pell Grant Recipients to Comparator Institutions 
 ***
 
 

@@ -10,7 +10,7 @@ dtTables  <- data.table::tables()
 x <- as.data.table( as.table(sapply(dtTables[NAME %like% "X04*" ,][,1], function(x) x)))[,3]
 for(i in 1:nrow(x)) {
   x[i,] %>% clean_names()
-}  
+} 
 
 # ------------------------------------------------------------------------------
 vars <- names(X04aid.sources.long) %>% .[grepl("pct_", .)]

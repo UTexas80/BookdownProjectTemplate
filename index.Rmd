@@ -6,6 +6,7 @@ subtitle: "2019-20 Annual Reports"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
+  theme: readable  
   highlight: tango
   html_document:
     df_print: kable

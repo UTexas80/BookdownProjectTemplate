@@ -28,14 +28,14 @@
 <!--         scale_y_continuous(labels = dollar_format(prefix = "$")) -->
 <!-- ``` -->
 
-## 06. HOPE Scholarship Awards by Tier Table
+## 06. HOPE Scholarship Awards by Tier
 ![](C:/Users/gfalk/Documents/BookdownPT/png/p6a1.png){width=100%}
 
 ## 06. HOPE Scholarship Awards by Tier
-![(\#fig:6.2)Awd by Tier](C:/Users/gfalk/Documents/BookdownPT/png/p6a2.png)
+![](C:/Users/gfalk/Documents/BookdownPT/png/p6a2.png)<!-- -->
 
 ## 06. Percent Change in HOPE Scholarship Awards by Tier
-![(\#fig:6.3)Pct. Change by Tier](C:/Users/gfalk/Documents/BookdownPT/png/p6a3.png)
+![](C:/Users/gfalk/Documents/BookdownPT/png/p6a3.png)<!-- -->
 
 
 ```{=openxml}

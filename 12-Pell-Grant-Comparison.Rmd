@@ -107,7 +107,7 @@ ft_pell_sec
 knitr::include_graphics(here::here('png/p12s_bar.png'))
 ```
 
-## 12. UGA Pell Grant Recipients to Comparator Peer Institutions 
+## 12. UGA Pell Grant Recipients to Comparator Institutions 
 ***
 
 ```{r 12.2.1}

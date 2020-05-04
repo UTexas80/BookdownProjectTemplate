@@ -32,10 +32,10 @@
 ![](C:/Users/gfalk/Documents/BookdownPT/png/p6z1.png){width=100%}
 
 ## 06. ZELL Scholarship Awards by Tier
-![(\#fig:6.2)Awd by Tier](C:/Users/gfalk/Documents/BookdownPT/png/p6z2.png)
+![](C:/Users/gfalk/Documents/BookdownPT/png/p6z2.png)<!-- -->
 
 ## 06. Percent Change in ZELL Scholarship Awards by Tier
-![(\#fig:6.3)Pct. Change by Tier](C:/Users/gfalk/Documents/BookdownPT/png/p6z3.png)
+![](C:/Users/gfalk/Documents/BookdownPT/png/p6z3.png)<!-- -->
 
 
 ```{=openxml}

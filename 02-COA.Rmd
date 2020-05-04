@@ -90,6 +90,6 @@ knitr::include_graphics(here::here('png/p02a_bar.png'))
 knitr::include_graphics(here::here('png/p02b_bar.png'))
 ```
 
-<!-- ```{=openxml} -->
-<!-- <w:p><w:r><w:br w:type="page"/></w:r></w:p> -->
-<!-- ``` -->
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
