@@ -113,6 +113,15 @@ plotly::plotly_IMAGE(p13c_bar,
                      format = "png",
                      scale = 1,
                      out_file = here::here("/png", "p13c_bar.png"))
+# ------------------------------------------------------------------------------
+plotly::plotly_IMAGE(p14a1,
+                     format = "png",
+                     scale = 1,
+                     out_file = here::here("/png", "p14a1.png"))
+plotly::plotly_IMAGE(p14a2,
+                     format = "png",
+                     scale = 1,
+                     out_file = here::here("/png", "p14a2.png"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################
