@@ -29,10 +29,10 @@ coa.res$ay_yr2 <- as.Date(as.character(coa.res$ay_yr2), format = "%Y")
 # coa.res$ay_yr2 <- year(coa.res$ay_yr2)
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 02.02 COA tales                                                      ###
+## Step 02.02 COA tables                                                     ###
 ################################################################################
 dtCOA  <- as.data.table(pdf.dat)
-names(dtCOA)[1]<-"costs"
+names(dtCOA)[1]<-"Costs"
 names(dtCOA)[2:11]<-paste0('ay', dtCOA[1,-1]) # rename multiple columns by index
 dtCOA <- dtCOA[-1]
 
@@ -156,10 +156,10 @@ p02b_bar <- setorder(grad_non_res, -ay1920) %>%
     barmode      = 'group',
     tickformat   = '$')
 ################################################################################
-## Step 00.99: VERSION HISTORY                                               ###
+## Step 02.99: VERSION HISTORY                                               ###
 ################################################################################
-c01.version         <- "1.0.0"
-c01.ModDate         <- as.Date("2020-03-01")
+c02.version         <- "1.0.0"
+c08.ModDate         <- as.Date("2020-03-01")
 # ------------------------------------------------------------------------------
 # 2020.03.01 - v.1.0.0                               http://tinyurl.com/y54k8gsw            
 # 1st release                                        http://tinyurl.com/yx9w8vje

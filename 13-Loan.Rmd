@@ -58,162 +58,7 @@ dt13_loan_tbl_w  <- setDT(
 knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ```
 
-## 13. Student and Parent Loans
-***
-
-```{r 13.1.1}
-ft_loan       <- flextable(dt13_loan_tbl_w)
-  typology    <- data.frame(
-    col_keys = c("name",
-                "number_1213",
-                "amt_1213",
-                "number_1314",
-                "amt_1314",
-                "number_1415",
-                "amt_1415",
-                "number_1516",
-                "amt_1516",
-                "number_1617",
-                "amt_1617",
-                "number_1718",
-                "amt_1718",
-                "number_1819",
-                "amt_1819"),
-    what     = c("",
-                as.character(rep(ay[ay_0_row - 6, 2], 2)),
-                as.character(rep(ay[ay_0_row - 5, 2], 2)),
-                as.character(rep(ay[ay_0_row - 4, 2], 2)),
-                as.character(rep(ay[ay_0_row - 3, 2], 2)),
-                as.character(rep(ay[ay_0_row - 2, 2], 2)),
-                as.character(rep(ay[ay_0_row - 1, 2], 2)),
-                as.character(rep(ay[ay_0_row - 0, 2], 2))),
-    measure  = c("Tier",
-                "# Awards", "Amount",
-                "# Awards", "Amount",
-                "# Awards", "Amount",
-                "# Awards", "Amount",
-                "# Awards", "Amount",
-                "# Awards", "Amount",
-                "# Awards", "Amount"),
-    stringsAsFactors = FALSE                      
-  ) 
-  ft_loan     <- set_header_df(ft_loan, mapping = typology, key = "col_keys" )
-  ft_loan     <- merge_h(ft_loan, part = "header")
-  ft_loan     <- merge_v(ft_loan, part = "header")
-
-  cur_keys    <- c("amt_1213",
-                  "amt_1314",
-                  "amt_1415",
-                  "amt_1516",
-                  "amt_1617",
-                  "amt_1718",
-                  "amt_1819")
-  int_keys    <- c("number_1213",
-                  "number_1314",
-                  "number_1415",
-                  "number_1516",
-                  "number_1617",
-                  "number_1718",
-                  "number_1819")
-  ft_loan     <- colformat_int(ft_loan, j = cur_keys, big.mark = ",", prefix = "$")
-  ft_loan     <- colformat_int(ft_loan, j = int_keys, big.mark = ",", prefix = "")
-  ft_loan     <- align_text_col(ft_loan, align = "center")
-#  ft_loan    <- fontsize(ft_loan, size = 11, part = "body")
-  ft_loan     <- width(ft_loan, j = 1, width = 2.0)
-  ft_loan     <- theme_booktabs(ft_loan, fontsize = 11.1)
-  border      <- officer::fp_border(color = "dodgerblue", style = "solid", width = 1)
-  ft_loan     <- vline(ft_loan, j = c(1,3,5,7,9,11,13,15), border = border, part = "body")
-  ft_loan     <- fit_to_width(ft_loan, max_width = 8.5)
-  ft_loan     <- bold(ft_loan, part = "header", bold = TRUE)
-
-  ft_loan     <- flextable::footnote( ft_loan, i = 1, j = 1:3,
-                  value = as_paragraph(
-                    c("Source: Office of Student Financial Aid, UGA Factbook reported info. Numbers of awards by loan type do not reflect unduplicated recipients. Decreases in Federal",
-                      "Direct Subsidized Loan awards and amounts as of 2012-13 coincide with a change in Federal policy making Graduate  students ineligible for Federal",
-                      "Direct Subsidized loans.  Corresponding increase in Federal Direct Unsubsidized Loans as of 2012-13 also  coincides with this Federal policy change.")
-                  ),
-                  ref_symbols = c("a", "b", "c"),
-                  part = "header")  
-  ft_loan     <- valign(ft_loan, valign = "bottom", part = "header")
-  ft_loan     <- fontsize(ft_loan, size = 6, part = "header")
-  
-ft_loan
-```
-
-## 13. Student and Parent Loans- Vader
-```{r 13.1.x}
-ft_loan      <- flextable(dt13_loan_tbl_w)
-  typology   <- data.frame(
-    col_keys = c("name",
-                "number_1213",
-                "amt_1213",
-                "number_1314",
-                "amt_1314",
-                "number_1415",
-                "amt_1415",
-                "number_1516",
-                "amt_1516",
-                "number_1617",
-                "amt_1617",
-                "number_1718",
-                "amt_1718",
-                "number_1819",
-                "amt_1819"),
-    what     = c("",
-                as.character(rep(ay[ay_0_row - 6, 2], 2)),
-                as.character(rep(ay[ay_0_row - 5, 2], 2)),
-                as.character(rep(ay[ay_0_row - 4, 2], 2)),
-                as.character(rep(ay[ay_0_row - 3, 2], 2)),
-                as.character(rep(ay[ay_0_row - 2, 2], 2)),
-                as.character(rep(ay[ay_0_row - 1, 2], 2)),
-                as.character(rep(ay[ay_0_row - 0, 2], 2))),
-    measure  = c("Tier",
-                "Awards", "Amount",
-                "Awards", "Amount",
-                "Awards", "Amount",
-                "Awards", "Amount",
-                "Awards", "Amount",
-                "Awards", "Amount",
-                "Awards", "Amount"),
-    stringsAsFactors = FALSE                      
-  ) 
-  ft_loan    <- set_header_df(ft_loan, mapping = typology, key = "col_keys" )
-  ft_loan    <- merge_h(ft_loan, part = "header")
-  ft_loan    <- merge_v(ft_loan, part = "header")
-  
-
-  cur_keys   <- c("amt_1213",
-                  "amt_1314",
-                  "amt_1415",
-                  "amt_1516",
-                  "amt_1617",
-                  "amt_1718",
-                  "amt_1819")
-  int_keys   <- c("number_1213",
-                  "number_1314",
-                  "number_1415",
-                  "number_1516",
-                  "number_1617",
-                  "number_1718",
-                  "number_1819")
-  ft_loan    <- align_text_col(ft_loan, align = "center")
-  ft_loan    <- colformat_int(ft_loan, j = cur_keys, big.mark = ",", prefix = "$")
-  ft_loan    <- colformat_int(ft_loan, j = int_keys, big.mark = ",", prefix = "")
-  ft_loan    <- fontsize(ft_loan, size = 7, part = "body")
-  ft_loan    <- width(ft_loan, j = 1, width = 2.0)
-
-  border     <- officer::fp_border(color = "white", style = "solid", width = 1)
-  ft_loan    <- vline(ft_loan, j = c(1,3,5,7,9,11,13,15), border = border, part = "body")
-  ft_loan    <- fit_to_width(ft_loan, max_width = 7.05)
-  ft_loan    <- theme_vader(ft_loan, fontsize = 6.5)
-
-ft_loan
-```
-
-
-
-## 13. Student and Parent Loans- Zebra
-
+## 13. Student and Parent Loans Table
 ```{r 13.1.z}
 ft_loan      <- flextable(dt13_loan_tbl_w)
   typology   <- data.frame(
@@ -272,14 +117,14 @@ ft_loan      <- flextable(dt13_loan_tbl_w)
   ft_loan    <- align_text_col(ft_loan, align = "center")
   ft_loan    <- colformat_int(ft_loan, j = cur_keys, big.mark = ",", prefix = "$")
   ft_loan    <- colformat_int(ft_loan, j = int_keys, big.mark = ",", prefix = "")
-  ft_loan    <- fontsize(ft_loan, size = 11, part = "body")
+  
+  ft_loan    <- fontsize(ft_loan, size = 10, part = "body")
   ft_loan    <- width(ft_loan, j = 1, width = 2.5)
 
   border     <- officer::fp_border(color = "dodgerblue", style = "solid", width = 1)
   ft_loan    <- vline(ft_loan, j = c(1,3,5,7,9,11,13,15), border = border, part = "body")
   ft_loan    <- fit_to_width(ft_loan, max_width = 8.5)
-  ft_loan    <- theme_zebra(ft_loan,   odd_header = "#CFCFCF",
-  odd_body = "#EFEFEF")  
+  ft_loan    <- theme_zebra(ft_loan,  odd_header = "#CFCFCF", odd_body = "#EFEFEF")  
 
 ft_loan
 ```
@@ -294,6 +139,7 @@ knitr::include_graphics(here::here('png/p13a_bar.png'))
 knitr::include_graphics(here::here('png/p13b_line.png'))
 ```
 
+## 13. Student and Parent Loans Horizontal Bar Chart
 ```{r 13.1.4}
 knitr::include_graphics(here::here('png/p13c_bar.png'))
 ```

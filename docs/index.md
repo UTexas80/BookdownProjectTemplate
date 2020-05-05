@@ -2,10 +2,11 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-04-30"
+# date: "2020-05-05"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
+  theme: readable  
   highlight: tango
   html_document:
     df_print: kable
@@ -46,7 +47,7 @@ cover-image: "images/cover.pdf"
 
 - [HOPE Scholarship Awards by Tier](#hope-scholarship-awards-by-tier)
     - [Financial Aid Awarded: Sources of Financial Aid Table\elandscape](#financial-aid-awarded:-sources-of-financial-aid-table\elandscape)
-    - [HOPE Scholarship Awards by Tier Table](#hope-scholarship-awards-by-tier-table)
+    - [HOPE Scholarship Awards by Tier](#hope-scholarship-awards-by-tier)
     - [HOPE Scholarship Awards by Tier](#hope-scholarship-awards-by-tier)
     - [Percent Change in HOPE Scholarship Awards by Tier](#percent-change-in-hope-scholarship-awards-by-tier)
 
@@ -75,20 +76,25 @@ cover-image: "images/cover.pdf"
 
 - [Pell-Grant-Comparison](#pell-grant-comparison)
     - [UGA Pell Grant Recipients to SEC Institutions ](#uga-pell-grant-recipients-to-sec-institutions)
-    - [UGA Pell Grant Recipients to Comparator Peer Institutions ](#uga-pell-grant-recipients-to-comparator-peer-institutions)
+    - [UGA Pell Grant Recipients to Comparator Institutions ](#uga-pell-grant-recipients-to-comparator-institutions)
     - [UGA Pell Grant Recipients to Aspirational Peer Institutions ](#uga-pell-grant-recipients-to-aspirational-peer-institutions)
 
 - [Student-Parent-Loan](#student-parent-loan)
-    - [Student and Parent Loans](#student-and-parent-loans)
-    - [Student and Parent Loans- Vader](#student-and-parent-loans--vader)
     - [Student and Parent Loans- Zebra](#student-and-parent-loans--zebra)
     - [Student and Parent Loans Bar Chart](#student-and-parent-loans-bar-chart)
     - [Student and Parent Loans Line Chart](#student-and-parent-loans-line-chart)
+    - [Student and Parent Loans Horizontal Bar Chart](#student-and-parent-loans-horizontal-bar-chart)
 
 - [Cohort-Default-Rates](#cohort-default-rates)
     - [Cohort Default Rates: SEC Institutions](#cohort-default-rates:-sec-institutions)
+    - [SEC Cohort Default Rate by Institution Bar Chart](#sec-cohort-default-rate-by-institution-bar-chart)
+    - [SEC Cohort Default Rate by Year Bar Chart](#sec-cohort-default-rate-by-year-bar-chart)
     - [Cohort Default Rates: Aspirational Institutions](#cohort-default-rates:-aspirational-institutions)
+    - [Aspirational Cohort Default Rate by Institution Bar Chart](#aspirational-cohort-default-rate-by-institution-bar-chart)
+    - [Aspirational Cohort Default Rate by Year Bar Chart](#aspirational-cohort-default-rate-by-year-bar-chart)
     - [Cohort Default Rates: Comparator Institutions](#cohort-default-rates:-comparator-institutions)
+    - [Comparator Cohort Default Rate by Institution Bar Chart](#comparator-cohort-default-rate-by-institution-bar-chart)
+    - [Comparator Cohort Default Rate by Year Bar Chart](#comparator-cohort-default-rate-by-year-bar-chart)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
