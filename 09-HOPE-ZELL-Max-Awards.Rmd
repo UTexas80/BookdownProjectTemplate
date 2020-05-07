@@ -90,11 +90,11 @@ ft_hz_tbl <- flextable(dt_hz_tbl[c(2,1,4,3,5)]) %>%
 ```
 
 ```{r 9.1.1}
-knitr::include_graphics(here::here('png/p9a1.png'))
+knitr::include_graphics(here::here('png/p09a1_bar.png'))
 ```
 
 ```{r 9.1.2}
-knitr::include_graphics(here::here('png/p9a2.png'))
+knitr::include_graphics(here::here('png/p09a2_line.png'))
 ```
 
 ```{=openxml}

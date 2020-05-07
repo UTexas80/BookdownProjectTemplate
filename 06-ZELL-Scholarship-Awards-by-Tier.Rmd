@@ -138,17 +138,17 @@ ft_zell      <- flextable(head(dt_zell))
 
 ## 06. ZELL Scholarship Awards by Tier
 ```{r 6.1-viz-bar, out.width = '100%'}
-knitr::include_graphics(here::here('png/p6z1.png'))
+knitr::include_graphics(here::here('png/p06z1.png'))
 ```
 
 ## 06. ZELL Scholarship Awards by Tier
 ```{r 6.2}
-knitr::include_graphics(here::here('png/p6z2.png'))
+knitr::include_graphics(here::here('png/p06z2.png'))
 ```
 
 ## 06. Percent Change in ZELL Scholarship Awards by Tier
 ```{r 6.3}
-knitr::include_graphics(here::here('png/p6z3.png'))
+knitr::include_graphics(here::here('png/p06z3.png'))
 ```
 
 

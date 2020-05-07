@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# 00. College Scorecard
+# 00. College Scorecard                                                      ---
 # ------------------------------------------------------------------------------
 ################################################################################
 ## Step 00.00 load the dictionary                                            ###
@@ -35,15 +35,15 @@ lapply(peers, function(nm) {
 ################################################################################
 ## Step 00.02 - wrangle the tables                                           ###
 ################################################################################
-dt_sc_peers  <- setorder(
-                data.table(
-                  distinct(
-                    bind_rows(
-                      UGaAspirationalPeers, UGaComparatorPeers, UGaSEC.Peers
-                      )
-                    )
-                  ),
-              ID, UNITID)
+# dt_sc_peers  <- setorder(
+#                 data.table(
+#                   distinct(
+#                     bind_rows(
+#                       UGaAspirationalPeers, UGaComparatorPeers, UGaSEC.Peers
+#                       )
+#                     )
+#                   ),
+#               ID, UNITID)
 
 dt_sc_peers  <- setorder(
   data.table(

@@ -29,13 +29,13 @@
 <!-- ``` -->
 
 ## 06. HOPE Scholarship Awards by Tier
-![](C:/Users/gfalk/Documents/BookdownPT/png/p6a1.png){width=100%}
+![](C:/Users/gfalk/Documents/BookdownPT/png/p06a1.png){width=100%}
 
 ## 06. HOPE Scholarship Awards by Tier
-![](C:/Users/gfalk/Documents/BookdownPT/png/p6a2.png)<!-- -->
+![](C:/Users/gfalk/Documents/BookdownPT/png/p06a2.png)<!-- -->
 
 ## 06. Percent Change in HOPE Scholarship Awards by Tier
-![](C:/Users/gfalk/Documents/BookdownPT/png/p6a3.png)<!-- -->
+![](C:/Users/gfalk/Documents/BookdownPT/png/p06a3.png)<!-- -->
 
 
 ```{=openxml}

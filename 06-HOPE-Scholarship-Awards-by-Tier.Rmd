@@ -138,17 +138,17 @@ ft_hope      <- flextable(head(dt_hope))
 
 ## 06. HOPE Scholarship Awards by Tier
 ```{r 6.1-viz-bar, out.width = '100%'}
-knitr::include_graphics(here::here('png/p6a1.png'))
+knitr::include_graphics(here::here('png/p06a1.png'))
 ```
 
 ## 06. HOPE Scholarship Awards by Tier
 ```{r 6.2}
-knitr::include_graphics(here::here('png/p6a2.png'))
+knitr::include_graphics(here::here('png/p06a2.png'))
 ```
 
 ## 06. Percent Change in HOPE Scholarship Awards by Tier
 ```{r 6.3}
-knitr::include_graphics(here::here('png/p6a3.png'))
+knitr::include_graphics(here::here('png/p06a3.png'))
 ```
 
 

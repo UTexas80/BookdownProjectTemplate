@@ -36,7 +36,7 @@ ay_0                 <- readRDS(here::here("/rds", "currentAY.rds"))
 ay_0_row             <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
 ay_1                 <- readRDS(here::here("/rds", "ay_1.rds"))
 # ------------------------------------------------------------------------------
-dt_awd               <- setDT(readRDS(here::here("/rds", "dt_awd.rds")))
+dt05_awd               <- setDT(readRDS(here::here("/rds", "dt05_awd.rds")))
 # ------------------------------------------------------------------------------
 # p4a1                 <- readRDS(here::here("/rds", "p4a1.rds"))
 # p4a2                 <- readRDS(here::here("/rds", "p4a2.rds"))
@@ -56,8 +56,8 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 \blandscape
 
 ## 05. Academic Year Student Financial Aid Awards by Type Table
-```{r _5.1, echo=FALSE, fig.cap='Awd by Type', eval = dt_awd, message=FALSE, warning=FALSE}
-ft_awd     <- flextable(head(dt_awd,-2))
+```{r _5.1, echo=FALSE, fig.cap='Awd by Type', eval = dt05_awd, message=FALSE, warning=FALSE}
+ft_awd     <- flextable(head(dt05_awd,-2))
 
 typology   <- data.frame(
   col_keys = c("student_aid_programs", "ug_awd_num", "ug_awd_amt", "grad_awd_num", "grad_awd_amt", "awd_tot_num", 

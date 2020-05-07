@@ -29,13 +29,13 @@
 <!-- ``` -->
 
 ## 06. ZELL Scholarship Awards by Tier
-![](C:/Users/gfalk/Documents/BookdownPT/png/p6z1.png){width=100%}
+![](C:/Users/gfalk/Documents/BookdownPT/png/p06z1.png){width=100%}
 
 ## 06. ZELL Scholarship Awards by Tier
-![](C:/Users/gfalk/Documents/BookdownPT/png/p6z2.png)<!-- -->
+![](C:/Users/gfalk/Documents/BookdownPT/png/p06z2.png)<!-- -->
 
 ## 06. Percent Change in ZELL Scholarship Awards by Tier
-![](C:/Users/gfalk/Documents/BookdownPT/png/p6z3.png)<!-- -->
+![](C:/Users/gfalk/Documents/BookdownPT/png/p06z3.png)<!-- -->
 
 
 ```{=openxml}

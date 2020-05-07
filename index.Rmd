@@ -85,6 +85,10 @@ render_toc("13-Loan.Rmd")
 render_toc("14-Cohort-Default-Rates.Rmd")
 ```
 
+```{r toc-18-Gap-Analysis, echo=FALSE}
+render_toc("18-Gap-Analysis.Rmd")
+```
+
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```

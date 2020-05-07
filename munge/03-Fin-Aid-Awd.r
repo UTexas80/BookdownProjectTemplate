@@ -1,8 +1,8 @@
 # ------------------------------------------------------------------------------
-# 03. Financial Aid Awarded to Students - Five-Year Compariso
+# 03. Financial Aid Awarded to Students - Five-Year Comparison               ---
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 03.00 Processing Start Time - start the timer                        ###
+## Step 03.01 Janitor - clean the tables                                     ###
 ################################################################################
 fin.aid.long <- janitor::clean_names(setDT(fin.aid.long))
 fin.aid.long[ , avg_awd := total_aid/recipients]

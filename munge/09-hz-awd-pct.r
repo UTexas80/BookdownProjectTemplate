@@ -1,5 +1,6 @@
 # ------------------------------------------------------------------------------
-# 09. Hope/Zell Scholarship Awards by Academic Year
+# 09. Hope/Zell Scholarship Awards by Academic Year                          ---
+# ------------------------------------------------------------------------------
 ################################################################################
 ## Step 09.01 Janitorr - clean the tables                                    ###
 ################################################################################
@@ -28,17 +29,17 @@ dt_hz_pct <- dcast.data.table(X09hz.pct, ay ~ name, value.var = 'pct')
 ## Step 09.03 vizualize the tables                                           ###
 ################################################################################
 #  Award as Pct of Tuition Bar chart--------------------------------------------
-p9a1 <- plot_ly(dt_hz_pct, x = ~ay, y = ~hope, marker = list(color = '#BA0C2F'), name = 'HOPE', type = 'bar') %>% 
+p09a1_bar <- plot_ly(dt_hz_pct, x = ~ay, y = ~hope, marker = list(color = '#BA0C2F'), name = 'HOPE', type = 'bar') %>% 
           add_trace(                y = ~zell, marker = list(color = '#000000'), name = 'ZELL')  %>% 
           layout( title               = "Max HOPE & ZELL Awards Compared to Tuition",
                   xaxis               = list(title = "Academic Year",    tickangle = -45),
                   yaxis               = list(title = "Max Award Amount", tickformat = "%"))
 # Award Compared to Tuition Line chart------------------------------------------
-p9a2 <- plot_ly(dt_hz_amt, x  = ~ay,      type = 'scatter', mode = 'lines+markers', yaxis = 'y2',
+p09a2_line <- plot_ly(dt_hz_amt, x  = ~ay,      type = 'scatter', mode = 'lines+markers', yaxis = 'y2',
                            y  = ~hope,    name = 'HOPE',    line = list(color = '#BA0C2F'))
-p9a2 <- p9a2 %>% add_trace(y  = ~zell,    name = 'ZELL',    line = list(color = '#000000'))
-p9a2 <- p9a2 %>% add_trace(y  = ~tuition, name = 'Tuition', line = list(color = '#7f827c'))
-p9a2 <- p9a2 %>% layout(title = "Max HOPE & ZELL Awards Compared to Tuition", 
+p09a2_line <- p09a2_line %>% add_trace(y  = ~zell,    name = 'ZELL',    line = list(color = '#000000'))
+p09a2_line <- p09a2_line %>% add_trace(y  = ~tuition, name = 'Tuition', line = list(color = '#7f827c'))
+p09a2_line <- p09a2_line %>% layout(title = "Max HOPE & ZELL Awards Compared to Tuition", 
                         xaxis = list(title = "Academic Year", tickangle = -45),
                         yaxis = list(title = "Max Award Amount", tickformat = '$'))
 ################################################################################

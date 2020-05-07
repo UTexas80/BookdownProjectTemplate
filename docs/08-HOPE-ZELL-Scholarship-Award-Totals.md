@@ -23,7 +23,7 @@
 
 
 ## 08.   HOPE-ZELL Scholarship Award Totals Comparison
-![](C:/Users/gfalk/Documents/BookdownPT/png/p8a1.png){width=100%}
+![](C:/Users/gfalk/Documents/BookdownPT/png/p08a1_pie.png){width=100%}
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

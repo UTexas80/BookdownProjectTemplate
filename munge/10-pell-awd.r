@@ -1,7 +1,8 @@
 # ------------------------------------------------------------------------------
-# 10. History of Average Federal Pell Grant Awards                           ###
+# 10. History of Average Federal Pell Grant Awards                           ---
+# ------------------------------------------------------------------------------
 ################################################################################
-## Step 10.01 Janitorr - clean the tables                                    ###
+## Step 10.01 Janitor - clean the tables                                    ###
 ################################################################################
 dtTables  <- data.table::tables()
 sapply(dtTables[NAME %like% "X10" ,],

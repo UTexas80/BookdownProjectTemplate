@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# 05. Academic Year Student Financial Aid Awards by Type
+# 05. Academic Year Student Financial Aid Awards by Type                     ---
 # ------------------------------------------------------------------------------
 ################################################################################
 ## Step 05.01 Janitorr - clean the tables                                    ###
@@ -13,8 +13,8 @@ clean_col_names("X05")
 setkey(X05awards.fb.0, key)
 setkey(X05awards.fb.1, key)
 # ------------------------------------------------------------------------------
-dt_awd <- X05awards.fb.0[X05awards.fb.1][,c(5:11, 16:21)]
-dt_awd[is.na(dt_awd)] <- 0                                  # replace na with 0
+dt05_awd <- X05awards.fb.0[X05awards.fb.1][,c(5:11, 16:21)]
+dt05_awd[is.na(dt05_awd)] <- 0                                  # replace na with 0
 ################################################################################
 ## Step 05.A: VERSION HISTORY                                                ###
 ################################################################################

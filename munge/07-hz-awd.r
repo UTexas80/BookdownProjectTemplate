@@ -1,8 +1,8 @@
 # ------------------------------------------------------------------------------
-# 07. HOPE/ZELL Scholarship Awards by Academic Year
+# 07. HOPE/ZELL Scholarship Awards by Academic Year                          ---
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 07.01 Janitorr - clean the tables                                    ###
+## Step 07.01 Janitor - clean the tables                                    ###
 ################################################################################
 dtTables <- data.table::tables()
 sapply(dtTables[NAME %like% "X07" ,],
@@ -12,7 +12,7 @@ sapply(dtTables[NAME %like% "X07" ,],
 ################################################################################
 setkey(X07hz.awd, name)
 ################################################################################
-## Step 07.03 clean the tables                                           ###
+## Step 07.03 vizualize the tables                                           ###
 ################################################################################
 dt_hz_awd        <- melt.data.table(X07hz.awd,
                         id      = 1,
@@ -73,7 +73,7 @@ dt_hz_awd_pct      <- cbind(hope_pct, zell_pct)
 ################################################################################
 ## Step 07.06 create Award by Percent Bar viz                                ###
 ################################################################################
-p7a1 <- plot_ly(dt_hz_awd_pct,  x = ~ay, 
+p07a1 <- plot_ly(dt_hz_awd_pct,  x = ~ay, 
                                 y = ~hope, 
                            marker = list(
                             color = '#BA0C2F'), 

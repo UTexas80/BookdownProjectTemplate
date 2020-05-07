@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-05-05"
+# date: "2020-05-07"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -80,7 +80,7 @@ cover-image: "images/cover.pdf"
     - [UGA Pell Grant Recipients to Aspirational Peer Institutions ](#uga-pell-grant-recipients-to-aspirational-peer-institutions)
 
 - [Student-Parent-Loan](#student-parent-loan)
-    - [Student and Parent Loans- Zebra](#student-and-parent-loans--zebra)
+    - [Student and Parent Loans Table](#student-and-parent-loans-table)
     - [Student and Parent Loans Bar Chart](#student-and-parent-loans-bar-chart)
     - [Student and Parent Loans Line Chart](#student-and-parent-loans-line-chart)
     - [Student and Parent Loans Horizontal Bar Chart](#student-and-parent-loans-horizontal-bar-chart)
@@ -95,6 +95,14 @@ cover-image: "images/cover.pdf"
     - [Cohort Default Rates: Comparator Institutions](#cohort-default-rates:-comparator-institutions)
     - [Comparator Cohort Default Rate by Institution Bar Chart](#comparator-cohort-default-rate-by-institution-bar-chart)
     - [Comparator Cohort Default Rate by Year Bar Chart](#comparator-cohort-default-rate-by-year-bar-chart)
+
+- [Gap-Analysis](#gap-analysis)
+    - [Resident Undergraduates Table](#resident-undergraduates-table)
+    - [Resident Undergraduates Pie Chart](#resident-undergraduates-pie-chart)
+    - [Non-Resident Undergraduates Table](#non-resident-undergraduates-table)
+    - [Non-Resident Undergraduates Pie Chart](#non-resident-undergraduates-pie-chart)
+    - [Combined Undergraduates Table](#combined-undergraduates-table)
+    - [Combined Undergraduates Pie Chart](#combined-undergraduates-pie-chart)
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

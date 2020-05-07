@@ -76,7 +76,7 @@ ft_hz
 
 ## 07.  Pct Undergraduates with HOPE or Zell
 ```{r 7.1-viz-bar, out.width = '100%'}
-knitr::include_graphics(here::here('png/p7a1.png'))
+knitr::include_graphics(here::here('png/p07a1.png'))
 ```
 
 ```{=openxml}

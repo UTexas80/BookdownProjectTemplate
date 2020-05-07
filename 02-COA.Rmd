@@ -77,7 +77,7 @@ ft
 
 ## 02 Undergrad COA Percentage of Total Cost
 ```{r 2.2.0-viz-pie, echo=FALSE, out.width = '100%'}
-knitr::include_graphics(here::here('png/p2a1.png'))
+knitr::include_graphics(here::here('png/p02a1_bar.png'))
 ```
 
 ## 02 Grad Resident COA

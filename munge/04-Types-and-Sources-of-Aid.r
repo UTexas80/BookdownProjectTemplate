@@ -1,8 +1,8 @@
 # ------------------------------------------------------------------------------
-# 04. Types and Sources of Aid
+# 04. Types and Sources of Aid                                               ---
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 04.01 Admin: munge Aid files                                         ###
+## Step 04.01 Janitor - clean the tables                                     ###
 ################################################################################
 dtTables  <- data.table::tables()
 # sapply(dtTables[NAME %like% "X04" ,],
@@ -10,21 +10,23 @@ dtTables  <- data.table::tables()
 x <- as.data.table( as.table(sapply(dtTables[NAME %like% "X04*" ,][,1], function(x) x)))[,3]
 for(i in 1:nrow(x)) {
   x[i,] %>% clean_names()
-} 
-
+}
+################################################################################
+## Step 04.02 set the tables                                                 ###
+################################################################################
 # ------------------------------------------------------------------------------
 vars <- names(X04aid.sources.long) %>% .[grepl("pct_", .)]
 X04aid.sources.long[, (vars) := .SD * 100, .SDcols = vars]
-# X04aid.sources.long[]
 # ------------------------------------------------------------------------------
 vars <- names(X04aid.types.long) %>% .[grepl("pct_", .)]
 X04aid.types.long[, (vars) := .SD * 100, .SDcols = vars]
+# ------------------------------------------------------------------------------
 # X04aid.types.long[]
 # X04aid.sources.long <- sapply(X04aid.sources.long[, c(4:5)], function(x) x*100)
 ################################################################################
-## Step 04.02 Financial Aid Awarded: Sources of Financial Aid viz            ###
+## Step 04.03 vizualize the tables                                           ###
 ################################################################################
-p4a1 <- plot_ly(head(X04aid.sources.long,-1),
+p04a1 <- plot_ly(head(X04aid.sources.long,-1),
             labels = ~source,
             values = ~undergraduate,
             type = 'pie',
@@ -50,7 +52,7 @@ p4a1 <- plot_ly(head(X04aid.sources.long,-1),
                         zeroline = FALSE, 
                         showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-p4a2 <- plot_ly(head(X04aid.types.long, -1),
+p04a2 <- plot_ly(head(X04aid.types.long, -1),
   labels = ~Type,
   values = ~undergraduate,
   type = "pie",
@@ -90,7 +92,7 @@ p4a2 <- plot_ly(head(X04aid.types.long, -1),
 ################################################################################
 ## Step 04.03 Create Plot_ly Vizualization Pie Charts                        ###
 ################################################################################
-p4b1 <-  plot_ly(head(X04aid.sources.long,-1), 
+p04b1 <-  plot_ly(head(X04aid.sources.long,-1), 
             labels = ~source, 
             values = ~undergraduate, 
             type = 'pie',
@@ -110,7 +112,7 @@ p4b1 <-  plot_ly(head(X04aid.sources.long,-1),
                         zeroline = FALSE, 
                         showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-p4b2 <-  plot_ly(head(X04aid.sources.long,-1), 
+p04b2 <-  plot_ly(head(X04aid.sources.long,-1), 
             labels = ~source, 
             values = ~all_students, 
             type = 'pie',
@@ -130,9 +132,9 @@ p4b2 <-  plot_ly(head(X04aid.sources.long,-1),
                         zeroline = FALSE, 
                         showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-subplot(p4b1, p4b2)
+subplot(p04b1, p04b2)
 # ------------------------------------------------------------------------------
-p4c1 <-  plot_ly(head(X04aid.types.long,-1), 
+p04c1 <-  plot_ly(head(X04aid.types.long,-1), 
             labels = ~source, 
             values = ~undergraduate, 
             type = 'pie',
@@ -151,7 +153,7 @@ p4c1 <-  plot_ly(head(X04aid.types.long,-1),
             yaxis = list(showgrid = FALSE, 
                         zeroline = FALSE, 
                         showticklabels = FALSE))
-p4c2 <-  plot_ly(head(X04aid.types.long,-1), 
+p04c2 <-  plot_ly(head(X04aid.types.long,-1), 
             labels = ~source, 
             values = ~all_students, 
             type = 'pie',
@@ -171,7 +173,7 @@ p4c2 <-  plot_ly(head(X04aid.types.long,-1),
                         zeroline = FALSE, 
                         showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-subplot(p4c1, p4c2)
+subplot(p04c1, p04c2)
 ################################################################################
 ## Step 04.03 Create Plot_ly Vizualization Pie Charts                       ###
 ################################################################################

@@ -1,0 +1,91 @@
+# 18-Gap-Analysis
+
+```{r global, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
+library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(here)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(officer)
+library(pander)
+library(plotly)
+library(png)
+library(reactable)
+library(scales)
+library(stringr)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r 18.0.0-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+ay                      <- readRDS(here::here("/rds", "ay.rds"))
+ay_0                    <- readRDS(here::here("/rds", "currentAY.rds"))
+ay_0_row                <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+ay_1                    <- readRDS(here::here("/rds", "ay_1.rds"))
+# ------------------------------------------------------------------------------
+
+```
+
+```{r uga_logo, echo=FALSE, out.width = '100%'}
+knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+
+## 18. Resident Undergraduates Table
+***
+
+```{r 18.1.1}
+
+```
+
+## 18. Resident Undergraduates Pie Chart
+***
+
+```{r 18.1.2}
+knitr::include_graphics(here::here('png/p18a1_pie.png'))
+```
+
+## 18. Non-Resident Undergraduates Table
+***
+
+```{r 18.2.1}
+
+```
+
+## 18. Non-Resident Undergraduates Pie Chart
+***
+
+```{r 18.2.2}
+knitr::include_graphics(here::here('png/p18a2_pie.png'))
+```
+
+## 18. Combined Undergraduates Table
+***
+
+```{r 18.3.1}
+
+```
+
+## 18. Combined Undergraduates Pie Chart
+***
+
+```{r 18.3.2}
+knitr::include_graphics(here::here('png/p18a3_pie.png'))
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```

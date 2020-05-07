@@ -16,7 +16,7 @@
 ```
 
 ## 02 Undergrad COA Percentage of Total Cost
-![](C:/Users/gfalk/Documents/BookdownPT/png/p2a1.png){width=100%}
+![](C:/Users/gfalk/Documents/BookdownPT/png/p02a1_bar.png){width=100%}
 
 ## 02 Grad Resident COA
 ![](C:/Users/gfalk/Documents/BookdownPT/png/p02a_bar.png){width=100%}

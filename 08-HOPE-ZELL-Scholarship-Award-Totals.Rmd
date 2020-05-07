@@ -95,7 +95,7 @@ ft_hz_tot
 
 ## 08.   HOPE-ZELL Scholarship Award Totals Comparison
 ```{r 8.2-viz-bar, out.width = '100%'}
-knitr::include_graphics(here::here('png/p8a1.png'))
+knitr::include_graphics(here::here('png/p08a1_pie.png'))
 ```
 
 ```{=openxml}

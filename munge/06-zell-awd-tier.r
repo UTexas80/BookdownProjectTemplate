@@ -1,8 +1,8 @@
 # ------------------------------------------------------------------------------
-# 06. ZELL Scholarship Awards by Tier
+# 06. ZELL Scholarship Awards by Tier                                        ---
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 06.01 Janitorr - clean the tables                                    ###
+## Step 06.01 Janitor - clean the tables                                    ###
 ################################################################################
 dtTables  <- data.table::tables()
 x06       <- grep("^X06", ls(), value = TRUE)
@@ -29,11 +29,11 @@ dt_zell_bar_amt <- melt.data.table(X06zell.amt,
                         measure =  c('TIER01','TIER02','TIER03','TIER04'))
 names(dt_zell_bar_amt)[2:3]  <- c('tier', 'amt')
 # ------------------------------------------------------------------------------ Award by Tier Bar chart
-p6z1 <- plot_ly(X06zell.amt,x          = ~ay, y = ~TIER01, type = 'bar', name = 'Tier 1')
-p6z1 <- p6z1 %>% add_trace(y             = ~TIER02, name = 'Tier 2')
-p6z1 <- p6z1 %>% add_trace(y             = ~TIER03, name = 'Tier 3')
-p6z1 <- p6z1 %>% add_trace(y             = ~TIER04, name = 'Tier 4')
-p6z1 <- p6z1 %>% layout(title            = "UGA: zell Scholarship Awards By Tier", 
+p06z1 <- plot_ly(X06zell.amt,x          = ~ay, y = ~TIER01, type = 'bar', name = 'Tier 1')
+p06z1 <- p06z1 %>% add_trace(y             = ~TIER02, name = 'Tier 2')
+p06z1 <- p06z1 %>% add_trace(y             = ~TIER03, name = 'Tier 3')
+p06z1 <- p06z1 %>% add_trace(y             = ~TIER04, name = 'Tier 4')
+p06z1 <- p06z1 %>% layout(title            = "UGA: zell Scholarship Awards By Tier", 
                         xaxis            = list(
                           title          = "Academic Year", 
                           tickangle      = -45),
@@ -42,13 +42,13 @@ p6z1 <- p6z1 %>% layout(title            = "UGA: zell Scholarship Awards By Tier
                           barmode        = 'group', 
                           tickformat     = '$')
 # ------------------------------------------------------------------------------Award by Tier Line chart
-p6z2 <- plot_ly(tail(X06zell.amt, 6),
+p06z2 <- plot_ly(tail(X06zell.amt, 6),
                            x           = ~ay,     type = 'scatter', mode = 'lines+markers',  yaxis = 'y2',
                            y           = ~TIER01, name = 'Tier 1',  line = list(color = '#BA0C2F'))
-p6z2 <- p6z2 %>% add_trace(y           = ~TIER02, name = 'Tier 2',  line = list(color = '#000000'))
-p6z2 <- p6z2 %>% add_trace(y           = ~TIER03, name = 'Tier 3',  line = list(color = '#7f827c'))
-p6z2 <- p6z2 %>% add_trace(y           = ~TIER04, name = 'Tier 4',  line = list(color = '#19488a'))
-p6z2 <- p6z2 %>% layout(title          = "UGA: Zell Scholarship Awards By Tier",
+p06z2 <- p06z2 %>% add_trace(y           = ~TIER02, name = 'Tier 2',  line = list(color = '#000000'))
+p06z2 <- p06z2 %>% add_trace(y           = ~TIER03, name = 'Tier 3',  line = list(color = '#7f827c'))
+p06z2 <- p06z2 %>% add_trace(y           = ~TIER04, name = 'Tier 4',  line = list(color = '#19488a'))
+p06z2 <- p06z2 %>% layout(title          = "UGA: Zell Scholarship Awards By Tier",
 #                       titlefont      = list(
 #                         color        = '#ffffff'),
 #                       paper_bgcolor  = '#4666d1',  
@@ -67,12 +67,12 @@ dt_zell_awd         <- cbind(X06zell.wide[,1],X06zell.wide[,..last_col - 12], X0
 dt_zell_awd$pct_chg <- apply(dt_zell_awd[,c(2:3)], 1, 
                              function(x) { (x[2] - x[1])/x[1]})
 # # ------------------------------------------------------------------------------
- p6z3 <- plot_ly(setorder(dt_zell_awd, tier),
+ p06z3 <- plot_ly(setorder(dt_zell_awd, tier),
                           x             = ~pct_chg,
                           y             = ~tier,
                           type          = 'bar',
                           orientation   = 'h') 
- p6z3 <- p6z3 %>%  layout(title         = "Pct Change in zell Awards by Tier",
+ p06z3 <- p06z3 %>%  layout(title         = "Pct Change in zell Awards by Tier",
                           xaxis         = list(
                             title       = "Academic Year", 
                             tickangle   = -45,

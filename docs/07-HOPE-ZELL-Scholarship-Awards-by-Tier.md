@@ -19,7 +19,7 @@
 ```
 
 ## 07.  Pct Undergraduates with HOPE or Zell
-![](C:/Users/gfalk/Documents/BookdownPT/png/p7a1.png){width=100%}
+![](C:/Users/gfalk/Documents/BookdownPT/png/p07a1.png){width=100%}
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
