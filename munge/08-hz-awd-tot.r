@@ -4,7 +4,7 @@
 ################################################################################
 ## Step 08.01 - clean the tables                                             ###
 ################################################################################
-dt_hope_tot             <- data.table::cube(
+dt08_hope_tot             <- data.table::cube(
     X06hope.wide,
     .(awd = sum(X06hope.wide[,ncol(X06hope.wide)-1, with = FALSE]),
       amt = sum(X06hope.wide[,ncol(X06hope.wide),   with = FALSE])),
@@ -18,12 +18,12 @@ dt_zell_tot             <- data.table::cube(
     by = c("tier")
 )[5,]
 # ------------------------------------------------------------------------------
-names(dt_hope_tot)[1]   <-  c('name')
+names(dt08_hope_tot)[1]   <-  c('name')
 names(dt_zell_tot)[1]   <-  c('name')
 ################################################################################
 ## Step 08.02 set the tables                                                 ###
 ################################################################################
-dt_hz_tot               <- rbind(dt_hope_tot, dt_zell_tot)
+dt_hz_tot               <- rbind(dt08_hope_tot, dt_zell_tot)
 dt_hz_tot$awd_pct       <- dt_hz_tot$awd / sum(dt_hz_tot$awd) * 100
 dt_hz_tot$amt_pct       <- dt_hz_tot$amt / sum(dt_hz_tot$amt) * 100
 dt_hz_tot               <- adorn_totals(dt_hz_tot, where = 'row')

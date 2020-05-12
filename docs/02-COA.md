@@ -22,7 +22,7 @@
 ![](C:/Users/gfalk/Documents/BookdownPT/png/p02a_bar.png){width=100%}
 
 ## 02 Grad Non-Resident COA
-![](C:/Users/gfalk/Documents/BookdownPT/png/p02b_bar.png){width=100%}
+![](C:/Users/gfalk/Documents/BookdownPT/png/p02b1_bar.png){width=100%}
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

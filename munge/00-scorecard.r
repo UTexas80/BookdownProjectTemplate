@@ -35,7 +35,7 @@ lapply(peers, function(nm) {
 ################################################################################
 ## Step 00.02 - wrangle the tables                                           ###
 ################################################################################
-# dt_sc_peers  <- setorder(
+# dt00_sc_peers  <- setorder(
 #                 data.table(
 #                   distinct(
 #                     bind_rows(
@@ -45,7 +45,7 @@ lapply(peers, function(nm) {
 #                   ),
 #               ID, UNITID)
 
-dt_sc_peers  <- setorder(
+dt00_sc_peers  <- setorder(
   data.table(
     distinct(
       bind_rows(
@@ -55,22 +55,22 @@ dt_sc_peers  <- setorder(
   ),
   id, unitid)
 
-dt_sc_peers  <-  setkey(dt_sc_peers[, ope_id := paste0("00", as.character(opeid))][
+dt00_sc_peers  <-  setkey(dt00_sc_peers[, ope_id := paste0("00", as.character(opeid))][
               , c(1,7,2:4,5:6)], opeid)
 # ------------------------------------------------------------------------------
-dt_sc_uga <-  sc_init() %>%
-              sc_filter(unitid == dt_sc_peers[,3]) %>%
+dt00_sc_uga <-  sc_init() %>%
+              sc_filter(unitid == dt00_sc_peers[,3]) %>%
               sc_select(unitid, instnm, stabbr, ugds, grad_debt_mdn) %>%
               sc_year('latest') %>%
               sc_get(key_get("sc_key"))
 ################################################################################
 ## Step 00.03 set the tables                                                 ###
 ################################################################################
-dt_sc_uga <- setorder(
+dt00_sc_uga <- setorder(
               setkeyv(
                 setDT(
                   distinct(
-                    dt_sc_uga
+                    dt00_sc_uga
                   )
                 ),
               "unitid"),

@@ -15,12 +15,12 @@ setkey(X06hope.wide, tier)
 ################################################################################
 ## Step 06.03 visualize the tables                                           ###
 ################################################################################
-dt_hope_bar_amt <- melt.data.table(X06hope.long,
+dt06_hope_bar_amt <- melt.data.table(X06hope.long,
                         id = 1,
                         measure =  c('TIER01','TIER02','TIER03','TIER04'))
-names(dt_hope_bar_amt)[2:3]  <- c('tier', 'amt')
+names(dt06_hope_bar_amt)[2:3]  <- c('tier', 'amt')
 # ------------------------------------------------------------------------------
-p06a1a <- ggplot(dt_hope_bar_amt,
+p06a1a <- ggplot(dt06_hope_bar_amt,
         aes(fill = tier, y = amt, x = ay)) +
         geom_bar(position = "dodge", stat = "identity")
 print(p06a1a)
@@ -58,12 +58,12 @@ p06a2 <- p06a2 %>% layout(title          = "UGA: Hope Scholarship Awards By Tier
                           title        = "Award Amount"))
 # ------------------------------------------------------------------------------Percent Change Bar chart
 last_col            <- as.integer(dtTables[NAME == 'X06hope.amt.wide', 3])
-dt_hope_awd         <- cbind(X06hope.amt.wide[,1],X06hope.amt.wide[,..last_col - 5], X06hope.amt.wide[,..last_col])
+dt06_hope_awd         <- cbind(X06hope.amt.wide[,1],X06hope.amt.wide[,..last_col - 5], X06hope.amt.wide[,..last_col])
 # percentage-change-between-two-columns-same-row    https://tinyurl.com/vv6wvah
-dt_hope_awd$pct_chg <- apply(dt_hope_awd[,c(2:3)], 1,
+dt06_hope_awd$pct_chg <- apply(dt06_hope_awd[,c(2:3)], 1,
                              function(x) { (x[2] - x[1])/x[1]})
 # ------------------------------------------------------------------------------
-p06a3 <- plot_ly(setorder(dt_hope_awd, tier),
+p06a3 <- plot_ly(setorder(dt06_hope_awd, tier),
                          x             = ~pct_chg,
                          y             = ~tier,
                          type          = 'bar',

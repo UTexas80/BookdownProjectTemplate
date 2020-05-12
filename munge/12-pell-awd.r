@@ -14,14 +14,14 @@ lapply(x12, function(nm) {
   setorder(df, OPEID)
 })
 # ------------------------------------------------------------------------------
-# dt12_pell_awd <-inner_join(dt_sc_peers,X12pell.awd)[,c(1,3:4,6, 12:13)]
-dt12_pell_awd <- inner_join(dt_sc_peers,X12pell.awd, by = c('ope_id' ="OPE.ID"))[,c(1,3:4,6, 12:13)]
+# dt12_pell_awd <-inner_join(dt00_sc_peers,X12pell.awd)[,c(1,3:4,6, 12:13)]
+dt12_pell_awd <- inner_join(dt00_sc_peers,X12pell.awd, by = c('ope_id' ="OPE.ID"))[,c(1,3:4,6, 12:13)]
 # ------------------------------------------------------------------------------
 dt12_pell_tbl <- 
   setorder(
     setDT(
       inner_join(
-        dt_sc_uga, dt12_pell_awd, by = c('unitid' = 'unitid'))[,c(7,1,8,2:5,10:11)]
+        dt00_sc_uga, dt12_pell_awd, by = c('unitid' = 'unitid'))[,c(7,1,8,2:5,10:11)]
     ),
   id, unitid)
 # ------------------------------------------------------------------------------

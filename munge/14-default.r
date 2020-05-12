@@ -16,41 +16,41 @@ lapply(x14, function(nm) {
 ################################################################################
 ## Step 14.01 Amass College Scorecard debt data https://tinyurl.com/y9zutvnk ###
 ################################################################################
-dt_sc_debt_18        <- sc_init() %>%
-    sc_filter(unitid  == dt_sc_uga[,1]) %>%
+dt00_sc_debt_18        <- sc_init() %>%
+    sc_filter(unitid  == dt00_sc_uga[,1]) %>%
     sc_select(unitid, instnm, stabbr, cdr3) %>%
     sc_year("latest") %>%
     sc_get()
-dt_sc_debt_18[,5]    <- '2016'
+dt00_sc_debt_18[,5]    <- '2016'
 # ------------------------------------------------------------------------------
-dt_sc_debt_17        <- sc_init() %>%
-    sc_filter(unitid  == dt_sc_uga[,1]) %>%
+dt00_sc_debt_17        <- sc_init() %>%
+    sc_filter(unitid  == dt00_sc_uga[,1]) %>%
     sc_select(unitid, instnm, stabbr, cdr3) %>%
     sc_year(2017) %>%
     sc_get()
-dt_sc_debt_17[,5]    <- '2015'
+dt00_sc_debt_17[,5]    <- '2015'
 # ------------------------------------------------------------------------------
-dt_sc_debt_16        <- sc_init() %>%
-    sc_filter(unitid  == dt_sc_uga[,1]) %>%
+dt00_sc_debt_16        <- sc_init() %>%
+    sc_filter(unitid  == dt00_sc_uga[,1]) %>%
     sc_select(unitid, instnm, stabbr, cdr3) %>%
 #   sc_select(unitid, instnm, stabbr, cdr3, debt_mdn, dep_debt_mdn, female_debt_mdn, firstgen_debt_mdn,
 #    grad_debt_mdn,hi_inc_debt_mdn, ind_debt_mdn,  lo_inc_debt_mdn, male_debt_mdn, md_inc_debt_mdn,nopell_debt_mdn,notfirstgen_debt_mdn,
 #    pell_debt_mdn) %>%
     sc_year(2016) %>%
     sc_get()
-dt_sc_debt_16[,5]    <- '2014'
+dt00_sc_debt_16[,5]    <- '2014'
 # ------------------------------------------------------------------------------
-dt_sc_debt           <- setkey(
-                          setDT(rbind(dt_sc_debt_18,dt_sc_debt_17,dt_sc_debt_16), keep.rownames = T),
+dt00_sc_debt           <- setkey(
+                          setDT(rbind(dt00_sc_debt_18,dt00_sc_debt_17,dt00_sc_debt_16), keep.rownames = T),
                         unitid)
-dt_sc_peers          <- setkey(dt_sc_peers, unitid)
+dt00_sc_peers          <- setkey(dt00_sc_peers, unitid)
 # ------------------------------------------------------------------------------
-dt_sc_debt$cdr3      <- dt_sc_debt$cdr3 * 100
-names(dt_sc_debt)[5] <- "default"
+dt00_sc_debt$cdr3      <- dt00_sc_debt$cdr3 * 100
+names(dt00_sc_debt)[5] <- "default"
 ################################################################################
 ## Step 14.02 - wrangle the tables                                           ###
 ################################################################################
-dt14_sc_debt         <- setorder(dt_sc_peers[dt_sc_debt][
+dt14_sc_debt         <- setorder(dt00_sc_peers[dt00_sc_debt][
                                     ,c(8,1:2,4,6:7,11:12)], 
                                 id, rn)
 # ------------------------------------------------------------------------------

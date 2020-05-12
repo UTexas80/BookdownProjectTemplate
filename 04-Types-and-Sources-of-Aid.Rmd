@@ -80,6 +80,12 @@ flextable::autofit(ft_aid_source, add_w = 0.2)
 knitr::include_graphics(here::here('png/p04a1.png'))
 ```
 
+
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
+
 ## 04. Financial Aid Awarded: Types of Financial Aid Table
 ```{r 4.2.0-tbl-aid-type, echo=FALSE, fig.cap='Types of Financial Aid', message=FALSE, warning=FALSE}
 

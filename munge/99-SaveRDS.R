@@ -37,7 +37,7 @@ saveRDS(X05awards.fb.1,      file = here::here("rds/", "X05awards.fb.1"))
 saveRDS(X05awards.fb.2,      file = here::here("rds/", "X05awards.fb.2"))
 # ------------------------------------------------------------------------------
 saveRDS(X06hope.wide,        file = here::here("rds/", "dt_hope.rds"))
-saveRDS(dt_hope_bar_amt,     file = here::here("rds/", "dt_hope_bar_amt.rds"))
+saveRDS(dt06_hope_bar_amt,     file = here::here("rds/", "dt06_hope_bar_amt.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(X06zell.wide,        file = here::here("rds/", "dt_zell.rds"))
 saveRDS(dt_zell_bar_amt,     file = here::here("rds/", "dt_zell_bar_amt.rds"))
@@ -67,6 +67,8 @@ saveRDS(dt14_default,        file = here::here("rds/", "dt14_default.rds"))
 saveRDS(dt14_default_aspire, file = here::here("rds/", "dt14_default_aspire.rds"))
 saveRDS(dt14_default_compare,file = here::here("rds/", "dt14_default_compare.rds"))
 saveRDS(dt14_default_sec,    file = here::here("rds/", "dt14_default_sec.rds"))
+# ------------------------------------------------------------------------------
+saveRDS(X18gap.analysis.res, file = here::here("rds/", "dt18_gap.rds"))
 ################################################################################
 ## Step 00.99: VERSION HISTORY                                               ###
 ################################################################################

@@ -29,7 +29,7 @@ dt_hz_awd        <- melt.data.table(X07hz.awd,
                                      'X2018.19'))
 # ------------------------------------------------------------------------------
 names(dt_hz_awd)[2:3]  <- c('ay', 'awd')
-dt_hz_awd              <- dt_hz_awd[, c(2, 1, 3)]  # Reorder Columns by index
+dt_hz_awd              <- dt_hz_awd[, c(2, 1, 3)]     # Reorder Columns by index
 # ------------------------------------------------------------------------------
 # rename ay column row values                       https://tinyurl.com/ybd24xj2
 # ------------------------------------------------------------------------------
@@ -65,28 +65,29 @@ setorder(dt_hz_awd_tbl, Description)
 ################################################################################
 ## Step 07.05 create Award by Percentage table                               ###
 ################################################################################
-hope_pct           <- dt_hz_awd[name == 'hope', c(1,5)]
-names(hope_pct)[2] <- "hope"                        # rename column name by index
-zell_pct           <- dt_hz_awd[name == 'zell', 5]
-names(zell_pct)[1] <- "zell"                        # rename column name by index
-dt_hz_awd_pct      <- cbind(hope_pct, zell_pct)
+hope_pct                <- dt_hz_awd[name == 'hope', c(1,5)]
+names(hope_pct)[2]      <- "hope"                  # rename column name by index
+zell_pct                <- dt_hz_awd[name == 'zell', 5]
+names(zell_pct)[1]      <- "zell"                  # rename column name by index
+dt_hz_awd_pct           <- cbind(hope_pct, zell_pct)
 ################################################################################
 ## Step 07.06 create Award by Percent Bar viz                                ###
 ################################################################################
-p07a1 <- plot_ly(dt_hz_awd_pct,  x = ~ay, 
-                                y = ~hope, 
+p07a1_bar <- plot_ly(dt_hz_awd_pct,
+                                x = ~ay,
+                                y = ~hope,
                            marker = list(
-                            color = '#BA0C2F'), 
-                             name = 'HOPE', 
-                             type = 'bar') %>% 
-                      add_trace(y = ~zell, 
+                            color = '#BA0C2F'),
+                             name = 'HOPE',
+                             type = 'bar') %>%
+                      add_trace(y = ~zell,
                            marker = list(
-                            color = '#000000'), 
-                             name = 'ZELL')  %>% 
+                            color = '#000000'),
+                             name = 'ZELL')  %>%
                      layout(title = "% of Undergrads with HOPE/ZELL Awards",
                xaxis = list(title = "Academic Year",
                         tickangle = -45),
-               yaxis = list(title = "Awd Pct", 
+               yaxis = list(title = "Awd Pct",
                        tickformat = "%"))
 ################################################################################
 ## Step 07.A: VERSION HISTORY                                                ###

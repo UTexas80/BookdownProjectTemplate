@@ -119,7 +119,7 @@ ft_pell_out_state
 ```
 
 ```{r 11.1.3}
-knitr::include_graphics(here::here('png/p11a1.png'))
+knitr::include_graphics(here::here('png/p11a1_line.png'))
 ```
 ## 11. Federal Pell Grant as a % of Total Undergraduate Enrollment
 ***

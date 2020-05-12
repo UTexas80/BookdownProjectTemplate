@@ -64,7 +64,7 @@ ft_pell_awd
 ```
 
 ```{r 10.1.1}
-knitr::include_graphics(here::here('png/p10a1.png'))
+knitr::include_graphics(here::here('png/p10a1_bar.png'))
 ```
 
 ```{=openxml}

@@ -21,7 +21,7 @@
 
 <!-- ## 06. HOPE Scholarship Awards by Tier Chart -->
 <!-- ```{r _6.2-viz-bar, fig.cap='Awd by Tier'} -->
-<!-- ggplot(dt_hope_bar_amt,  -->
+<!-- ggplot(dt06_hope_bar_amt,  -->
 <!--         aes(fill = tier, y = amt, x = ay)) +  -->
 <!--         geom_bar(position = "dodge", stat = "identity") + -->
 <!--         theme(axis.text.x = element_text(angle = -90, hjust = 0)) + -->

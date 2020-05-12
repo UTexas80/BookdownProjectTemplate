@@ -4,7 +4,7 @@
 ################################################################################
 ## Step 10.01 Janitor - clean the tables                                    ###
 ################################################################################
-dtTables  <- data.table::tables()
+dtTables    <- data.table::tables()
 sapply(dtTables[NAME %like% "X10" ,],
     function(x) janitor::clean_names(data.table(x)))
 ################################################################################
@@ -14,22 +14,22 @@ dt_pell_awd <- X10pell.awd
 ################################################################################
 ## Step 10.03 vizualize the tables                                           ###
 ################################################################################
-p10a1 <- plot_ly(tail(dt_pell_awd,10),
-                              x = ~ay, 
-                              y = ~awd_uga, 
-                         marker = list(
-                          color = '#BA0C2F'), 
-                           name = 'UGA', 
-                           type = 'bar') %>% 
-                    add_trace(y = ~awd_usa, 
-                         marker = list(
-                          color = 'dodgerblue'), 
-                           name = 'USA')  %>% 
-                   layout(title = "AVERAGE FEDERAL PELL GRANT AWARD",
-                          xaxis = list(title = "Academic Year",
-                      tickangle = -45),
-                          yaxis = list(title = "Pell Award Amount", 
-                     tickformat = "$"))
+p10a1_bar   <- plot_ly(tail(dt_pell_awd,10),
+                                x = ~ay,
+                                y = ~awd_uga,
+                           marker = list(
+                            color = '#BA0C2F'),
+                             name = 'UGA',
+                             type = 'bar') %>%
+                      add_trace(y = ~awd_usa,
+                           marker = list(
+                            color = 'dodgerblue'),
+                             name = 'USA')  %>% 
+                     layout(title = "AVERAGE FEDERAL PELL GRANT AWARD",
+                            xaxis = list(title = "Academic Year",
+                        tickangle = -45),
+                            yaxis = list(title = "Pell Award Amount",
+                       tickformat = "$"))
 ################################################################################
 ## Step 99.A: VERSION HISTORY                                                ###
 ################################################################################

@@ -38,7 +38,7 @@ ay_0_row        <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
 ay_1            <- readRDS(here::here("/rds", "ay_1.rds"))
 # ------------------------------------------------------------------------------
 dt_hope         <- data.table::setDT(readRDS(here::here("/rds", "dt_hope.rds")))
-dt_hope_bar_amt <- data.table::setDT(readRDS(here::here("/rds", "dt_hope_bar_amt.rds")))
+dt06_hope_bar_amt <- data.table::setDT(readRDS(here::here("/rds", "dt06_hope_bar_amt.rds")))
 # ------------------------------------------------------------------------------
 ```
 
@@ -129,7 +129,7 @@ ft_hope      <- flextable(head(dt_hope))
 
 <!-- ## 06. HOPE Scholarship Awards by Tier Chart -->
 <!-- ```{r _6.2-viz-bar, fig.cap='Awd by Tier'} -->
-<!-- ggplot(dt_hope_bar_amt,  -->
+<!-- ggplot(dt06_hope_bar_amt,  -->
 <!--         aes(fill = tier, y = amt, x = ay)) +  -->
 <!--         geom_bar(position = "dodge", stat = "identity") + -->
 <!--         theme(axis.text.x = element_text(angle = -90, hjust = 0)) + -->

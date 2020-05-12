@@ -87,7 +87,7 @@ knitr::include_graphics(here::here('png/p02a_bar.png'))
 
 ## 02 Grad Non-Resident COA
 ```{r 2.2.1-viz-bar, echo=FALSE, out.width = '100%'}
-knitr::include_graphics(here::here('png/p02b_bar.png'))
+knitr::include_graphics(here::here('png/p02b1_bar.png'))
 ```
 
 ```{=openxml}

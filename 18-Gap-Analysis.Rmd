@@ -37,7 +37,13 @@ ay_0                    <- readRDS(here::here("/rds", "currentAY.rds"))
 ay_0_row                <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
 ay_1                    <- readRDS(here::here("/rds", "ay_1.rds"))
 # ------------------------------------------------------------------------------
-
+dt18_gap                <- setDT(
+                              setkey(
+                                  data.table(
+                                    readRDS(here::here("/rds", "dt18_gap.rds"))
+                                  ), 
+                              id)
+                            )
 ```
 
 ```{r uga_logo, echo=FALSE, out.width = '100%'}
@@ -48,7 +54,86 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ***
 
 ```{r 18.1.1}
+  ft_gap_res <- flextable(dt18_gap[id == 1, -c(1:2)])
+    typology <- data.frame(
+    col_keys = c("ug",
+                "tot_cost",
+                "contrib_parent",
+                "contrib_student",
+                "tot_fin_need",
+                "tot_gift_aid",
+                "tot_fin_gap",
+                "avg_cost_ed",
+                "avg_contrib_parent",
+                "avg_contrib_student",
+                "avg_fin_need",
+                "avg_gift_aid",
+                "avg_fin_gap"),
+    type = c(   "Resident Undergraduate GAP Analysis"),
+    what = c(   "Undergrads",
+                "Total",
+                "Total",
+                "Total",
+                "Total",
+                "Total",
+                "Total",
+                "Average",
+                "Average",
+                "Average",
+                "Average",
+                "Average",
+                "Average"),
+    measure = c("# Complete FAFSA",
+                "Total Cost",
+                "Parent Contrib",
+                "Student Contrib",
+                "Financial Need",
+                "Gift Aid",
+                "Financial Gap",
+                "Avg Cost of Ed",
+                "Parent Contrib",
+                "Student Contrib",
+                "Financial Need",
+                "Gift Aid",
+                "Financial Gap"),
+  stringsAsFactors = FALSE )
 
+  border     <- officer::fp_border(color = "dodgerblue", style = "solid", width = 1)
+  std_border <- fp_border(color = "dodgerblue", style = "solid", width = 2)
+  ft_gap_res <- hline(ft_gap_res, i = 1, part = "all", border = std_border)
+  ft_gap_res <- vline(ft_gap_res, j = c(1,7), border = border, part = "all")  
+  ft_gap_res <- set_header_df(ft_gap_res, mapping = typology, key = "col_keys")
+  ft_gap_res <- merge_h(ft_gap_res, part = "header") 
+  ft_gap_res <- merge_v( ft_gap_res, part = "header"
+  ) %>%
+  colformat_int(j = 1, big.mark = ",", prefix = ""
+  ) %>%    
+  colformat_int(j = c(2:13), big.mark = ",", prefix = "$"
+  ) %>%
+  fontsize(size = 9.00, part = "body"
+  ) %>%
+  fontsize(size = 9.00, part = "header"
+  ) %>%
+  bold(part = "all"
+  ) %>%   
+  bg(bg = "#000000", part = "header"
+  ) %>%
+  bg(bg = "#BA0C2F", part = "body"
+  ) %>%
+  color(color = "white", part = "header"
+  ) %>%
+  color(color = "white", part = "body"
+  ) %>%    
+  align_text_col(align = "center", header = TRUE, footer = FALSE
+  ) %>%
+  fit_to_width(max_width = 8.5
+  ) %>%
+  padding(i = 1, j = 1, padding = 0
+  ) %>%          
+  width(j = c(1,3,6:9, 11:13), width = 0.60
+  ) %>%
+  width(j = c(2,4,10),    width = 0.70)
+ft_gap_res
 ```
 
 ## 18. Resident Undergraduates Pie Chart
@@ -58,11 +143,93 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 knitr::include_graphics(here::here('png/p18a1_pie.png'))
 ```
 
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
+
 ## 18. Non-Resident Undergraduates Table
 ***
 
 ```{r 18.2.1}
+    ft_gap_non <- flextable(dt18_gap[id == 2, -c(1:2)])
+    typology <- data.frame(
+    col_keys = c("ug",
+                "tot_cost",
+                "contrib_parent",
+                "contrib_student",
+                "tot_fin_need",
+                "tot_gift_aid",
+                "tot_fin_gap",
+                "avg_cost_ed",
+                "avg_contrib_parent",
+                "avg_contrib_student",
+                "avg_fin_need",
+                "avg_gift_aid",
+                "avg_fin_gap"),
+    type = c(   "Non-Resident Undergraduates GAP Analysis"),
+    what = c(   "Undergrads",
+                "Total",
+                "Total",
+                "Total",
+                "Total",
+                "Total",
+                "Total",
+                "Average",
+                "Average",
+                "Average",
+                "Average",
+                "Average",
+                "Average"),
+    measure = c("# Complete FAFSA",
+                "Total Cost",
+                "Parent Contrib",
+                "Student Contrib",
+                "Financial Need",
+                "Gift Aid",
+                "Financial Gap",
+                "Avg Cost of Ed",
+                "Parent Contrib",
+                "Student Contrib",
+                "Financial Need",
+                "Gift Aid",
+                "Financial Gap"),
+  stringsAsFactors = FALSE )
 
+  border     <- officer::fp_border(color = "dodgerblue", style = "solid", width = 1)
+  std_border <- fp_border(color = "gray", style = "solid", width = 1)
+  ft_gap_non <- hline(ft_gap_non, part = "all", border = std_border)
+  ft_gap_non <- vline(ft_gap_non, j = c(1,7), border = border, part = "all")  
+  ft_gap_non <- set_header_df(ft_gap_non, mapping = typology, key = "col_keys")
+  ft_gap_non <- merge_h(ft_gap_non, part = "header") 
+  ft_gap_non <- merge_v( ft_gap_non, part = "header"
+  ) %>%
+  colformat_int(j = c(2:13), big.mark = ",", prefix = "$"
+  ) %>%
+  fontsize(size = 9.00, part = "body"
+  ) %>%
+  fontsize(size = 9.00, part = "header"
+  ) %>%
+  bold(part = "all"
+  ) %>%   
+  bg(bg = "#000000", part = "header"
+  ) %>%
+  bg(bg = "#BA0C2F", part = "body"
+  ) %>%
+  color(color = "white", part = "header"
+  ) %>%
+  color(color = "white", part = "body"
+  ) %>%    
+  align_text_col(align = "center", header = TRUE, footer = FALSE
+  ) %>%
+  fit_to_width(max_width = 8.5
+  ) %>%
+  padding(i = 1, j = 1, padding = 0
+  ) %>%          
+  width(j = c(1,3,6:9, 11:13), width = 0.60
+  ) %>%
+  width(j = c(2,4,10),    width = 0.70)
+ft_gap_non
 ```
 
 ## 18. Non-Resident Undergraduates Pie Chart
@@ -72,11 +239,95 @@ knitr::include_graphics(here::here('png/p18a1_pie.png'))
 knitr::include_graphics(here::here('png/p18a2_pie.png'))
 ```
 
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
+
 ## 18. Combined Undergraduates Table
 ***
 
 ```{r 18.3.1}
+    ft_gap_tot <- flextable(dt18_gap[id == 3, -c(1:2)])
+    typology <- data.frame(
+    col_keys = c("ug",
+                "tot_cost",
+                "contrib_parent",
+                "contrib_student",
+                "tot_fin_need",
+                "tot_gift_aid",
+                "tot_fin_gap",
+                "avg_cost_ed",
+                "avg_contrib_parent",
+                "avg_contrib_student",
+                "avg_fin_need",
+                "avg_gift_aid",
+                "avg_fin_gap"),
+    type = c(   "Combined Undergraduates GAP Analysis"),
+    what = c(   "Undergrads",
+                "Total",
+                "Total",
+                "Total",
+                "Total",
+                "Total",
+                "Total",
+                "Average",
+                "Average",
+                "Average",
+                "Average",
+                "Average",
+                "Average"),
+    measure = c("# Complete FAFSA",
+                "Total Cost",
+                "Parent Contrib",
+                "Student Contrib",
+                "Financial Need",
+                "Gift Aid",
+                "Financial Gap",
+                "Avg Cost of Ed",
+                "Parent Contrib",
+                "Student Contrib",
+                "Financial Need",
+                "Gift Aid",
+                "Financial Gap"),
+  stringsAsFactors = FALSE )
 
+  border     <- officer::fp_border(color = "dodgerblue", style = "solid", width = 1)
+  std_border <- fp_border(color = "gray", style = "solid", width = 1)
+  ft_gap_tot <- hline(ft_gap_tot, part = "all", border = std_border)
+  ft_gap_tot <- vline(ft_gap_tot, j = c(1,7), border = border, part = "all")  
+  ft_gap_tot <- set_header_df(ft_gap_tot, mapping = typology, key = "col_keys")
+  ft_gap_tot <- merge_h(ft_gap_tot, part = "header") 
+  ft_gap_tot <- merge_v( ft_gap_tot, part = "header"
+  ) %>%
+  colformat_int(j = c(2:13), big.mark = ",", prefix = "$"
+  ) %>%
+  fontsize(size = 9.00, part = "body"
+  ) %>%
+  fontsize(size = 9.00, part = "header"
+  ) %>%
+  bold(part = "all"
+  ) %>%   
+  bg(bg = "#000000", part = "header"
+  ) %>%
+  bg(bg = "#BA0C2F", part = "body"
+  ) %>%
+  color(color = "white", part = "header"
+  ) %>%
+  color(color = "white", part = "body"
+  ) %>%    
+  align_text_col(align = "center", header = TRUE, footer = FALSE
+  ) %>%
+  fit_to_width(max_width = 8.5
+  ) %>%
+  padding(i = 1, j = 1, padding = 0
+  ) %>%
+  width(j = c(1,8:9, 11:13), width = 0.60
+  ) %>%    
+  width(j = c(3,5:7), width = 0.60
+  ) %>%
+  width(j = c(2,4,10),    width = 0.70)
+  ft_gap_tot
 ```
 
 ## 18. Combined Undergraduates Pie Chart

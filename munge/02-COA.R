@@ -2,7 +2,7 @@
 # 02. Cost of Attendance                                                     ---
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 02.01 Admin: munge COA files                                         ###
+## Step 02.01 clean the tables                                              ###
 ################################################################################
 dtTables        <- data.table::tables()
 sapply(dtTables[NAME %like% "coa" ,],
@@ -29,7 +29,7 @@ coa.res$ay_yr2 <- as.Date(as.character(coa.res$ay_yr2), format = "%Y")
 # coa.res$ay_yr2 <- year(coa.res$ay_yr2)
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 02.02 COA tables                                                     ###
+## Step 02.02 set the tables                                                 ###
 ################################################################################
 dtCOA  <- as.data.table(pdf.dat)
 names(dtCOA)[1]<-"Costs"
@@ -41,7 +41,7 @@ names(dtCOA)[2:ncol(dtCOA)] <-
 
 dtCOA[is.na(dtCOA)] <- ""                     # replace NA's with spaces
 ################################################################################
-## Step 02.03 COA Percentage of Total Cost viz                               ###
+## Step 02.03 vizualize the tables                                           ###
 ################################################################################
 p02a1_bar <- plot_ly(grad_res,
             labels           = ~Description,
@@ -144,7 +144,7 @@ p02a_bar <- setorder(grad_res, -ay1920) %>%
     barmode      = 'group',
     tickformat   = '$')
 # ------------------------------------------------------------------------------
-p02b_bar <- setorder(grad_non_res, -ay1920) %>%
+p02b1_bar <- setorder(grad_non_res, -ay1920) %>%
   plot_ly(x = ~Description, y = ~ay1920, type = 'bar') %>%
   layout(
     title = "Graduate Non-Resident Expenses",
@@ -161,7 +161,7 @@ p02b_bar <- setorder(grad_non_res, -ay1920) %>%
 c02.version         <- "1.0.0"
 c08.ModDate         <- as.Date("2020-03-01")
 # ------------------------------------------------------------------------------
-# 2020.03.01 - v.1.0.0                               http://tinyurl.com/y54k8gsw            
+# 2020.03.01 - v.1.0.0                               http://tinyurl.com/y54k8gsw
 # 1st release                                        http://tinyurl.com/yx9w8vje
 # ------------------------------------------------------------------------------
 

@@ -24,25 +24,27 @@ dt11_pell_line <- cbind(melt.data.table(X11pell.in.state[3,], id = 1)[,2:3],
                         melt.data.table(X11pell.out.state[3,], id = 1)[,3])
 setnames(dt11_pell_line,1:3,c("ay","in_state","out_state")) 
 ################################################################################
-## Step 11.03 vizualize the tables                                           ###
+## Step 11.03 vizualize the tables                  Award by Tier Line chart ###
 ################################################################################
-# p11a1 <- plot_ly(tail(dt_pell11_awd,11),
-# ------------------------------------------------------------------------------Award by Tier Line chart
-p11a1 <- plot_ly(tail(dt11_pell_line, 10),
-  x = ~ay, type = "scatter", mode = "lines+markers", yaxis = "y2",
-  y = ~in_state, name = "In-State", line = list(color = "#BA0C2F")
-) %>%
-  add_trace(y = ~out_state, name = "Out-of-State", line = list(color = "#000000")) %>%
-  layout(
-    title = "Maximum Federal Pell Grant Award - as a % of UGA Tuition/Fees",
-    xaxis = list(
-      title = "Academic Year",
-      tickangle = -45
-    ),
-    yaxis = list(
-      title = "Pell Pct",
-      tickformat = "%")
-    )
+p11a1_line   <- plot_ly(tail(dt11_pell_line, 10),
+                                x = ~ay, 
+                             type = "scatter", 
+                             mode = "lines+markers", 
+                            yaxis = "y2",
+                                y = ~in_state, 
+                             name = "In-State", 
+                             line = list(color = "#BA0C2F")) %>%
+                      add_trace(y = ~out_state, 
+                             name = "Out-of-State", 
+                             line = list(
+                            color = "#000000")) %>%
+                     layout(title = "Maximum Federal Pell Grant Award - as a % of UGA Tuition/Fees",
+                            xaxis = list(
+                            title = "Academic Year",
+                        tickangle = -45),
+                            yaxis = list(
+                            title = "Pell Pct",
+                       tickformat = "%"))    
 ################################################################################
 ## Step 11.99: VERSION HISTORY                                                ###
 ################################################################################

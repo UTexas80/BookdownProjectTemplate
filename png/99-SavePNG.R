@@ -6,15 +6,15 @@
 #                      scale = 1,
 #                      out_file = here::here("/png", "p02a_bar.png"))
 # ------------------------------------------------------------------------------
-# plotly::plotly_IMAGE(p02b_bar,
+# plotly::plotly_IMAGE(p02a1_bar,
 #                      format = "png",
 #                      scale = 1,
-#                      out_file = here::here("/png", "p02b_bar.png"))
+#                      out_file = here::here("/png", "p02a1_bar.png"))
 # ------------------------------------------------------------------------------
-plotly::plotly_IMAGE(p02a1_bar,
-                    format = "png",
-                    scale = 1,
-                    out_file = here::here("/png", "p02a1_bar.png"))
+# plotly::plotly_IMAGE(p02b1_bar,
+#                     format = "png",
+#                     scale = 1,
+#                     out_file = here::here("/png", "p02b1_bar.png"))
 # ------------------------------------------------------------------------------
 # plotly::plotly_IMAGE(p04a1,
 #                     format = "png",
@@ -56,10 +56,10 @@ plotly::plotly_IMAGE(p02a1_bar,
 #                     scale = 1,
 #                     out_file = here::here("/png", "p06z3.png"))
 # ------------------------------------------------------------------------------
-# plotly::plotly_IMAGE(p07a1,
+# plotly::plotly_IMAGE(p07a1_bar,
 #                     format = "png",
 #                     scale = 1,
-#                     out_file = here::here("/png", "p07a1.png"))
+#                     out_file = here::here("/png", "p07a1_bar.png"))
 # ------------------------------------------------------------------------------
 # plotly::plotly_IMAGE(p08a1_pie,
 #                     format = "png",
@@ -76,15 +76,15 @@ plotly::plotly_IMAGE(p02a1_bar,
 #                     scale = 1,
 #                     out_file = here::here("/png", "p09a2_line.png"))
 # ------------------------------------------------------------------------------
-# plotly::plotly_IMAGE(p10a1,
+# plotly::plotly_IMAGE(p10a1_bar,
 #                     format = "png",
 #                     scale = 1,
-#                     out_file = here::here("/png", "p10a1.png"))
+#                     out_file = here::here("/png", "p10a1_bar.png"))
 # ------------------------------------------------------------------------------
-# plotly::plotly_IMAGE(p11a1,
+# plotly::plotly_IMAGE(p11a1_line,
 #                     format = "png",
 #                     scale = 1,
-#                     out_file = here::here("/png", "p11a1.png"))
+#                     out_file = here::here("/png", "p11a1_line.png"))
 # ------------------------------------------------------------------------------
 # plotly::plotly_IMAGE(p12a_bar,
 #                     format = "png",
