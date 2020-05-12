@@ -24,7 +24,7 @@ p18a1_pie <- plot_ly(X18gap.analysis[3:5, c(2, 3)],
     values             = ~resident, 
     type               = "pie", 
     marker             = list(
-    colors             = c("#BA0C2F", "#000000", "dodgerblue")), 
+    colors             = c("#BA0C2F", "#7f827c", "#000000")), 
     hole               = 0.00, 
     title              = "Resident Undergraduates with Complete FAFSAs and Need", 
     showlegend         = TRUE) %>%
@@ -52,7 +52,7 @@ p18a2_pie <- plot_ly(X18gap.analysis[3:5, c(2, 4)],
     values             = ~non.resident, 
     type               = "pie", 
     marker             = list(
-      colors           = c("#BA0C2F", "#000000", "dodgerblue")), 
+      colors           = c("#BA0C2F", "#7f827c", "#000000")), 
     hole               = 0.00, 
     title              = "Non-Resident Undergraduates with Complete FAFSAs and Need", 
     showlegend         = TRUE) %>%
@@ -80,7 +80,7 @@ p18a3_pie <- plot_ly(X18gap.analysis[3:5, c(2, 5)],
     values             = ~total, 
     type               = "pie", 
     marker             = list(
-      colors           = c("#BA0C2F", "#000000", "dodgerblue")), 
+      colors           = c("#BA0C2F", "#7f827c", "#000000")), 
     hole               = 0.00, 
     title              = "All Undergraduates with Complete FAFSAs and Need", 
     showlegend         = TRUE) %>%

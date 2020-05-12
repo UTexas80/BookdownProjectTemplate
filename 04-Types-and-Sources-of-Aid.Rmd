@@ -77,7 +77,7 @@ flextable::autofit(ft_aid_source, add_w = 0.2)
 
 ## 04. Financial Aid Awarded: Sources of Financial Aid Chart
 ```{r 4.1.1-viz-pie, echo=FALSE, out.width = '100%'}
-knitr::include_graphics(here::here('png/p04a1.png'))
+knitr::include_graphics(here::here('png/p04a1_pie.png'))
 ```
 
 
@@ -130,7 +130,7 @@ flextable::autofit(ft_aid_type)
 
 ## 04. Financial Aid Awarded: Types of Financial Aid Chart
 ```{r 4.2.1-viz-pie, echo=FALSE, out.width = '100%'}
-knitr::include_graphics(here::here('png/p04a2.png'))
+knitr::include_graphics(here::here('png/p04a2_pie.png'))
 ```
 
 ```{=openxml}

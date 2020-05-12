@@ -16,15 +16,15 @@
 #                     scale = 1,
 #                     out_file = here::here("/png", "p02b1_bar.png"))
 # ------------------------------------------------------------------------------
-# plotly::plotly_IMAGE(p04a1,
+# plotly::plotly_IMAGE(p04a1_pie,
 #                     format = "png",
 #                     scale = 1,
-#                     out_file = here::here("/png", "p04a1.png"))
+#                     out_file = here::here("/png", "p04a1_pie.png"))
 # -----------------------------------------------------------------------------
-# plotly::plotly_IMAGE(p04a2,
+# plotly::plotly_IMAGE(p04a2_pie,
 #                     format = "png",
 #                     scale = 1,
-#                     out_file = here::here("/png", "p04a2.png"))
+#                     out_file = here::here("/png", "p04a2_pie.png"))
 # ------------------------------------------------------------------------------
 # plotly::plotly_IMAGE(p06a1,
 #                     format = "png",

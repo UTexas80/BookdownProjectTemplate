@@ -242,7 +242,7 @@ ft_default_compare      <- flextable(dt14_default_compare
     na_str             = "", 
     suffix             = "%"
   ) %>%
-  fit_to_width(max_width = 8.50
+  fit_to_width(max_width = 8.5
   ) %>%
   bg(   j = 2, bg = "#19488a", part = "all"
   ) %>%
@@ -254,7 +254,7 @@ ft_default_compare      <- flextable(dt14_default_compare
   ) %>%   
   fontsize(size = 6.5, part = "body"
   ) %>%
-  fontsize(size = 6.50, part = "header"
+  fontsize(size = 5.50, part = "header"
   ) %>%
   bold(part = "header", bold = TRUE
   ) 
@@ -270,6 +270,157 @@ knitr::include_graphics(here::here('png/p14b1_bar.png'))
 ```{r 14.3.3}
 knitr::include_graphics(here::here('png/p14b2_bar.png'))
 ```
+
+
+## 14. Cohort Default Rates: Comparator Institutions
+***
+
+```{r 99.99.99}
+  ft_default_compare <- flextable(dt14_default_compare) %>%
+    set_header_labels(Year	                              =	 "Yr",
+                      National	                          =	 "USA",
+                      'Univ. of Georgia'	                =	 "UGa",
+                      'Indiana Univ. - Bloomington'	      =	 "Indiana Univ.",
+                      'Iowa State Univ.'	                =	 "Iowa St.",
+                      'Michigan State Univ.'	            =	 "Michigan St.",
+                      'North Carolina State Univ.'	      =	 "NC St.",
+                      'Ohio State Univ.'	                =	 "Ohio St.",
+                      'Purdue Univ.'	                    =	 "Purdue Univ.",
+                      'Stony Brook Univ.'	                =	 "Stony Brook",
+                      'Univ. of Arizona'	                =	 "U. of Arizona",
+                      'Univ. of California - Davis'	      =	 "UC-Davis",
+                      'Univ. of Florida'	                =	 "U. of Florida",
+                      'Univ. of Iowa'	                    =	 "U. of Iowa",
+                      'Univ. of Kentucky'	                =	 "U. of Kentucky",
+                      'Univ. of Maryland - College Park'  =	 "U. of Maryland ",
+                      'Univ. of Missouri'	                =	 "U. of Missouri",
+                      'Virginia Tech'                     =	 "Va. Tech"
+   ) %>%
+  colformat_num(
+     j      = -1,
+     digits = 1,
+     na_str = "", 
+     suffix = "%"
+  ) %>%
+  fit_to_width(max_width = 8.5
+  ) %>%
+  bg(   j = 2, bg = "#19488a", part = "all"
+  ) %>%
+  color(j = 2, color = "white", part = "all"
+  ) %>% 
+  bg(   j = 3, bg = "#BA0C2F", part = "all"
+  ) %>%
+  color(j = 3, color = "white", part = "all"
+  ) %>%   
+  fontsize(size = 6.250, part = "body"
+  ) %>%
+  fontsize(size = 6.250, part = "header"
+  ) %>%
+  bold(part = "header", bold = TRUE
+  ) %>%
+  width(j = c(1:3,7:8), width = 0.440
+  ) %>%
+  theme_vader(fontsize = 6.25)
+ft_default_compare
+```
+
+## 14. Cohort Default Rates: Comparator Institutions
+***
+
+```{r 99.99.02}
+  ft_default_compare2 <- flextable(dt14_default_compare) %>%
+    set_header_labels(Year	                              =	 "Yr",
+                      National	                          =	 "USA",
+                      'Univ. of Georgia'	                =	 "UGa",
+                      'Indiana Univ. - Bloomington'	      =	 "Indiana Univ.",
+                      'Iowa State Univ.'	                =	 "Iowa St.",
+                      'Michigan State Univ.'	            =	 "Michigan St.",
+                      'North Carolina State Univ.'	      =	 "NC St.",
+                      'Ohio State Univ.'	                =	 "Ohio St.",
+                      'Purdue Univ.'	                    =	 "Purdue Univ.",
+                      'Stony Brook Univ.'	                =	 "Stony Brook",
+                      'Univ. of Arizona'	                =	 "U. of Arizona",
+                      'Univ. of California - Davis'	      =	 "UC-Davis",
+                      'Univ. of Florida'	                =	 "U. of Florida",
+                      'Univ. of Iowa'	                    =	 "U. of Iowa",
+                      'Univ. of Kentucky'	                =	 "U. of Kentucky",
+                      'Univ. of Maryland - College Park'  =	 "U. of Maryland ",
+                      'Univ. of Missouri'	                =	 "U. of Missouri",
+                      'Virginia Tech'                     =	 "Va. Tech"
+   ) %>%
+  colformat_num(
+     j      = -1,
+     digits = 1,
+     na_str = "",
+     suffix = "%"
+  ) %>%
+  fit_to_width(max_width = 8.5
+  ) %>%
+  fontsize(size = 6.250, part = "body"
+  ) %>%
+  fontsize(size = 6.250, part = "header"
+  ) %>%
+  bold(part = "header", bold = TRUE
+  ) %>%
+  width(j = 1, width = 0.380
+  ) %>%
+  width(j = 2:3, width = 0.44
+  ) %>%  
+  width(j = 6, width = 0.70
+  ) %>%    
+  theme_booktabs(fontsize = 6)
+ ft_default_compare2
+```
+
+```{r 99.99.03}
+  ft_default_compare3 <- flextable(dt14_default_compare) %>%
+    set_header_labels(Year	                              =	 "Yr",
+                      National	                          =	 "USA",
+                      'Univ. of Georgia'	                =	 "UGa",
+                      'Indiana Univ. - Bloomington'	      =	 "Indiana Univ.",
+                      'Iowa State Univ.'	                =	 "Iowa St.",
+                      'Michigan State Univ.'	            =	 "Michigan St.",
+                      'North Carolina State Univ.'	      =	 "NC St.",
+                      'Ohio State Univ.'	                =	 "Ohio St.",
+                      'Purdue Univ.'	                    =	 "Purdue Univ.",
+                      'Stony Brook Univ.'	                =	 "Stony Brook",
+                      'Univ. of Arizona'	                =	 "U. of Arizona",
+                      'Univ. of California - Davis'	      =	 "UC-Davis",
+                      'Univ. of Florida'	                =	 "U. of Florida",
+                      'Univ. of Iowa'	                    =	 "U. of Iowa",
+                      'Univ. of Kentucky'	                =	 "U. of Kentucky",
+                      'Univ. of Maryland - College Park'  =	 "U. of Maryland ",
+                      'Univ. of Missouri'	                =	 "U. of Missouri",
+                      'Virginia Tech'                     =	 "Va. Tech"
+   ) %>%
+  colformat_num(
+     j      = -1,
+     digits = 1,
+     na_str = "", 
+     suffix = "%"
+  ) %>%
+  fit_to_width(max_width = 8.5
+  ) %>%
+  # bg(   j = 2, bg = "#19488a", part = "all"
+  # ) %>%
+  # color(j = 2, color = "white", part = "all"
+  # ) %>% 
+  # bg(   j = 3, bg = "#BA0C2F", part = "all"
+  # ) %>%
+  # color(j = 3, color = "white", part = "all"
+  # ) %>%   
+  fontsize(size = 6.250, part = "body"
+  ) %>%
+  fontsize(size = 6.250, part = "header"
+  ) %>%
+  bold(part = "header", bold = TRUE
+  ) %>%
+  width(j = 1, width = 0.440
+  ) %>%
+  flextable::theme_zebra()
+ ft_default_compare3
+```
+
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

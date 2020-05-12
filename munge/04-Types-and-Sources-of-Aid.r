@@ -26,7 +26,7 @@ X04aid.types.long[, (vars) := .SD * 100, .SDcols = vars]
 ################################################################################
 ## Step 04.03 vizualize the tables                                           ###
 ################################################################################
-p04a1 <- plot_ly(head(X04aid.sources.long,-1),
+p04a1_pie <- plot_ly(head(X04aid.sources.long,-1),
             labels = ~source,
             values = ~undergraduate,
             type = 'pie',
@@ -52,7 +52,7 @@ p04a1 <- plot_ly(head(X04aid.sources.long,-1),
                         zeroline = FALSE, 
                         showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-p04a2 <- plot_ly(head(X04aid.types.long, -1),
+p04a2_pie <- plot_ly(head(X04aid.types.long, -1),
   labels = ~Type,
   values = ~undergraduate,
   type = "pie",
@@ -92,7 +92,7 @@ p04a2 <- plot_ly(head(X04aid.types.long, -1),
 ################################################################################
 ## Step 04.03 Create Plot_ly Vizualization Pie Charts                        ###
 ################################################################################
-p04b1 <-  plot_ly(head(X04aid.sources.long,-1), 
+p04b1_pie <-  plot_ly(head(X04aid.sources.long,-1), 
             labels = ~source, 
             values = ~undergraduate, 
             type = 'pie',
@@ -112,7 +112,7 @@ p04b1 <-  plot_ly(head(X04aid.sources.long,-1),
                         zeroline = FALSE, 
                         showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-p04b2 <-  plot_ly(head(X04aid.sources.long,-1), 
+p04b2_pie <-  plot_ly(head(X04aid.sources.long,-1), 
             labels = ~source, 
             values = ~all_students, 
             type = 'pie',
@@ -132,9 +132,9 @@ p04b2 <-  plot_ly(head(X04aid.sources.long,-1),
                         zeroline = FALSE, 
                         showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-subplot(p04b1, p04b2)
+subplot(p04b1_pie, p04b2_pie)
 # ------------------------------------------------------------------------------
-p04c1 <-  plot_ly(head(X04aid.types.long,-1), 
+p04c1_pie <-  plot_ly(head(X04aid.types.long,-1), 
             labels = ~source, 
             values = ~undergraduate, 
             type = 'pie',
@@ -153,7 +153,7 @@ p04c1 <-  plot_ly(head(X04aid.types.long,-1),
             yaxis = list(showgrid = FALSE, 
                         zeroline = FALSE, 
                         showticklabels = FALSE))
-p04c2 <-  plot_ly(head(X04aid.types.long,-1), 
+p04c2_pie <-  plot_ly(head(X04aid.types.long,-1), 
             labels = ~source, 
             values = ~all_students, 
             type = 'pie',
@@ -173,7 +173,7 @@ p04c2 <-  plot_ly(head(X04aid.types.long,-1),
                         zeroline = FALSE, 
                         showticklabels = FALSE))
 # ------------------------------------------------------------------------------
-subplot(p04c1, p04c2)
+subplot(p04c1_pie, p04c2_pie)
 ################################################################################
 ## Step 04.03 Create Plot_ly Vizualization Pie Charts                       ###
 ################################################################################

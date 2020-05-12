@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-05-11"
+# date: "2020-05-12"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -95,6 +95,8 @@ cover-image: "images/cover.pdf"
     - [Cohort Default Rates: Comparator Institutions](#cohort-default-rates:-comparator-institutions)
     - [Comparator Cohort Default Rate by Institution Bar Chart](#comparator-cohort-default-rate-by-institution-bar-chart)
     - [Comparator Cohort Default Rate by Year Bar Chart](#comparator-cohort-default-rate-by-year-bar-chart)
+    - [Cohort Default Rates: Comparator Institutions](#cohort-default-rates:-comparator-institutions)
+    - [Cohort Default Rates: Comparator Institutions](#cohort-default-rates:-comparator-institutions)
 
 - [Gap-Analysis](#gap-analysis)
     - [Resident Undergraduates Table](#resident-undergraduates-table)
