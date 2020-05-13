@@ -59,12 +59,12 @@ p08a1_pie <- plot_ly(head(dt_hz_tot,-1),
             hole      = 0.00,
             title     = 'Award Amount',
             domain    = list(x = c(0.55, 1))) %>%
-        layout(title  = str_c(currentAY, ' - Total Hope and Zell Awards'),
+        layout(title  = str_c(ay[currentAY_row,2], ': Total Hope and Zell Awards'),
             legend = list(
                         orientation    = "h",  # show entries horizontally
                         xanchor        = "center", # use center of legend as anchor
                         x              = 0.5
-                        ),  
+                        ),
             xaxis                      = list(title = "",
                         showgrid       = FALSE,
                         zeroline       = FALSE,

@@ -1,27 +1,116 @@
 # 01. Student Financial Aid Summary {#intro}
 
-<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+```{r global, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+library(dplyr)
+library(data.table)
+library(DT)
+library(flextable)
+library(formattable)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+library(here)
+library(janitor)
+library(kableExtra)
+library(knitr)
+library(officer)
+library(pander)
+library(plotly)
+library(png)
+library(reactable)
+library(scales)
+library(stringr)
+```
 
-<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
-<!-- ``{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
-<!--   par(mar = c(4, 4, .1, .1)) -->
-<!--   plot(pressure, type = 'b', pch = 19) -->
-<!-- ``` -->
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
 
-<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
-
-<!-- ```{r nice-tab, tidy=FALSE} -->
-<!--  knitr::kable( -->
-<!--  head(iris, 20), caption = 'Here is a nice table!', -->
-<!--  booktabs = TRUE -->
-<!-- ) -->
-<!-- ``` -->
-
-<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
+```{r 1.0.0-rdsInput, echo=FALSE}
+# ------------------------------------------------------------------------------
+ay          <- readRDS(here::here("/rds", "ay.rds"))
+ay_0        <- readRDS(here::here("/rds", "currentAY.rds"))
+ay_0_row    <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+ay_1        <- readRDS(here::here("/rds", "ay_1.rds"))
+# ------------------------------------------------------------------------------
+dt01_aid    <- setDT(data.table(readRDS(here::here("/rds", "X01aid.apps.rds"))))
+# ------------------------------------------------------------------------------
+```
 
 ```{r uga_logo, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
+```
+
+## 1. Student Financial Aid Summary Undergraduate Cost of Attendance
+***
+
+```{r 1.1.1}
+knitr::include_graphics(here::here('png/p01a1_pie.png'))
+```
+
+
+## 1. Financial Aid Applications and Awards
+***
+
+```{r 1.2.1}
+ft_aid_apps <- flextable(dt01_aid 
+  ) %>%
+  set_header_labels(
+    'Student.Aid.Applicants' = "Institution",
+    undergrad                = "Fall Undergrad Enrollment",
+    grad                     = "# of Pell Recipients",
+    tot_curr                 = "% With Pell Grant",
+    tot_prev                 = "Tot Dollars Received",
+    pct_chg                  = "Average Award"
+  ) %>%
+  colformat_num(
+    j                  = 2:5,
+    big.mark           = ",", 
+    digits             = 0, 
+    na_str             = "", 
+    prefix             = ""
+  ) %>%
+    colformat_num(
+    i                  = 5,
+    digits             = 2, 
+    na_str             = "", 
+    suffix             = "%"
+  ) %>%    
+  colformat_num(
+    j                  = 6,
+    digits             = 2, 
+    na_str             = "", 
+    suffix             = "%"
+  ) %>%    
+  # colformat_num(
+  #   j                  = 5:6, 
+  #   big.mark           = ",", 
+  #   digits             = 0, 
+  #   na_str             = "", 
+  #   prefix             = "$"
+  # ) %>%
+  width(j = 1, width = 2.20
+  ) %>%
+  width(j = 2, width = 1.25
+  ) %>%
+  # width(j = 4, width = 0.70
+  # ) %>%
+  # bg(   j = 4, bg = "#19488a"
+  # ) %>%
+  # color(j = 4, color = "white"
+  # ) %>%  
+  # bg(   i = ~ instnm %in% "University of Georgia", bg = "#BA0C2F"
+  # ) %>%
+  # color(i = ~ instnm %in% "University of Georgia", color = "white"
+  # ) %>%
+  fontsize(size = 7.50, part = "all"
+  ) %>%           
+  fit_to_width(max_width = 8.50)
+ft_aid_apps
 ```
 
 ```{=openxml}

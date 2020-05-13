@@ -30,6 +30,10 @@ source(here::here("/lib", "render_toc.R"))
 
 ## Table of Contents
 
+```{r toc-01, echo=FALSE}
+render_toc("01-Student-Financial-Aid-Summary.Rmd")
+```
+
 ```{r toc-02, echo=FALSE}
 render_toc("02-COA.Rmd")
 ```

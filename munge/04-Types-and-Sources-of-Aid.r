@@ -42,7 +42,7 @@ p04a1_pie <- plot_ly(head(X04aid.sources.long,-1),
             hole = 0.00,
             title = 'ALL STUDENTS',
             domain = list(x = c(0.55, 1))) %>%
-        layout(title = str_c(currentAY, ' - Sources of Financial Aid'),
+        layout(title = str_c(ay[currentAY_row,2], ' - Sources of Financial Aid'),
             xaxis = list(title = "",
                         showgrid = FALSE,
                         zeroline = FALSE, 
@@ -70,7 +70,7 @@ p04a2_pie <- plot_ly(head(X04aid.types.long, -1),
     domain = list(x = c(0.55, 1))
   ) %>%
   layout(
-    title = str_c(currentAY, " - Types of Financial Aid"),
+    title = str_c(ay[currentAY_row,2], " - Types of Financial Aid"),
     legend = list(
       orientation = "h",  # show entries horizontally
       xanchor = "center", # use center of legend as anchor
@@ -104,7 +104,7 @@ p04b1_pie <-  plot_ly(head(X04aid.sources.long,-1),
             marker = list(colors = colors,
                           line = list(color = '#FFFFFF', width = 1)),
             showlegend = FALSE) %>%
-        layout(title = str_c(currentAY, ' - Undergraduate Aid'),
+        layout(title = str_c(ay[currentAY_row,2], ' - Undergraduate Aid'),
             xaxis = list(showgrid = FALSE, 
                         zeroline = FALSE, 
                         showticklabels = FALSE),
@@ -124,7 +124,7 @@ p04b2_pie <-  plot_ly(head(X04aid.sources.long,-1),
             marker = list(colors = colors,
                           line = list(color = '#FFFFFF', width = 1)),
             showlegend = FALSE) %>%
-        layout(title = str_c(currentAY, ' - All Student Aid'),
+        layout(title = str_c(ay[currentAY_row,2], ' - All Student Aid'),
             xaxis = list(showgrid = FALSE, 
                         zeroline = FALSE, 
                         showticklabels = FALSE),
@@ -146,7 +146,7 @@ p04c1_pie <-  plot_ly(head(X04aid.types.long,-1),
             marker = list(colors = colors,
                       line = list(color = '#FFFFFF', width = 1)),
             showlegend = FALSE) %>%
-        layout(title = str_c(currentAY, ' - Undergraduate'),
+        layout(title = str_c(ay[currentAY_row,2], ' - Undergraduate'),
             xaxis = list(showgrid = FALSE, 
                         zeroline = FALSE, 
                         showticklabels = FALSE),
@@ -165,7 +165,7 @@ p04c2_pie <-  plot_ly(head(X04aid.types.long,-1),
             marker = list(colors = colors,
                           line = list(color = '#FFFFFF', width = 1)),
             showlegend = FALSE) %>%
-        layout(title = str_c(currentAY, ' - All Students'),
+        layout(title = str_c(ay[currentAY_row,2], ' - All Students'),
             xaxis = list(showgrid = FALSE, 
                         zeroline = FALSE, 
                         showticklabels = FALSE),

@@ -1,39 +1,69 @@
 # ------------------------------------------------------------------------------
-# 18. Gap Analysis                                                           ---
+# 01. Student Financial Aid Summary                                          ---
 # ------------------------------------------------------------------------------
 ################################################################################
-## Step 18.00 clean the tables                                               ###
+## Step 01.01 clean the tables                                               ###
 ################################################################################
-x18 <- grep("^X18", ls(), value = TRUE)
+# x01 <- grep("^X01", ls(), value = TRUE)
 # ------------------------------------------------------------------------------
-lapply(x18, function(nm) {
-  df  <- get(nm)
-  setDT(df)
-  setkey(df, "id")
-  setorder(df, id)
-  }
-)
+# lapply(x01, function(nm) {
+#   df  <- get(nm)
+#   setDT(df)
+#   setkey(df, "id")
+#   setorder(df, id)
+#   }
+# )
 ################################################################################
-## Step 18.01 - set the tables                                             ###
+## Step 01.02 - set the tables                                               ###
 ################################################################################
+dt01_coa          <- as.data.table(pdf.dat)
+names(dt01_coa)   <- as.character(dt01_coa[1,])
+dt01_coa          <- dt01_coa[-1]
+dt01_coa[is.na(dt01_coa)] <- ""
+# ------------------------------------------------------------------------------
+dt01_aid_coa_res  <- coa.res[,c(7,3:6)]
+dt01_aid_coa_res  <- data.table::melt.data.table(
+                    tail(dt01_aid_coa_res[,-1],1),measure.vars = 1:4)
+names(dt01_aid_coa_res)[1:2] <- c("desc", "Resident")
+# ------------------------------------------------------------------------------
+dt01_aid_coa_non <- dt01_coa[8:11,c(1,11)]
+names(dt01_aid_coa_non)[1:2] <- c("desc", "NonResident")
+dt01_aid_coa_non$NonResident <- 
+  as.numeric(                                                 # replace $, , wiht blank
+    gsub(",", "", 
+      gsub("\\.", "", 
+        gsub("\\$", "", 
+  dt01_aid_coa_non$NonResident))))
+dt01_aid_coa <- cbind(dt01_aid_coa_non, dt01_aid_coa_res[,2])[,c(1,3,2)]
 ################################################################################
-## Step 18.02 - viz the tables                                               ###
+## Step 01.03 viz the tables                                                 ###
 ################################################################################
-p18a1_pie <- plot_ly(X18gap.analysis[3:5, c(2, 3)], 
-    labels             = ~desc, 
-    values             = ~resident, 
-    type               = "pie", 
-    marker             = list(
-    colors             = c("#BA0C2F", "#7f827c", "#000000")), 
-    hole               = 0.00, 
-    title              = "Resident Undergraduates with Complete FAFSAs and Need", 
-    showlegend         = TRUE) %>%
+p01a1_pie <- plot_ly(dt01_aid_coa,
+      labels           = ~desc,
+      values           = ~Resident,
+      type             = "pie",
+      marker           = list(
+        colors         = c("#BA0C2F", "#7f827c", "#000000", "#4666d1")),
+      hole             = 0.00,
+      domain           = list(x = c(0, 0.45)), 
+      title            = "Resident On-Campus", 
+      showlegend       = TRUE) %>%
+  add_trace(dt01_aid_coa,
+      labels           = ~desc,
+      values           = ~NonResident,
+      type             = 'pie', 
+      marker           = list(
+        colors         = c("#BA0C2F", "#7f827c", "#000000", "#4666d1")),      
+      hole             = 0.00,
+      domain           = list(x = c(0.55, 1)), 
+      title            = 'Non-Resident On-Campus') %>%
   layout(
-    title              = str_c(ay[currentAY_row,2], " - GAP Analysis"), legend = list(
-      orientation      = "h", # show entries horizontally
-      xanchor          = "center", # use center of legend as anchor
-      x                = 0.5
-    ), xaxis           = list(
+    title              = str_c(ay[currentAY_row,2], ": Undergraduates Cost of Attendance"), 
+      legend = list(
+        orientation      = "h",      # show entries horizontally
+        xanchor          = "center", # use center of legend as anchor
+        x                = 0.5), 
+    xaxis           = list(
       title            = "",
       showgrid         = FALSE,
       zeroline         = FALSE,
@@ -57,7 +87,7 @@ p18a2_pie <- plot_ly(X18gap.analysis[3:5, c(2, 4)],
     title              = "Non-Resident Undergraduates with Complete FAFSAs and Need", 
     showlegend         = TRUE) %>%
   layout(
-    title              = str_c(ay[currentAY_row,2], " - GAP Analysis"), legend = list(
+    title              = str_c(currentAY, " - GAP Analysis"), legend = list(
       orientation      = "h", # show entries horizontally
       xanchor          = "center", # use center of legend as anchor
       x                = 0.5
@@ -75,7 +105,7 @@ p18a2_pie <- plot_ly(X18gap.analysis[3:5, c(2, 4)],
     )
   )
 # ------------------------------------------------------------------------------
-p18a3_pie <- plot_ly(X18gap.analysis[3:5, c(2, 5)],
+p18a3_pie <- plot_ly(X18gap.analysis[3:5, c(2, 5)], 
     labels             = ~desc, 
     values             = ~total, 
     type               = "pie", 
@@ -85,7 +115,7 @@ p18a3_pie <- plot_ly(X18gap.analysis[3:5, c(2, 5)],
     title              = "All Undergraduates with Complete FAFSAs and Need", 
     showlegend         = TRUE) %>%
   layout(
-    title              = str_c(ay[currentAY_row,2], " - GAP Analysis"), legend = list(
+    title              = str_c(currentAY, " - GAP Analysis"), legend = list(
       orientation      = "h", # show entries horizontally
       xanchor          = "center", # use center of legend as anchor
       x                = 0.5
@@ -103,11 +133,11 @@ p18a3_pie <- plot_ly(X18gap.analysis[3:5, c(2, 5)],
     )
   )
 ################################################################################
-## Step 18.A: VERSION HISTORY                                                ###
+## Step 01.A: VERSION HISTORY                                                ###
 ################################################################################
-a18.version           <- "1.0.0"
-a18.ModDate           <- as.Date("2020-05-06")
+a01.version           <- "1.0.0"
+a01.ModDate           <- as.Date("2020-05-12")
 # ------------------------------------------------------------------------------
-# 2020.03.01 - v.1.0.0
+# 2020.05.12 - v.1.0.0
 # 1st release
 # ------------------------------------------------------------------------------

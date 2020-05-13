@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-05-12"
+# date: "2020-05-13"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -26,6 +26,10 @@ cover-image: "images/cover.pdf"
 
 
 ## Table of Contents
+
+- [01. Student Financial Aid Summary](#intro)
+    - [Student Financial Aid Summary Undergraduate Cost of Attendance](#student-financial-aid-summary-undergraduate-cost-of-attendance)
+    - [Financial Aid Applications and Awards](#financial-aid-applications-and-awards)
 
 - [Undergraduate Cost of Attendance](#undergraduate-cost-of-attendance)
     - [Undergrad COA Percentage of Total Cost](#undergrad-coa-percentage-of-total-cost)

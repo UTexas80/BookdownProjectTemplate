@@ -13,7 +13,7 @@ m_grad_res              <- t(setDT(coa.current)[level =='grad'&
                         campus == 'on' &
                         program == 'Regular'][,c(6:14)])
 df_grad_res             <- data.frame(m_grad_res)
-grad_res                <-setDT(df_grad_res, keep.rownames = 'Description')[]
+grad_res                <- setDT(df_grad_res, keep.rownames = 'Description')[]
 names(grad_res)[2]      <- paste0("ay", currentAY)
 # ------------------------------------------------------------------------------
 m_grad_non_res          <- t(setDT(coa.current)[level =='grad'&
@@ -21,7 +21,7 @@ m_grad_non_res          <- t(setDT(coa.current)[level =='grad'&
                         campus == 'on' &
                         program == 'Regular'][,c(6:14)])
 df_grad_non             <- data.frame(m_grad_non_res)
-grad_non_res            <-setDT(df_grad_non, keep.rownames = 'Description')[]
+grad_non_res            <- setDT(df_grad_non, keep.rownames = 'Description')[]
 names(grad_non_res)[2]  <- paste0("ay", currentAY)
 # ------------------------------------------------------------------------------
 coa.res$ay_yr1 <- as.Date(as.character(coa.res$ay_yr1), format = "%Y")
@@ -41,7 +41,7 @@ names(dtCOA)[2:ncol(dtCOA)] <-
 
 dtCOA[is.na(dtCOA)] <- ""                     # replace NA's with spaces
 ################################################################################
-## Step 02.03 vizualize the tables                                           ###
+## Step 02.03 viz the tables                                                 ###
 ################################################################################
 p02a1_bar <- plot_ly(grad_res,
             labels           = ~Description,
@@ -58,7 +58,7 @@ p02a1_bar <- plot_ly(grad_res,
             hole             = 0.00,
             title            = 'NON-RESIDENTS',
             domain           = list(x = c(0.55, 1))) %>%
-        layout(title         = str_c(currentAY, ' - Percentage of Total Cost for:'),
+        layout(title         = str_c(ay[currentAY_row,2], ' Percentage of Total Cost for:'),
             legend           = list(
               orientation    = "h",      # show entries horizontally
               xanchor        = "center", # use center of legend as anchor
