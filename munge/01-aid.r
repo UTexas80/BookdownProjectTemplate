@@ -89,40 +89,12 @@ p01b1_pie <- plot_ly(X01aid.tot.aid[, -1],
     values             = ~amount,
     type               = "pie", 
     marker             = list(
-      colors           = c("#BA0C2F", "#7f827c", "#000000")), 
+      colors           = c("#BA0C2F", "#000000", "#7f827c")), 
     hole               = 0.00, 
     title              = "All Students", 
     showlegend         = TRUE) %>%
   layout(
     title              = str_c(currentAY, " - Total Student Aid"), legend = list(
-      orientation      = "h", # show entries horizontally
-      xanchor          = "center", # use center of legend as anchor
-      x                = 0.5
-    ), xaxis           = list(
-      title            = "",
-      showgrid         = FALSE,
-      zeroline         = FALSE,
-      showticklabels   = FALSE
-    ),
-    yaxis              = list(
-      title            = "",
-      showgrid         = FALSE,
-      zeroline         = FALSE,
-      showticklabels   = FALSE
-    )
-  )
-# ------------------------------------------------------------------------------
-p18a3_pie <- plot_ly(X18gap.analysis[3:5, c(2, 5)], 
-    labels             = ~desc, 
-    values             = ~total, 
-    type               = "pie", 
-    marker             = list(
-      colors           = c("#BA0C2F", "#7f827c", "#000000")), 
-    hole               = 0.00, 
-    title              = "All Undergraduates with Complete FAFSAs and Need", 
-    showlegend         = TRUE) %>%
-  layout(
-    title              = str_c(currentAY, " - GAP Analysis"), legend = list(
       orientation      = "h", # show entries horizontally
       xanchor          = "center", # use center of legend as anchor
       x                = 0.5
