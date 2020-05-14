@@ -33,8 +33,9 @@ cover-image: "images/cover.pdf"
         - [Student Aid Applications](#student-aid-applications)
         - [Scholarships, Grants & Waivers](#scholarships,-grants-&-waivers)
         - [Loans](#loans)
-        - [Student Employemt](#student-employemt)
+        - [Student Employment](#student-employment)
         - [Debt of Undergraduate Students Graduating With Student Loans](#debt-of-undergraduate-students-graduating-with-student-loans)
+    - [Total Student Aid](#total-student-aid)
 
 - [02. Undergraduate Cost of Attendance](#intro)
     - [Undergrad COA Percentage of Total Cost](#undergrad-coa-percentage-of-total-cost)

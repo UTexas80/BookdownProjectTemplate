@@ -1,4 +1,4 @@
-# 07. HOPE-ZELL Scholarship Awards by Tier
+# 07. HOPE-ZELL Scholarship Awards by Tier {#intro}
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
 library(dplyr)

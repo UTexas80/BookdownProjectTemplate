@@ -19,6 +19,10 @@ saveRDS(c_pie_grad_non,      file = here::here("rds/", "c_pie_grad_non.rds"))
 saveRDS(c_pie_grad_res,      file = here::here("rds/", "c_pie_grad_res.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(X01aid.apps,         file = here::here("rds/", "X01aid.apps.rds"))
+saveRDS(X01aid.awd,          file = here::here("rds/", "X01aid.awd.rds"))
+saveRDS(dt01_debt,           file = here::here("rds/", "dt01_debt.rds"))
+saveRDS(X01aid.emp,          file = here::here("rds/", "X01aid.emp.rds"))
+saveRDS(X01aid.loan,         file = here::here("rds/", "X01aid.loan.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(p04a1_pie,           file = here::here("rds/", "p04a1_pie.rds"))
 saveRDS(p04a2_pie,           file = here::here("rds/", "p04a2_pie.rds"))
@@ -39,7 +43,7 @@ saveRDS(X05awards.fb.1,      file = here::here("rds/", "X05awards.fb.1"))
 saveRDS(X05awards.fb.2,      file = here::here("rds/", "X05awards.fb.2"))
 # ------------------------------------------------------------------------------
 saveRDS(X06hope.wide,        file = here::here("rds/", "dt_hope.rds"))
-saveRDS(dt06_hope_bar_amt,     file = here::here("rds/", "dt06_hope_bar_amt.rds"))
+saveRDS(dt06_hope_bar_amt,   file = here::here("rds/", "dt06_hope_bar_amt.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(X06zell.wide,        file = here::here("rds/", "dt_zell.rds"))
 saveRDS(dt_zell_bar_amt,     file = here::here("rds/", "dt_zell_bar_amt.rds"))

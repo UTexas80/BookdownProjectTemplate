@@ -32,12 +32,17 @@ options(tinytex.verbose = TRUE)
 
 ```{r 1.0.0-rdsInput, echo=FALSE}
 # ------------------------------------------------------------------------------
-ay          <- readRDS(here::here("/rds", "ay.rds"))
-ay_0        <- readRDS(here::here("/rds", "currentAY.rds"))
-ay_0_row    <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
-ay_1        <- readRDS(here::here("/rds", "ay_1.rds"))
+ay            <- readRDS(here::here("/rds", "ay.rds"))
+ay_0          <- readRDS(here::here("/rds", "currentAY.rds"))
+ay_0_row      <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+ay_1          <- readRDS(here::here("/rds", "ay_1.rds"))
+currentAY_row <- readRDS(here::here("/rds", "currentAY_row.rds"))
 # ------------------------------------------------------------------------------
-dt01_aid    <- setDT(data.table(readRDS(here::here("/rds", "X01aid.apps.rds"))))
+dt01_aid      <- setDT(data.table(readRDS(here::here("/rds", "X01aid.apps.rds"))))
+dt01_awd      <- setDT(data.table(readRDS(here::here("/rds", "X01aid.awd.rds"))))
+dt01_debt     <- setDT(data.table(readRDS(here::here("/rds", "dt01_debt.rds"))))
+dt01_emp      <- setDT(data.table(readRDS(here::here("/rds", "X01aid.emp.rds"))))
+dt01_loan     <- setDT(data.table(readRDS(here::here("/rds", "X01aid.loan.rds"))))
 # ------------------------------------------------------------------------------
 ```
 
@@ -46,40 +51,42 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ```
 
 ## 1. Student Financial Aid Summary Undergraduate Cost of Attendance
-***
 
 ```{r 1.1.1}
 knitr::include_graphics(here::here('png/p01a1_pie.png'))
 ```
 
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 ## 1. Financial Aid Applications and Awards
+### Student Aid Applications
 ***
 
 ```{r 1.2.1}
-ft_aid_apps <- flextable(dt01_aid 
+ft_aid_apps <- flextable(dt01_aid[,-1] 
   ) %>%
   set_header_labels(
-    'Student.Aid.Applicants' = "Institution",
-    undergrad                = "Fall Undergrad Enrollment",
-    grad                     = "# of Pell Recipients",
-    tot_curr                 = "% With Pell Grant",
-    tot_prev                 = "Tot Dollars Received",
-    pct_chg                  = "Average Award"
-  ) %>%
-  colformat_num(
+#    'Student.Aid.Applicants' = "Institution",
+    undergrad          = "Undergraduate",
+    grad               = "Grad/Professional",
+    tot_curr           = str_c(ay[currentAY_row,2], ' Total'),
+    tot_prev           = str_c(ay[currentAY_row - 1,2], ' Total'),
+    pct_chg            = "% Change"
+  ) %>%  colformat_num(
     j                  = 2:5,
     big.mark           = ",", 
     digits             = 0, 
     na_str             = "", 
     prefix             = ""
   ) %>%
-    colformat_num(
+  colformat_num(
     i                  = 5,
     digits             = 2, 
     na_str             = "", 
     suffix             = "%"
-  ) %>%    
+  ) %>%      
   colformat_num(
     j                  = 6,
     digits             = 2, 
@@ -93,10 +100,12 @@ ft_aid_apps <- flextable(dt01_aid
   #   na_str             = "", 
   #   prefix             = "$"
   # ) %>%
-  width(j = 1, width = 2.20
+  width(j = 1,   width = 2.00
   ) %>%
-  width(j = 2, width = 1.25
+  width(j = 2:5, width = 1.00
   ) %>%
+  width(j = 6,   width = 0.60
+  ) %>%  
   # width(j = 4, width = 0.70
   # ) %>%
   # bg(   j = 4, bg = "#19488a"
@@ -107,10 +116,164 @@ ft_aid_apps <- flextable(dt01_aid
   # ) %>%
   # color(i = ~ instnm %in% "University of Georgia", color = "white"
   # ) %>%
-  fontsize(size = 7.50, part = "all"
+  fontsize(size = 7.25, part = "all"
   ) %>%           
   fit_to_width(max_width = 8.50)
 ft_aid_apps
+```
+
+### Scholarships, Grants & Waivers
+
+```{r 1.3.1}
+ft_aid_awd  <- flextable(dt01_awd[,-1] 
+  ) %>%
+  set_header_labels(
+    desc               = "Scholarships, Grants & Waivers",
+    undergrad          = "Undergraduate",
+    grad               = "Grad/Professional",
+    tot_curr           = str_c(ay[currentAY_row,2], ' Total'),
+    tot_prev           = str_c(ay[currentAY_row - 1,2], ' Total'),
+    pct_chg            = "% Change"
+  ) %>%
+  colformat_num(
+    j                  = 2:5,
+    big.mark           = ",",
+    digits             = 0,
+    na_str             = "",
+    prefix             = "$"
+  ) %>% 
+  colformat_num(
+    j                  = 6,
+    digits             = 2, 
+    na_str             = "", 
+    suffix             = "%"
+  ) %>%    
+  width(j = 1,   width = 2.00
+  ) %>%
+  width(j = 2:5, width = 1.00
+  ) %>%
+  width(j = 6,   width = 0.60
+  ) %>%  
+  fontsize(size = 7.250, part = "all"
+  ) %>%           
+  fit_to_width(max_width = 8.50)
+ft_aid_awd
+```
+
+### Loans
+
+```{r 1.4.1}
+ft_aid_loan  <- flextable(dt01_loan[,-1] 
+  ) %>%
+  set_header_labels(
+    desc               = "Loans",
+    undergrad          = "Undergraduate",
+    grad               = "Grad/Professional",
+    tot_curr           = str_c(ay[currentAY_row,2], ' Total'),
+    tot_prev           = str_c(ay[currentAY_row - 1,2], ' Total'),
+    pct_chg            = "% Change"
+  ) %>%
+  colformat_num(
+    j                  = 2:5,
+    big.mark           = ",",
+    digits             = 0,
+    na_str             = "",
+    prefix             = "$"
+  ) %>% 
+  colformat_num(
+    j                  = 6,
+    digits             = 2, 
+    na_str             = "", 
+    suffix             = "%"
+  ) %>%    
+  width(j = 1,   width = 2.00
+  ) %>%
+  width(j = 2:5, width = 1.00
+  ) %>%
+  width(j = 6,   width = 0.60
+  ) %>%  
+  fontsize(size = 7.250, part = "all"
+  ) %>%           
+  fit_to_width(max_width = 8.50)
+ft_aid_loan
+```
+
+### Student Employment
+
+```{r 1.5.1}
+ft_aid_emp  <- flextable(dt01_emp[,-1] 
+  ) %>%
+  set_header_labels(
+    desc               = "Student Employemt",
+    undergrad          = "Undergraduate",
+    grad               = "Grad/Professional",
+    tot_curr           = str_c(ay[currentAY_row,2], ' Total'),
+    tot_prev           = str_c(ay[currentAY_row - 1,2], ' Total'),
+    pct_chg            = "% Change"
+  ) %>%
+  colformat_num(
+    j                  = 2:5,
+    big.mark           = ",",
+    digits             = 0,
+    na_str             = "",
+    prefix             = "$"
+  ) %>% 
+  colformat_num(
+    j                  = 6,
+    digits             = 2, 
+    na_str             = "", 
+    suffix             = "%"
+  ) %>%    
+  width(j = 1,   width = 2.00
+  ) %>%
+  width(j = 2:5, width = 1.00
+  ) %>%
+  width(j = 6,   width = 0.60
+  ) %>%  
+  fontsize(size = 7.250, part = "all"
+  ) %>%           
+  fit_to_width(max_width = 8.50)
+ft_aid_emp
+```
+
+### Debt of Undergraduate Students Graduating With Student Loans
+
+```{r 1.6.1}
+ft_aid_debt  <- flextable(dt01_debt[,-1] 
+  ) %>%
+  set_header_labels(
+    year_graduation    = "Year of Graduation",
+    '2009.10'          = '2009-10',
+    '2010.11'          = '2010-11',
+    '2011.12'          = '2011-12',
+    '2012.13'          = '2012-13',
+    '2013.14'          = '2013-14',
+    '2014.15'          = '2014-15',
+    '2015.16'          = '2015-16',
+    '2016.17'          = '2016-17',
+    '2017.18'          = '2017-18'
+  ) %>%
+  colformat_num(
+    j                  = 2:10,
+    big.mark           = ",",
+    digits             = 0,
+    na_str             = "",
+    prefix             = "$"
+  ) %>%
+  width(j = 1,   width = 1.90
+  ) %>%
+  width(j = 2:5, width = 1.20
+  ) %>%  
+  fontsize(size = 7.50, part = "all"
+  ) %>%           
+  fit_to_width(max_width = 8.50)
+ft_aid_debt
+```
+
+## Total Student Aid
+
+```{r 1.1.1}
+knitr::include_graphics(here::here('png/p01b1_pie.png'))
 ```
 
 ```{=openxml}

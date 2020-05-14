@@ -1,10 +1,10 @@
 ################################################################################
 ## Step 99.00 Save .png files                                                ###
 ################################################################################
-plotly::plotly_IMAGE(p01a1_pie,
-                      format = "png",
-                      scale = 1,
-                      out_file = here::here("/png", "p01a1_pie.png"))
+# plotly::plotly_IMAGE(p01a1_pie,
+#                       format = "png",
+#                       scale = 1,
+#                       out_file = here::here("/png", "p01a1_pie.png"))
 # plotly::plotly_IMAGE(p02a_bar,
 #                      format = "png",
 #                      scale = 1,

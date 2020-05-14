@@ -1,4 +1,4 @@
-# 09. HOPE-ZELL Max Awards Compared to Tuition
+# 09. HOPE-ZELL Max Awards Compared to Tuition {#intro}
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
 library(dplyr)

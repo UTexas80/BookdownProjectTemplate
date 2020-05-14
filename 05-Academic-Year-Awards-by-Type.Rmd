@@ -1,4 +1,4 @@
-# 05. Academic Year Student Financial Aid Awards by Type
+# 05. Academic Year Student Financial Aid Awards by Type {#intro}
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
 library(dplyr)

@@ -4,32 +4,39 @@
 ################################################################################
 ## Step 01.01 clean the tables                                               ###
 ################################################################################
-# x01 <- grep("^X01", ls(), value = TRUE)
+x01 <- grep("^X01", ls(), value = TRUE)
 # ------------------------------------------------------------------------------
-# lapply(x01, function(nm) {
-#   df  <- get(nm)
-#   setDT(df)
-#   setkey(df, "id")
-#   setorder(df, id)
-#   }
-# )
+lapply(x01, function(nm) {
+  df  <- get(nm)
+  setDT(df)
+  setkey(df, "id")
+  setorder(df, id)
+  }
+)
 ################################################################################
 ## Step 01.02 - set the tables                                               ###
 ################################################################################
-dt01_coa          <- as.data.table(pdf.dat)
-names(dt01_coa)   <- as.character(dt01_coa[1,])
-dt01_coa          <- dt01_coa[-1]
-dt01_coa[is.na(dt01_coa)] <- ""
+dt01_debt        <- X01aid.debt
 # ------------------------------------------------------------------------------
-dt01_aid_coa_res  <- coa.res[,c(7,3:6)]
-dt01_aid_coa_res  <- data.table::melt.data.table(
-                    tail(dt01_aid_coa_res[,-1],1),measure.vars = 1:4)
+names(dt01_debt)[2:ncol(dt01_debt)] <-              #remove X from Academic Year
+  gsub(x = names(dt01_debt[1, -1]), pattern = "X*", replacement = "")
+# names(dt01_debt)[2:ncol(dt01_debt)] <-              #remove . from Academic Year  
+#   gsub(x = names(dt01_debt[1, -1]), pattern = "\\.", replacement = "_")
+# ------------------------------------------------------------------------------
+dt01_coa                     <- as.data.table(pdf.dat)
+names(dt01_coa)              <- as.character(dt01_coa[1,])
+dt01_coa                     <- dt01_coa[-1]
+dt01_coa[is.na(dt01_coa)]    <- ""
+# ------------------------------------------------------------------------------
+dt01_aid_coa_res             <- coa.res[,c(7,3:6)]
+dt01_aid_coa_res             <- data.table::melt.data.table(
+                                  tail(dt01_aid_coa_res[,-1],1),measure.vars = 1:4)
 names(dt01_aid_coa_res)[1:2] <- c("desc", "Resident")
 # ------------------------------------------------------------------------------
-dt01_aid_coa_non <- dt01_coa[8:11,c(1,11)]
+dt01_aid_coa_non             <- dt01_coa[8:11,c(1,11)]
 names(dt01_aid_coa_non)[1:2] <- c("desc", "NonResident")
 dt01_aid_coa_non$NonResident <- 
-  as.numeric(                                                 # replace $, , wiht blank
+  as.numeric(                                          # replace $, , wiht blank
     gsub(",", "", 
       gsub("\\.", "", 
         gsub("\\$", "", 
@@ -77,17 +84,17 @@ p01a1_pie <- plot_ly(dt01_aid_coa,
     )
   )
 # ------------------------------------------------------------------------------
-p18a2_pie <- plot_ly(X18gap.analysis[3:5, c(2, 4)], 
+p01b1_pie <- plot_ly(X01aid.tot.aid[, -1], 
     labels             = ~desc, 
-    values             = ~non.resident, 
+    values             = ~amount,
     type               = "pie", 
     marker             = list(
       colors           = c("#BA0C2F", "#7f827c", "#000000")), 
     hole               = 0.00, 
-    title              = "Non-Resident Undergraduates with Complete FAFSAs and Need", 
+    title              = "All Students", 
     showlegend         = TRUE) %>%
   layout(
-    title              = str_c(currentAY, " - GAP Analysis"), legend = list(
+    title              = str_c(currentAY, " - Total Student Aid"), legend = list(
       orientation      = "h", # show entries horizontally
       xanchor          = "center", # use center of legend as anchor
       x                = 0.5
@@ -133,10 +140,10 @@ p18a3_pie <- plot_ly(X18gap.analysis[3:5, c(2, 5)],
     )
   )
 ################################################################################
-## Step 01.A: VERSION HISTORY                                                ###
+## Step 01.A: VERSION HISTORY                                                ---
 ################################################################################
-a01.version           <- "1.0.0"
-a01.ModDate           <- as.Date("2020-05-12")
+a01.version            <- "1.0.0"
+a01.ModDate            <- as.Date("2020-05-12")
 # ------------------------------------------------------------------------------
 # 2020.05.12 - v.1.0.0
 # 1st release

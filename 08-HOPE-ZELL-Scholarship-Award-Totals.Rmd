@@ -1,4 +1,4 @@
-# 08. HOPE-ZELL Scholarship Award Totals
+# 08. HOPE-ZELL Scholarship Award Totals {#intro}
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
 library(dplyr)
