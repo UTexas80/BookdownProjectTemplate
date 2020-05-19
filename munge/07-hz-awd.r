@@ -33,7 +33,7 @@ dt_hz_awd              <- dt_hz_awd[, c(2, 1, 3)]     # Reorder Columns by index
 # ------------------------------------------------------------------------------
 # rename ay column row values                       https://tinyurl.com/ybd24xj2
 # ------------------------------------------------------------------------------
-dt_hz_awd$ay <- apply(dt_hz_awd[,1], 2, 
+dt_hz_awd$ay <- apply(dt_hz_awd[,1], 2,
                         function(x) paste0(mid(x,2,4), "-", right(x,2)))
 # dt_hz_awd[, ay := paste0(mid(ay,2,4), "-", right(ay,2))]
 # ------------------------------------------------------------------------------

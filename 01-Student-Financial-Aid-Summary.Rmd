@@ -272,8 +272,14 @@ ft_aid_debt
 
 ## Total Student Aid
 
-```{r 1.1.1}
+```{r 1.7.1}
 knitr::include_graphics(here::here('png/p01b1_pie.png'))
+```
+
+## Undergraduate Scholarships & Grants by Source
+
+```{r 1.8.1}
+knitr::include_graphics(here::here('png/p01c1_pie.png'))
 ```
 
 ```{=openxml}

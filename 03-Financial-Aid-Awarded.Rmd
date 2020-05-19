@@ -1,4 +1,4 @@
-# 03. Financial Aid Awarded to Students - Five-Year Comparison {#intro}
+# 03. Financial Aid Awarded to Students - Five-Year Comparison {#intro}  
 
 ```{r global, echo=FALSE, include=FALSE, message = FALSE, warning=FALSE}
 library(dplyr)
@@ -27,84 +27,50 @@ options(tinytex.verbose = TRUE)
 ```
 
 ```{r 3.0-rdsInput, echo=FALSE}
-ay                   <- readRDS(here::here("/rds", "ay.rds"))
-currentAY            <- readRDS(here::here("/rds", "currentAY.rds"))
-currentAY_row        <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
-fin.aid.long         <- readRDS(here::here("/rds", "fin_aid_long.rds"))
-fin.aid.wide         <- readRDS(here::here("/rds", "fin_aid_wide.rds"))
-pdf2                 <- readRDS(here::here("/rds", "pdf2.rds"))
-pdf.tbl              <- readRDS(here::here("/rds", "pdf_tbl.rds"))
+ay            <- readRDS(here::here("/rds", "ay.rds"))
+currentAY     <- readRDS(here::here("/rds", "currentAY.rds"))
+currentAY_row <- as.integer(readRDS(here::here("/rds", "currentAY_row.rds")))
+dt03_aid_long <- readRDS(here::here("/rds", "dt03_aid_long.rds"))
+dt03_aid_wide <- readRDS(here::here("/rds", "dt03_aid_wide.rds"))
+pdf2          <- readRDS(here::here("/rds", "pdf2.rds"))
+pdf.tbl       <- readRDS(here::here("/rds", "pdf_tbl.rds"))
 ```
-
 ```{r uga_logo, echo=FALSE, out.width = '100%'}
 knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 ```
 
 <h2><center><b>Financial Aid Awarded</b></center></h2>
 
-```{r 3.1.0-coa-flextable, echo=FALSE, fig.cap='flextable', message = FALSE, warning=FALSE}
+```{r 3.1.0-coa-flextable}
 startAY <- ay[currentAY_row - 5, 2]
-setDT(fin.aid.wide)
-
-# data_co2 <- dcast(CO2, Treatment + conc ~ Type,
-#   value.var = "uptake", fun.aggregate = mean
-# )
-fin.aid.wide <- cbind(fin.aid.wide[, c(1:2)], fin.aid.wide[, c(ncol(fin.aid.wide) - 4):ncol(fin.aid.wide)])
-fin.aid.wide <- as_grouped_data(fin.aid.wide, groups = c("level"))
+setDT(dt03_aid_wide)
 
 num_keys <- c("x2014_15", "x2015_16", "x2016_17", "x2017_18", "x2018_19")
 
-ft <- flextable(fin.aid.wide,
+ft_aid <- flextable(dt03_aid_wide,
   col_keys = c(
     "level",
     "description",
-    # "x2010_11"
-    #   "X2011_12",
-    #   "X2012_13",
-    #   "X2013_14",
     "x2014_15",
     "x2015_16",
     "x2016_17",
     "x2017_18",
     "x2018_19"
-  )
-)
-
-ft <- set_header_labels(ft,
-  description = "desc",
-  # x2010_11 = "2010_11",
-  # X2011_12 = "2011_12",
-  # X2012_13 = "2012_13",
-  # X2013_14 = "2013_14",
-  X2014_15 = "2014_15",
-  X2015_16 = "2015_16",
-  X2016_17 = "2016_17",
-  X2017_18 = "2017_18",
-  X2018_19 = "2018_19"
-)
-zz <- as_flextable(fin.aid.wide) %>%
-  bold(j = 1, i = ~ !is.na(level), bold = TRUE, part = "body") %>%
-  bold(part = "header", bold = TRUE) %>%
-  set_header_labels(
-    description = "desc",
-    # x2010_11 = "2010_11",
-    # X2011_12 = "2011_12",
-    # X2012_13 = "2012_13",
-    # X2013_14 = "2013_14",
-    x2014_15 = "2014_15",
-    x2015_16 = "2015_16",
-    x2016_17 = "2016_17",
-    x2017_18 = "2017_18",
-    x2018_19 = "2018_19"
+    )
   ) %>%
-  # add_footer_lines(values = c(
-  #   "Source: Office of Student Financial Aid. Financial aid data sourced from UGA Factbook OSFA
-  #   reported information. Enrollment data reflect total student enrollment as reported in UGA
-  #   Factbook.",
-  #   "* Enrollment count reflects fall semester enrollment, but aid recipient counts reflect aid
-  #   recipients regardless of semester of enrollment.",
-  #   " ** Beginning 2014-15, Graduate/Professional aid includes all tuition waivers accompanying
-  #   graduate assistantships.")) %>%
+  bold(j = 1, i = ~ !is.na(level), bold = TRUE, part = "body"
+  ) %>%
+  bold(part = "header", bold = TRUE
+  ) %>%
+  set_header_labels(
+    level          = "Level",
+    description    = "Description",
+    x2014_15       = "2014-15",
+    x2015_16       = "2015-16",
+    x2016_17       = "2016-17",
+    x2017_18       = "2017-18",
+    x2018_19       = "2018-19"
+  ) %>%
   colformat_num(
     ft, num_keys,
     i = ~ description != "Total Aid",
@@ -115,17 +81,31 @@ zz <- as_flextable(fin.aid.wide) %>%
     i = ~ description == "Total Aid",
     big.mark = ",", digits = 0, na_str = "", prefix = "$"
   ) %>%
-  autofit() %>%
-  theme_vader(fontsize = 8)
-# fit_to_width(ft, max_width = 8)
-# autofit() %>%
-# width(width = c(1, 1, 1))
-suppressWarnings(zz)
+  bg(bg = '#7f827c', part = 'header'
+  ) %>%
+  bg(i = 1:3, bg = '#BA0C2F'
+  ) %>%
+  bg(i = 4:6, bg = '#000000'
+  ) %>%
+  color(i = 4:6, color = "white", part = "body"
+  ) %>%    
+  merge_v( j = ~ level + description
+  ) %>%
+  fit_to_width(max_width = 8.5
+  ) %>%
+  fontsize(size = 7.00, part = "all")           
+
+  hBorder    <- officer::fp_border(color = '#19488a', style = "solid", width = 2)
+  ft_aid     <- hline(ft_aid, i = c(3,6), border = hBorder)
+  vBorder    <- officer::fp_border(color = 'white', style = "solid", width = 1)
+  ft_aid     <- vline(ft_aid, j = 1, border = vBorder)
+
+suppressWarnings(ft_aid)
 ```
 
 ## 03. Average Award Per Recipient chart
 ```{r 3.1.1-viz-bar, echo=FALSE, message = FALSE}
-fin.aid.long[level == "undergrad"] %>%
+dt03_aid_long[level == "undergrad"] %>%
   filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
   ggplot() +
   aes(x = ay_abbv, weight = avg_awd) +
@@ -134,7 +114,7 @@ fin.aid.long[level == "undergrad"] %>%
   theme(plot.title = element_text(hjust = 0.5)) + # Center ggplot title
   theme_minimal() -> p1 # Center ggplot title / https://tinyurl.com/s9zcx3o
 
-fin.aid.long[level == "graduate"] %>%
+dt03_aid_long[level == "graduate"] %>%
   filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
   ggplot() +
   aes(x = ay_abbv, weight = avg_awd) +
@@ -149,15 +129,15 @@ grid.arrange(grobs = list(p1,p2), ncol = 2)
 
 ## 03. Average Award Per Recipient Chart
 ```{r 3.2.1.a-viz-bar}
-fin.aid.long %>%
-    filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
-    ggplot() +
-    aes(x = ay_abbv, weight = avg_awd) +
-    geom_bar(fill = "#0c4c8a") +
-    facet_wrap(~level) +
-    xlab("Academic Year") + 
-    ylab("Award") + 
-    theme_bw() + theme(aspect.ratio = 0.6666666, panel.spacing = unit(1, "lines"))
+# dt03_aid_long %>%
+#     filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
+#     ggplot() +
+#     aes(x = ay_abbv, weight = avg_awd) +
+#     geom_bar(fill = "#0c4c8a") +
+#     facet_wrap(~level) +
+#     xlab("Academic Year") + 
+#     ylab("Award") + 
+#     theme_bw() + theme(aspect.ratio = 0.6666666, panel.spacing = unit(1, "lines"))
 ```
 
 ```{=openxml}

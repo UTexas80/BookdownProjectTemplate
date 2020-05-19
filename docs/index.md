@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-05-14"
+# date: "2020-05-19"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -33,8 +33,10 @@ cover-image: "images/cover.pdf"
         - [Student Aid Applications](#student-aid-applications)
         - [Scholarships, Grants & Waivers](#scholarships,-grants-&-waivers)
         - [Loans](#loans)
-        - [Student Employemt](#student-employemt)
+        - [Student Employment](#student-employment)
         - [Debt of Undergraduate Students Graduating With Student Loans](#debt-of-undergraduate-students-graduating-with-student-loans)
+    - [Total Student Aid](#total-student-aid)
+    - [Undergraduate Scholarships & Grants by Source](#undergraduate-scholarships-&-grants-by-source)
 
 - [02. Undergraduate Cost of Attendance](#intro)
     - [Undergrad COA Percentage of Total Cost](#undergrad-coa-percentage-of-total-cost)

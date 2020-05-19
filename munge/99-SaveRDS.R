@@ -9,9 +9,6 @@ saveRDS(currentAY_row,       file = "./rds/currentAY_row.rds")
 saveRDS(dtCOA,               file = "./rds/dtCOA.rds")
 saveRDS(dtCOAprior,          file = "./rds/dtCOAprior.rds")
 # ------------------------------------------------------------------------------
-saveRDS(fin.aid.long,        file = "./rds/fin_aid_long.rds")
-saveRDS(fin.aid.wide,        file = "./rds/fin_aid_wide.rds")
-# ------------------------------------------------------------------------------
 saveRDS(grad_res,            file = "./rds/grad_res.rds")
 saveRDS(grad_non_res,        file = "./rds/grad_non.rds")
 # ------------------------------------------------------------------------------
@@ -24,14 +21,17 @@ saveRDS(dt01_debt,           file = here::here("rds/", "dt01_debt.rds"))
 saveRDS(X01aid.emp,          file = here::here("rds/", "X01aid.emp.rds"))
 saveRDS(X01aid.loan,         file = here::here("rds/", "X01aid.loan.rds"))
 # ------------------------------------------------------------------------------
+saveRDS(pdf.tbl,             file = here::here("rds/", "pdf_tbl.rds"))
+saveRDS(pdf2,                file = here::here("rds/", "pdf2.rds"))
+# ------------------------------------------------------------------------------
+saveRDS(X03aid.long,         file = "./rds/dt03_aid_long.rds")
+saveRDS(X03aid.wide,         file = "./rds/dt03_aid_wide.rds")
+# ------------------------------------------------------------------------------
 saveRDS(p04a1_pie,           file = here::here("rds/", "p04a1_pie.rds"))
 saveRDS(p04a2_pie,           file = here::here("rds/", "p04a2_pie.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(p04b1_pie,           file = here::here("rds/", "p04a1_pie.rds"))
 saveRDS(p04b2_pie,           file = here::here("rds/", "p04a2_pie.rds"))
-# ------------------------------------------------------------------------------
-saveRDS(pdf.tbl,             file = here::here("rds/", "pdf_tbl.rds"))
-saveRDS(pdf2,                file = here::here("rds/", "pdf2.rds"))
 # ------------------------------------------------------------------------------
 saveRDS(X04aid.sources.long, file = here::here("rds/", "aid_sources_long.rds"))
 saveRDS(X04aid.types.long,   file = here::here("rds/", "aid_types_long.rds"))

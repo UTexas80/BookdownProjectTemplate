@@ -2,13 +2,25 @@
 # 03. Financial Aid Awarded to Students - Five-Year Comparison               ---
 # ------------------------------------------------------------------------------
 ################################################################################
+## Step 03.00 clean the tables                                               ###
+################################################################################
+x03 <- grep("^X03", ls(), value = TRUE)
+# ------------------------------------------------------------------------------
+lapply(x03, function(nm) {
+  df  <- get(nm)
+  setDT(df)
+  setkey(df, "id")
+  setorder(df, id)
+  }
+)
+################################################################################
 ## Step 03.01 Janitor - clean the tables                                     ###
 ################################################################################
-fin.aid.long <- janitor::clean_names(setDT(fin.aid.long))
-fin.aid.long[ , avg_awd := total_aid/recipients]
-fin.aid.long[ , ay_abbv := substr(fin.aid.long$ay, 3,9)]
+X03aid.long <- janitor::clean_names(setDT(X03aid.long))
+X03aid.long[ , avg_awd := total_aid/recipients]
+X03aid.long[ , ay_abbv := substr(X03aid.long$ay, 3,9)]
 # ------------------------------------------------------------------------------
-fin.aid.wide <- janitor::clean_names(fin.aid.wide)
+X03aid.wide <- janitor::clean_names(X03aid.wide)
 ################################################################################
 ## Step 00.A: VERSION HISTORY                                                ###
 ################################################################################
