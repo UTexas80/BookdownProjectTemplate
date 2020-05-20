@@ -42,6 +42,7 @@ knitr::include_graphics(here::here('images/GEORGIA-XH-FC.png'))
 <h2><center><b>Financial Aid Awarded</b></center></h2>
 
 ```{r 3.1.0-coa-flextable}
+
 startAY <- ay[currentAY_row - 5, 2]
 setDT(dt03_aid_wide)
 
@@ -58,9 +59,11 @@ ft_aid <- flextable(dt03_aid_wide,
     "x2018_19"
     )
   ) %>%
+  suppressMessages(
+  ) %>%    
   bold(j = 1, i = ~ !is.na(level), bold = TRUE, part = "body"
   ) %>%
-  bold(part = "header", bold = TRUE
+  bold(part = "all", bold = TRUE
   ) %>%
   set_header_labels(
     level          = "Level",
@@ -70,14 +73,14 @@ ft_aid <- flextable(dt03_aid_wide,
     x2016_17       = "2016-17",
     x2017_18       = "2017-18",
     x2018_19       = "2018-19"
-  ) %>%
+  ) %>% 
   colformat_num(
-    ft, num_keys,
+    num_keys,
     i = ~ description != "Total Aid",
     big.mark = ",", digits = 0, na_str = ""
   ) %>%
   colformat_num(
-    ft, num_keys,
+    num_keys,
     i = ~ description == "Total Aid",
     big.mark = ",", digits = 0, na_str = "", prefix = "$"
   ) %>%
@@ -87,15 +90,23 @@ ft_aid <- flextable(dt03_aid_wide,
   ) %>%
   bg(i = 4:6, bg = '#000000'
   ) %>%
-  color(i = 4:6, color = "white", part = "body"
+  bg(i = 7:9, bg = '#19488a'
+  ) %>%
+  color(color = "white", part = "all"
   ) %>%    
   merge_v( j = ~ level + description
   ) %>%
-  fit_to_width(max_width = 8.5
+  fit_to_width(max_width = 8.0
   ) %>%
-  fontsize(size = 7.00, part = "all")           
+  autofit(
+  ) %>%
+  fontsize(size = 7.00, part = "all"
+  ) %>%     
+  width(j = 1,   width = 1.00
+  ) %>%
+  width(j = 2:7, width = 0.90)
 
-  hBorder    <- officer::fp_border(color = '#19488a', style = "solid", width = 2)
+  hBorder    <- officer::fp_border(color = '#19488a', style = "solid", width = 1)
   ft_aid     <- hline(ft_aid, i = c(3,6), border = hBorder)
   vBorder    <- officer::fp_border(color = 'white', style = "solid", width = 1)
   ft_aid     <- vline(ft_aid, j = 1, border = vBorder)
@@ -103,32 +114,35 @@ ft_aid <- flextable(dt03_aid_wide,
 suppressWarnings(ft_aid)
 ```
 
-## 03. Average Award Per Recipient chart
-```{r 3.1.1-viz-bar, echo=FALSE, message = FALSE}
-dt03_aid_long[level == "undergrad"] %>%
-  filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
-  ggplot() +
-  aes(x = ay_abbv, weight = avg_awd) +
-  geom_bar(fill = "#0c4c8a") +
-  labs(title = "", subtitle = "Undergraduate Student") +
-  theme(plot.title = element_text(hjust = 0.5)) + # Center ggplot title
-  theme_minimal() -> p1 # Center ggplot title / https://tinyurl.com/s9zcx3o
+## 03. Average Award Per Undergraduate Recipient chart
+```{r 3.1.1-viz-bar}
+knitr::include_graphics(here::here('png/p03a1_bar.png'))
 
-dt03_aid_long[level == "graduate"] %>%
-  filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
-  ggplot() +
-  aes(x = ay_abbv, weight = avg_awd) +
-  geom_bar(fill = "#0c4c8a") +
-  labs(title = "", subtitle = "Graduate Student") +
-  theme(plot.title = element_text(hjust = 0.5)) + # Center ggplot title
-  theme_minimal() -> p2 # Center ggplot title / https://tinyurl.com/s9zcx3o
-# grid.arrange(arrangeGrob(p1, p2, ncol = 2), widths = c(8, 8))
-grid.arrange(grobs = list(p1,p2), ncol = 2)
+# dt03_aid_long[level == "undergrad"] %>%
+#   filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
+#   ggplot() +
+#   aes(x = ay_abbv, weight = avg_awd) +
+#   geom_bar(fill = "#0c4c8a") +
+#   labs(title = "", subtitle = "Undergraduate Student") +
+#   theme(plot.title = element_text(hjust = 0.5)) + # Center ggplot title
+#   theme_minimal() -> p1 # Center ggplot title / https://tinyurl.com/s9zcx3o
+# 
+# dt03_aid_long[level == "graduate"] %>%
+#   filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
+#   ggplot() +
+#   aes(x = ay_abbv, weight = avg_awd) +
+#   geom_bar(fill = "#0c4c8a") +
+#   labs(title = "", subtitle = "Graduate Student") +
+#   theme(plot.title = element_text(hjust = 0.5)) + # Center ggplot title
+#   theme_minimal() -> p2 # Center ggplot title / https://tinyurl.com/s9zcx3o
+# # grid.arrange(arrangeGrob(p1, p2, ncol = 2), widths = c(8, 8))
+# grid.arrange(grobs = list(p1,p2), ncol = 2)
 #grid.arrange(p1, p2, ncol = 2)
 ```
 
-## 03. Average Award Per Recipient Chart
+## 03. Average Award Per Graduate Recipient Chart
 ```{r 3.2.1.a-viz-bar}
+knitr::include_graphics(here::here('png/p03a2_bar.png'))
 # dt03_aid_long %>%
 #     filter(!(ay %in% c("2010-11", "2011-12", "2012-13", "2013-14"))) %>%
 #     ggplot() +

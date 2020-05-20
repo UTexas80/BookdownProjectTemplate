@@ -29,6 +29,16 @@ plotly::plotly_IMAGE(p01c1_pie,
 #                     scale = 1,
 #                     out_file = here::here("/png", "p02b1_bar.png"))
 # ------------------------------------------------------------------------------
+# plotly::plotly_IMAGE(p03a1_bar,
+#                     format = "png",
+#                     scale = 1,
+#                     out_file = here::here("/png", "p03a1_bar.png"))
+# ------------------------------------------------------------------------------
+# plotly::plotly_IMAGE(p03a2_bar,
+#                      format = "png",
+#                      scale = 1,
+#                      out_file = here::here("/png", "p03a2_bar.png"))
+# ------------------------------------------------------------------------------
 # plotly::plotly_IMAGE(p04a1_pie,
 #                     format = "png",
 #                     scale = 1,

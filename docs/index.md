@@ -2,7 +2,7 @@
 title: "Office of Student Financial Aid"
 subtitle: "2019-20 Annual Reports"
 # author: "Glen C. Falk"
-# date: "2020-05-19"
+# date: "2020-05-20"
 # site: bookdown::bookdown_site
 output:
   bookdown::gitbook: default
@@ -44,8 +44,8 @@ cover-image: "images/cover.pdf"
     - [Grad Non-Resident COA](#grad-non-resident-coa)
 
 - [03. Financial Aid Awarded to Students - Five-Year Comparison](#intro)
-    - [Average Award Per Recipient chart](#average-award-per-recipient-chart)
-    - [Average Award Per Recipient Chart](#average-award-per-recipient-chart)
+    - [Average Award Per Undergraduate Recipient chart](#average-award-per-undergraduate-recipient-chart)
+    - [Average Award Per Graduate Recipient Chart](#average-award-per-graduate-recipient-chart)
 
 - [04. Types and Sources of Aid](#intro)
     - [Financial Aid Awarded: Sources of Financial Aid Table](#financial-aid-awarded:-sources-of-financial-aid-table)
