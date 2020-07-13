@@ -119,7 +119,8 @@ ft_zell      <- flextable(head(dt_zell))
   ft_zell    <- theme_booktabs(ft_zell) %>%
                  bold(part = "header", bold = TRUE )
 
-# ft_zell     <- vline(ft_zell, j = 7, part = "body")
+  border     <- officer::fp_border()
+  ft_zell    <- vline(ft_zell, j = c(1,3, 5, 7, 9, 11, 13, 15), border = border, part = "all")
 
   ft_zell    <- fit_to_width(ft_zell, max_width = 9.0)
 # ft_zell  <- fix_border_issues(ft_zell)

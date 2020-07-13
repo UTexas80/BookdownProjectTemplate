@@ -119,7 +119,8 @@ ft_hope      <- flextable(head(dt_hope))
   ft_hope    <- theme_booktabs(ft_hope) %>%
                  bold(part = "header", bold = TRUE )
  
-# ft_hope     <- vline(ft_hope, j = 7, part = "body")
+  border     <- officer::fp_border()
+  ft_hope     <- vline(ft_hope, j = c(1,3, 5, 7, 9, 11, 13, 15), border = border, part = "all")
  
   ft_hope    <- fit_to_width(ft_hope, max_width = 9.0)
 # ft_hope  <- fix_border_issues(ft_hope)
